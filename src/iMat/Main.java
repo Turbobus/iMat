@@ -14,7 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("iMat");
         primaryStage.setScene(new Scene(root, 1920, 1080));
         primaryStage.show();
-        // HEJ
+
     }
 
 
