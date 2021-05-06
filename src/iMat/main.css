@@ -23,8 +23,16 @@
     -fx-background-color: #FAFBFF;
 }
 
+.shadow_25 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
+}
+
+.shadow_25_side {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 1, 5);
+}
+
 .shadow_50 {
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
 }
 
 .bold_36 {
@@ -34,7 +42,12 @@
 
 .bold_28 {
     -fx-font-weight: bold;
-    -fx-font-size: 28px;
+    -fx-font-size: 27px;
+}
+
+.bold_24 {
+    -fx-font-weight: bold;
+    -fx-font-size: 23px;
 }
 
 .bold_20 {
@@ -42,13 +55,31 @@
     -fx-font-size: 19px;
 }
 
+.font_22 {
+    -fx-font-size: 21px;
+}
+
 #text_login_page {
     -fx-font-size: 60px;
     -fx-font-weight: bold;
 }
 
+#prodCard_blue {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #007FC5;
+    -fx-background-color: #F1F4FF;
+}
+
 #white_button {
     -fx-text-fill: #004972;
     -fx-background-color: #FAFBFF;
+    -fx-padding: 0px;
+}
+
+#blue_button {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #007FC5;
     -fx-padding: 0px;
 }
