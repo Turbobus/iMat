@@ -1,0 +1,54 @@
+.border_radius_30 {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+}
+
+.text_color_dark_dark_blue {
+    -fx-text-fill: #002E48;
+}
+
+.text_color_dark_blue {
+    -fx-text-fill: #004972;
+}
+
+.background_color_blue {
+    -fx-background-color: #007FC5;
+}
+
+.text_color_blue_white {
+    -fx-text-fill: #FAFBFF;
+}
+
+.background_color_blue_white {
+    -fx-background-color: #FAFBFF;
+}
+
+.shadow_50 {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 4);
+}
+
+.bold_36 {
+    -fx-font-weight: bold;
+    -fx-font-size: 34px;
+}
+
+.bold_28 {
+    -fx-font-weight: bold;
+    -fx-font-size: 28px;
+}
+
+.bold_20 {
+    -fx-font-weight: bold;
+    -fx-font-size: 19px;
+}
+
+#text_login_page {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+}
+
+#white_button {
+    -fx-text-fill: #004972;
+    -fx-background-color: #FAFBFF;
+    -fx-padding: 0px;
+}

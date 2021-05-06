@@ -1,15 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="760.0" layoutY="422.0" text="Test">
-         <font>
-            <Font name="Roboto" size="20.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/iMat_intro.png" />
+         </image>
+      </ImageView>
+      <Pane opacity="0.75" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FAFBFF;" />
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
+         <children>
+            <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="43.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/normal_iMat_logo.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="645.0" layoutY="106.0" prefHeight="116.0" prefWidth="630.0" style="-fx-background-color: FAFBFF;">
+               <children>
+                  <Label id="text_login_page" alignment="CENTER" prefHeight="116.0" prefWidth="630.0" styleClass="text_color_dark_dark_blue" text="Välkommen till iMat" textAlignment="CENTER" />
+               </children>
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_50" />
+               </styleClass>
+            </AnchorPane>
+            <AnchorPane layoutX="660.0" layoutY="280.0" prefHeight="660.0" prefWidth="600.0">
+               <styleClass>
+                  <String fx:value="background_color_blue" />
+                  <String fx:value="border_radius_30" />
+               </styleClass>
+               <children>
+                  <Label alignment="CENTER" layoutY="20.0" prefWidth="600.0" text="Skapa ditt nya kundkonto:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="text_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="bold_36" />
+                     </styleClass>
+                  </Label>
+                  <TextField layoutX="35.0" layoutY="110.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="170.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="455.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <TextField layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="background_color_blue_white" />
+                     </styleClass>
+                  </TextField>
+                  <Button id="white_button" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Nästa">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="bold_28" />
+                     </styleClass>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="35.0" layoutY="79.0" text="Obligatoriska fält:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="bold_20" />
+                        <String fx:value="text_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="363.0" text="Frivilliga fält:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="bold_20" />
+                        <String fx:value="text_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
