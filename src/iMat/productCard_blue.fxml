@@ -7,8 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="prodCard_blue" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" styleClass="shadow_25_side" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ProductCardBlue">
+<AnchorPane id="prodCard_blue" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" styleClass="shadow_25_side" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ProductCard_Blue">
    <children>
       <AnchorPane id="prodCard_blue" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
          <children>
