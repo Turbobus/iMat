@@ -83,3 +83,11 @@
     -fx-background-color: #007FC5;
     -fx-padding: 0px;
 }
+
+#empty_cart {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #002E48;
+    -fx-background-color: #F1F4FF;
+}
