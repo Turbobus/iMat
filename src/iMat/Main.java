@@ -6,20 +6,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ResourceBundle;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("intro.fxml"));
+
+        ResourceBundle bundle = java.util.ResourceBundle.getBundle("iMat");
+
+        Parent root = FXMLLoader.load(getClass().getResource("intro.fxml"), bundle);
         primaryStage.setTitle("iMat");
-        primaryStage.setScene(new Scene(root, 1920, 1080));
+        primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
-        // Hej
-        // Hallå
-        // Igen
-        //!
-        // Valle
-        //:)
+
     }
 
 
