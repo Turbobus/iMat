@@ -23,6 +23,10 @@
     -fx-background-color: #FAFBFF;
 }
 
+.text_color_dark_dark_green {
+    -fx-text-fill: #0A2500;
+}
+
 .shadow_25 {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
 }
@@ -72,6 +76,14 @@
     -fx-background-color: #F1F4FF;
 }
 
+#prodCard_green {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 32px;
+    -fx-border-width: 4px;
+    -fx-border-color: #A3E983;
+    -fx-background-color: #E3FFD6;
+}
+
 #white_button {
     -fx-text-fill: #004972;
     -fx-background-color: #FAFBFF;
@@ -81,5 +93,12 @@
 #blue_button {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
+    -fx-padding: 0px;
+}
+
+#red_button {
+    -fx-text-fill: #210A00;
+    -fx-background-color: #FE8652;
+    -fx-border-color: #210A00;
     -fx-padding: 0px;
 }
