@@ -101,6 +101,16 @@
     -fx-background-color: #E3FFD6;
 }
 
+#prodText_input{
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-width: 0px;
+    -fx-background-color: #FBFFFA;
+    -fx-text-fill: #0A2500;
+    -fx-font-size: 27px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 1, 2);
+}
+
 #empty_cart {
     -fx-border-radius: 30px;
     -fx-background-radius: 31px;
@@ -124,6 +134,14 @@
 #green_button {
     -fx-text-fill: #0A2500;
     -fx-background-color: #A3E983;
+    -fx-padding: 0px;
+    -fx-border-color: #0A2500;
+    -fx-border-insets: -1px;
+}
+
+#green_add_button {
+    -fx-text-fill: #0A2500;
+    -fx-background-color: #88DC60;
     -fx-padding: 0px;
     -fx-border-color: #0A2500;
     -fx-border-insets: -1px;

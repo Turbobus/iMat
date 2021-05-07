@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="prodCard_blue" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" styleClass="shadow_25_side" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ProductCard_Blue">
+<AnchorPane id="prodCard_blue" fx:id="blueCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" styleClass="shadow_25_side" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.productCard_blue">
    <children>
       <AnchorPane id="prodCard_blue" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
          <children>
@@ -24,13 +24,13 @@
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <Label layoutX="16.0" layoutY="223.0" text="18 kr/kg">
+      <Label layoutX="16.0" layoutY="222.0" text="18 kr/kg">
          <styleClass>
             <String fx:value="font_22" />
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <Button id="blue_button" alignment="CENTER" layoutX="25.0" layoutY="265.0" maxHeight="40.0" maxWidth="220.0" minHeight="40.0" minWidth="220.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0">
+      <Button id="blue_button" fx:id="addToCartButtonCard" alignment="CENTER" layoutX="25.0" layoutY="265.0" maxHeight="40.0" maxWidth="220.0" minHeight="40.0" minWidth="220.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_50" />
