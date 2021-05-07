@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/iMat_intro.png" />
+            <Image url="@../img/iMat_intro.png" />
          </image>
       </ImageView>
       <Pane opacity="0.75" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FAFBFF;" />
@@ -22,7 +22,7 @@
          <children>
             <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="43.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/normal_iMat_logo.png" />
+                  <Image url="@../img/normal_iMat_logo.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="645.0" layoutY="106.0" prefHeight="116.0" prefWidth="630.0" style="-fx-background-color: FAFBFF;">
