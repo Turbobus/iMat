@@ -7,8 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.PurchaseCompleted">
+<AnchorPane maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.purchaseCompleted">
     <children>
         <AnchorPane maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
@@ -26,22 +25,30 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Button id="green_button" layoutX="210.0" layoutY="312.0" mnemonicParsing="false" prefHeight="48.76" prefWidth="238.98" text="Tillbaka till startsidan">
+        <Button id="green_button" layoutX="211.0" layoutY="310.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0">
             <styleClass>
                 <String fx:value="shadow_25" />
                 <String fx:value="bold_20" />
                 <String fx:value="border_radius_30" />
             </styleClass>
+         <graphic>
+            <Label text="Tillbaka till startsida">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+         </graphic>
         </Button>
-        <Label layoutX="28.0" layoutY="76.0" prefHeight="113.0" prefWidth="447.0" text="Tack för att du valde att handla hos iMat!" wrapText="true">
+        <Label graphicTextGap="0.0" layoutX="27.0" layoutY="64.0" prefHeight="98.0" prefWidth="447.0" text="Tack för att du valde att handla hos iMat!" wrapText="true">
             <styleClass>
                 <String fx:value="text_color_dark_dark_blue" />
                 <String fx:value="bold_32" />
             </styleClass>
         </Label>
-        <ImageView fitHeight="78.0" fitWidth="128.0" layoutX="291.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="270.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../Downloads/smiley.png" />
+                <Image url="@../img/happy_face.png" />
             </image>
         </ImageView>
     </children>
