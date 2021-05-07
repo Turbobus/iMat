@@ -39,6 +39,10 @@
     -fx-font-weight: bold;
     -fx-font-size: 34px;
 }
+.bold_32 {
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
 
 .bold_28 {
     -fx-font-weight: bold;
@@ -57,6 +61,13 @@
 
 .font_22 {
     -fx-font-size: 21px;
+}
+
+.border_dark_dark_blue_2_width {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #002E48;
 }
 
 #text_login_page {
@@ -82,4 +93,11 @@
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
     -fx-padding: 0px;
+}
+
+#green_button {
+    -fx-text-fill: #0A2500;
+    -fx-background-color: #A3E983;
+    -fx-padding: 0px;
+    -fx-border-color: #0A2500;
 }
