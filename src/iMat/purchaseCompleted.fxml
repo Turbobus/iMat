@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.PurchaseCompleted">
+   <children>
+      <AnchorPane maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
+         <styleClass>
+            <String fx:value="background_color_blue" />
+            <String fx:value="border_dark_dark_blue_2_width" />
+            <String fx:value="border_radius_30" />
+         </styleClass>
+         <children>
+            <Label layoutX="28.0" layoutY="7.0" text="Klart!">
+               <styleClass>
+                  <String fx:value="text_color_blue_white" />
+                  <String fx:value="shadow_50" />
+                  <String fx:value="bold_36" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button id="green_button" layoutX="210.0" layoutY="312.0" mnemonicParsing="false" prefHeight="48.76" prefWidth="238.98" text="Tillbaka till startsidan">
+         <styleClass>
+            <String fx:value="shadow_25" />
+            <String fx:value="bold_20" />
+            <String fx:value="border_radius_30" />
+         </styleClass>
+      </Button>
+      <Label layoutX="28.0" layoutY="76.0" prefHeight="113.0" prefWidth="447.0" text="Tack för att du valde att handla hos iMat!" wrapText="true">
+         <styleClass>
+            <String fx:value="text_color_dark_dark_blue" />
+            <String fx:value="bold_32" />
+         </styleClass>
+      </Label>
+      <ImageView fitHeight="78.0" fitWidth="128.0" layoutX="291.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/smiley.png" />
+         </image>
+      </ImageView>
+   </children>
+   <styleClass>
+      <String fx:value="border_dark_dark_blue_2_width" />
+      <String fx:value="background_color_blue_white" />
+      <String fx:value="border_radius_30" />
+   </styleClass>
+</AnchorPane>
