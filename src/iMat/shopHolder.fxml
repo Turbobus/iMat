@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ShopHolder">
+   <children>
+      <AnchorPane fx:id="headerPane" layoutX="206.0" layoutY="261.0" prefHeight="151.0" prefWidth="1920.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="categoryPane" layoutY="151.0" prefHeight="910.0" prefWidth="243.0" style="-fx-background-color: yellow;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="151.0" />
+      <AnchorPane fx:id="gridPane" layoutX="243.0" layoutY="151.0" prefHeight="929.0" prefWidth="1323.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="354.0" AnchorPane.topAnchor="151.0" />
+      <AnchorPane fx:id="cartPane" layoutX="1566.0" layoutY="151.0" maxHeight="929.0" maxWidth="354.0" minHeight="929.0" minWidth="354.0" prefHeight="929.0" prefWidth="354.0" style="-fx-background-color: lime;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>
