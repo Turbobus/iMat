@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane id="prodCard_green" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" styleClass="shadow_25_side" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.productCard_green">
    <children>
       <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
@@ -32,7 +31,7 @@
             <String fx:value="text_color_dark_dark_green" />
          </styleClass>
       </Label>
-      <Button id="red_button" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
+      <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_25" />
@@ -45,7 +44,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button id="green_add_button" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
+      <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_25" />
@@ -58,6 +57,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField id="prodText_input" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" text="1" />
+      <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" text="1" />
    </children>
 </AnchorPane>
