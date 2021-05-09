@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.logIn">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -50,63 +51,63 @@
                         <String fx:value="bold_36" />
                      </styleClass>
                   </Label>
-                  <TextField layoutX="35.0" layoutY="110.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="firstNameTextField" layoutX="35.0" layoutY="110.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="170.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="lastNameTextField" layoutX="35.0" layoutY="170.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="addressTextField" layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="mailTextField" layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="455.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="telephoneTextField" layoutX="35.0" layoutY="455.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
+                  <TextField fx:id="mobileTextField" layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                  <TextField fx:id="postalCodeTextField" layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <TextField layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                  <TextField fx:id="cityTextField" layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="background_color_blue_white" />
                      </styleClass>
                   </TextField>
-                  <Button id="white_button" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Nästa">
+                  <Button id="white_button" fx:id="nextButton" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Nästa">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
