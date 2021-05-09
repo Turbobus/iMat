@@ -17,5 +17,15 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) { launch(args); }
+    public static void main(String[] args) {
+        launch(args);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Controller.getInstance().shutDown();
+            }
+        }));
+
+    }
 }

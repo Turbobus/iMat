@@ -28,6 +28,13 @@ public class log_in extends AnchorPane implements Initializable {
 
     @FXML private Button nextButton;
 
+
+//    @FXML public void logInPressed(){
+//        String name = firstNameTextField.getText();
+//        String lastName = lastNameTextField.getText();
+//
+//    }
+
     public log_in(Controller parentController) {
         this.parentController = parentController;
     }
