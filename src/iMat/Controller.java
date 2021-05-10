@@ -20,7 +20,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     private void setupLogIn(){
         window.getChildren().clear();
-        window.getChildren().add(new logIn(this));
+        window.getChildren().add(new LogIn(this));
         window.toFront();
     }
 

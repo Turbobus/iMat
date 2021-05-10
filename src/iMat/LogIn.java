@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class logIn extends AnchorPane {
+public class LogIn extends AnchorPane {
 
     private Controller pController;
     DB db = DB.getInstance();
@@ -24,7 +24,7 @@ public class logIn extends AnchorPane {
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
 
-    public logIn(Controller pController){
+    public LogIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -87,12 +87,20 @@ public class logIn extends AnchorPane {
             System.out.println("City must be filled in.");
         }
 
+        try {
+            isFilledIn(addressTextField.getText());
+            db.setAddress(addressTextField.getText());
+        } catch(IOException ioe) {
+            System.out.println("Address must be filled in.");
+        }
+
         //Even if these fields are left empty they don't produce a NullPointerException.
         db.setEMail(mailTextField.getText());
         db.setPhoneNumber(telephoneTextField.getText());
         db.setMobileNumber(mobileTextField.getText());
 
         // Byter till main view
+        pController.setupShop();
 
     }
 
