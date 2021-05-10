@@ -154,3 +154,9 @@
     -fx-padding: 0px;
     -fx-border-insets: -1px;
 }
+
+#hide_wite_textArea {
+    -fx-fill: #FAFBFF;
+    -fx-stroke: none;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
+}

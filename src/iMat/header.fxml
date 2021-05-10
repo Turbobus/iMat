@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="151.0" maxWidth="1920.0" minHeight="151.0" minWidth="1920.0" prefHeight="151.0" prefWidth="1920.0" styleClass="background_color_blue" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.header">
    <children>
       <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="33.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">

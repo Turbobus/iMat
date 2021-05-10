@@ -7,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("logIn.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Controller.fxml")));
         primaryStage.setTitle("iMat");
         primaryStage.setScene(new Scene(root, 1920, 1080));
         primaryStage.show();
@@ -26,7 +25,7 @@ public class Main extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                Controller.getInstance().shutDown();
+                DB.getInstance().shutDown();
             }
         }));
 
