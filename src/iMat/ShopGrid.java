@@ -1,4 +1,4 @@
 package iMat;
 
-public class ShopGrid {
+public class ShopGrid{
 }
