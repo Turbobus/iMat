@@ -7,11 +7,11 @@ import java.io.IOException;
 
 public class ShopGrid extends AnchorPane {
 
-    private ShopHolder pController;
+    private shopHolder pController;
 
 
 
-    public ShopGrid(ShopHolder pController){
+    public ShopGrid(shopHolder pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopGrid.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

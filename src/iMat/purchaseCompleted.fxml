@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="u" maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.PurchaseCompleted">
+<AnchorPane fx:id="u" maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.purchaseCompleted">
     <children>
         <AnchorPane fx:id="purchaseCompleted" maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
