@@ -15,11 +15,12 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //test();
+        test();
     }
 
     private void test(){
         window.getChildren().clear();
         window.getChildren().add(new logIn(this));
+        window.toFront();
     }
 }
