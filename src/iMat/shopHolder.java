@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class shopHolder extends AnchorPane{
     private Controller pController;
@@ -49,5 +50,7 @@ public class shopHolder extends AnchorPane{
         gridPane.getChildren().add(new ShopGrid(this));
         gridPane.toFront();
     }
+
+    public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
 
 }

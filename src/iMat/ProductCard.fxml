@@ -14,20 +14,26 @@
          <children>
             <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
                <children>
-                  <ImageView fitHeight="166.0" fitWidth="242.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true">
+                  <ImageView fx:id="gImg" fitHeight="177.0" fitWidth="262.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../img/Apple_temp_img.jpg" />
+                        <Image url="@../img/happy_face.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
+            <Label fx:id="gProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
                <styleClass>
                   <String fx:value="bold_24" />
                   <String fx:value="text_color_dark_dark_green" />
                </styleClass>
             </Label>
-            <Label layoutX="16.0" layoutY="222.0" text="18 kr/kg">
+            <Label fx:id="gPrice" layoutX="16.0" layoutY="222.0" text="18">
+               <styleClass>
+                  <String fx:value="font_22" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+            <Label fx:id="gunit" layoutX="82.0" layoutY="222.0" text="kr/kg">
                <styleClass>
                   <String fx:value="font_22" />
                   <String fx:value="text_color_dark_dark_green" />
@@ -66,22 +72,16 @@
          <children>
             <AnchorPane id="prodCard_blue" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
                <children>
-                  <ImageView fitHeight="166.0" fitWidth="242.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true">
+                  <ImageView fx:id="bImg" fitHeight="181.0" fitWidth="266.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../img/Apple_temp_img.jpg" />
+                        <Image url="@../img/happy_face.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
+            <Label fx:id="bProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
                <styleClass>
                   <String fx:value="bold_24" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="16.0" layoutY="222.0" text="18 kr/kg">
-               <styleClass>
-                  <String fx:value="font_22" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
@@ -107,6 +107,18 @@
                   </Label>
                </graphic>
             </Button>
+            <Label fx:id="bPrice" layoutX="16.0" layoutY="222.0" text="18">
+               <styleClass>
+                  <String fx:value="font_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <Label fx:id="bunit" layoutX="82.0" layoutY="222.0" text="kr/kg">
+               <styleClass>
+                  <String fx:value="font_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
          </children>
       </AnchorPane>
    </children>
