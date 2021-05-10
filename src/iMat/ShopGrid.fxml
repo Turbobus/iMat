@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="929.0" maxWidth="1323.0" minHeight="929.0" minWidth="1323.0" prefHeight="929.0" prefWidth="1323.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ShopGrid">
+<fx:root maxHeight="929.0" maxWidth="1323.0" minHeight="808.0" minWidth="1323.0" prefHeight="929.0" prefWidth="1219.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ScrollPane prefHeight="929.0" prefWidth="1323.0">
         <content>
@@ -31,4 +30,4 @@
         </content>
       </ScrollPane>
    </children>
-</AnchorPane>
+</fx:root>
