@@ -52,7 +52,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0">
+            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />

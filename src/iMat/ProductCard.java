@@ -51,7 +51,21 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void decreaseButtonPressed(ActionEvent event){
-        blueCard.toFront();
+        int newValue = Integer.parseInt(amountTextCard.getText()) - 1;
+
+        if (newValue <= 0) {
+            blueCard.toFront();
+        } else {
+            amountTextCard.setText("" + newValue);
+        }
+
+
+    }
+
+    @FXML
+    public void increaseButtonPressed(ActionEvent event){
+
+        amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
     }
 
     public ProductCard(Product product, Controller pController){
