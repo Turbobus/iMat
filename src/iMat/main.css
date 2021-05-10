@@ -79,6 +79,11 @@
     -fx-font-size: 21px;
 }
 
+
+.font_28 {
+    -fx-font-size: 26px;
+}
+
 .bold_22 {
     -fx-font-weight: bold;
     -fx-font-size: 21px;
@@ -153,6 +158,14 @@
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
     -fx-padding: 0px;
+}
+
+#blue_button_with_border {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #007FC5;
+    -fx-padding: 0px;
+    -fx-border-color: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #green_button {

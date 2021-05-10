@@ -7,9 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.purchaseCompleted">
+<AnchorPane fx:id="u" maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.purchaseCompleted">
     <children>
-        <AnchorPane maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
+        <AnchorPane fx:id="purchaseCompleted" maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
                 <String fx:value="background_color_blue" />
                 <String fx:value="border_dark_dark_blue_2_width" />
@@ -23,24 +23,21 @@
                         <String fx:value="bold_36" />
                     </styleClass>
                 </Label>
+            <ImageView fx:id="closeImgView" fitHeight="30.0" fitWidth="30.0" layoutX="605.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/closeIcon.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
-        <Button id="green_button" layoutX="211.0" layoutY="310.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0">
+        <Button id="green_button" fx:id="backHomeButton" layoutX="370.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Tillbaka till startsida">
             <styleClass>
                 <String fx:value="shadow_25" />
                 <String fx:value="bold_20" />
                 <String fx:value="border_radius_30" />
             </styleClass>
-         <graphic>
-            <Label text="Tillbaka till startsida">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-         </graphic>
         </Button>
-        <Label graphicTextGap="0.0" layoutX="27.0" layoutY="64.0" prefHeight="98.0" prefWidth="447.0" text="Tack för att du valde att handla hos iMat!" wrapText="true">
+        <Label graphicTextGap="0.0" layoutX="27.0" layoutY="78.0" prefHeight="98.0" prefWidth="447.0" text="Tack för att du valde att handla hos iMat!" wrapText="true">
             <styleClass>
                 <String fx:value="text_color_dark_dark_blue" />
                 <String fx:value="bold_32" />
@@ -51,6 +48,13 @@
                 <Image url="@../img/happy_face.png" />
             </image>
         </ImageView>
+      <Button id="green_button" fx:id="backEarlierPurchaseButton" layoutX="50.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Se ditt köp">
+         <styleClass>
+            <String fx:value="shadow_25" />
+            <String fx:value="bold_20" />
+            <String fx:value="border_radius_30" />
+         </styleClass>
+      </Button>
     </children>
     <styleClass>
         <String fx:value="border_dark_dark_blue_2_width" />
