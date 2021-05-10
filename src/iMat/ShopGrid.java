@@ -36,15 +36,46 @@ public class ShopGrid extends AnchorPane {
 
         this.pController = pController;
 
-        //currentPlace.setText("Test");
 
-        populateCards();
+       populateCards();
     }
 
 
     private void populateCards(){
-        for(int i = 0; i < 1; i++){
-            cardHolder.getChildren().add(i, new ProductCard(this));
+        cardHolder.getChildren().clear();
+
+        int index1 = 0;
+        int index2 = 0;
+
+
+        for(int i = 0; i < 50; i++){
+            cardHolder.add(new ProductCard(this), index1, index2);
+            index1++;
+            if( index1 %4 == 0){
+                index2++;
+                index1 = 0;
+            }
         }
     }
+
+
+
+
+//    private void updateProductGrid(List<Product> products) { //list argument contains products to show
+//        productGrid.getChildren().clear();
+//        int index1 = 0;
+//        int index2 = 0;
+//        for (Product product : products){
+//            productPanel productItem = productMap.get(product.getName());
+//            productGrid.add(productItem, index1, index2);
+//
+//            index1++;
+//            if( index1 %3 == 0){
+//                index2++;
+//                index1 = 0;
+//            }
+//        }
+//    }
+
+
 }

@@ -26,7 +26,6 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void addToCartPressed(ActionEvent event){
-        System.out.println("HEJ");
         greenCard.toFront();
     }
 

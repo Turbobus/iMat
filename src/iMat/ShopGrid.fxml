@@ -15,7 +15,7 @@
    <children>
       <ScrollPane prefHeight="929.0" prefWidth="1323.0" styleClass="background_color_blue_white">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="927.0" prefWidth="1320.0" styleClass="background_color_blue_white">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="1308.0" styleClass="background_color_blue_white">
                <children>
                   <GridPane fx:id="cardHolder" hgap="31.0" layoutX="67.0" layoutY="130.0" prefHeight="698.0" prefWidth="1173.0" vgap="25.0">
                     <columnConstraints>
@@ -37,7 +37,7 @@
                   </Label>
                   <ButtonBar buttonMinWidth="0.0" layoutX="31.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button id="breadcrumb_button" fx:id="subCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
+                      <Button id="breadcrumb_button" mnemonicParsing="false" text="Hem" underline="true" />
                         <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="&gt;">
                            <styleClass>
                               <String fx:value="text_color_dark_dark_blue" />
