@@ -46,6 +46,25 @@ public class ProductCard extends AnchorPane{
         }
 
         this.pController = pController;
+
+        setupTextField();
     }
+
+
+    private void setupTextField(){
+
+        // force the field to be numeric only
+        amountTextCard.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                amountTextCard.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+            if(newValue.matches("")){
+                amountTextCard.setText("1");
+            }
+        });
+
+    }
+
+
 
 }

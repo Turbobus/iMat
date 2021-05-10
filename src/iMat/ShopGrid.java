@@ -48,7 +48,7 @@ public class ShopGrid extends AnchorPane {
         int index2 = 0;
 
 
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 1; i++){
             cardHolder.add(new ProductCard(this), index1, index2);
             index1++;
             if( index1 %4 == 0){
