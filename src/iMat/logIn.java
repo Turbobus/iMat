@@ -24,8 +24,6 @@ public class logIn extends AnchorPane {
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
 
-    //@FXML private Button nextButton;
-
     public logIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
         fxmlLoader.setRoot(this);
@@ -41,7 +39,7 @@ public class logIn extends AnchorPane {
     }
 
     @FXML
-    private void logInPressed(ActionEvent event) {            // Metoden måste testa så att input är valid och skicka vidare till nästa sida
+    private void logInPressed(ActionEvent event) {
 
         try {
             isFilledIn(firstNameTextField.getText());
@@ -87,13 +85,6 @@ public class logIn extends AnchorPane {
             db.setPostAddress(postAddressTextField.getText());
         } catch(IOException ioe) {
             System.out.println("City must be filled in.");
-        }
-
-        try {
-            isFilledIn(addressTextField.getText());
-            db.setAddress(addressTextField.getText());
-        } catch(IOException ioe) {
-            System.out.println("Address must be filled in.");
         }
 
         //Even if these fields are left empty they don't produce a NullPointerException.
