@@ -25,13 +25,25 @@ public class DB {
         return instance;
     }
 
-    private void init() {
-        iMatDataHandler = IMatDataHandler.getInstance();
-    }
-
-
+    private void init() { iMatDataHandler = IMatDataHandler.getInstance(); }
 
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
+
+    public void setFirstName(String firstName) { iMatDataHandler.getCustomer().setFirstName(firstName); }
+
+    public void setLastName(String lastName) { iMatDataHandler.getCustomer().setLastName(lastName); }
+
+    public void setAddress(String address) { iMatDataHandler.getCustomer().setAddress(address); }
+
+    public void setPostCode(String postCode) { iMatDataHandler.getCustomer().setPostCode(postCode); }
+
+    public void setPostAddress(String postAddress) { iMatDataHandler.getCustomer().setPostAddress(postAddress);}
+
+    public void setEMail(String eMail) { iMatDataHandler.getCustomer().setEmail(eMail);}
+
+    public void setPhoneNumber(String phoneNumber) { iMatDataHandler.getCustomer().setPhoneNumber(phoneNumber);}
+
+    public void setMobileNumber(String mobileNumber) { iMatDataHandler.getCustomer().setMobilePhoneNumber(mobileNumber);}
 }
