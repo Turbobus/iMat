@@ -2,18 +2,21 @@ package iMat;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import se.chalmers.cse.dat216.project.Customer;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class logIn implements Initializable {
-//    private final Controller parentController;
-    private Customer customer;
+public class logIn extends AnchorPane {
+    private Controller pController;
 
+
+// Text fields for logIn view
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField addressTextField;
@@ -35,20 +38,24 @@ public class logIn implements Initializable {
         System.out.println(name);
         System.out.println(lastName);
 
-    }
-
-//    public logIn(Controller parentController) {
-//        this.parentController = parentController;
-//    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-//        firstNameTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-//            customer.setFirstName(newValue);
-//            System.out.println(newValue);
-//        });
-
+        // Byter till main view
 
     }
+
+    public logIn(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+       }
+
+
+
+        this.pController = pController;
+    }
+
 }

@@ -1,35 +1,25 @@
 package iMat;
 
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class Controller implements Initializable {
 
-    private static Controller instance = null;
-    private IMatDataHandler iMatDataHandler;
+    private final DB db = DB.getInstance();
 
-    private Controller() {
-        // Exists only to defeat instantiation.
+    @FXML AnchorPane window;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        test();
     }
 
-    /**
-     * Returns the single instance of the Model class.
-     */
-    public static Controller getInstance() {
-        if (instance == null) {
-            instance = new Controller();
-            instance.init();
-        }
-        return instance;
-    }
-
-    private void init() {
-        iMatDataHandler = IMatDataHandler.getInstance();
-    }
-
-
-
-    public void shutDown() {
-        iMatDataHandler.shutDown();
+    private void test(){
+        window.getChildren().clear();
+        window.getChildren().add(new logIn(this));
     }
 }
