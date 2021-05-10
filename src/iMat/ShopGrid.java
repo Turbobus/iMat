@@ -43,7 +43,7 @@ public class ShopGrid extends AnchorPane {
 
 
     private void populateCards(){
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 1; i++){
             cardHolder.getChildren().add(i, new ProductCard(this));
         }
     }

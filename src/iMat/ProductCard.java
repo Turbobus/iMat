@@ -1,5 +1,6 @@
 package iMat;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -23,6 +24,16 @@ public class ProductCard extends AnchorPane{
     @FXML private Button plusCardButton;
     @FXML private TextField amountTextCard;
 
+    @FXML
+    public void addToCartPressed(ActionEvent event){
+        System.out.println("HEJ");
+        greenCard.toFront();
+    }
+
+    @FXML
+    public void decreaseButtonPressed(ActionEvent event){
+        blueCard.toFront();
+    }
 
     public ProductCard(ShopGrid pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductCard.fxml"));
