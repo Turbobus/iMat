@@ -39,6 +39,7 @@ public class logIn extends AnchorPane {
         System.out.println(lastName);
 
         // Byter till main view
+        pController.setupShop();
 
     }
 
@@ -52,8 +53,6 @@ public class logIn extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
        }
-
-
 
         this.pController = pController;
     }
