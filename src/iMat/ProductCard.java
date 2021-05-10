@@ -31,6 +31,7 @@ public class ProductCard extends AnchorPane{
     @FXML private Label bPrice;
     @FXML private Label bunit;
     @FXML private ImageView bImg;
+    @FXML private ImageView bEcoImg;
 
 
     // Green card
@@ -43,6 +44,7 @@ public class ProductCard extends AnchorPane{
     @FXML private Label gPrice;
     @FXML private Label gunit;
     @FXML private ImageView gImg;
+    @FXML private ImageView gEcoImg;
 
     @FXML
     public void addToCartPressed(ActionEvent event){
@@ -98,13 +100,21 @@ public class ProductCard extends AnchorPane{
         roundImage(bImg, 57);
 
 
-
         // The green version of the card
         gProdName.setText(product.getName());
         gPrice.setText(String.valueOf(product.getPrice()));
         gunit.setText(product.getUnit());
         gImg.setImage(db.getImage(product, 262, 177));
         roundImage(gImg, 57);
+
+
+        // If the product is an eco product, the eco image gets shown
+        if (product.isEcological()){
+            bEcoImg.setOpacity(1);
+            gEcoImg.setOpacity(1);
+        }
+
+        // Can not add favourite icon here as its dynamic and cant be created at startup
     }
 
     private void setupTextField(){
