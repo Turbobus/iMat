@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class logIn extends AnchorPane {
+public class LogIn extends AnchorPane {
     private Controller pController;
 
 
@@ -42,7 +42,7 @@ public class logIn extends AnchorPane {
 
     }
 
-    public logIn(Controller pController){
+    public LogIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

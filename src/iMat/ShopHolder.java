@@ -6,7 +6,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class shopHolder extends AnchorPane{
+public class ShopHolder extends AnchorPane{
     private Controller pController;
 
     @FXML AnchorPane darkPane;      // The dark overlay
@@ -21,7 +21,7 @@ public class shopHolder extends AnchorPane{
 
 
 
-    public shopHolder(Controller pController){
+    public ShopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -40,7 +40,7 @@ public class shopHolder extends AnchorPane{
 
     private void setupHeader(){
         headerPane.getChildren().clear();
-        headerPane.getChildren().add(new header(this));
+        headerPane.getChildren().add(new Header(this));
         headerPane.toFront();
     }
 

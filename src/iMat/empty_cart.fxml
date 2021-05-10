@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="empty_cart" maxHeight="263.0" maxWidth="748.0" minHeight="263.0" minWidth="739.0" prefHeight="263.0" prefWidth="739.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.empty_cart">
+<AnchorPane id="empty_cart" maxHeight="263.0" maxWidth="748.0" minHeight="263.0" minWidth="739.0" prefHeight="263.0" prefWidth="739.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Empty_cart">
     <children>
         <Pane prefHeight="60.0" prefWidth="740.0">
             <styleClass>
