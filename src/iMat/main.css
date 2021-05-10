@@ -35,10 +35,6 @@
     -fx-background-color: #DC5A21;
 }
 
-
-
-
-
 .text_color_dark_dark_green {
     -fx-text-fill: #0A2500;
 }
@@ -196,4 +192,12 @@
     -fx-fill: #FAFBFF;
     -fx-stroke: none;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
+}
+
+#breadcrumb_button {
+    -fx-background-color: #FAFBFF;
+    -fx-padding: 0px;
+    -fx-text-fill: #002E48;
+    -fx-font-size: 23px;
+
 }
