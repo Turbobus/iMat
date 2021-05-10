@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Border;
 
 import java.io.IOException;
 
@@ -49,6 +51,7 @@ public class LogIn extends AnchorPane {
         } catch (IOException ioe) {
             System.out.println("First name must be filled in.");
             missingField = true;
+            firstNameTextField.setId("red_button");             //An example of how to handle missing field.
         }
 
         try {
