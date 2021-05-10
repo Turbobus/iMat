@@ -21,5 +21,6 @@ public class Controller extends AnchorPane implements Initializable {
     private void test(){
         window.getChildren().clear();
         window.getChildren().add(new logIn(this));
+        window.toFront();
     }
 }
