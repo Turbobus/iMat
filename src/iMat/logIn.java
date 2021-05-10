@@ -3,25 +3,22 @@ package iMat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.Customer;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class logIn extends AnchorPane {
+
     private Controller pController;
+    DB db = DB.getInstance();
 
-
-// Text fields for logIn view
+    // Text fields for logIn view
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField addressTextField;
     @FXML private TextField postalCodeTextField;
-    @FXML private TextField cityTextField;
+    @FXML private TextField postAddressTextField;
 
     @FXML private TextField mailTextField;
     @FXML private TextField telephoneTextField;
@@ -29,40 +26,41 @@ public class logIn extends AnchorPane {
 
     //@FXML private Button nextButton;
 
-    DB db = DB.getInstance();
-
-
-    @FXML
-    public void logInPressed(ActionEvent event){            // Metoden måste testa så att input är valid och skicka vidare till nästa sida
-
-        String name = firstNameTextField.getText();
-        String lastName = lastNameTextField.getText();
-
-        System.out.println(name);
-        System.out.println(lastName);
-
+    public logIn(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
         try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        this.pController = pController;
+    }
+
+    @FXML
+    private void logInPressed(ActionEvent event) {            // Metoden måste testa så att input är valid och skicka vidare till nästa sida
+
+        try {
+            isFilledIn(firstNameTextField.getText());
             db.setFirstName(firstNameTextField.getText());
-        } catch(NullPointerException npe) {
+        } catch (IOException ioe) {
             System.out.println("First name must be filled in.");
         }
 
         try {
+            isFilledIn(lastNameTextField.getText());
             db.setLastName(lastNameTextField.getText());
-        } catch(NullPointerException npe) {
+        } catch(IOException ioe) {
             System.out.println("Last name must be filled in.");
         }
 
         try {
-            db.setLastName(lastNameTextField.getText());
-        } catch(NullPointerException npe) {
-            System.out.println("Last name must be filled in.");
-        }
-
-        try {
+            isFilledIn(addressTextField.getText());
             db.setAddress(addressTextField.getText());
-        } catch(NullPointerException npe) {
+        } catch(IOException ioe) {
             System.out.println("Address must be filled in.");
         }
 
@@ -85,52 +83,31 @@ public class logIn extends AnchorPane {
         }
 
         try {
-            db.setPostAddress(cityTextField.getText());
-        } catch(NullPointerException npe) {
+            isFilledIn(postAddressTextField.getText());
+            db.setPostAddress(postAddressTextField.getText());
+        } catch(IOException ioe) {
             System.out.println("City must be filled in.");
         }
 
         try {
+            isFilledIn(addressTextField.getText());
             db.setAddress(addressTextField.getText());
-        } catch(NullPointerException npe) {
+        } catch(IOException ioe) {
             System.out.println("Address must be filled in.");
         }
 
-        try {
-            db.setEMail(mailTextField.getText());
-        } catch(NullPointerException npe) {
-            //Do nothing
-        }
-
-        try {
-            db.setPhoneNumber(telephoneTextField.getText());
-        } catch(NullPointerException npe) {
-            //Do nothing
-        }
-
-        try {
-            db.setMobileNumber(mobileTextField.getText());
-        } catch(NullPointerException npe) {
-            //Do nothing
-        }
+        //Even if these fields are left empty they don't produce a NullPointerException.
+        db.setEMail(mailTextField.getText());
+        db.setPhoneNumber(telephoneTextField.getText());
+        db.setMobileNumber(mobileTextField.getText());
 
         // Byter till main view
-        pController.setupShop();
 
     }
 
-    public logIn(Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-       }
-
-        this.pController = pController;
+    private static void isFilledIn(String field) throws IOException {
+        if(field.length() < 1) {
+            throw new IOException();
+        }
     }
-
 }
