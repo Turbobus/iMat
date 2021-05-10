@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller extends AnchorPane implements Initializable {
 
     private final DB db = DB.getInstance();
 
@@ -15,12 +15,18 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        test();
+        setupLogIn();
     }
 
-    private void test(){
+    private void setupLogIn(){
         window.getChildren().clear();
         window.getChildren().add(new logIn(this));
+        window.toFront();
+    }
+
+    public void setupShop(){
+        window.getChildren().clear();
+        window.getChildren().add(new shopHolder(this));
         window.toFront();
     }
 }
