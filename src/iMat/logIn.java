@@ -13,10 +13,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class logIn extends AnchorPane {
+
     private Controller pController;
 
-
-// Text fields for logIn view
+    // Text fields for logIn view
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField addressTextField;
@@ -28,6 +28,19 @@ public class logIn extends AnchorPane {
 
     @FXML private Button nextButton;
 
+    public logIn(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        this.pController = pController;
+    }
 
     @FXML
     public void logInPressed(ActionEvent event){            // Metoden måste testa så att input är valid och skicka vidare till nästa sida
@@ -40,24 +53,6 @@ public class logIn extends AnchorPane {
 
         // Byter till main view
 
-        // Need more work
-
-    }
-
-    public logIn(Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-       }
-
-
-
-        this.pController = pController;
     }
 
 }

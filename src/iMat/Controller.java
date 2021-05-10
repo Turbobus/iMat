@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller extends AnchorPane implements Initializable {
 
     private final DB db = DB.getInstance();
 

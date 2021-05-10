@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="empty_cart" prefHeight="263.0" prefWidth="740.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.empty_cart">
+<AnchorPane id="empty_cart" maxHeight="263.0" maxWidth="748.0" minHeight="263.0" minWidth="739.0" prefHeight="263.0" prefWidth="739.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.empty_cart">
     <children>
-        <Pane layoutX="4.0" prefHeight="60.0" prefWidth="736.0" stylesheets="@main.css">
+        <Pane prefHeight="60.0" prefWidth="740.0">
             <styleClass>
-                <String fx:value="background_color_blue" />
                 <String fx:value="bold_24" />
-                <String fx:value="border_radius_30" />
+                <String fx:value="background_color_red_red" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="border_dark_red_width" />
             </styleClass>
-            <children>
-                <Label layoutX="24.0" layoutY="5.0" prefHeight="50.0" prefWidth="296.0" stylesheets="@main.css" text="Töm Kundvagn" textFill="WHITE">
+         <children>
+                <Label layoutX="36.0" layoutY="5.0" prefHeight="50.0" prefWidth="250.0" stylesheets="@main.css" text="Töm Kundvagn" textFill="WHITE">
                     <font>
                         <Font size="36.0" />
                     </font>
@@ -25,11 +28,38 @@
                         <String fx:value="shadow_50" />
                     </styleClass>
                 </Label>
-            </children>
+            <ImageView fitHeight="44.0" fitWidth="47.0" layoutX="295.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../img/shopping_cart_cancel.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="652.0" layoutY="14.0" maxHeight="30.0" maxWidth="25.0" minHeight="16.0" minWidth="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="25.0" styleClass="background_color_red_red" />
+            <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="689.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/close_x.png" />
+               </image>
+            </ImageView>
+         </children>
         </Pane>
+      <Label layoutX="43.0" layoutY="71.0" prefHeight="79.0" prefWidth="572.0" text="Är du verkligen säker på att du vill tömma kundvagnen?" wrapText="true">
+         <styleClass>
+            <String fx:value="bold_28" />
+            <String fx:value="text_color_dark_red" />
+         </styleClass>
+      </Label>
+      <Button id="red_button" layoutX="203.0" layoutY="192.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" stylesheets="@main.css" text="Nej, det vill jag inte">
+         <styleClass>
+            <String fx:value="bold_20" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="shadow_50" />
+         </styleClass>
+      </Button>
+      <Button id="green_add_button" layoutX="467.0" layoutY="192.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Ja, det vill jag">
+         <styleClass>
+            <String fx:value="bold_20" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="shadow_50" />
+         </styleClass>
+      </Button>
     </children>
-    <styleClass>
-        <String fx:value="border_radius_30" />
-        <String fx:value="background_color_blue_white" />
-    </styleClass>
 </AnchorPane>
