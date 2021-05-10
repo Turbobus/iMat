@@ -7,12 +7,20 @@
     -fx-text-fill: #002E48;
 }
 
+.text_color_dark_red {
+    -fx-text-fill: #210A00;
+}
+
 .text_color_dark_blue {
     -fx-text-fill: #004972;
 }
 
 .background_color_blue {
     -fx-background-color: #007FC5;
+}
+
+.background_color_red {
+    -fx-background-color: #FE8652;
 }
 
 .text_color_blue_white {
@@ -22,6 +30,14 @@
 .background_color_blue_white {
     -fx-background-color: #FAFBFF;
 }
+
+.background_color_red_red {
+    -fx-background-color: #DC5A21;
+}
+
+
+
+
 
 .text_color_dark_dark_green {
     -fx-text-fill: #0A2500;
@@ -80,6 +96,16 @@
     -fx-border-color: #002E48;
 }
 
+.border_dark_red_width {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #210A00;
+}
+
+-fx-border-width: 2px;
+    -fx-border-color: #210A00;
+
 #text_login_page {
     -fx-font-size: 60px;
     -fx-font-weight: bold;
@@ -113,9 +139,9 @@
 
 #empty_cart {
     -fx-border-radius: 30px;
-    -fx-background-radius: 31px;
+   
     -fx-border-width: 2px;
-    -fx-border-color: #002E48;
+    -fx-border-color: #210A00;
     -fx-background-color: #F1F4FF;
 }
 
