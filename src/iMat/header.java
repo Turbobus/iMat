@@ -6,9 +6,8 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class header extends AnchorPane {
+
     private shopHolder pController;
-
-
 
     public header(shopHolder pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));

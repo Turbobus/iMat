@@ -24,6 +24,8 @@ public class LogIn extends AnchorPane {
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
 
+    private static boolean missingField = true;
+
     public LogIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
         fxmlLoader.setRoot(this);
@@ -46,6 +48,7 @@ public class LogIn extends AnchorPane {
             db.setFirstName(firstNameTextField.getText());
         } catch (IOException ioe) {
             System.out.println("First name must be filled in.");
+            missingField = true;
         }
 
         try {
@@ -53,6 +56,7 @@ public class LogIn extends AnchorPane {
             db.setLastName(lastNameTextField.getText());
         } catch(IOException ioe) {
             System.out.println("Last name must be filled in.");
+            missingField = true;
         }
 
         try {
@@ -60,6 +64,7 @@ public class LogIn extends AnchorPane {
             db.setAddress(addressTextField.getText());
         } catch(IOException ioe) {
             System.out.println("Address must be filled in.");
+            missingField = true;
         }
 
         try {
@@ -73,9 +78,10 @@ public class LogIn extends AnchorPane {
                 db.setPostCode(sb.toString());
                 System.out.println("Postal code successfully set");
             }
-            else
+            else {
                 System.out.println("Invalid post code");
-
+                missingField = true;
+            }
         } catch(NullPointerException npe) {
             System.out.println("Postal code must be filled in.");
         }
@@ -85,13 +91,7 @@ public class LogIn extends AnchorPane {
             db.setPostAddress(postAddressTextField.getText());
         } catch(IOException ioe) {
             System.out.println("City must be filled in.");
-        }
-
-        try {
-            isFilledIn(addressTextField.getText());
-            db.setAddress(addressTextField.getText());
-        } catch(IOException ioe) {
-            System.out.println("Address must be filled in.");
+            missingField = true;
         }
 
         //Even if these fields are left empty they don't produce a NullPointerException.
@@ -100,8 +100,10 @@ public class LogIn extends AnchorPane {
         db.setMobileNumber(mobileTextField.getText());
 
         // Byter till main view
-        pController.setupShop();
+        if(!missingField)
+            pController.setupShop();
 
+        missingField = false;
     }
 
     private static void isFilledIn(String field) throws IOException {
