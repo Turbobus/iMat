@@ -30,21 +30,21 @@
                       <RowConstraints maxHeight="320.0" minHeight="320.0" prefHeight="320.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
-                  <Label layoutX="28.0" layoutY="60.0" styleClass="text_color_dark_dark_blue" text="Hem">
+                  <Label fx:id="currentPlace" layoutX="28.0" layoutY="60.0" styleClass="text_color_dark_dark_blue" text="Hem">
                      <font>
                         <Font name="System Bold" size="46.0" />
                      </font>
                   </Label>
-                  <ButtonBar buttonMinWidth="0.0" layoutX="31.0" layoutY="22.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                  <ButtonBar buttonMinWidth="0.0" layoutX="31.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button id="breadcrumb_button" mnemonicParsing="false" text="Hem" underline="true" />
+                      <Button id="breadcrumb_button" fx:id="subCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
                         <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="&gt;">
                            <styleClass>
                               <String fx:value="text_color_dark_dark_blue" />
                               <String fx:value="font_28" />
                            </styleClass>
                         </Label>
-                        <Button id="breadcrumb_button" mnemonicParsing="false" text="Hem" underline="true" />
+                        <Button id="breadcrumb_button" fx:id="mainCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
                     </buttons>
                   </ButtonBar>
                </children>
