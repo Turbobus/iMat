@@ -3,6 +3,11 @@
     -fx-background-radius: 30px;
 }
 
+.border_radius_10 {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
 .text_color_dark_dark_blue {
     -fx-text-fill: #002E48;
 }
@@ -11,9 +16,6 @@
     -fx-text-fill: #210A00;
 }
 
-.text_color_dark_blue {
-    -fx-text-fill: #004972;
-}
 
 .background_color_blue {
     -fx-background-color: #007FC5;
@@ -31,8 +33,15 @@
     -fx-text-fill: #FAFBFF;
 }
 
-.background_color_blue_white {
-    -fx-background-color: #FAFBFF;
+.background_color_light_blue_white {
+    -fx-background-color: #F1F4FF;
+}
+
+.background_color_white_white {
+    -fx-background-color: #FEFEFE;
+}
+.background_color_red_red {
+    -fx-background-color: #DC5A21;
 }
 
 .background_color_red_red {
