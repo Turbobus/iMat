@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="260.0" prefWidth="240.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="260.0" prefWidth="240.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Button id="subcategory_buttons" fx:id="showAllButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#onShowAllClicked" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
         <Button id="subcategory_buttons" fx:id="coldDrinksButton" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#onColdDrinksClicked" prefHeight="65.0" prefWidth="220.0" text="Drycker kalla" />
@@ -12,6 +12,6 @@
     </children>
     <styleClass>
         <String fx:value="border_radius_30" />
-        <String fx:value="background_color_grey_white" />
+        <String fx:value="background_color_light_light_blue" />
     </styleClass>
 </fx:root>
