@@ -23,15 +23,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Hem">
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="right_corners_border_radius" />
-            <String fx:value="bold_28" />
-            <String fx:value="border2px_dark_dark_blue_no_radius" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-      </Button>
+      <Button id="home_button" fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Hem" />
       <Label layoutX="13.0" layoutY="150.0" styleClass="bold_36" text="Kategorier" />
       <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="380.0" prefHeight="75.0" prefWidth="226.0">
          <children>

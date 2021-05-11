@@ -4,36 +4,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<fx:root prefHeight="260.0" prefWidth="240.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+<fx:root prefHeight="260.0" prefWidth="240.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Button layoutX="10.0" layoutY="20.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Visa alla">
-            <styleClass>
-                <String fx:value="border_radius_30" />
-                <String fx:value="background_color_light_blue" />
-                <String fx:value="border1px_dark_dark_blue" />
-                <String fx:value="shadow_25" />
-                <String fx:value="bold_24" />
-            </styleClass>
-        </Button>
-        <Button layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Drycker kalla">
-            <styleClass>
-                <String fx:value="border_radius_30" />
-                <String fx:value="background_color_light_blue" />
-                <String fx:value="border1px_dark_dark_blue" />
-                <String fx:value="shadow_25" />
-                <String fx:value="bold_24" />
-            </styleClass>
-        </Button>
-        <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Drycker varma">
-            <styleClass>
-                <String fx:value="border_radius_30" />
-                <String fx:value="background_color_light_blue" />
-                <String fx:value="border1px_dark_dark_blue" />
-                <String fx:value="shadow_25" />
-                <String fx:value="bold_24" />
-            </styleClass>
-        </Button>
+        <Button id="subcategory_buttons" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
+        <Button id="subcategory_buttons" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Drycker kalla" />
+        <Button id="subcategory_buttons" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Drycker varma" />
     </children>
     <styleClass>
         <String fx:value="border_radius_30" />
