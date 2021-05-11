@@ -1,5 +1,6 @@
 package iMat;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -48,6 +49,33 @@ public class DetailView extends AnchorPane {
     @FXML private Pane gHeartIcon;
 
 
+    @FXML
+    public void closePane(ActionEvent event){
+        pController.closeOverlay();
+    }
+
+    @FXML
+    public void addToCartPressed(ActionEvent event){
+        greenCard.toFront();
+    }
+
+    @FXML
+    public void decreaseButtonPressed(ActionEvent event){
+        int newValue = Integer.parseInt(amountTextCard.getText()) - 1;
+
+        if (newValue <= 0) {
+            blueCard.toFront();
+        } else {
+            amountTextCard.setText("" + newValue);
+        }
+    }
+
+    @FXML
+    public void increaseButtonPressed(ActionEvent event){
+
+        amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+    }
+
     public DetailView(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
         fxmlLoader.setRoot(this);
@@ -70,7 +98,7 @@ public class DetailView extends AnchorPane {
         bProdName.setText(product.getName());
         bPrice.setText(product.getPrice() + "  " + product.getUnit());
         bCategory.setText("Kategori: " + getCategoryName(product.getCategory()));
-        bImg.setImage(db.getImage(product, 279, 249));
+        bImg.setImage(db.getImage(product, 276, 246));
         pController.roundImage(bImg, 28);
 
 
@@ -79,7 +107,7 @@ public class DetailView extends AnchorPane {
         gPrice.setText(product.getPrice() + product.getUnit());
         gPrice.setText(product.getPrice() + "  " + product.getUnit());
         gCategory.setText("Kategori: " + getCategoryName(product.getCategory()));
-        gImg.setImage(db.getImage(product, 279, 249));
+        gImg.setImage(db.getImage(product, 276, 246));
         pController.roundImage(gImg, 28);
 
 
@@ -91,7 +119,7 @@ public class DetailView extends AnchorPane {
             gEcoImg.setOpacity(1);
         } else {
             bEco.setText("Ekologisk: Nej");
-            bEco.setText("Ekologisk: Nej");
+            gEco.setText("Ekologisk: Nej");
             bEcoImg.setOpacity(0);
             gEcoImg.setOpacity(0);
         }
