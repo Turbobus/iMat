@@ -227,3 +227,21 @@
     -fx-stroke: none;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
 }
+
+dropdownmenu {
+    -fx-my-menu-button-color: #F1F4FF;                  /* Change according to your needs */
+    -fx-my-menu-button-color-highlighted: #455a64;      /* Change according to your needs */
+    -fx-my-menu-button-font-color: #FFFFFF;             /* Change according to your needs */
+    -fx-my-menu-button-font-color-highlighted: #FFFFFF
+    .menu-item:focused .label {
+        -fx-text-fill: blue;
+    }
+    -fx-background-color: #F1F4FF;
+    -fx-shape: "M2.9375 0L12.5 8.96917L22.0625 0L25 2.76125L12.5 14.5112L0 2.76125L2.9375 0Z;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-background-color: #F1F4FF;
+    -fx-padding: 0.25em; /* 3 */
+    -fx-menu-bar: fx-background-color: #F1F4FF;
+
+
+}
