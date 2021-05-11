@@ -6,8 +6,16 @@
 .right_corners_border_radius {
     -fx-border-radius: 0 37.5 37.5 0;
     -fx-background-radius: 0 37.5 37.5 0;
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
+}
+
+.border2px_dark_dark_blue_no_radius {
+        -fx-border-color: #002E48;
+        -fx-border-width: 2px;
+}
+
+.border1px_dark_dark_blue {
+        -fx-border-color: #002E48;
+        -fx-border-width: 1px;
 }
 
 .text_color_dark_dark_blue {
