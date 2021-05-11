@@ -1,5 +1,6 @@
-package iMat;
+package iMat.CategoryMenu;
 
+import iMat.shopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
