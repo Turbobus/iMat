@@ -2,6 +2,7 @@ package iMat;
 
 import iMat.CategoryMenu.CategoryMenu;
 import iMat.CategoryMenu.DryGoods_subcategory;
+import iMat.CategoryMenu.Fruit_subcategory;
 import iMat.CategoryMenu.MeatFish_subcategory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,7 +69,8 @@ public class shopHolder extends AnchorPane{
         //cartPane.getChildren().add(new Drinks_subcategory(this));
         //cartPane.getChildren().add(new Vegetables_subcategory(this));
         //cartPane.getChildren().add(new MeatFish_subcategory(this));
-        cartPane.getChildren().add(new DryGoods_subcategory(this));
+        //cartPane.getChildren().add(new DryGoods_subcategory(this));
+        cartPane.getChildren().add(new Fruit_subcategory(this));
         cartPane.toFront();
     }
 
