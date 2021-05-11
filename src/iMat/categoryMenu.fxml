@@ -1,14 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="iMat.CategoryMenu"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="930.0" prefWidth="243.0" styleClass="background_color_blue_white" stylesheets="@main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.CategoryMenu">
+   <children>
+      <Button fx:id="breadButton" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Bröd">
+         <styleClass>
+            <String fx:value="background_color_light_blue" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="bold_28" />
+            <String fx:value="border2px_dark_dark_blue_no_radius" />
+         </styleClass>
+      </Button>
+      <Button fx:id="dairyButton" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Mejeri">
+         <styleClass>
+            <String fx:value="background_color_light_blue" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="bold_28" />
+            <String fx:value="border2px_dark_dark_blue_no_radius" />
+         </styleClass>
+      </Button>
+      <Button fx:id="sweetsButton" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Sötsaker">
+         <styleClass>
+            <String fx:value="background_color_light_blue" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="bold_28" />
+            <String fx:value="border2px_dark_dark_blue_no_radius" />
+         </styleClass>
+      </Button>
+      <Pane layoutX="-2.0" layoutY="294.0" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button fx:id="drinksButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Dryck">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="right_corners_border_radius" />
+                  <String fx:value="border2px_dark_dark_blue_no_radius" />
+                  <String fx:value="bold_28" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/category_arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="border1px_dark_dark_blue" />
+         </styleClass>
+      </Pane>
+      <Pane layoutX="-2.0" layoutY="466.0" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button fx:id="greenButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Grönt">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="right_corners_border_radius" />
+                  <String fx:value="border2px_dark_dark_blue_no_radius" />
+                  <String fx:value="bold_28" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/category_arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="border1px_dark_dark_blue" />
+         </styleClass>
+      </Pane>
+      <Pane layoutX="-2.0" layoutY="638.0" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button fx:id="torrvarorButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Torrvaror">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="right_corners_border_radius" />
+                  <String fx:value="border2px_dark_dark_blue_no_radius" />
+                  <String fx:value="bold_28" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/category_arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="border1px_dark_dark_blue" />
+         </styleClass>
+      </Pane>
+      <Pane layoutX="-2.0" layoutY="552.0" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button fx:id="proteinButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Kött &amp; Fisk">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="right_corners_border_radius" />
+                  <String fx:value="border2px_dark_dark_blue_no_radius" />
+                  <String fx:value="bold_28" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/category_arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="border1px_dark_dark_blue" />
+         </styleClass>
+      </Pane>
+      <Button fx:id="breadButton1" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Hem">
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="bold_28" />
+            <String fx:value="border2px_dark_dark_blue_no_radius" />
+         </styleClass>
+      </Button>
+      <Pane layoutX="-2.0" layoutY="380.0" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button fx:id="fruitButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Frukt">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="right_corners_border_radius" />
+                  <String fx:value="border2px_dark_dark_blue_no_radius" />
+                  <String fx:value="bold_28" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/category_arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="background_color_grey_white" />
+            <String fx:value="right_corners_border_radius" />
+            <String fx:value="border1px_dark_dark_blue" />
+         </styleClass>
+      </Pane>
+      <Label layoutX="13.0" layoutY="150.0" styleClass="bold_36" text="Kategorier" />
+   </children>
 </AnchorPane>
