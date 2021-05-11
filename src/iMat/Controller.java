@@ -7,7 +7,6 @@ import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -16,7 +15,6 @@ public class Controller extends AnchorPane implements Initializable {
     private final DB db = DB.getInstance();
 
     private final Map<Integer, ProductCard> productCards = new HashMap<>();
-    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     @FXML AnchorPane window;
 
@@ -48,6 +46,8 @@ public class Controller extends AnchorPane implements Initializable {
             productCards.put(product.getProductId(), card);
         }
     }
+
+    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
 //    private void updateRecipeList(){
 //        searchResult.getChildren().clear();

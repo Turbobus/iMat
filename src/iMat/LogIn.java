@@ -49,6 +49,7 @@ public class LogIn extends AnchorPane {
             isFilledIn(firstNameTextField.getText());
             db.setFirstName(firstNameTextField.getText());
         } catch (IOException ioe) {
+            firstNameTextField.setPromptText("First name must be filled in.");
             System.out.println("First name must be filled in.");
             missingField = true;
             firstNameTextField.setId("red_button");             //An example of how to handle missing field.

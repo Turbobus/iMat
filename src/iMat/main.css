@@ -3,12 +3,15 @@
     -fx-background-radius: 30px;
 }
 
-.text_color_dark_dark_blue {
-    -fx-text-fill: #002E48;
+.right_corners_border_radius {
+    -fx-border-radius: 0 37.5 37.5 0;
+    -fx-background-radius: 0 37.5 37.5 0;
+    -fx-border-color: #002E48;
+    -fx-border-width: 2px;
 }
 
-.text_color_dark_red {
-    -fx-text-fill: #210A00;
+.text_color_dark_dark_blue {
+    -fx-text-fill: #002E48;
 }
 
 .text_color_dark_blue {
@@ -17,6 +20,14 @@
 
 .background_color_blue {
     -fx-background-color: #007FC5;
+}
+
+.background_color_light_blue {
+    -fx-background-color: #C7E1FF;
+}
+
+.text_color_dark_red {
+    -fx-text-fill: #210A00;
 }
 
 .background_color_red {
@@ -33,6 +44,10 @@
 
 .background_color_red_red {
     -fx-background-color: #DC5A21;
+}
+
+.background_color_grey_white {
+    -fx-background-color: #F1F4FF;
 }
 
 .text_color_dark_dark_green {
