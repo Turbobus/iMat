@@ -22,7 +22,6 @@ public class Controller extends AnchorPane implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         createProductCards();
 
-
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
         setupLogIn();
