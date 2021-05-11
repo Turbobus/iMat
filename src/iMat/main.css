@@ -4,6 +4,11 @@
 }
 
 .right_corners_border_radius {
+    -fx-border-radius: 37.5 0 0 37.5;
+    -fx-background-radius: 37.5 0 0 37.5;
+}
+
+.left_corners_border_radius {
     -fx-border-radius: 0 37.5 37.5 0;
     -fx-background-radius: 0 37.5 37.5 0;
 }

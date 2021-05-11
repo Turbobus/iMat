@@ -38,6 +38,8 @@ public class shopHolder extends AnchorPane{
         setupHeader();
         setupGrid();
         setupCategories();
+
+        testSubcategory();
     }
 
     private void setupHeader(){
@@ -56,6 +58,12 @@ public class shopHolder extends AnchorPane{
         categoryPane.getChildren().clear();
         categoryPane.getChildren().add(new CategoryMenu(this));
         categoryPane.toFront();
+    }
+
+    private void testSubcategory() {
+        cartPane.getChildren().clear();
+        cartPane.getChildren().add(new Drinks_subcategory(this));
+        cartPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }

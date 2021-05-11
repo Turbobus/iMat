@@ -5,9 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
-
 import java.io.IOException;
 
 public class LogIn extends AnchorPane {
@@ -26,7 +23,7 @@ public class LogIn extends AnchorPane {
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
 
-    private static boolean missingField = true;
+    private static boolean missingField = false;
 
     public LogIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
