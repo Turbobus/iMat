@@ -13,8 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.SettingsChange2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.SettingsChange2">
    <children>
       <AnchorPane layoutX="10.0" layoutY="1.0" prefHeight="215.0" prefWidth="708.0" stylesheets="@main.css">
          <children>
@@ -114,7 +113,7 @@
                   <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
-            <MenuButton id="dropdownmenu" layoutX="159.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff">
+            <MenuButton alignment="TOP_LEFT" graphicTextGap="15.0" layoutX="162.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="7.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Mastercard">
                      <graphic>
@@ -132,9 +131,11 @@
                   <String fx:value="border_radius_30" />
                   <String fx:value="bold_22" />
                   <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="arrow-button" />
+                  <String fx:value="arrow-button" />
                </styleClass>
                <font>
-                  <Font size="22.0" />
+                  <Font size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
