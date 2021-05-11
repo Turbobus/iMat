@@ -35,6 +35,17 @@
     -fx-font-size: 23px;
 }
 
+#subcategory_pressed_buttons {
+    -fx-background-color: #A3E983;
+    -fx-border-radius: 40;
+    -fx-background-radius: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
+    -fx-border-color: #002E48;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 23px;
+}
+
 #home_button {
     -fx-background-color: #F1F4FF;
     -fx-border-radius: 37.5 0 0 37.5;

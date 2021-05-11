@@ -6,11 +6,11 @@
 
 <fx:root prefHeight="420.0" prefWidth="240.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Button id="subcategory_buttons" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
-      <Button id="subcategory_buttons" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Bär" />
-      <Button id="subcategory_buttons" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Kål" />
-      <Button id="subcategory_buttons" layoutX="10.0" layoutY="260.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Potatis, ris" />
-      <Button id="subcategory_buttons" layoutX="10.0" layoutY="340.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" text="Örtkryddor" />
+        <Button id="subcategory_buttons" fx:id="showAllButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#onShowAllClicked" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
+      <Button id="subcategory_buttons" fx:id="berriesButton" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#onBerriesClicked" prefHeight="65.0" prefWidth="220.0" text="Bär" />
+      <Button id="subcategory_buttons" fx:id="kaleButton" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#onKaleClicked" prefHeight="65.0" prefWidth="220.0" text="Kål" />
+      <Button id="subcategory_buttons" fx:id="potatoRiceButton" layoutX="10.0" layoutY="260.0" mnemonicParsing="false" onAction="#onPotatoRiceClicked" prefHeight="65.0" prefWidth="220.0" text="Potatis, ris" />
+      <Button id="subcategory_buttons" fx:id="herbsButton" layoutX="10.0" layoutY="340.0" mnemonicParsing="false" onAction="#onHerbsClicked" prefHeight="65.0" prefWidth="220.0" text="Örtkryddor" />
     </children>
     <styleClass>
         <String fx:value="border_radius_30" />
