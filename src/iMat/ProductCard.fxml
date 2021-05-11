@@ -7,8 +7,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
          <children>
@@ -19,11 +20,20 @@
                         <Image url="@../img/happy_face.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="gEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="17.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="gEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="13.0" layoutY="17.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/eco_icon.png" />
                      </image>
                   </ImageView>
+                  <AnchorPane fx:id="gfavImg" layoutX="203.0" layoutY="17.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
+                     <children>
+                        <Pane id="heartIcon_green_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="background_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <Label fx:id="gProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
@@ -64,7 +74,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" text="1" />
+            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" styleClass="font_28" text="1" />
          </children>
       </AnchorPane>
       <AnchorPane id="prodCard_blue" fx:id="blueCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
@@ -76,11 +86,20 @@
                         <Image url="@../img/happy_face.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="15.0" layoutY="15.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="11.0" layoutY="15.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/eco_icon.png" />
                      </image>
                   </ImageView>
+                  <AnchorPane fx:id="bfavImg" layoutX="205.0" layoutY="15.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
+                     <children>
+                        <Pane id="heartIcon_blue_img" fx:id="gHeartIcon11" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="background_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <Label fx:id="bProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">

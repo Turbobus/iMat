@@ -1,6 +1,11 @@
 package iMat;
 
+import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.util.IOUtilities;
@@ -40,9 +45,17 @@ public class DB {
         return iMatDataHandler.getProducts();
     }
 
+    public Product getProduct(int prodId) { return iMatDataHandler.getProduct(prodId); }
+
     public Image getImage(Product p, double width, double height) {
         return iMatDataHandler.getFXImage(p, width, height);
     }
+
+    public void addFavourite(int prodId) { iMatDataHandler.addFavorite(prodId); }
+
+    public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }
+
+    public void removeFavourite(int prodId) { iMatDataHandler.removeFavorite(iMatDataHandler.getProduct(prodId)); }
 
     public void setFirstName(String firstName) { iMatDataHandler.getCustomer().setFirstName(firstName); }
 

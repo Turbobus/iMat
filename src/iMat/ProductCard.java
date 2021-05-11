@@ -22,6 +22,8 @@ public class ProductCard extends AnchorPane{
 
     private final Controller pController;
     private final DB db = DB.getInstance();
+    private final int productId;
+
 
     // Blue card
     @FXML private AnchorPane blueCard;
@@ -29,9 +31,9 @@ public class ProductCard extends AnchorPane{
 
     @FXML private Label bProdName;
     @FXML private Label bPrice;
-    @FXML private Label bunit;
     @FXML private ImageView bImg;
     @FXML private ImageView bEcoImg;
+    @FXML private AnchorPane bfavImg;
 
 
     // Green card
@@ -42,9 +44,9 @@ public class ProductCard extends AnchorPane{
 
     @FXML private Label gProdName;
     @FXML private Label gPrice;
-    @FXML private Label gunit;
     @FXML private ImageView gImg;
     @FXML private ImageView gEcoImg;
+    @FXML private AnchorPane gfavImg;
 
     @FXML
     public void addToCartPressed(ActionEvent event){
@@ -60,14 +62,17 @@ public class ProductCard extends AnchorPane{
         } else {
             amountTextCard.setText("" + newValue);
         }
-
-
     }
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
 
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+    }
+
+    @FXML
+    public void openDetailView(){
+        pController.openDetailView(productId);
     }
 
     public ProductCard(Product product, Controller pController){
@@ -82,7 +87,7 @@ public class ProductCard extends AnchorPane{
         }
 
         this.pController = pController;
-
+        this.productId = product.getProductId();
 
 
         setupInfo(product);
@@ -95,19 +100,16 @@ public class ProductCard extends AnchorPane{
         // The blue version of the card
         bProdName.setText(product.getName());
         bPrice.setText(product.getPrice() + "  " + product.getUnit());
-        //bPrice.setText(String.valueOf(product.getPrice()));
-        //bunit.setText(product.getUnit());
         bImg.setImage(db.getImage(product, 266, 181));
-        roundImage(bImg, 57);
+        pController.roundImage(bImg, 57);
 
 
         // The green version of the card
         gProdName.setText(product.getName());
         gPrice.setText(product.getPrice() + product.getUnit());
         gPrice.setText(product.getPrice() + "  " + product.getUnit());
-        //gunit.setText(product.getUnit());
         gImg.setImage(db.getImage(product, 262, 177));
-        roundImage(gImg, 57);
+        pController.roundImage(gImg, 57);
 
 
         // If the product is an eco product, the eco image gets shown
@@ -116,7 +118,8 @@ public class ProductCard extends AnchorPane{
             gEcoImg.setOpacity(1);
         }
 
-        // Can not add favourite icon here as its dynamic and cant be created at startup
+        // Sets favourite image and other dynamic things already in the database
+        updateCard();
     }
 
     private void setupTextField(){
@@ -130,21 +133,21 @@ public class ProductCard extends AnchorPane{
                 amountTextCard.setText("1");
             }
         });
-
     }
 
-    void roundImage(ImageView img, int amount) {
-        Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());
-        clip.setArcWidth(amount);
-        clip.setArcHeight(amount);
-        img.setClip(clip);
+    // Sets favourite image and other dynamic things
+    public void updateCard(){
 
-        SnapshotParameters parameters = new SnapshotParameters();
-        parameters.setFill(Color.TRANSPARENT);
-        WritableImage image = img.snapshot(parameters, null);
+        if (!db.isFavourite(productId)){
+            bfavImg.setOpacity(0);
+            gfavImg.setOpacity(0);
+        } else {
+            bfavImg.setOpacity(1);
+            gfavImg.setOpacity(1);
+        }
 
-        img.setClip(null);
-        img.setImage(image);
+
+
+
     }
-
 }
