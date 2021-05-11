@@ -1,6 +1,10 @@
 package iMat;
 
+import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
+
+import java.util.List;
 
 
 // Connects the program to the backend
@@ -29,6 +33,14 @@ public class DB {
 
     public void shutDown() {
         iMatDataHandler.shutDown();
+    }
+
+    public List<Product> getProducts() {
+        return iMatDataHandler.getProducts();
+    }
+
+    public Image getImage(Product p, double width, double height) {
+        return iMatDataHandler.getFXImage(p, width, height);
     }
 
     public void setFirstName(String firstName) { iMatDataHandler.getCustomer().setFirstName(firstName); }
