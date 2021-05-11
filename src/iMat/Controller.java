@@ -2,7 +2,12 @@ package iMat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
@@ -61,7 +66,8 @@ public class Controller extends AnchorPane implements Initializable {
         }
     }
 
-    public void openDetailView(){
+    public void openDetailView(int prodId){
+        detailView.setupInfo(db.getProduct(prodId));
 
         openOverlay(detailView);
     }
@@ -93,5 +99,19 @@ public class Controller extends AnchorPane implements Initializable {
 //            searchResult.getChildren().add(recipeListItemMap.get(recipe.hashCode()));
 //        }
 //    }
+
+    public void roundImage(ImageView img, int amount) {
+        Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());
+        clip.setArcWidth(amount);
+        clip.setArcHeight(amount);
+        img.setClip(clip);
+
+        SnapshotParameters parameters = new SnapshotParameters();
+        parameters.setFill(Color.TRANSPARENT);
+        WritableImage image = img.snapshot(parameters, null);
+
+        img.setClip(null);
+        img.setImage(image);
+    }
 
 }

@@ -22,6 +22,8 @@ public class ProductCard extends AnchorPane{
 
     private final Controller pController;
     private final DB db = DB.getInstance();
+    private final int productId;
+
 
     // Blue card
     @FXML private AnchorPane blueCard;
@@ -68,7 +70,7 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void openDetailView(){
-        pController.openDetailView();
+        pController.openDetailView(productId);
     }
 
     public ProductCard(Product product, Controller pController){
@@ -83,7 +85,7 @@ public class ProductCard extends AnchorPane{
         }
 
         this.pController = pController;
-
+        this.productId = product.getProductId();
 
 
         setupInfo(product);
@@ -97,7 +99,7 @@ public class ProductCard extends AnchorPane{
         bProdName.setText(product.getName());
         bPrice.setText(product.getPrice() + "  " + product.getUnit());
         bImg.setImage(db.getImage(product, 266, 181));
-        roundImage(bImg, 57);
+        pController.roundImage(bImg, 57);
 
 
         // The green version of the card
@@ -105,7 +107,7 @@ public class ProductCard extends AnchorPane{
         gPrice.setText(product.getPrice() + product.getUnit());
         gPrice.setText(product.getPrice() + "  " + product.getUnit());
         gImg.setImage(db.getImage(product, 262, 177));
-        roundImage(gImg, 57);
+        pController.roundImage(gImg, 57);
 
 
         // If the product is an eco product, the eco image gets shown
@@ -130,19 +132,4 @@ public class ProductCard extends AnchorPane{
         });
 
     }
-
-    void roundImage(ImageView img, int amount) {
-        Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());
-        clip.setArcWidth(amount);
-        clip.setArcHeight(amount);
-        img.setClip(clip);
-
-        SnapshotParameters parameters = new SnapshotParameters();
-        parameters.setFill(Color.TRANSPARENT);
-        WritableImage image = img.snapshot(parameters, null);
-
-        img.setClip(null);
-        img.setImage(image);
-    }
-
 }
