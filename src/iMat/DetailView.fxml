@@ -62,15 +62,24 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
+                  <AnchorPane fx:id="gfavImg" layoutX="470.0" layoutY="100.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
+                     <children>
+                        <Pane id="heartIcon_green_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="background_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <Button id="addFavorites_green" fx:id="gFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
+            <Button id="addFavorites_green_active" fx:id="gFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
                </styleClass>
                <graphic>
-                  <Pane id="heartIcon_green" fx:id="gHeartIcon" prefHeight="22.29" prefWidth="25.0" translateX="5.0" />
+                  <Pane id="heartIcon_green_active" fx:id="gHeartIcon" prefHeight="22.29" prefWidth="25.0" translateX="5.0" />
                </graphic>
             </Button>
             <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
@@ -91,7 +100,7 @@
                   <Font size="31.0" />
                </font>
             </TextField>
-            <ImageView fx:id="gEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="470.0" layoutY="35.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="gEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="466.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/eco_icon.png" />
                </image>
@@ -160,7 +169,7 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="bEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="470.0" layoutY="35.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="466.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/eco_icon.png" />
                      </image>
@@ -205,6 +214,15 @@
                   </Label>
                </graphic>
             </Button>
+            <AnchorPane fx:id="bfavImg" layoutX="470.0" layoutY="100.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
+               <children>
+                  <Pane id="heartIcon_blue_img" fx:id="gHeartIcon11" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+               </children>
+               <styleClass>
+                  <String fx:value="background_color_blue_white" />
+                  <String fx:value="shadow_50" />
+               </styleClass>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

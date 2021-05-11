@@ -33,6 +33,7 @@ public class DetailView extends AnchorPane {
     @FXML private ImageView bEcoImg;
     @FXML private Button bFavButton;
     @FXML private Pane bHeartIcon;
+    @FXML private AnchorPane bfavImg;
 
 
     // Green card
@@ -49,6 +50,7 @@ public class DetailView extends AnchorPane {
     @FXML private ImageView gEcoImg;
     @FXML private Button gFavButton;
     @FXML private Pane gHeartIcon;
+    @FXML private AnchorPane gfavImg;
 
 
     @FXML
@@ -146,6 +148,8 @@ public class DetailView extends AnchorPane {
             bHeartIcon.setId("heartIcon_blue");
             gFavButton.setId("addFavorites_green");
             gHeartIcon.setId("heartIcon_green");
+            bfavImg.setOpacity(0);
+            gfavImg.setOpacity(0);
         } else {
             bFavButton.setText("Ta bort favorit");
             gFavButton.setText("Ta bort favorit");
@@ -153,6 +157,8 @@ public class DetailView extends AnchorPane {
             bHeartIcon.setId("heartIcon_blue_active");
             gFavButton.setId("addFavorites_green_active");
             gHeartIcon.setId("heartIcon_green_active");
+            bfavImg.setOpacity(1);
+            gfavImg.setOpacity(1);
         }
     }
 
