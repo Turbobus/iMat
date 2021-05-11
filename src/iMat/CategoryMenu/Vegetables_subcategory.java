@@ -18,7 +18,7 @@ public class Vegetables_subcategory extends Subcategory {
 
         super(pController);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CategoryMenu/subcategory_vegetables.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategory_vegetables.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

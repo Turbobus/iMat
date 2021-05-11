@@ -5,9 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
-
-
 public abstract class Subcategory extends AnchorPane {
 
     private final shopHolder pController;

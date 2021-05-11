@@ -3,6 +3,7 @@ package iMat;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.util.IOUtilities;
 
 import java.util.List;
 
