@@ -29,7 +29,6 @@ public class ProductCard extends AnchorPane{
 
     @FXML private Label bProdName;
     @FXML private Label bPrice;
-    @FXML private Label bunit;
     @FXML private ImageView bImg;
     @FXML private ImageView bEcoImg;
 
@@ -42,7 +41,6 @@ public class ProductCard extends AnchorPane{
 
     @FXML private Label gProdName;
     @FXML private Label gPrice;
-    @FXML private Label gunit;
     @FXML private ImageView gImg;
     @FXML private ImageView gEcoImg;
 
@@ -95,8 +93,6 @@ public class ProductCard extends AnchorPane{
         // The blue version of the card
         bProdName.setText(product.getName());
         bPrice.setText(product.getPrice() + "  " + product.getUnit());
-        //bPrice.setText(String.valueOf(product.getPrice()));
-        //bunit.setText(product.getUnit());
         bImg.setImage(db.getImage(product, 266, 181));
         roundImage(bImg, 57);
 
@@ -105,7 +101,6 @@ public class ProductCard extends AnchorPane{
         gProdName.setText(product.getName());
         gPrice.setText(product.getPrice() + product.getUnit());
         gPrice.setText(product.getPrice() + "  " + product.getUnit());
-        //gunit.setText(product.getUnit());
         gImg.setImage(db.getImage(product, 262, 177));
         roundImage(gImg, 57);
 

@@ -15,8 +15,20 @@
     -fx-text-fill: #004972;
 }
 
+.background_color_dark_dark_blue {
+    -fx-background-color: #004972;
+}
+
 .background_color_blue {
     -fx-background-color: #007FC5;
+}
+
+.background_color_light_blue{
+    -fx-background-color: #C7E1FF;
+}
+
+.background_color_light_light_blue{
+    -fx-background-color: #F1F4FF;
 }
 
 .background_color_red {
@@ -37,6 +49,18 @@
 
 .text_color_dark_dark_green {
     -fx-text-fill: #0A2500;
+}
+
+.background_color_light_green {
+    -fx-background-color: #E3FFD6;
+}
+
+.background_color_green {
+    -fx-background-color: #A3E983;
+}
+
+.background_color_dark_dark_green {
+    -fx-background-color: #0A2500;
 }
 
 .shadow_25 {
@@ -104,6 +128,10 @@
     -fx-border-color: #210A00;
 }
 
+.exit_cross {
+    -fx-shape: "M19.4496 12.5085L28.4079 3.57102C28.8002 3.17873 29.0206 2.64665 29.0206 2.09186C29.0206 1.53706 28.8002 1.00499 28.4079 0.612691C28.0156 0.220392 27.4835 0 26.9287 0C26.374 0 25.8419 0.220392 25.4496 0.612691L16.5121 9.57102L7.57458 0.612691C7.18228 0.220392 6.65021 -4.13354e-09 6.09541 0C5.54062 4.13355e-09 5.00855 0.220392 4.61625 0.612691C4.22395 1.00499 4.00356 1.53706 4.00356 2.09186C4.00356 2.64665 4.22395 3.17873 4.61625 3.57102L13.5746 12.5085L4.61625 21.446C4.42098 21.6397 4.26599 21.8701 4.16022 22.124C4.05446 22.3779 4 22.6502 4 22.9252C4 23.2002 4.05446 23.4725 4.16022 23.7264C4.26599 23.9803 4.42098 24.2107 4.61625 24.4044C4.80992 24.5996 5.04034 24.7546 5.29421 24.8604C5.54809 24.9662 5.82039 25.0206 6.09541 25.0206C6.37044 25.0206 6.64274 24.9662 6.89662 24.8604C7.15049 24.7546 7.38091 24.5996 7.57458 24.4044L16.5121 15.446L25.4496 24.4044C25.6433 24.5996 25.8737 24.7546 26.1275 24.8604C26.3814 24.9662 26.6537 25.0206 26.9287 25.0206C27.2038 25.0206 27.4761 24.9662 27.7299 24.8604C27.9838 24.7546 28.2142 24.5996 28.4079 24.4044C28.6032 24.2107 28.7582 23.9803 28.8639 23.7264C28.9697 23.4725 29.0242 23.2002 29.0242 22.9252C29.0242 22.6502 28.9697 22.3779 28.8639 22.124C28.7582 21.8701 28.6032 21.6397 28.4079 21.446L19.4496 12.5085Z"
+}
+
 
 #text_login_page {
     -fx-font-size: 60px;
@@ -126,13 +154,74 @@
     -fx-background-color: #E3FFD6;
 }
 
+#detailCard_blue {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #002E48;
+}
+
+#addFavorites_blue {
+    -fx-text-fill: #002E48;
+    -fx-background-color: #C7E1FF;
+    -fx-padding: 0px;
+    -fx-border-color: #002E48;
+    -fx-border-insets: -1px;
+    -fx-font-size: 21px;
+}
+
+#heartIcon_blue {
+    -fx-shape: "M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z";
+    -fx-background-color: #C7E1FF;
+    -fx-border-width: 2px;
+    -fx-border-color: #002E48;
+}
+
+#productImage_border_1_blue {
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-border-color: #002E48;
+}
+
+
+
+#detailCard_green {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #0A2500;
+}
+
+#addFavorites_green {
+    -fx-text-fill: #0A2500;
+    -fx-background-color: #A3E983;
+    -fx-padding: 0px;
+    -fx-border-color: #0A2500;
+    -fx-border-insets: -1px;
+    -fx-font-size: 21px;
+}
+
+#heartIcon_green {
+    -fx-shape: "M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z";
+    -fx-background-color: #A3E983;
+    -fx-border-width: 2px;
+    -fx-border-color: #0A2500;
+}
+
+#productImage_border_1_green {
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-border-color: #0A2500;
+}
+
 #prodText_input{
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
     -fx-border-width: 0px;
     -fx-background-color: #FBFFFA;
     -fx-text-fill: #0A2500;
-    -fx-font-size: 27px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 1, 2);
 }
 
@@ -188,7 +277,7 @@
     -fx-border-insets: -1px;
 }
 
-#hide_wite_textArea {
+#hide_white_textArea {
     -fx-fill: #FAFBFF;
     -fx-stroke: none;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);

@@ -27,7 +27,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-        setupLogIn();
+        //setupLogIn();
+
+        setupShop();
     }
 
     private void setupLogIn(){
