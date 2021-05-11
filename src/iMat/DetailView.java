@@ -9,8 +9,8 @@ import java.io.IOException;
 public class DetailView extends AnchorPane {
 
 
-    public DetailView(Product product, Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductCard.fxml"));
+    public DetailView(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

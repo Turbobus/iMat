@@ -10,7 +10,6 @@ import java.util.Map;
 public class shopHolder extends AnchorPane{
     private Controller pController;
 
-    @FXML AnchorPane darkPane;      // The dark overlay
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
 

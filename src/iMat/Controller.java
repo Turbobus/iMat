@@ -18,7 +18,17 @@ public class Controller extends AnchorPane implements Initializable {
     private final Map<Integer, ProductCard> productCards = new HashMap<>();
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
+    private final DetailView detailView = new DetailView(this);
+
     @FXML AnchorPane window;
+    @FXML AnchorPane darkPane;
+    @FXML AnchorPane putHere;
+
+    @FXML
+    public void closeOverlay(){
+        putHere.getChildren().clear();
+        window.toFront();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,6 +60,32 @@ public class Controller extends AnchorPane implements Initializable {
             productCards.put(product.getProductId(), card);
         }
     }
+
+    public void openDetailView(){
+
+        openOverlay(detailView);
+    }
+
+    private void openOverlay(AnchorPane overlay){
+        putHere.getChildren().clear();
+
+        putHere.setPrefWidth(overlay.getPrefWidth());
+        putHere.setPrefHeight(overlay.getPrefHeight());
+
+
+        putHere.getChildren().add(overlay);
+
+        // Centers the overlay
+        double x = (darkPane.getPrefWidth() / 2) - (overlay.getPrefWidth()/2);
+        double y = (darkPane.getPrefHeight() / 2) - (overlay.getPrefHeight()/2);
+
+        putHere.setLayoutX(x);
+        putHere.setLayoutY(y);
+        darkPane.toFront();
+    }
+
+
+    // Tror detta udner kan ts bort. Behövdes i labben när man bytte saker i listan så får se här med
 
 //    private void updateRecipeList(){
 //        searchResult.getChildren().clear();

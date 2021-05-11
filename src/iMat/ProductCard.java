@@ -58,14 +58,17 @@ public class ProductCard extends AnchorPane{
         } else {
             amountTextCard.setText("" + newValue);
         }
-
-
     }
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
 
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+    }
+
+    @FXML
+    public void openDetailView(){
+        pController.openDetailView();
     }
 
     public ProductCard(Product product, Controller pController){
