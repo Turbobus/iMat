@@ -10,55 +10,18 @@
 
 <fx:root prefHeight="930.0" prefWidth="243.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Bröd">
-         <styleClass>
-            <String fx:value="background_color_light_blue" />
-            <String fx:value="right_corners_border_radius" />
-            <String fx:value="bold_24" />
-            <String fx:value="border2px_dark_dark_blue_no_radius" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-      </Button>
-      <Button fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Mejeri">
-         <styleClass>
-            <String fx:value="background_color_light_blue" />
-            <String fx:value="right_corners_border_radius" />
-            <String fx:value="bold_24" />
-            <String fx:value="border2px_dark_dark_blue_no_radius" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-      </Button>
-      <Button fx:id="sweetsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Sötsaker">
-         <styleClass>
-            <String fx:value="background_color_light_blue" />
-            <String fx:value="right_corners_border_radius" />
-            <String fx:value="bold_24" />
-            <String fx:value="border2px_dark_dark_blue_no_radius" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-      </Button>
-      <Pane layoutX="-2.0" layoutY="294.0" prefHeight="75.0" prefWidth="226.0">
+      <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Bröd" />
+      <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Mejeri" />
+      <Button id="category_buttons" fx:id="sweetsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Sötsaker" />
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="294.0" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button fx:id="drinksButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Dryck">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="right_corners_border_radius" />
-                  <String fx:value="border2px_dark_dark_blue_no_radius" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
+            <Button id="category_buttons" fx:id="drinksButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Dryck" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/category_arrow.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="border1px_dark_dark_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="left_corners_border_radius" />
-         </styleClass>
       </Pane>
       <Button fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@main.css" text="Hem">
          <styleClass>
@@ -70,97 +33,45 @@
          </styleClass>
       </Button>
       <Label layoutX="13.0" layoutY="150.0" styleClass="bold_36" text="Kategorier" />
-      <Pane layoutX="-2.0" layoutY="380.0" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="380.0" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button fx:id="drinksButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Frukt">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="right_corners_border_radius" />
-                  <String fx:value="border2px_dark_dark_blue_no_radius" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
+            <Button id="category_buttons" fx:id="drinksButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Frukt" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/category_arrow.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="border1px_dark_dark_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="left_corners_border_radius" />
-         </styleClass>
       </Pane>
-      <Pane layoutX="-2.0" layoutY="466.0" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="466.0" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button fx:id="drinksButton2" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Grönsaker">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="right_corners_border_radius" />
-                  <String fx:value="border2px_dark_dark_blue_no_radius" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
+            <Button id="category_buttons" fx:id="drinksButton2" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Grönsaker" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/category_arrow.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="border1px_dark_dark_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="left_corners_border_radius" />
-         </styleClass>
       </Pane>
-      <Pane layoutX="-2.0" layoutY="552.0" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="552.0" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button fx:id="drinksButton3" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Kött &amp; Fisk">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="right_corners_border_radius" />
-                  <String fx:value="border2px_dark_dark_blue_no_radius" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
+            <Button id="category_buttons" fx:id="drinksButton3" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Kött &amp; Fisk" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/category_arrow.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="border1px_dark_dark_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="left_corners_border_radius" />
-         </styleClass>
       </Pane>
-      <Pane layoutX="-2.0" layoutY="638.0" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="638.0" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button fx:id="drinksButton31" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Torrvaror">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="right_corners_border_radius" />
-                  <String fx:value="border2px_dark_dark_blue_no_radius" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
+            <Button id="category_buttons" fx:id="drinksButton31" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@main.css" text="Torrvaror" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/category_arrow.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background_color_grey_white" />
-            <String fx:value="border1px_dark_dark_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="left_corners_border_radius" />
-         </styleClass>
       </Pane>
    </children>
    <styleClass>
