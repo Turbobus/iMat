@@ -33,6 +33,7 @@ public class ProductCard extends AnchorPane{
     @FXML private Label bPrice;
     @FXML private ImageView bImg;
     @FXML private ImageView bEcoImg;
+    @FXML private AnchorPane bfavImg;
 
 
     // Green card
@@ -45,6 +46,7 @@ public class ProductCard extends AnchorPane{
     @FXML private Label gPrice;
     @FXML private ImageView gImg;
     @FXML private ImageView gEcoImg;
+    @FXML private AnchorPane gfavImg;
 
     @FXML
     public void addToCartPressed(ActionEvent event){
@@ -116,7 +118,8 @@ public class ProductCard extends AnchorPane{
             gEcoImg.setOpacity(1);
         }
 
-        // Can not add favourite icon here as its dynamic and cant be created at startup
+        // Sets favourite image and other dynamic things already in the database
+        updateCard();
     }
 
     private void setupTextField(){
@@ -130,6 +133,21 @@ public class ProductCard extends AnchorPane{
                 amountTextCard.setText("1");
             }
         });
+    }
+
+    // Sets favourite image and other dynamic things
+    public void updateCard(){
+
+        if (!db.isFavourite(productId)){
+            bfavImg.setOpacity(0);
+            gfavImg.setOpacity(0);
+        } else {
+            bfavImg.setOpacity(1);
+            gfavImg.setOpacity(1);
+        }
+
+
+
 
     }
 }

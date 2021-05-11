@@ -87,6 +87,7 @@ public class DetailView extends AnchorPane {
             db.addFavourite(productId);
         }
         setupFavIcon();
+        pController.updateGridCard(productId);
     }
 
     public DetailView(Controller pController){

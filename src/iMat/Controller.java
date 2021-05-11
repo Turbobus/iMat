@@ -100,6 +100,10 @@ public class Controller extends AnchorPane implements Initializable {
 //        }
 //    }
 
+    public void updateGridCard(int prodId) {
+        productCards.get(prodId).updateCard();
+    }
+
     public void roundImage(ImageView img, int amount) {
         Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());
         clip.setArcWidth(amount);
