@@ -23,6 +23,8 @@
                   <String fx:value="shadow_25" />
                   <String fx:value="border_radius_30" />
                   <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="arrow-button" />
+                  <String fx:value="arrow" />
                </styleClass>
             </Label>
             <Text fill="#002e48" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ av kort:" wrappingWidth="156.0">
@@ -113,7 +115,7 @@
                   <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
-            <MenuButton alignment="TOP_LEFT" graphicTextGap="15.0" layoutX="162.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="7.0">
+            <MenuButton alignment="TOP_CENTER" graphicTextGap="15.0" layoutX="162.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="7.0">
               <items>
                 <MenuItem mnemonicParsing="false" text="Mastercard">
                      <graphic>
@@ -124,21 +126,21 @@
                         </ImageView>
                      </graphic>
                   </MenuItem>
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                  <MenuItem mnemonicParsing="false" text="placeholder" />
+                  <MenuItem mnemonicParsing="false" text="placeholder" />
               </items>
                <styleClass>
                   <String fx:value="background_color_blue" />
                   <String fx:value="border_radius_30" />
                   <String fx:value="bold_22" />
                   <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="arrow-button" />
-                  <String fx:value="arrow-button" />
+                  <String fx:value="arrow" />
                </styleClass>
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="26.0" fitWidth="41.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/visaIcon.png" />
                      </image>

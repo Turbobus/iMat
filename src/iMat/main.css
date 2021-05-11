@@ -89,24 +89,21 @@
     -fx-shape: "M2.9375 0L12.5 8.96917L22.0625 0L25 2.76125L12.5 14.5112L0 2.76125L2.9375 0Z";
     -fx-pref-height: 75px;
     -fx-pref-width: 25px;
-}
-.menu-item .label {
 
-     -fx-alignment: center;
-     -fx-mark-highlight-color: white;
-     -fx-font-size: 21px;
 
 
 }
+
 .menu-item {
--fx-text-fill: black;
+     -fx-text-fill: white;
      -fx-border-radius: 30px;
      -fx-background-radius: 30px;
-      -fx-background-color: #007FC5;
-       -fx-mark-highlight-color: white;
-       -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
-       -fx-border-width: 2px;
-           -fx-border-color: #002E48;
+     -fx-background-color: #007FC5;
+ -fx-alignment: center;
+     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
+     -fx-border-width: 2px;
+     -fx-border-color: #002E48;
+     -fx-mark-highlight-color: black;
 }
 
 
