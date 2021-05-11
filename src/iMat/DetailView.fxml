@@ -12,6 +12,111 @@
 
 <fx:root maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" styleClass="border_radius_30" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <AnchorPane id="detailCard_blue" fx:id="greenCard" maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0">
+         <styleClass>
+            <String fx:value="background_color_light_green" />
+            <String fx:value="border_radius_30" />
+         </styleClass>
+         <children>
+            <AnchorPane id="detailCard_green" layoutX="20.0" layoutY="20.0" maxHeight="320.0" maxWidth="900.0" minHeight="320.0" minWidth="900.0" prefHeight="320.0" prefWidth="900.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="background_color_green" />
+               </styleClass>
+               <children>
+                  <Label fx:id="gProdName" layoutX="28.0" layoutY="51.0" styleClass="text_color_dark_dark_green" text="Äpple">
+                     <font>
+                        <Font name="System Bold" size="46.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gPrice" layoutX="28.0" layoutY="124.0" styleClass="text_color_dark_dark_green" text="Pris: 18 kr/kg">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gEco" layoutX="28.0" layoutY="195.0" text="Ekologisk: Ja">
+                     <styleClass>
+                        <String fx:value="text_color_dark_dark_green" />
+                        <String fx:value="bold_24" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="gCategory" layoutX="28.0" layoutY="238.0" text="Kategori: Frukt &amp; Grönt">
+                     <styleClass>
+                        <String fx:value="text_color_dark_dark_green" />
+                        <String fx:value="font_28" />
+                     </styleClass>
+                  </Label>
+                  <Button layoutX="853.0" layoutY="18.0" mnemonicParsing="false" onAction="#closePane" prefHeight="25.0" prefWidth="25.0">
+                     <styleClass>
+                        <String fx:value="exit_cross" />
+                        <String fx:value="background_color_dark_dark_green" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </Button>
+                  <AnchorPane id="productImage_border_1_green" layoutX="530.0" layoutY="35.0" maxHeight="250.0" maxWidth="280.0" minHeight="250.0" minWidth="280.0" prefHeight="250.0" prefWidth="280.0">
+                     <children>
+                        <ImageView fx:id="gImg" fitHeight="246.0" fitWidth="276.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../img/happy_face.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button id="addFavorites_green" fx:id="gFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <Pane id="heartIcon_green" fx:id="gHeartIcon" prefHeight="22.29" prefWidth="25.0" translateX="5.0" />
+               </graphic>
+            </Button>
+            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
+                     <image>
+                        <Image url="@../img/dark_green_plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="92.0" layoutY="355.0" maxHeight="50.0" maxWidth="90.0" minHeight="50.0" minWidth="90.0" prefHeight="50.0" prefWidth="90.0" text="1">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </TextField>
+            <ImageView fx:id="gEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="470.0" layoutY="35.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/eco_icon.png" />
+               </image>
+            </ImageView>
+            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="5.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
+                     <image>
+                        <Image url="@../img/dark_red_minus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="261.0" layoutY="363.0" text="Totalt pris: 18 kr">
+               <styleClass>
+                  <String fx:value="bold_24" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane id="detailCard_blue" fx:id="blueCard" maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
@@ -69,14 +174,14 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Button id="addFavorites_blue" fx:id="bFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Lägg till i inköpslista">
+            <Button id="addFavorites_blue" fx:id="bFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
+               <graphic>
+                  <Pane id="heartIcon_blue" fx:id="bHeartIcon" prefHeight="22.29" prefWidth="25.0" translateX="5.0" />
+               </graphic>
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
                </styleClass>
-               <graphic>
-                  <Pane id="heartIcon_blue" fx:id="bHeartIcon" prefHeight="22.29" prefWidth="25.0" />
-               </graphic>
             </Button>
             <Button id="blue_button" fx:id="addToCartButton" alignment="CENTER" layoutX="28.0" layoutY="350.0" maxHeight="55.0" maxWidth="260.0" minHeight="55.0" minWidth="260.0" mnemonicParsing="false" onAction="#addToCartPressed" prefHeight="55.0" prefWidth="260.0">
                <styleClass>
@@ -100,105 +205,6 @@
                   </Label>
                </graphic>
             </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane id="detailCard_blue" fx:id="greenCard" maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0">
-         <styleClass>
-            <String fx:value="background_color_light_green" />
-            <String fx:value="border_radius_30" />
-         </styleClass>
-         <children>
-            <AnchorPane id="detailCard_green" layoutX="20.0" layoutY="20.0" maxHeight="320.0" maxWidth="900.0" minHeight="320.0" minWidth="900.0" prefHeight="320.0" prefWidth="900.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-2.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="background_color_green" />
-               </styleClass>
-               <children>
-                  <Label fx:id="gProdName" layoutX="28.0" layoutY="51.0" styleClass="text_color_dark_dark_green" text="Äpple">
-                     <font>
-                        <Font name="System Bold" size="46.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="gPrice" layoutX="28.0" layoutY="124.0" styleClass="text_color_dark_dark_green" text="Pris: 18 kr/kg">
-                     <font>
-                        <Font size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="gEco" layoutX="28.0" layoutY="195.0" text="Ekologisk: Ja">
-                     <styleClass>
-                        <String fx:value="text_color_dark_dark_green" />
-                        <String fx:value="bold_24" />
-                     </styleClass>
-                  </Label>
-                  <Label fx:id="gCategory" layoutX="28.0" layoutY="238.0" text="Kategori: Frukt &amp; Grönt">
-                     <styleClass>
-                        <String fx:value="text_color_dark_dark_green" />
-                        <String fx:value="font_28" />
-                     </styleClass>
-                  </Label>
-                  <Button layoutX="853.0" layoutY="18.0" mnemonicParsing="false" onAction="#closePane" prefHeight="25.0" prefWidth="25.0">
-                     <styleClass>
-                        <String fx:value="exit_cross" />
-                        <String fx:value="background_color_dark_dark_green" />
-                        <String fx:value="shadow_50" />
-                     </styleClass>
-                  </Button>
-                  <AnchorPane id="productImage_border_1_green" layoutX="530.0" layoutY="35.0" maxHeight="250.0" maxWidth="280.0" minHeight="250.0" minWidth="280.0" prefHeight="250.0" prefWidth="280.0">
-                     <children>
-                        <ImageView fx:id="gImg" fitHeight="246.0" fitWidth="276.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@../img/happy_face.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-            <Button id="addFavorites_green" fx:id="gFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="Lägg till i inköpslista">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <graphic>
-                  <Pane id="heartIcon_green" fx:id="gHeartIcon" prefHeight="22.29" prefWidth="25.0" />
-               </graphic>
-            </Button>
-            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <graphic>
-                  <ImageView fitHeight="5.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
-                     <image>
-                        <Image url="@../img/dark_red_minus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
-                     <image>
-                        <Image url="@../img/dark_green_plus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="92.0" layoutY="355.0" maxHeight="50.0" maxWidth="90.0" minHeight="50.0" minWidth="90.0" prefHeight="50.0" prefWidth="90.0" text="1">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </TextField>
-            <ImageView fx:id="gEcoImg" fitHeight="50.0" fitWidth="50.0" layoutX="470.0" layoutY="35.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/eco_icon.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

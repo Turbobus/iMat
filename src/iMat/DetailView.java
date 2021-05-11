@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
@@ -18,6 +19,7 @@ public class DetailView extends AnchorPane {
 
     private final Controller pController;
     private final DB db = DB.getInstance();
+    private int productId;
 
     // Blue card
     @FXML private AnchorPane blueCard;
@@ -72,8 +74,17 @@ public class DetailView extends AnchorPane {
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+    }
+
+    @FXML
+    public void favouriteButtonPressed(ActionEvent event){
+        if (db.isFavourite(productId)){
+            db.removeFavourite(productId);
+        } else {
+            db.addFavourite(productId);
+        }
+        setupFavIcon();
     }
 
     public DetailView(Controller pController){
@@ -93,6 +104,7 @@ public class DetailView extends AnchorPane {
     }
 
     public void setupInfo(Product product){
+        this.productId = product.getProductId();
 
         // The blue version of the card
         bProdName.setText(product.getName());
@@ -123,8 +135,25 @@ public class DetailView extends AnchorPane {
             bEcoImg.setOpacity(0);
             gEcoImg.setOpacity(0);
         }
+        setupFavIcon();
+    }
 
-        // Can not add favourite icon here as its dynamic and cant be created at startup
+    private void setupFavIcon(){
+        if (!db.isFavourite(productId)){
+            bFavButton.setText("Lägg till som favorit !");
+            gFavButton.setText("Lägg till som favorit !");
+            bFavButton.setId("addFavorites_blue");
+            bHeartIcon.setId("heartIcon_blue");
+            gFavButton.setId("addFavorites_green");
+            gHeartIcon.setId("heartIcon_green");
+        } else {
+            bFavButton.setText("Ta bort favorit");
+            gFavButton.setText("Ta bort favorit");
+            bFavButton.setId("addFavorites_blue_active");
+            bHeartIcon.setId("heartIcon_blue_active");
+            gFavButton.setId("addFavorites_green_active");
+            gHeartIcon.setId("heartIcon_green_active");
+        }
     }
 
     // Gets the swedish name for the categories

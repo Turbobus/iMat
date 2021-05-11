@@ -50,6 +50,12 @@ public class DB {
         return iMatDataHandler.getFXImage(p, width, height);
     }
 
+    public void addFavourite(int prodId) { iMatDataHandler.addFavorite(prodId); }
+
+    public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }
+
+    public void removeFavourite(int prodId) { iMatDataHandler.removeFavorite(iMatDataHandler.getProduct(prodId)); }
+
     public void setFirstName(String firstName) { iMatDataHandler.getCustomer().setFirstName(firstName); }
 
     public void setLastName(String lastName) { iMatDataHandler.getCustomer().setLastName(lastName); }
