@@ -94,16 +94,18 @@ public class ProductCard extends AnchorPane{
 
         // The blue version of the card
         bProdName.setText(product.getName());
-        bPrice.setText(String.valueOf(product.getPrice()));
-        bunit.setText(product.getUnit());
+        bPrice.setText(product.getPrice() + "  " + product.getUnit());
+        //bPrice.setText(String.valueOf(product.getPrice()));
+        //bunit.setText(product.getUnit());
         bImg.setImage(db.getImage(product, 266, 181));
         roundImage(bImg, 57);
 
 
         // The green version of the card
         gProdName.setText(product.getName());
-        gPrice.setText(String.valueOf(product.getPrice()));
-        gunit.setText(product.getUnit());
+        gPrice.setText(product.getPrice() + product.getUnit());
+        gPrice.setText(product.getPrice() + "  " + product.getUnit());
+        //gunit.setText(product.getUnit());
         gImg.setImage(db.getImage(product, 262, 177));
         roundImage(gImg, 57);
 

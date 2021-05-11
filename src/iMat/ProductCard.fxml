@@ -32,13 +32,7 @@
                   <String fx:value="text_color_dark_dark_green" />
                </styleClass>
             </Label>
-            <Label fx:id="gPrice" layoutX="16.0" layoutY="222.0" text="18">
-               <styleClass>
-                  <String fx:value="font_22" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-            <Label fx:id="gunit" layoutX="82.0" layoutY="222.0" text="kr/kg">
+            <Label fx:id="gPrice" layoutX="16.0" layoutY="222.0" text="18 kr/kg">
                <styleClass>
                   <String fx:value="font_22" />
                   <String fx:value="text_color_dark_dark_green" />
@@ -117,13 +111,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Label fx:id="bPrice" layoutX="16.0" layoutY="222.0" text="18">
-               <styleClass>
-                  <String fx:value="font_22" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label fx:id="bunit" layoutX="82.0" layoutY="222.0" text="kr/kg">
+            <Label fx:id="bPrice" layoutX="16.0" layoutY="222.0" text="18 kr/kg">
                <styleClass>
                   <String fx:value="font_22" />
                   <String fx:value="text_color_dark_dark_blue" />
