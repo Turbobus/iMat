@@ -35,6 +35,9 @@ public class SubcategoryItem extends AnchorPane {
         switch (this.subcategoryButton.getText()) {
             case "Fisk" -> System.out.println("You pressed Fisk.");
             case "Kött" -> System.out.println("You pressed Kött.");
+            case "Bröd" -> System.out.println("You pressed Bröd.");
+            case "Mejeri" -> System.out.println("You pressed Mejeri.");
+            case "Sötsaker" -> System.out.println("You pressed Sötsaker.");
             case "Visa alla" -> showAllEvent();
         }
     }
