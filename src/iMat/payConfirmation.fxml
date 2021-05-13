@@ -12,8 +12,9 @@
         <AnchorPane fx:id="purchaseCompleted" maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
                 <String fx:value="background_color_blue" />
+                <String fx:value="shadow_25" />
                 <String fx:value="border_dark_dark_blue_2_width" />
-                <String fx:value="border_radius_30" />
+            <String fx:value="border_radius_30" />
             </styleClass>
             <children>
                 <Label layoutX="28.0" layoutY="7.0" text="Betalning">
@@ -67,11 +68,12 @@
             <String fx:value="font_28" />
          </styleClass>
       </Label>
-      <Button id="blue_button_with_border" layoutX="152.0" layoutY="236.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Visa">
+      <Button id="blue_button" layoutX="152.0" layoutY="236.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Visa">
          <styleClass>
             <String fx:value="bold_22" />
             <String fx:value="shadow_25" />
             <String fx:value="border_radius_30" />
+            <String fx:value="border_dark_dark_blue_1_width" />
          </styleClass>
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">

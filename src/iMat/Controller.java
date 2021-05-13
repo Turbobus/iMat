@@ -29,4 +29,9 @@ public class Controller extends AnchorPane implements Initializable {
         window.getChildren().add(new shopHolder(this));
         window.toFront();
     }
+
+    public void openEarlierPurchases(){
+        openOverlay(settings);
+
+    }
 }

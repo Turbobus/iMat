@@ -1,12 +1,14 @@
 package iMat;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class header extends AnchorPane {
     private shopHolder pController;
+    private Button earlierPurchaseButton;
 
 
 
@@ -22,5 +24,8 @@ public class header extends AnchorPane {
         }
 
         this.pController = pController;
+    }
+    private void earlierPurchaseButtonPressed(){
+
     }
 }

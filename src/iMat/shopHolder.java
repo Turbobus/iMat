@@ -21,6 +21,7 @@ public class shopHolder extends AnchorPane{
 
 
 
+
     public shopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -49,5 +50,7 @@ public class shopHolder extends AnchorPane{
         gridPane.getChildren().add(new ShopGrid(this));
         gridPane.toFront();
     }
+
+
 
 }
