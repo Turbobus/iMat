@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
@@ -67,7 +68,13 @@ public class shopHolder extends AnchorPane{
         //cartPane.getChildren().add(new MeatFish_subcategory(this));
         //cartPane.getChildren().add(new DryGoods_subcategory(this));
         //cartPane.getChildren().add(new Fruit_subcategory(this));
-        cartPane.getChildren().add(new Button_subcategory("Kött"));
+        //cartPane.getChildren().add(new Button_subcategory("Kött"));
+
+        ScrollpaneTest scroll = new ScrollpaneTest();
+        scroll.getChildren().add(new Button_subcategory("Fisk"));
+        scroll.getChildren().add(new Button_subcategory("Kött"));
+
+        cartPane.getChildren().add(scroll);
         cartPane.toFront();
     }
 
