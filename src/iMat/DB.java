@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 import se.chalmers.cse.dat216.project.util.IOUtilities;
 
 import java.util.List;
@@ -52,6 +53,54 @@ public class DB {
     }
 
     public void addFavourite(int prodId) { iMatDataHandler.addFavorite(prodId); }
+
+    public void addToShoppingCart(int prodId) { iMatDataHandler.getShoppingCart().addProduct(iMatDataHandler.getProduct(prodId)); }
+
+    public boolean isInCart(int prodId){
+        List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
+        for (ShoppingItem item : items){
+            if (item.getProduct().getProductId() == prodId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void updateShoppingItemAmount(int prodId, int amount){
+        List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
+        for (ShoppingItem item : items){
+            if (item.getProduct().getProductId() == prodId) {
+                item.setAmount(amount);
+                break;
+            }
+        }
+    }
+    public void removeShoppingItem(int prodId){
+        List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
+        ShoppingItem temp = null;
+        for (ShoppingItem item : items){
+            if (item.getProduct().getProductId() == prodId) {
+                temp = item;
+                break;
+            }
+        }
+
+        iMatDataHandler.getShoppingCart().removeItem(temp);
+    }
+
+    public ShoppingItem getShoppingItem(int prodId) {
+        List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
+        for (ShoppingItem item : items){
+            if (item.getProduct().getProductId() == prodId) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public List<ShoppingItem> getAllShoppingItems() {
+        return iMatDataHandler.getShoppingCart().getItems();
+    }
 
     public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }
 

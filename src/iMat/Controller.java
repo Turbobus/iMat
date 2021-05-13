@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -64,6 +65,10 @@ public class Controller extends AnchorPane implements Initializable {
             ProductCard card = new ProductCard(product, this);
             productCards.put(product.getProductId(), card);
         }
+
+        for (ShoppingItem item : db.getAllShoppingItems()){
+            productCards.get(item.getProduct().getProductId()).setUpFromCart(item.getAmount());
+        }
     }
 
     public void openDetailView(int prodId){
@@ -99,6 +104,20 @@ public class Controller extends AnchorPane implements Initializable {
 //            searchResult.getChildren().add(recipeListItemMap.get(recipe.hashCode()));
 //        }
 //    }
+
+    // Adds a product into the shoppingcart
+    public void addToCart(int prodId){
+        db.addToShoppingCart(prodId);
+    }
+
+    // Removes a product from the shoppingcart
+    public void removeFromCart(int prodId) {
+        db.removeShoppingItem(prodId);
+    }
+
+    public void updateCartItemAmount(int prodId, int newAmount){
+        db.updateShoppingItemAmount(prodId, newAmount);
+    }
 
     public void updateGridCard(int prodId) {
         productCards.get(prodId).updateCard();

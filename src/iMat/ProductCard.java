@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -50,6 +51,7 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void addToCartPressed(ActionEvent event){
+        pController.addToCart(productId);
         greenCard.toFront();
     }
 
@@ -58,15 +60,17 @@ public class ProductCard extends AnchorPane{
         int newValue = Integer.parseInt(amountTextCard.getText()) - 1;
 
         if (newValue <= 0) {
+            pController.removeFromCart(productId);
             blueCard.toFront();
         } else {
+            pController.updateCartItemAmount(productId, newValue);
             amountTextCard.setText("" + newValue);
         }
     }
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-
+        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText()) + 1));
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
     }
 
@@ -146,8 +150,10 @@ public class ProductCard extends AnchorPane{
             gfavImg.setOpacity(1);
         }
 
+    }
 
-
-
+    public void setUpFromCart(double amount){
+        greenCard.toFront();
+        amountTextCard.setText(String.valueOf((int) amount));
     }
 }
