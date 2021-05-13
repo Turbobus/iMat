@@ -19,7 +19,7 @@ public class CategoryMenu extends AnchorPane {
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
 
-    private Subcategory drinkSubcategory;
+    private final Subcategory drinkSubcategory;
     private Subcategory vegetableSubcategory;
     private Subcategory fishAndMeatSubcategory;
     private Subcategory dryGoodsSubcategory;
@@ -88,5 +88,16 @@ public class CategoryMenu extends AnchorPane {
     private void onBreadClicked() {
         System.out.println("Bröd");
     }
+
+    public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }
+
+    public Subcategory getVegetableSubcategory() { return vegetableSubcategory; }
+
+    public Subcategory getFishAndMeatSubcategory() { return fishAndMeatSubcategory; }
+
+    public Subcategory getDryGoodsSubcategory() { return dryGoodsSubcategory; }
+
+    public Subcategory getFruitSubcategory() { return fruitSubcategory; }
+
 
 }

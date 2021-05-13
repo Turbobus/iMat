@@ -9,7 +9,7 @@ import java.util.List;
 public class Subcategory extends AnchorPane {
 
     private final String name;
-    List<SubcategoryItem> subcategoryItems = new ArrayList<>();
+    private final List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 
     private final SubcategoryHolder holder;
 
@@ -17,12 +17,16 @@ public class Subcategory extends AnchorPane {
 
         this.name = name;
 
-        for(String subcategory : subcategories) {
-            this.subcategoryItems.add(new SubcategoryItem(subcategory));
+        for(String subcategoryName : subcategories) {
+            this.subcategoryItems.add(new SubcategoryItem(subcategoryName));
         }
 
-        this.holder = new SubcategoryHolder();
+        this.holder = new SubcategoryHolder(subcategoryItems);
 
+    }
+
+    public SubcategoryHolder getHolder() {
+        return this.holder;
     }
 
     @FXML

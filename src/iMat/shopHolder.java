@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class shopHolder extends AnchorPane{
@@ -54,30 +56,26 @@ public class shopHolder extends AnchorPane{
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(new CategoryMenu(this));
+        CategoryMenu categoryMenu = new CategoryMenu(this);
+        categoryPane.getChildren().add(categoryMenu);
         categoryPane.toFront();
+
+        cartPane.getChildren().clear();
+        cartPane.getChildren().add(categoryMenu.getVegetableSubcategory().getHolder());
+        cartPane.toFront();
+        //categoryPane.getChildren().add(new CategoryMenu(this));
+
     }
 
     private void testSubcategory() {
-        cartPane.getChildren().clear();
-        //cartPane.getChildren().add(new Drinks_subcategory(this));
-        //cartPane.getChildren().add(new Vegetables_subcategory(this));
-        //cartPane.getChildren().add(new MeatFish_subcategory(this));
-        //cartPane.getChildren().add(new DryGoods_subcategory(this));
-        //cartPane.getChildren().add(new Fruit_subcategory(this));
-        //cartPane.getChildren().add(new Button_subcategory("Kött"));
+        //cartPane.getChildren().clear();
 
-        SubcategoryHolder scroll = new SubcategoryHolder();
-        //scroll.getChildren().add(0,new Button_subcategory("Fisk"));
-        //scroll.getChildren().add(0, new Button_subcategory("Kött"));
 
-        scroll.addSubcategoryItem(new SubcategoryItem("Fisk"));
-        scroll.addSubcategoryItem(new SubcategoryItem("Kött"));
 
-        cartPane.getChildren().add(scroll);
+        //cartPane.getChildren().add(scroll);
 
         //cartPane.getChildren().add(new ShopCart());
-        cartPane.toFront();
+        //cartPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }

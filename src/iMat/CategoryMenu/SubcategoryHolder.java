@@ -6,13 +6,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SubcategoryHolder extends AnchorPane {
 
     @FXML FlowPane subcategoryPane;
     @FXML AnchorPane mainPane;
 
-    public SubcategoryHolder() {
+    public SubcategoryHolder(List<SubcategoryItem> subcategoryItems) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategoryHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -24,10 +25,14 @@ public class SubcategoryHolder extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        for(SubcategoryItem item : subcategoryItems) {
+            addSubcategoryItem(item);
+        }
+
     }
 
     public void addSubcategoryItem(SubcategoryItem item) {
-        subcategoryPane.getChildren().add(0, item);
         mainPane.setPrefHeight(mainPane.getPrefHeight() + (item.getHeight() + subcategoryPane.getVgap()));
+        subcategoryPane.getChildren().add(0, item);
     }
 }
