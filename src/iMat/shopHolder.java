@@ -65,12 +65,15 @@ public class shopHolder extends AnchorPane{
 
     private void testSubcategory() {
         cartPane.getChildren().clear();
-        //cartPane.getChildren().add(new Drinks_subcategory(this));
-        //cartPane.getChildren().add(new Vegetables_subcategory(this));
-        //cartPane.getChildren().add(new MeatFish_subcategory(this));
-        //cartPane.getChildren().add(new DryGoods_subcategory(this));
-        cartPane.getChildren().add(new Fruit_subcategory(this));
+        cartPane.getChildren().add(new ShopCart());
         cartPane.toFront();
+
+//        //cartPane.getChildren().add(new Drinks_subcategory(this));
+//        //cartPane.getChildren().add(new Vegetables_subcategory(this));
+//        //cartPane.getChildren().add(new MeatFish_subcategory(this));
+//        //cartPane.getChildren().add(new DryGoods_subcategory(this));
+//        cartPane.getChildren().add(new Fruit_subcategory(this));
+//        cartPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
