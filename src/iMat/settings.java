@@ -11,11 +11,13 @@ import java.io.IOException;
 
 public class settings extends AnchorPane {
 
-private final Controller pController;
+    private final Controller pController;
+    DB db = DB.getInstance();
 
     //Buttons
     @FXML
     private Button closeAccount;
+
 
     //Textfields for account window
 
@@ -35,6 +37,7 @@ private final Controller pController;
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
+
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
@@ -42,6 +45,7 @@ private final Controller pController;
         }
 
         this.pController = pController;
+        setupSettings();
     }
 
 
@@ -49,8 +53,22 @@ private final Controller pController;
     @FXML
     public void closeSettings(ActionEvent event){
         pController.closeOverlay();
+
     }
 
+
+    public void setupSettings(){
+
+        firstNameTextField.setText(db.getFirstName());
+        lastNameTextField.setText(db.getLastName());
+        addressTextField.setText(db.getAddress());
+        postAddressTextField.setText(db.getPostAddress());
+        postalCodeTextField.setText(db.getPostCode());
+        mailTextField.setText(db.getEmail());
+        telephoneTextField.setText(db.getPhoneNumber());
+        mobileTextField.setText(db.getMobilePhoneNumber());
+
+    }
 
 
 }

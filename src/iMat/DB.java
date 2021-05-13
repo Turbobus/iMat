@@ -1,14 +1,8 @@
 package iMat;
 
-import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.util.IOUtilities;
 
 import java.util.List;
 
@@ -23,6 +17,8 @@ public class DB {
     private DB() {
         // Exists only to defeat instantiation.
     }
+
+
 
     /**
      * Returns the single instance of the Model class.
@@ -51,6 +47,37 @@ public class DB {
         return iMatDataHandler.getFXImage(p, width, height);
     }
 
+    public String getFirstName() { return iMatDataHandler.getCustomer().getFirstName(); }
+
+    public String getAddress() {
+        return iMatDataHandler.getCustomer().getAddress();
+    }
+
+    public String getEmail() {
+        return iMatDataHandler.getCustomer().getEmail();
+    }
+
+    public String getLastName() {
+        return iMatDataHandler.getCustomer().getLastName();
+    }
+
+    public String getPhoneNumber() {
+        return iMatDataHandler.getCustomer().getPhoneNumber();
+    }
+
+    public String getMobilePhoneNumber() {
+        return iMatDataHandler.getCustomer().getMobilePhoneNumber();
+    }
+
+    public String getPostAddress() {
+        return iMatDataHandler.getCustomer().getPostAddress();
+    }
+
+    public String getPostCode() {
+        return iMatDataHandler.getCustomer().getPostCode();
+    }
+
+
     public void addFavourite(int prodId) { iMatDataHandler.addFavorite(prodId); }
 
     public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }
@@ -72,4 +99,21 @@ public class DB {
     public void setPhoneNumber(String phoneNumber) { iMatDataHandler.getCustomer().setPhoneNumber(phoneNumber);}
 
     public void setMobileNumber(String mobileNumber) { iMatDataHandler.getCustomer().setMobilePhoneNumber(mobileNumber);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

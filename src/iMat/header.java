@@ -20,6 +20,7 @@ public class header extends AnchorPane {
     @FXML
     public void accountButtonPressed (ActionEvent event) {
         pController.openAccountView();
+
     }
 
     public header(Controller pController) {

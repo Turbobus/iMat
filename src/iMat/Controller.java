@@ -43,9 +43,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-        //setupLogIn();
+        setupLogIn();
 
-        setupShop();
+        //setupShop();
     }
 
     private void setupLogIn(){
@@ -53,6 +53,7 @@ public class Controller extends AnchorPane implements Initializable {
         window.getChildren().add(new LogIn(this));
         window.toFront();
     }
+
 
     public void setupShop(){
         window.getChildren().clear();
