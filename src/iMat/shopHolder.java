@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class shopHolder extends AnchorPane{
-    private Controller pController;
+    private final Controller pController;
     private Boolean mouseOnSubCategory = true;
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
@@ -60,7 +60,7 @@ public class shopHolder extends AnchorPane{
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(new CategoryMenu(this));
+        categoryPane.getChildren().add(categoryMenu);
         categoryPane.toFront();
     }
 

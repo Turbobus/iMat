@@ -8,14 +8,11 @@ import java.util.List;
 
 public class Subcategory extends AnchorPane {
 
-    private final String name;
     private final List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 
     private final SubcategoryHolder holder;
 
     public Subcategory(String name, List<String> subcategories) {
-
-        this.name = name;
 
         for(String subcategoryName : subcategories) {
             this.subcategoryItems.add(new SubcategoryItem(name, subcategoryName));
@@ -27,8 +24,4 @@ public class Subcategory extends AnchorPane {
 
     public SubcategoryHolder getHolder() { return this.holder; }
 
-    @FXML
-    private void onShowAllClicked() {
-        System.out.println("Visa alla");
-    }
 }

@@ -103,11 +103,6 @@ public class CategoryMenu extends AnchorPane {
 
     @FXML private void onDryGoodsHover() { pController.openDryGoodsSubcategory(); }
 
-    @FXML
-    private void onBreadClicked() {
-        System.out.println("Bröd");
-    }
-
     public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }
 
     public Subcategory getVegetableSubcategory() { return vegetableSubcategory; }
