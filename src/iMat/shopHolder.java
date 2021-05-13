@@ -65,7 +65,7 @@ public class shopHolder extends AnchorPane{
 
     private void testSubcategory() {
         cartPane.getChildren().clear();
-        cartPane.getChildren().add(new ShopCart());
+        cartPane.getChildren().add(new ShopCart(pController));
         cartPane.toFront();
 
 //        //cartPane.getChildren().add(new Drinks_subcategory(this));

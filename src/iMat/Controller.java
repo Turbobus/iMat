@@ -113,10 +113,12 @@ public class Controller extends AnchorPane implements Initializable {
     // Removes a product from the shoppingcart
     public void removeFromCart(int prodId) {
         db.removeShoppingItem(prodId);
+        productCards.get(prodId).removeFromCart();
     }
 
     public void updateCartItemAmount(int prodId, int newAmount){
         db.updateShoppingItemAmount(prodId, newAmount);
+        productCards.get(prodId).setUpFromCart(newAmount);
     }
 
     public void updateGridCard(int prodId) {

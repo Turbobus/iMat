@@ -6,19 +6,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import se.chalmers.cse.dat216.project.CartEvent;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
-public class ShopCart extends AnchorPane {
+public class ShopCart extends AnchorPane implements ShoppingCartListener {
+
+    private final Controller pController;
+    private final DB db = DB.getInstance();
 
     @FXML Button checkOutButton;
     @FXML FlowPane cartItemHolder;
 
     @FXML public void checkoutPressed(ActionEvent event){
-        cartItemHolder.getChildren().add(0, new ShopCartItem());
+        //cartItemHolder.getChildren().add(0, new ShopCartItem());
     }
 
-    public ShopCart(){
+    public ShopCart(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCart.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -29,8 +35,17 @@ public class ShopCart extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        //this.pController = pController;
+        this.pController = pController;
+        db.setCartListener(this);
+        db.reloadShoppingCart();
 
+    }
 
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        cartItemHolder.getChildren().clear();
+        for (ShoppingItem item : db.getAllShoppingItems()){
+            cartItemHolder.getChildren().add(0, new ShopCartItem(item, pController));
+        }
     }
 }

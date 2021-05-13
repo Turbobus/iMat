@@ -11,49 +11,49 @@
 
 <fx:root id="cart_item_card" maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" prefHeight="80.0" prefWidth="302.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0">
+      <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_25" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="12.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
+            <ImageView fitHeight="3.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
                <image>
                   <Image url="@../img/dark_red_minus.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="264.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0">
+      <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="263.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_25" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="19.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
+            <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
                <image>
                   <Image url="@../img/dark_green_plus.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />
+      <TextField id="prodText_input" fx:id="amountTextCartItem" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />
       <AnchorPane id="cart_item_card" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="shadow_25_total_side">
          <children>
-            <ImageView fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true">
+            <ImageView fx:id="prodImg" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true">
                <image>
                   <Image url="@../img/happy_face.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Label layoutX="89.0" layoutY="3.0" prefHeight="31.0" prefWidth="219.0" text="Ekologisk Brysselkål">
+      <Label fx:id="prodName" layoutX="89.0" layoutY="3.0" prefHeight="31.0" prefWidth="211.0" text="Ekologisk Brysselkål">
          <styleClass>
             <String fx:value="bold_22" />
             <String fx:value="text_color_dark_dark_green" />
          </styleClass>
       </Label>
-      <Label layoutX="89.0" layoutY="36.0" styleClass="text_color_dark_dark_green" text="188,95 kr">
+      <Label fx:id="currentPrice" layoutX="89.0" layoutY="36.0" maxWidth="95.0" prefHeight="30.0" styleClass="text_color_dark_dark_green" text="188,95 kr">
          <font>
             <Font size="20.0" />
          </font>

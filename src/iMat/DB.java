@@ -4,10 +4,12 @@ import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 import se.chalmers.cse.dat216.project.util.IOUtilities;
 
@@ -71,10 +73,16 @@ public class DB {
         for (ShoppingItem item : items){
             if (item.getProduct().getProductId() == prodId) {
                 item.setAmount(amount);
+                reloadShoppingCart();
                 break;
             }
         }
     }
+
+    public void reloadShoppingCart(){
+        iMatDataHandler.getShoppingCart().fireShoppingCartChanged(new ShoppingItem(new Product()), true);
+    }
+
     public void removeShoppingItem(int prodId){
         List<ShoppingItem> items = iMatDataHandler.getShoppingCart().getItems();
         ShoppingItem temp = null;
@@ -101,6 +109,8 @@ public class DB {
     public List<ShoppingItem> getAllShoppingItems() {
         return iMatDataHandler.getShoppingCart().getItems();
     }
+
+    public void setCartListener(ShoppingCartListener listener) { iMatDataHandler.getShoppingCart().addShoppingCartListener(listener); }
 
     public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }
 

@@ -70,8 +70,8 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText()) + 1));
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
     }
 
     @FXML
@@ -136,6 +136,9 @@ public class ProductCard extends AnchorPane{
             if(newValue.matches("")){
                 amountTextCard.setText("1");
             }
+//            if(Integer.parseInt(newValue) >= 100){
+//                amountTextCard.setText("99");
+//            }
         });
     }
 
@@ -155,5 +158,9 @@ public class ProductCard extends AnchorPane{
     public void setUpFromCart(double amount){
         greenCard.toFront();
         amountTextCard.setText(String.valueOf((int) amount));
+    }
+
+    public void removeFromCart(){
+        blueCard.toFront();
     }
 }

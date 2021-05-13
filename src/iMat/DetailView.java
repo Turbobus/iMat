@@ -200,6 +200,9 @@ public class DetailView extends AnchorPane {
             if(newValue.matches("")){
                 amountTextCard.setText("1");
             }
+//            if(Integer.parseInt(newValue) >= 100){
+//                amountTextCard.setText("99");
+//            }
         });
 
     }
