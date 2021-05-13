@@ -125,6 +125,14 @@
     -fx-border-color: #002E48;
 }
 
+
+.border_dark_dark_blue_1_width {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 1px;
+    -fx-border-color: #002E48;
+}
+
 .border_dark_red_width {
     -fx-border-radius: 30px;
     -fx-background-radius: 31px;
@@ -306,6 +314,13 @@
 #blue_button_with_border {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
+    -fx-padding: 0px;
+    -fx-border-color: #002E48;
+    -fx-border-insets: -1px;
+}
+
+#light_blue_button_with_border {
+    -fx-background-color: #C7E1FF;
     -fx-padding: 0px;
     -fx-border-color: #002E48;
     -fx-border-insets: -1px;

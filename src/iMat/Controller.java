@@ -24,6 +24,7 @@ public class Controller extends AnchorPane implements Initializable {
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
+    private final settings settings = new settings(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -71,6 +72,13 @@ public class Controller extends AnchorPane implements Initializable {
 
         openOverlay(detailView);
     }
+
+    public void openAccountView(){
+
+        openOverlay(settings);
+    }
+
+
 
     private void openOverlay(AnchorPane overlay){
         putHere.getChildren().clear();

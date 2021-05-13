@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="740.0" styleClass="border_dark_dark_blue_2_width" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="740.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="28.0" layoutY="141.0" prefHeight="311.0" prefWidth="680.0" stylesheets="@main.css">
          <children>
@@ -78,23 +79,27 @@
                   <String fx:value="dr" />
                </styleClass>
             </Text>
-            <Button id="light_blue_button_with_border" layoutX="450.0" layoutY="255.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" stylesheets="@main.css" text="Ändra uppgifterna" textFill="#002e48">
+            <Button id="light_blue_button_with_border" layoutX="450.0" layoutY="255.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" text="Ändra uppgifterna" textFill="#002e48">
                <font>
                   <Font size="20.0" />
                </font>
                <styleClass>
-                  <String fx:value="text_color_dark_blue" />
+                  <String fx:value="text_color_dark_dark_blue" />
                   <String fx:value="background_color_blue_white" />
                   <String fx:value="shadow_25_side" />
                   <String fx:value="border_radius_30" />
                </styleClass>
+               <stylesheets>
+                  <URL value="@main.css" />
+                  <URL value="@main.css" />
+               </stylesheets>
             </Button>
             <TextField layoutX="105.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="146.0" stylesheets="@main.css" text="Lövgatan 11">
                <font>
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -103,7 +108,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -112,7 +117,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -121,7 +126,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -130,7 +135,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -139,15 +144,14 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
          </children>
          <styleClass>
-            <String fx:value="background_color_blue_white" />
             <String fx:value="border_dark_dark_blue_1_width" />
-            <String fx:value="background_color_light_blue_white" />
+            <String fx:value="background_color_light_light_blue" />
          </styleClass>
       </AnchorPane>
       <AnchorPane layoutX="30.0" layoutY="552.0" prefHeight="209.0" prefWidth="680.0" stylesheets="@main.css">
@@ -204,23 +208,27 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Button id="light_blue_button_with_border" layoutX="450.0" layoutY="148.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" stylesheets="@main.css" text="Ändra uppgifterna" textFill="#002e48">
+            <Button id="light_blue_button_with_border" layoutX="450.0" layoutY="148.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="205.0" text="Ändra uppgifterna" textFill="#002e48">
                <font>
                   <Font size="20.0" />
                </font>
                <styleClass>
-                  <String fx:value="text_color_dark_blue" />
+                  <String fx:value="text_color_dark_dark_blue" />
                   <String fx:value="background_color_blue_white" />
                   <String fx:value="shadow_25_side" />
                   <String fx:value="border_radius_30" />
                </styleClass>
+               <stylesheets>
+                  <URL value="@main.css" />
+                  <URL value="@main.css" />
+               </stylesheets>
             </Button>
             <TextField layoutX="153.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="241.0" stylesheets="@main.css" text="20 52 3456 6345 9001">
                <font>
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -229,7 +237,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -238,7 +246,7 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
@@ -247,14 +255,14 @@
                   <Font size="22.0" />
                </font>
                <styleClass>
-                  <String fx:value="background_color_light_blue_white" />
+                  <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
          </children>
          <styleClass>
-            <String fx:value="background_color_light_blue_white" />
             <String fx:value="border_dark_dark_blue_1_width" />
+            <String fx:value="background_color_light_light_blue" />
          </styleClass>
       </AnchorPane>
       <Label prefHeight="85.0" prefWidth="740.0" stylesheets="@main.css" text="   Mitt konto" textFill="WHITE">
@@ -266,7 +274,7 @@
             <String fx:value="border_dark_dark_blue_2_width" />
          </styleClass>
       </Label>
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="193.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="193.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" styleClass="background_color_red_red">
          <image>
             <Image url="@../img/accounticon.png" />
          </image>
@@ -283,5 +291,11 @@
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="closeAccount" layoutX="691.0" layoutY="20.0" mnemonicParsing="false" onAction="#closeSettings" prefHeight="35.0" prefWidth="35.0" styleClass="exit_cross" />
    </children>
-</AnchorPane>
+   <styleClass>
+      <String fx:value="border_dark_dark_blue_2_width" />
+      <String fx:value="background_color_blue_white" />
+   </styleClass>
+</fx:root>
