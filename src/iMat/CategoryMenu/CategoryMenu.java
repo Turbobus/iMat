@@ -6,11 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class CategoryMenu extends AnchorPane {
 
     private final shopHolder pController;
+
+    @FXML private Button breadButton;
+    @FXML private Button dairyButton;
+    @FXML private Button sweetButton;
 
     public CategoryMenu(shopHolder pController) {
 

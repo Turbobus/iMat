@@ -12,7 +12,7 @@
    <children>
       <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
       <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
-      <Button id="category_buttons" fx:id="sweetsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
+      <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
       <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="294.0" prefHeight="75.0" prefWidth="226.0">
          <children>
             <Button id="category_buttons" fx:id="drinksButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
