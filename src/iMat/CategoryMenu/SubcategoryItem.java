@@ -11,7 +11,9 @@ public class SubcategoryItem extends AnchorPane {
 
     @FXML private Button subcategoryButton;
 
-    public SubcategoryItem(String itemText) {
+    private final String name;
+
+    public SubcategoryItem(String name, String itemText) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategoryItem.fxml"));
         fxmlLoader.setRoot(this);
@@ -24,6 +26,8 @@ public class SubcategoryItem extends AnchorPane {
         }
 
         this.subcategoryButton.setText(itemText);
+
+        this.name = name;
     }
 
     @FXML
@@ -31,7 +35,20 @@ public class SubcategoryItem extends AnchorPane {
         switch (this.subcategoryButton.getText()) {
             case "Fisk" -> System.out.println("You pressed Fisk.");
             case "Kött" -> System.out.println("You pressed Kött.");
+            case "Visa alla" -> showAllEvent();
         }
     }
+
+    private void showAllEvent() {
+        switch (this.getName()) {
+            case "drinks" -> System.out.println("You pressed Visa alla drycker.");
+            case "vegetables" -> System.out.println("You pressed Visa alla grönsaker.");
+            case "fish and meat" -> System.out.println("You pressed Visa alla Kött och fisk");
+            case "dryGoods" -> System.out.println("You pressed Visa alla torrvaror");
+            case "fruit" -> System.out.println("You pressed Visa alla frukt");
+        }
+    }
+
+    public String getName() { return this.name; }
 
 }

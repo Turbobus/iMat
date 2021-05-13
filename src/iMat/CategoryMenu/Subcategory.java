@@ -18,7 +18,7 @@ public class Subcategory extends AnchorPane {
         this.name = name;
 
         for(String subcategoryName : subcategories) {
-            this.subcategoryItems.add(new SubcategoryItem(subcategoryName));
+            this.subcategoryItems.add(new SubcategoryItem(name, subcategoryName));
         }
 
         this.holder = new SubcategoryHolder(subcategoryItems);
