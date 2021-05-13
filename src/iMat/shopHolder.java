@@ -1,18 +1,18 @@
 package iMat;
 
-import iMat.CategoryMenu.CategoryMenu;
-import iMat.CategoryMenu.DryGoods_subcategory;
-import iMat.CategoryMenu.Fruit_subcategory;
-import iMat.CategoryMenu.MeatFish_subcategory;
+import iMat.CategoryMenu.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
 public class shopHolder extends AnchorPane{
-    private Controller pController;
+    private final Controller pController;
+    private Boolean mouseOnSubCategory = true;
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
@@ -23,7 +23,9 @@ public class shopHolder extends AnchorPane{
     @FXML AnchorPane gridPane;
     @FXML AnchorPane cartPane;
 
+    @FXML FlowPane subcategoryPane;
 
+    CategoryMenu categoryMenu = new CategoryMenu(this);
 
     public shopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
@@ -41,8 +43,7 @@ public class shopHolder extends AnchorPane{
         setupHeader();
         setupGrid();
         setupCategories();
-
-        testSubcategory();
+        setupCart();
     }
 
     private void setupHeader(){
@@ -59,21 +60,83 @@ public class shopHolder extends AnchorPane{
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(new CategoryMenu(this));
+        categoryPane.getChildren().add(categoryMenu);
         categoryPane.toFront();
     }
 
-    private void testSubcategory() {
+    private void setupCart() {
         cartPane.getChildren().clear();
         cartPane.getChildren().add(new ShopCart());
         cartPane.toFront();
+    }
 
-//        //cartPane.getChildren().add(new Drinks_subcategory(this));
-//        //cartPane.getChildren().add(new Vegetables_subcategory(this));
-//        //cartPane.getChildren().add(new MeatFish_subcategory(this));
-//        //cartPane.getChildren().add(new DryGoods_subcategory(this));
-//        cartPane.getChildren().add(new Fruit_subcategory(this));
-//        cartPane.toFront();
+    @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }
+
+    public void closeSubcategory() {
+        if (!mouseOnSubCategory) {
+            subcategoryPane.getChildren().clear();
+            subcategoryPane.toBack();
+        }
+    }
+
+    public void openDrinkSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getDrinkPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getDrinkPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(categoryMenu.getDrinkSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openFruitSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getFruitPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getFruitPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(categoryMenu.getFruitSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openVegetableSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getVegetablePane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getVegetablePane().getLayoutY());
+
+        subcategoryPane.getChildren().add(categoryMenu.getVegetableSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openFishAndMeatSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getFishAndMeatPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getFishAndMeatPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(categoryMenu.getFishAndMeatSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openDryGoodsSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getDryGoodsPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getDryGoodsPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(categoryMenu.getDryGoodsSubcategory().getHolder());
+        subcategoryPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }

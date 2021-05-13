@@ -1,24 +1,27 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public abstract class Subcategory extends AnchorPane {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final shopHolder pController;
+public class Subcategory extends AnchorPane {
 
-    @FXML private Button showAllButton;
+    private final List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 
-    public Subcategory(shopHolder pController) {
+    private final SubcategoryHolder holder;
 
-        this.pController = pController;
+    public Subcategory(String name, List<String> subcategories) {
+
+        for(String subcategoryName : subcategories) {
+            this.subcategoryItems.add(new SubcategoryItem(name, subcategoryName));
+        }
+
+        this.holder = new SubcategoryHolder(subcategoryItems);
+
     }
 
-    @FXML
-    private void onShowAllClicked() {
-        System.out.println("Visa alla");
-        showAllButton.setId("subcategory_pressed_buttons");
-    }
+    public SubcategoryHolder getHolder() { return this.holder; }
+
 }
