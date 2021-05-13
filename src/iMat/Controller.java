@@ -60,6 +60,7 @@ public class Controller extends AnchorPane implements Initializable {
         window.toFront();
     }
 
+    // Creates the product card map for the shoppingcard
     private void createProductCards(){
         for (Product product : db.getProducts()) {
             ProductCard card = new ProductCard(product, this);
@@ -71,6 +72,7 @@ public class Controller extends AnchorPane implements Initializable {
         }
     }
 
+
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
         openOverlay(detailView);
@@ -78,6 +80,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openEmptyCart(){ openOverlay(EmptyCart); }
 
+    // Opens a given overlay in the center of the screen
     private void openOverlay(AnchorPane overlay){
         putHere.getChildren().clear();
 
@@ -97,15 +100,6 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
 
-    // Tror detta udner kan ts bort. Behövdes i labben när man bytte saker i listan så får se här med
-
-//    private void updateRecipeList(){
-//        searchResult.getChildren().clear();
-//        for (Recipe recipe : rbc.getRecipes()){
-//            searchResult.getChildren().add(recipeListItemMap.get(recipe.hashCode()));
-//        }
-//    }
-
     // Adds a product into the shoppingcart
     public void addToCart(int prodId){
         db.addToShoppingCart(prodId);
@@ -118,6 +112,7 @@ public class Controller extends AnchorPane implements Initializable {
         productCards.get(prodId).removeFromCart();
     }
 
+    // Removes all products from shoppingcart
     public void removeAllFromCart(){
         for(ShoppingItem item : db.getAllShoppingItems()){
             productCards.get(item.getProduct().getProductId()).removeFromCart();
@@ -125,16 +120,19 @@ public class Controller extends AnchorPane implements Initializable {
         db.clearCart();
     }
 
+    // Updates a cart item with a new amount
     public void updateCartItemAmount(int prodId, int newAmount){
         if(newAmount >= 100) { newAmount /= 10; }
         db.updateShoppingItemAmount(prodId, newAmount);
         productCards.get(prodId).setUpFromCart(newAmount);
     }
 
+    // Updates the gridcard
     public void updateGridCard(int prodId) {
         productCards.get(prodId).updateCard();
     }
 
+    // Rounds the corners of a given imageview with a specified amount
     public void roundImage(ImageView img, int amount) {
         Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());
         clip.setArcWidth(amount);

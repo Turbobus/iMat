@@ -20,6 +20,7 @@ public class EmptyCart extends AnchorPane {
     @FXML
     public void emptyCartPressed(ActionEvent event){
         pController.removeAllFromCart();
+        pController.closeOverlay();
     }
 
 
