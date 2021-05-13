@@ -12,6 +12,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
@@ -45,6 +46,7 @@ public class DetailView extends AnchorPane {
     @FXML private Label gProdName;
     @FXML private Label gPrice;
     @FXML private Label gEco;
+    @FXML private Label totalPrice;
     @FXML private Label gCategory;
     @FXML private ImageView gImg;
     @FXML private ImageView gEcoImg;
@@ -60,6 +62,8 @@ public class DetailView extends AnchorPane {
 
     @FXML
     public void addToCartPressed(ActionEvent event){
+        pController.addToCart(productId);
+        amountTextCard.setText("1");
         greenCard.toFront();
     }
 
@@ -68,8 +72,10 @@ public class DetailView extends AnchorPane {
         int newValue = Integer.parseInt(amountTextCard.getText()) - 1;
 
         if (newValue <= 0) {
+            pController.removeFromCart(productId);
             blueCard.toFront();
         } else {
+            pController.updateCartItemAmount(productId, newValue);
             amountTextCard.setText("" + newValue);
         }
     }
@@ -77,6 +83,7 @@ public class DetailView extends AnchorPane {
     @FXML
     public void increaseButtonPressed(ActionEvent event){
         amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
     }
 
     @FXML
@@ -139,6 +146,10 @@ public class DetailView extends AnchorPane {
             gEcoImg.setOpacity(0);
         }
         setupFavIcon();
+
+        if(db.isInCart(productId)){
+            setUpFromCart();
+        } else { blueCard.toFront(); }
     }
 
     private void setupFavIcon(){
@@ -161,6 +172,13 @@ public class DetailView extends AnchorPane {
             bfavImg.setOpacity(1);
             gfavImg.setOpacity(1);
         }
+    }
+
+    private void setUpFromCart(){
+        ShoppingItem item = db.getShoppingItem(productId);
+        greenCard.toFront();
+        amountTextCard.setText("" + (int) item.getAmount());
+        totalPrice.setText("Totalt pris: " + String.format("%.2f",item.getTotal()) + " kr");
     }
 
     // Gets the swedish name for the categories
@@ -199,6 +217,13 @@ public class DetailView extends AnchorPane {
             }
             if(newValue.matches("")){
                 amountTextCard.setText("1");
+            } else {
+
+                if(Integer.parseInt(newValue) >= 100){
+                    amountTextCard.setText("99");
+                }
+
+                pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
         });
 

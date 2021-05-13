@@ -18,7 +18,7 @@
             <String fx:value="bold_36" />
          </styleClass>
       </Label>
-      <Button id="red_button" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
+      <Button id="red_button" fx:id="emptyCartButton" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" onAction="#emptyCartPressed" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
          <font>
             <Font size="20.0" />
          </font>
@@ -34,13 +34,13 @@
             <String fx:value="shadow_50" />
          </styleClass>
       </Button>
-      <Label layoutX="26.0" layoutY="716.0" prefHeight="31.0" prefWidth="142.0" text="Antal: 6st">
+      <Label fx:id="amountInCart" layoutX="26.0" layoutY="716.0" prefHeight="31.0" prefWidth="142.0" text="Antal: 6st">
          <styleClass>
             <String fx:value="font_22" />
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="785.0" prefHeight="39.0" prefWidth="246.0" text="Totalt: 245 kr">
+      <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
          <styleClass>
             <String fx:value="bold_28" />
             <String fx:value="text_color_dark_dark_blue" />

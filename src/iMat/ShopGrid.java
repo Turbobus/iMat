@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ShopGrid extends AnchorPane {
 
-    private final shopHolder pController;
+    private final ShopHolder pController;
     private final DB db = DB.getInstance();
 
 
@@ -25,7 +25,7 @@ public class ShopGrid extends AnchorPane {
     @FXML GridPane cardHolder;          // Griden som håller produktkorten
 
 
-    public ShopGrid(shopHolder pController){
+    public ShopGrid(ShopHolder pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopGrid.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

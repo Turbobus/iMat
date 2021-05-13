@@ -1,6 +1,7 @@
 package iMat;
 
-import iMat.CategoryMenu.*;
+import iMat.CategoryMenu.CategoryMenu;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -10,9 +11,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
-public class shopHolder extends AnchorPane{
-    private final Controller pController;
-    private Boolean mouseOnSubCategory = true;
+public class ShopHolder extends AnchorPane{
+    private Controller pController;
+
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
@@ -26,9 +27,10 @@ public class shopHolder extends AnchorPane{
     @FXML FlowPane subcategoryPane;
 
     CategoryMenu categoryMenu = new CategoryMenu(this);
+    private boolean mouseOnSubCategory;
 
-    public shopHolder(Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
+    public ShopHolder(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopHolder.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -66,7 +68,7 @@ public class shopHolder extends AnchorPane{
 
     private void setupCart() {
         cartPane.getChildren().clear();
-        cartPane.getChildren().add(new ShopCart());
+        cartPane.getChildren().add(new ShopCart(pController));
         cartPane.toFront();
     }
 

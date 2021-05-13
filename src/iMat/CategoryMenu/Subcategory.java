@@ -1,5 +1,6 @@
 package iMat.CategoryMenu;
 
+import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
@@ -11,6 +12,7 @@ public class Subcategory extends AnchorPane {
     private final List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 
     private final SubcategoryHolder holder;
+
 
     public Subcategory(String name, List<String> subcategories) {
 

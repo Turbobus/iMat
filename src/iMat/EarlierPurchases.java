@@ -13,10 +13,10 @@ public class EarlierPurchases {
     @FXML private ImageView closeImgView;
     @FXML private FlowPane purchasesFlowPane;
 
-    private shopHolder controller;
+    private ShopHolder controller;
 
 
-    public EarlierPurchases(shopHolder controller){
+    public EarlierPurchases(ShopHolder controller){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierPurchases.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

@@ -1,6 +1,6 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
+import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -14,8 +14,7 @@ import java.util.List;
 
 public class CategoryMenu extends AnchorPane {
 
-    private final shopHolder pController;
-
+    private final ShopHolder pController;
     @FXML private Button breadButton;
     @FXML private Pane drinkPane;
     @FXML private Pane fruitPane;
@@ -32,7 +31,7 @@ public class CategoryMenu extends AnchorPane {
     private final Subcategory dryGoodsSubcategory;
     private final Subcategory fruitSubcategory;
 
-    public CategoryMenu(shopHolder pController) {
+    public CategoryMenu(ShopHolder pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);

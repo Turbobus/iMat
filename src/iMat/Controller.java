@@ -9,10 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -24,6 +24,7 @@ public class Controller extends AnchorPane implements Initializable {
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
+    private final EmptyCart EmptyCart = new EmptyCart(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -55,7 +56,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void setupShop(){
         window.getChildren().clear();
-        window.getChildren().add(new shopHolder(this));
+        window.getChildren().add(new ShopHolder(this));
         window.toFront();
     }
 
@@ -64,13 +65,18 @@ public class Controller extends AnchorPane implements Initializable {
             ProductCard card = new ProductCard(product, this);
             productCards.put(product.getProductId(), card);
         }
+
+        for (ShoppingItem item : db.getAllShoppingItems()){
+            productCards.get(item.getProduct().getProductId()).setUpFromCart(item.getAmount());
+        }
     }
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
-
         openOverlay(detailView);
     }
+
+    public void openEmptyCart(){ openOverlay(EmptyCart); }
 
     private void openOverlay(AnchorPane overlay){
         putHere.getChildren().clear();
@@ -99,6 +105,30 @@ public class Controller extends AnchorPane implements Initializable {
 //            searchResult.getChildren().add(recipeListItemMap.get(recipe.hashCode()));
 //        }
 //    }
+
+    // Adds a product into the shoppingcart
+    public void addToCart(int prodId){
+        db.addToShoppingCart(prodId);
+        productCards.get(prodId).setUpFromCart(1);
+    }
+
+    // Removes a product from the shoppingcart
+    public void removeFromCart(int prodId) {
+        db.removeShoppingItem(prodId);
+        productCards.get(prodId).removeFromCart();
+    }
+
+    public void removeAllFromCart(){
+        for(ShoppingItem item : db.getAllShoppingItems()){
+            productCards.get(item.getProduct().getProductId()).removeFromCart();
+        }
+        db.clearCart();
+    }
+
+    public void updateCartItemAmount(int prodId, int newAmount){
+        db.updateShoppingItemAmount(prodId, newAmount);
+        productCards.get(prodId).setUpFromCart(newAmount);
+    }
 
     public void updateGridCard(int prodId) {
         productCards.get(prodId).updateCard();
