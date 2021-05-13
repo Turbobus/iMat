@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="78.0" maxWidth="661.0" minHeight="78.0" minWidth="661.0" prefHeight="78.0" prefWidth="661.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.ProductItem">
+<fx:root maxHeight="78.0" maxWidth="661.0" minHeight="78.0" minWidth="661.0" prefHeight="78.0" prefWidth="661.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"  type="javafx.scene.layout.AnchorPane">
    <children>
       <AnchorPane maxHeight="78.0" maxWidth="78.0" minHeight="78.0" minWidth="78.0" prefHeight="78.0" prefWidth="78.0" styleClass="border_dark_dark_blue_1_width_15">
          <children>
@@ -53,4 +53,4 @@
       <String fx:value="border_dark_dark_blue_1_width_15" />
       <String fx:value="background_color_blue_white" />
    </styleClass>
-</AnchorPane>
+</fx:root>

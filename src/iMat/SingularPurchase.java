@@ -10,7 +10,7 @@ import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 
-public class SingularPurchase {
+public class SingularPurchase extends AnchorPane{
     //green version
     @FXML private Label gDateLabel;
     @FXML private Label gAmountLabel;
@@ -44,11 +44,14 @@ public class SingularPurchase {
         this.controller = controller;
     }
 
+    /*
     private void putAllInCart(ActionEvent event){
         gSingularPurchaseBack.toFront();
         gSingularPurchaseFront.toFront();
 
     }
+
+     */
 
 
 

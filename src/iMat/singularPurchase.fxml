@@ -90,6 +90,7 @@
                <styleClass>
                   <String fx:value="border_dark_dark_blue_1_width" />
                   <String fx:value="font_20" />
+                  <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
          </children>
@@ -114,13 +115,22 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Button id="blue_button" fx:id="bPutAllInCart" layoutX="444.0" layoutY="12.0" mnemonicParsing="false" onMousePressed="#putAllInCart" prefHeight="40.0" prefWidth="223.0" text="Lägg allt i kundvagnen">
+            <Button id="blue_button" fx:id="bPutAllInCart" layoutX="444.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="223.0">
                <styleClass>
                   <String fx:value="border_dark_blue_1_width" />
                   <String fx:value="border_radius_30" />
                   <String fx:value="bold_20" />
                   <String fx:value="shadow_50" />
                </styleClass>
+               <graphic>
+                  <Label text="Lägg allt i kundvagnen">
+                     <styleClass>
+                        <String fx:value="bold_20" />
+                        <String fx:value="shadow_50" />
+                        <String fx:value="text_color_blue_white" />
+                     </styleClass>
+                  </Label>
+               </graphic>
             </Button>
          </children>
       </AnchorPane>

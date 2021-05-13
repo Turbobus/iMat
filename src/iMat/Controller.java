@@ -25,6 +25,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     private final DetailView detailView = new DetailView(this);
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
+    private final Help help = new Help(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -94,6 +95,11 @@ public class Controller extends AnchorPane implements Initializable {
     public void openEarlierPurchases(){
 
         openOverlay(earlierPurchases);
+    }
+
+    public void openHelp(){
+
+        openOverlay(help);
     }
 
 

@@ -6,11 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
-public class ProductItem {
+public class ProductItem extends AnchorPane {
     @FXML private ImageView productImgView;
     @FXML private Label productNameLabel;
     @FXML private Label productPriceLabel;

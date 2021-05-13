@@ -31,4 +31,9 @@ public class header extends AnchorPane {
         pController.openEarlierPurchases();
 
     }
+
+    public void helpButtonpressed(ActionEvent event){
+        pController.openHelp();
+
+    }
 }
