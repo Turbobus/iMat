@@ -1,7 +1,5 @@
 package iMat.CategoryMenu;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -9,13 +7,13 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class Button_subcategory extends AnchorPane {
+public class SubcategoryItem extends AnchorPane {
 
     @FXML private Button subcategoryButton;
 
-    public Button_subcategory(String buttonText) {
+    public SubcategoryItem(String itemText) {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategory_button.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategoryItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -25,7 +23,7 @@ public class Button_subcategory extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.subcategoryButton.setText(buttonText);
+        this.subcategoryButton.setText(itemText);
     }
 
     @FXML

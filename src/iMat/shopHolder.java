@@ -71,8 +71,8 @@ public class shopHolder extends AnchorPane{
         //scroll.getChildren().add(0,new Button_subcategory("Fisk"));
         //scroll.getChildren().add(0, new Button_subcategory("Kött"));
 
-        scroll.addSubcategoryButton(new Button_subcategory("Fisk"));
-        scroll.addSubcategoryButton(new Button_subcategory("Kött"));
+        scroll.addSubcategoryButton(new SubcategoryItem("Fisk"));
+        scroll.addSubcategoryButton(new SubcategoryItem("Kött"));
 
         cartPane.getChildren().add(scroll);
 
