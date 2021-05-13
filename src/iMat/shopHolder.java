@@ -6,11 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
 public class shopHolder extends AnchorPane{
     private Controller pController;
+    private Boolean mouseOnSubCategory = true;
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
@@ -42,8 +44,6 @@ public class shopHolder extends AnchorPane{
         setupGrid();
         setupCategories();
         setupCart();
-
-        testSubcategory();
     }
 
     private void setupHeader(){
@@ -70,19 +70,18 @@ public class shopHolder extends AnchorPane{
         cartPane.toFront();
     }
 
-    public void testSubcategory() {
-        /*cartPane.getChildren().clear();
-        cartPane.getChildren().add(categoryMenu.getFishAndMeatSubcategory().getHolder());
-        cartPane.toFront();*/
-    }
+    @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }
 
     public void closeSubcategory() {
-        subcategoryPane.getChildren().clear();
-        subcategoryPane.toBack();
+        if (!mouseOnSubCategory) {
+            subcategoryPane.getChildren().clear();
+            subcategoryPane.toBack();
+        }
     }
 
     public void openDrinkSubcategory(){
         subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
 
         //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(categoryMenu.getDrinkPane().getPrefWidth());
@@ -94,6 +93,7 @@ public class shopHolder extends AnchorPane{
 
     public void openFruitSubcategory(){
         subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
 
         //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(categoryMenu.getFruitPane().getPrefWidth());
@@ -105,6 +105,7 @@ public class shopHolder extends AnchorPane{
 
     public void openVegetableSubcategory(){
         subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
 
         //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(categoryMenu.getVegetablePane().getPrefWidth());
@@ -116,6 +117,7 @@ public class shopHolder extends AnchorPane{
 
     public void openFishAndMeatSubcategory(){
         subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
 
         //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(categoryMenu.getFishAndMeatPane().getPrefWidth());
@@ -127,6 +129,7 @@ public class shopHolder extends AnchorPane{
 
     public void openDryGoodsSubcategory(){
         subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
 
         //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(categoryMenu.getDryGoodsPane().getPrefWidth());
