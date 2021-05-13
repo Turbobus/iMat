@@ -1,13 +1,10 @@
 package iMat;
 
 import iMat.CategoryMenu.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
@@ -74,8 +71,8 @@ public class shopHolder extends AnchorPane{
         //scroll.getChildren().add(0,new Button_subcategory("Fisk"));
         //scroll.getChildren().add(0, new Button_subcategory("Kött"));
 
-        scroll.addSubcategoryyButton(new Button_subcategory("Fisk"));
-        scroll.addSubcategoryyButton(new Button_subcategory("Kött"));
+        scroll.addSubcategoryButton(new Button_subcategory("Fisk"));
+        scroll.addSubcategoryButton(new Button_subcategory("Kött"));
 
         cartPane.getChildren().add(scroll);
 
