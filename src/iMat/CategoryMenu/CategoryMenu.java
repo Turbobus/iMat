@@ -1,18 +1,16 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
-import javafx.fxml.FXML;
+import iMat.ShopHolder;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class CategoryMenu extends AnchorPane {
 
-    private final shopHolder pController;
+    private final ShopHolder pController;
 
-    public CategoryMenu(shopHolder pController) {
+    public CategoryMenu(ShopHolder pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);

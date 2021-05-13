@@ -18,7 +18,7 @@
             <String fx:value="bold_36" />
          </styleClass>
       </Label>
-      <Button id="red_button" fx:id="emptyCartButton" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
+      <Button id="red_button" fx:id="emptyCartButton" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" onAction="#emptyCartPressed" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
          <font>
             <Font size="20.0" />
          </font>

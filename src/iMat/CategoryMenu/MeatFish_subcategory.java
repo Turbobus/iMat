@@ -1,6 +1,6 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
+import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -12,7 +12,7 @@ public class MeatFish_subcategory extends Subcategory {
     @FXML private Button meatButton;
     @FXML private Button fishButton;
 
-    public MeatFish_subcategory(shopHolder pController) {
+    public MeatFish_subcategory(ShopHolder pController) {
 
         super(pController);
 

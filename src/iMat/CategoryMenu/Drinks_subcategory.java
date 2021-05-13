@@ -1,11 +1,10 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
+import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class Drinks_subcategory extends Subcategory {
@@ -13,7 +12,7 @@ public class Drinks_subcategory extends Subcategory {
     @FXML private Button coldDrinksButton;
     @FXML private Button warmDrinksButton;
 
-    public Drinks_subcategory(shopHolder pController) {
+    public Drinks_subcategory(ShopHolder pController) {
 
         super(pController);
 

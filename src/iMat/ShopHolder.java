@@ -1,9 +1,6 @@
 package iMat;
 
 import iMat.CategoryMenu.CategoryMenu;
-import iMat.CategoryMenu.DryGoods_subcategory;
-import iMat.CategoryMenu.Fruit_subcategory;
-import iMat.CategoryMenu.MeatFish_subcategory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -11,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.Map;
 
-public class shopHolder extends AnchorPane{
+public class ShopHolder extends AnchorPane{
     private Controller pController;
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
@@ -25,8 +22,8 @@ public class shopHolder extends AnchorPane{
 
 
 
-    public shopHolder(Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
+    public ShopHolder(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopHolder.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

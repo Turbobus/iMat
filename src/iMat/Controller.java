@@ -13,7 +13,6 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -25,7 +24,7 @@ public class Controller extends AnchorPane implements Initializable {
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
-    private final empty_cart empty_cart = new empty_cart();
+    private final EmptyCart EmptyCart = new EmptyCart(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -57,7 +56,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void setupShop(){
         window.getChildren().clear();
-        window.getChildren().add(new shopHolder(this));
+        window.getChildren().add(new ShopHolder(this));
         window.toFront();
     }
 
@@ -76,6 +75,8 @@ public class Controller extends AnchorPane implements Initializable {
         detailView.setupInfo(db.getProduct(prodId));
         openOverlay(detailView);
     }
+
+    public void openEmptyCart(){ openOverlay(EmptyCart); }
 
     private void openOverlay(AnchorPane overlay){
         putHere.getChildren().clear();

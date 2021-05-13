@@ -29,7 +29,7 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     }
 
     @FXML public void emptyCartPressed(ActionEvent event){
-        //cartItemHolder.getChildren().add(0, new ShopCartItem());
+        pController.openEmptyCart();
     }
 
     public ShopCart(Controller pController){

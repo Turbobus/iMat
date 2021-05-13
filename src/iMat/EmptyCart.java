@@ -5,12 +5,12 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class header extends AnchorPane {
+public class EmptyCart extends AnchorPane {
 
-    private ShopHolder pController;
+    private final Controller pController;
 
-    public header(ShopHolder pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
+    public EmptyCart(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmptyCart.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -21,5 +21,6 @@ public class header extends AnchorPane {
         }
 
         this.pController = pController;
+
     }
 }

@@ -1,6 +1,6 @@
 package iMat.CategoryMenu;
 
-import iMat.shopHolder;
+import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -14,7 +14,7 @@ public class DryGoods_subcategory extends Subcategory {
     @FXML private Button nutsButton;
     @FXML private Button pastaButton;
 
-    public DryGoods_subcategory(shopHolder pController) {
+    public DryGoods_subcategory(ShopHolder pController) {
 
         super(pController);
 
