@@ -106,9 +106,17 @@ public class DB {
         return null;
     }
 
-    public List<ShoppingItem> getAllShoppingItems() {
-        return iMatDataHandler.getShoppingCart().getItems();
+    public int getTotalAmountInCart() {
+        int total = 0;
+        for (ShoppingItem item : getAllShoppingItems()){
+            total += item.getAmount();
+        }
+        return total;
     }
+
+    public List<ShoppingItem> getAllShoppingItems() { return iMatDataHandler.getShoppingCart().getItems(); }
+
+    public double getTotalCartPrice(){ return iMatDataHandler.getShoppingCart().getTotal(); }
 
     public void setCartListener(ShoppingCartListener listener) { iMatDataHandler.getShoppingCart().addShoppingCartListener(listener); }
 

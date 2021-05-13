@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.CartEvent;
@@ -18,9 +19,16 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     private final DB db = DB.getInstance();
 
     @FXML Button checkOutButton;
+    @FXML Button emptyCartButton;
     @FXML FlowPane cartItemHolder;
+    @FXML Label amountInCart;
+    @FXML Label totalPriceOfCart;
 
     @FXML public void checkoutPressed(ActionEvent event){
+        //cartItemHolder.getChildren().add(0, new ShopCartItem());
+    }
+
+    @FXML public void emptyCartPressed(ActionEvent event){
         //cartItemHolder.getChildren().add(0, new ShopCartItem());
     }
 
@@ -47,5 +55,7 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
         for (ShoppingItem item : db.getAllShoppingItems()){
             cartItemHolder.getChildren().add(0, new ShopCartItem(item, pController));
         }
+        totalPriceOfCart.setText("Totalt: " + String.format("%.2f",db.getTotalCartPrice()) + " kr");
+        amountInCart.setText("Antal: " + db.getTotalAmountInCart());
     }
 }

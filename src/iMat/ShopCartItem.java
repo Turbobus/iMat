@@ -67,7 +67,7 @@ public class ShopCartItem extends AnchorPane {
 
     private void setUp(ShoppingItem item){
         prodName.setText(item.getProduct().getName());
-        currentPrice.setText(item.getTotal() + " kr");
+        currentPrice.setText(String.format("%.2f",item.getTotal()) + " kr");
         amountTextCartItem.setText("" + (int) item.getAmount());
         prodImg.setImage(db.getImage(item.getProduct(), 78, 78));
         pController.roundImage(prodImg, 30);

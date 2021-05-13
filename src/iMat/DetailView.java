@@ -177,7 +177,7 @@ public class DetailView extends AnchorPane {
         ShoppingItem item = db.getShoppingItem(productId);
         greenCard.toFront();
         amountTextCard.setText("" + (int) item.getAmount());
-        totalPrice.setText("Totalt pris: " + item.getTotal() + " kr");
+        totalPrice.setText("Totalt pris: " + String.format("%.2f",item.getTotal()) + " kr");
     }
 
     // Gets the swedish name for the categories
