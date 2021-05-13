@@ -10,6 +10,6 @@
     <String fx:value="background_color_light_light_blue" />
   </styleClass>
    <children>
-      <FlowPane fx:id="subcategoryPane" prefHeight="300.0" prefWidth="260.0" />
+      <FlowPane fx:id="subcategoryPane" prefHeight="300.0" prefWidth="260.0" vgap="15.0"/>
    </children>
 </fx:root>

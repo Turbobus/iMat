@@ -78,6 +78,8 @@ public class shopHolder extends AnchorPane{
         scroll.addSubcategoryyButton(new Button_subcategory("Kött"));
 
         cartPane.getChildren().add(scroll);
+
+        //cartPane.getChildren().add(new ShopCart());
         cartPane.toFront();
     }
 
