@@ -64,7 +64,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="gfavImg" layoutX="470.0" layoutY="100.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
                      <children>
-                        <Pane id="heartIcon_green_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                        <Pane id="heartIcon_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
                      </children>
                      <styleClass>
                         <String fx:value="background_color_blue_white" />
@@ -216,7 +216,7 @@
             </Button>
             <AnchorPane fx:id="bfavImg" layoutX="470.0" layoutY="100.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
                <children>
-                  <Pane id="heartIcon_blue_img" fx:id="gHeartIcon11" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                  <Pane id="heartIcon_img" fx:id="gHeartIcon11" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
                </children>
                <styleClass>
                   <String fx:value="background_color_blue_white" />

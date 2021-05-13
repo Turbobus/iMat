@@ -1,13 +1,13 @@
 package iMat;
 
-import iMat.CategoryMenu.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import iMat.CategoryMenu.CategoryMenu;
+import iMat.CategoryMenu.DryGoods_subcategory;
+import iMat.CategoryMenu.Fruit_subcategory;
+import iMat.CategoryMenu.MeatFish_subcategory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
@@ -22,6 +22,8 @@ public class shopHolder extends AnchorPane{
     @FXML AnchorPane categoryPane;
     @FXML AnchorPane gridPane;
     @FXML AnchorPane cartPane;
+
+
 
     public shopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
@@ -63,19 +65,15 @@ public class shopHolder extends AnchorPane{
 
     private void testSubcategory() {
         cartPane.getChildren().clear();
-        //cartPane.getChildren().add(new Drinks_subcategory(this));
-        //cartPane.getChildren().add(new Vegetables_subcategory(this));
-        //cartPane.getChildren().add(new MeatFish_subcategory(this));
-        //cartPane.getChildren().add(new DryGoods_subcategory(this));
-        //cartPane.getChildren().add(new Fruit_subcategory(this));
-        //cartPane.getChildren().add(new Button_subcategory("Kött"));
-
-        ScrollpaneTest scroll = new ScrollpaneTest();
-        scroll.getChildren().add(new Button_subcategory("Fisk"));
-        scroll.getChildren().add(new Button_subcategory("Kött"));
-
-        cartPane.getChildren().add(scroll);
+        cartPane.getChildren().add(new ShopCart());
         cartPane.toFront();
+
+//        //cartPane.getChildren().add(new Drinks_subcategory(this));
+//        //cartPane.getChildren().add(new Vegetables_subcategory(this));
+//        //cartPane.getChildren().add(new MeatFish_subcategory(this));
+//        //cartPane.getChildren().add(new DryGoods_subcategory(this));
+//        cartPane.getChildren().add(new Fruit_subcategory(this));
+//        cartPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
