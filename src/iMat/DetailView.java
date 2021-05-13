@@ -210,20 +210,39 @@ public class DetailView extends AnchorPane {
 
     private void setupTextField(){
 
-        // force the field to be numeric only
+        // force the field to be numeric only and updates the amount in shopping cart
         amountTextCard.textProperty().addListener((observable, oldValue, newValue) -> {
+
             if (!newValue.matches("\\d*")) {
+
                 amountTextCard.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if(newValue.matches("")){
+
+            } else if (newValue.matches("0")){
+
                 amountTextCard.setText("1");
-            } else {
+
+            } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
                     amountTextCard.setText("99");
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+            }
+        });
+
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        amountTextCard.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                amountTextCard.setText("");
+
+            } else {
+                // Focus lost
+                if(amountTextCard.getText().matches("")){
+                    amountTextCard.setText("1");
+                }
             }
         });
 

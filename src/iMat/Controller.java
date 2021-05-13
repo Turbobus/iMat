@@ -126,6 +126,7 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void updateCartItemAmount(int prodId, int newAmount){
+        if(newAmount >= 100) { newAmount /= 10; }
         db.updateShoppingItemAmount(prodId, newAmount);
         productCards.get(prodId).setUpFromCart(newAmount);
     }

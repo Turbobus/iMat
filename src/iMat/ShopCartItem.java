@@ -74,14 +74,19 @@ public class ShopCartItem extends AnchorPane {
     }
 
     private void setupTextField(){
-        // force the field to be numeric only
+
+        // force the field to be numeric only and updates the amount in shopping cart
         amountTextCartItem.textProperty().addListener((observable, oldValue, newValue) -> {
+
             if (!newValue.matches("\\d*")) {
+
                 amountTextCartItem.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if(newValue.matches("")){
+
+            } else if (newValue.matches("0")){
+
                 amountTextCartItem.setText("1");
-            } else {
+
+            } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
                     amountTextCartItem.setText("99");
@@ -89,7 +94,21 @@ public class ShopCartItem extends AnchorPane {
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
+        });
 
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        amountTextCartItem.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                amountTextCartItem.setText("");
+
+            } else {
+                // Focus lost
+                if(amountTextCartItem.getText().matches("")){
+                    amountTextCartItem.setText("1");
+                }
+            }
         });
     }
 }
