@@ -1,11 +1,12 @@
 package iMat.CategoryMenu;
 
+import iMat.ShopGrid;
 import iMat.shopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class Drinks_subcategory extends Subcategory {
@@ -32,6 +33,8 @@ public class Drinks_subcategory extends Subcategory {
     private void onColdDrinksClicked() {
         System.out.println("Kalla drycker");
         coldDrinksButton.setId("subcategory_pressed_buttons");
+        //ProductCategory.COLD_DRINKS.
+        //shopGrid.chosenCategory(ProductCategory.COLD_DRINKS);
     }
 
     @FXML

@@ -3,8 +3,8 @@ package iMat.CategoryMenu;
 import iMat.shopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
 
@@ -27,4 +27,11 @@ public class CategoryMenu extends AnchorPane {
         this.pController = pController;
 
     }
+
+    @FXML
+    private void onMouseEnterDrink() {
+
+        //new new_subcategory().button
+    }
+
 }
