@@ -20,10 +20,10 @@ public class CategoryMenu extends AnchorPane {
     @FXML private Button sweetButton;
 
     private final Subcategory drinkSubcategory;
-    private Subcategory vegetableSubcategory;
-    private Subcategory fishAndMeatSubcategory;
-    private Subcategory dryGoodsSubcategory;
-    private Subcategory fruitSubcategory;
+    private final Subcategory vegetableSubcategory;
+    private final Subcategory fishAndMeatSubcategory;
+    private final Subcategory dryGoodsSubcategory;
+    private final Subcategory fruitSubcategory;
 
     public CategoryMenu(shopHolder pController) {
 
@@ -82,6 +82,16 @@ public class CategoryMenu extends AnchorPane {
 
     public Subcategory createNewSubcategory(String nameOfSubcategory, List<String> subcategoryNames) {
         return new Subcategory(nameOfSubcategory, subcategoryNames);
+    }
+
+    @FXML
+    private void onMouseLeave() {
+        pController.closeSubcategory();
+    }
+
+    @FXML
+    private void onFishAndMeatHover() {
+        pController.openFishAndMeatSubcategory();
     }
 
     @FXML

@@ -7,8 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class shopHolder extends AnchorPane{
@@ -25,6 +23,8 @@ public class shopHolder extends AnchorPane{
 
     @FXML FlowPane subcategoryPane;
 
+    CategoryMenu categoryMenu = new CategoryMenu(this);
+
     public shopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -40,7 +40,7 @@ public class shopHolder extends AnchorPane{
 
         setupHeader();
         setupGrid();
-        //setupCategories();
+        setupCategories();
         setupCart();
 
         testSubcategory();
@@ -71,11 +71,20 @@ public class shopHolder extends AnchorPane{
     }
 
     public void testSubcategory() {
-        CategoryMenu categoryMenu = new CategoryMenu(this);
-        cartPane.getChildren().clear();
-        cartPane.getChildren().add(categoryMenu.getVegetableSubcategory().getHolder());
-        cartPane.toFront();
-        //subcategoryPane.getChildren().add();
+        /*cartPane.getChildren().clear();
+        cartPane.getChildren().add(categoryMenu.getFishAndMeatSubcategory().getHolder());
+        cartPane.toFront();*/
+    }
+
+    public void closeSubcategory() {
+        subcategoryPane.getChildren().clear();
+        subcategoryPane.toBack();
+    }
+
+    public void openFishAndMeatSubcategory(){
+        subcategoryPane.getChildren().clear();
+        subcategoryPane.getChildren().add(categoryMenu.getFishAndMeatSubcategory().getHolder());
+        subcategoryPane.toFront();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }

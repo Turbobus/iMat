@@ -25,9 +25,7 @@ public class Subcategory extends AnchorPane {
 
     }
 
-    public SubcategoryHolder getHolder() {
-        return this.holder;
-    }
+    public SubcategoryHolder getHolder() { return this.holder; }
 
     @FXML
     private void onShowAllClicked() {

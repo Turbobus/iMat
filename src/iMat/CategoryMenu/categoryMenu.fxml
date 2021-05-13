@@ -45,7 +45,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="552.0" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" layoutX="-2.0" layoutY="552.0" onMouseEntered="#onFishAndMeatHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
          <children>
             <Button id="category_buttons" fx:id="drinksButton3" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
