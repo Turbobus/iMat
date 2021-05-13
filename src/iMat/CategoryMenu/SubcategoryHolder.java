@@ -26,8 +26,8 @@ public class SubcategoryHolder extends AnchorPane {
 
     }
 
-    public void addSubcategoryButton(SubcategoryItem button) {
-        subcategoryPane.getChildren().add(0, button);
-        mainPane.setPrefHeight(mainPane.getPrefHeight() + (button.getHeight() + subcategoryPane.getVgap()));
+    public void addSubcategoryItem(SubcategoryItem item) {
+        subcategoryPane.getChildren().add(0, item);
+        mainPane.setPrefHeight(mainPane.getPrefHeight() + (item.getHeight() + subcategoryPane.getVgap()));
     }
 }

@@ -11,6 +11,8 @@ public class Subcategory extends AnchorPane {
     private final String name;
     List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 
+    private final SubcategoryHolder holder;
+
     public Subcategory(String name, List<String> subcategories) {
 
         this.name = name;
@@ -18,6 +20,8 @@ public class Subcategory extends AnchorPane {
         for(String subcategory : subcategories) {
             this.subcategoryItems.add(new SubcategoryItem(subcategory));
         }
+
+        this.holder = new SubcategoryHolder();
 
     }
 

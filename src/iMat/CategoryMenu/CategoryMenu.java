@@ -3,10 +3,10 @@ package iMat.CategoryMenu;
 import iMat.shopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.ProductCategory;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +19,10 @@ public class CategoryMenu extends AnchorPane {
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
 
-    private List<String> drinks = new ArrayList<>();
     private Subcategory drinkSubcategory;
-
-    private List<String> vegetables = new ArrayList<>();
     private Subcategory vegetableSubcategory;
-
-    private List<String> fishAndMeat = new ArrayList<>();
     private Subcategory fishAndMeatSubcategory;
-
-    private List<String> dryGoods = new ArrayList<>();
     private Subcategory dryGoodsSubcategory;
-
-    private List<String> fruits = new ArrayList<>();
     private Subcategory fruitSubcategory;
 
     public CategoryMenu(shopHolder pController) {
@@ -48,38 +39,45 @@ public class CategoryMenu extends AnchorPane {
 
         this.pController = pController;
 
-        drinks.add("Visa alla");
-        drinks.add("Drycker kalla");
-        drinks.add("Drycker varma");
-        drinkSubcategory = createNewSubcategory("drinks", drinks);
+        List<String> items = new ArrayList<>();
 
-        vegetables.add("Visa alla");
-        vegetables.add("Bär");
-        vegetables.add("Kål");
-        vegetables.add("Potatis, ris");
-        vegetables.add("Örtkryddor");
-        vegetableSubcategory = createNewSubcategory("vegetables", vegetables);
+        items.add("Visa alla");
+        items.add("Drycker kalla");
+        items.add("Drycker varma");
+        drinkSubcategory = createNewSubcategory("drinks", items);
+        items.clear();
 
-        fishAndMeat.add("Visa alla");
-        fishAndMeat.add("Fisk");
-        fishAndMeat.add("Kött");
-        fishAndMeatSubcategory = createNewSubcategory("fish and meat", fishAndMeat);
+        items.add("Visa alla");
+        items.add("Bär");
+        items.add("Kål");
+        items.add("Potatis, ris");
+        items.add("Örtkryddor");
+        vegetableSubcategory = createNewSubcategory("vegetables", items);
+        items.clear();
 
-        dryGoods.add("Visa alla");
-        dryGoods.add("Baljväxter");
-        dryGoods.add("Mjöl, socker, salt");
-        dryGoods.add("Nötter & frön");
-        dryGoods.add("Pasta");
-        dryGoodsSubcategory = createNewSubcategory("dryGoods", dryGoods);
+        items.add("Visa alla");
+        items.add("Fisk");
+        items.add("Kött");
+        fishAndMeatSubcategory = createNewSubcategory("fish and meat", items);
+        items.clear();
 
-        fruits.add("Visa alla");
-        fruits.add("Citrusfrukter");
-        fruits.add("Exotiska frukter");
-        fruits.add("Grönsaksfrukter");
-        fruits.add("Meloner");
-        fruits.add("Rotfrukter");
-        fruits.add("Stenfrukter");
-        fruitSubcategory = createNewSubcategory("fruit", fruits);
+        items.add("Visa alla");
+        items.add("Baljväxter");
+        items.add("Mjöl, socker, salt");
+        items.add("Nötter & frön");
+        items.add("Pasta");
+        dryGoodsSubcategory = createNewSubcategory("dryGoods", items);
+        items.clear();
+
+        items.add("Visa alla");
+        items.add("Citrusfrukter");
+        items.add("Exotiska frukter");
+        items.add("Grönsaksfrukter");
+        items.add("Meloner");
+        items.add("Rotfrukter");
+        items.add("Stenfrukter");
+        fruitSubcategory = createNewSubcategory("fruit", items);
+        items.clear();
     }
 
     public Subcategory createNewSubcategory(String nameOfSubcategory, List<String> subcategoryNames) {
@@ -87,9 +85,8 @@ public class CategoryMenu extends AnchorPane {
     }
 
     @FXML
-    private void onMouseEnterDrink() {
-
-        //new new_subcategory().button
+    private void onBreadClicked() {
+        System.out.println("Bröd");
     }
 
 }
