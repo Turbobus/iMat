@@ -287,8 +287,9 @@
 #empty_cart {
     -fx-border-radius: 30px;
     -fx-border-width: 2px;
+    -fx-background-radius: 31px;
     -fx-border-color: #210A00;
-    -fx-background-color: #F1F4FF;
+    -fx-background-color: #FFFCFB;
 }
 
 #white_button {

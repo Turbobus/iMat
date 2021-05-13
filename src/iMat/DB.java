@@ -118,6 +118,8 @@ public class DB {
 
     public double getTotalCartPrice(){ return iMatDataHandler.getShoppingCart().getTotal(); }
 
+    public void clearCart() { iMatDataHandler.getShoppingCart().clear(); }
+
     public void setCartListener(ShoppingCartListener listener) { iMatDataHandler.getShoppingCart().addShoppingCartListener(listener); }
 
     public boolean isFavourite(int prodId) { return iMatDataHandler.isFavorite(iMatDataHandler.getProduct(prodId)); }

@@ -81,10 +81,14 @@ public class ShopCartItem extends AnchorPane {
             }
             if(newValue.matches("")){
                 amountTextCartItem.setText("1");
+            } else {
+
+                if(Integer.parseInt(newValue) >= 100){
+                    amountTextCartItem.setText("99");
+                }
+
+                pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
-//            if(Integer.parseInt(newValue) >= 100){
-//                amountTextCartItem.setText("99");
-//            }
 
         });
     }

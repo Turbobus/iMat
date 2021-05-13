@@ -63,6 +63,7 @@ public class DetailView extends AnchorPane {
     @FXML
     public void addToCartPressed(ActionEvent event){
         pController.addToCart(productId);
+        amountTextCard.setText("1");
         greenCard.toFront();
     }
 
@@ -216,10 +217,14 @@ public class DetailView extends AnchorPane {
             }
             if(newValue.matches("")){
                 amountTextCard.setText("1");
+            } else {
+
+                if(Integer.parseInt(newValue) >= 100){
+                    amountTextCard.setText("99");
+                }
+
+                pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
-//            if(Integer.parseInt(newValue) >= 100){
-//                amountTextCard.setText("99");
-//            }
         });
 
     }
