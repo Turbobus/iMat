@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="580.0" prefWidth="240.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button id="subcategory_buttons" fx:id="showAllButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#onShowAllClicked" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
+        <Button id="subcategory_buttons" fx:id="citrusFruitButton" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#onCitrusFruitClicked" prefHeight="65.0" prefWidth="220.0" text="Citrusfrukter" />
+        <Button id="subcategory_buttons" fx:id="exoticFruitButton" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#onExoticFruitClicked" prefHeight="65.0" prefWidth="220.0" text="Exotiska frukter" />
+        <Button id="subcategory_buttons" fx:id="vegetableFruitButton" layoutX="10.0" layoutY="260.0" mnemonicParsing="false" onAction="#onVegetableFruitClicked" prefHeight="65.0" prefWidth="220.0" text="Grönsaksfrukter" />
+        <Button id="subcategory_buttons" fx:id="melonButton" layoutX="10.0" layoutY="340.0" mnemonicParsing="false" onAction="#onMelonClicked" prefHeight="65.0" prefWidth="220.0" text="Meloner" />
+      <Button id="subcategory_buttons" fx:id="rootFruitButton" layoutX="10.0" layoutY="420.0" mnemonicParsing="false" onAction="#onRootFruitClicked" prefHeight="65.0" prefWidth="220.0" text="Rotfrukter" />
+      <Button id="subcategory_buttons" fx:id="stoneFruitButton" layoutX="10.0" layoutY="500.0" mnemonicParsing="false" onAction="#onStoneFruitClicked" prefHeight="65.0" prefWidth="220.0" text="Stenfrukter" />
+    </children>
+    <styleClass>
+        <String fx:value="border_radius_30" />
+        <String fx:value="background_color_light_light_blue" />
+    </styleClass>
+</fx:root>

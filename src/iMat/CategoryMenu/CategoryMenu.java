@@ -1,20 +1,20 @@
-package iMat;
+package iMat.CategoryMenu;
 
+import iMat.shopHolder;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class header extends AnchorPane {
+public class CategoryMenu extends AnchorPane {
 
-    private shopHolder pController;
-    private Button earlierPurchaseButton;
+    private final shopHolder pController;
 
+    public CategoryMenu(shopHolder pController) {
 
-
-    public header(shopHolder pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -25,8 +25,6 @@ public class header extends AnchorPane {
         }
 
         this.pController = pController;
-    }
-    private void earlierPurchaseButtonPressed(){
 
     }
 }

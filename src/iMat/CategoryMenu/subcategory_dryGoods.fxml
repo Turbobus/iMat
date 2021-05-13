@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="420.0" prefWidth="240.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button id="subcategory_buttons" fx:id="pastaButton" layoutX="10.0" layoutY="340.0" mnemonicParsing="false" onAction="#onPastaClicked" prefHeight="65.0" prefWidth="220.0" text="Pasta" />
+        <Button id="subcategory_buttons" fx:id="showAllButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#onShowAllClicked" prefHeight="65.0" prefWidth="220.0" text="Visa alla" />
+        <Button id="subcategory_buttons" fx:id="legumesButton" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#onLegumesClicked" prefHeight="65.0" prefWidth="220.0" text="Baljväxter" />
+        <Button id="subcategory_buttons" fx:id="flourButton" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#onFlourClicked" prefHeight="65.0" prefWidth="220.0" text="Mjöl, socker, salt" />
+        <Button id="subcategory_buttons" fx:id="nutsButton" layoutX="10.0" layoutY="260.0" mnemonicParsing="false" onAction="#onNutsClicked" prefHeight="65.0" prefWidth="220.0" text="Nötter, frön" />
+    </children>
+    <styleClass>
+        <String fx:value="border_radius_30" />
+        <String fx:value="background_color_light_light_blue" />
+    </styleClass>
+</fx:root>

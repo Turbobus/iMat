@@ -315,11 +315,13 @@
     -fx-border-width: 0px;
     -fx-background-color: #FBFFFA;
     -fx-text-fill: #0A2500;
+    -fx-font-size: 27px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 1, 2);
 }
 
 #empty_cart {
     -fx-border-radius: 30px;
+   
     -fx-border-width: 2px;
     -fx-border-color: #210A00;
     -fx-background-color: #F1F4FF;
