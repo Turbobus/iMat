@@ -4,6 +4,7 @@ import iMat.CategoryMenu.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class shopHolder extends AnchorPane{
     @FXML AnchorPane gridPane;
     @FXML AnchorPane cartPane;
 
+    @FXML FlowPane subcategoryPane;
+
     public shopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -37,7 +40,8 @@ public class shopHolder extends AnchorPane{
 
         setupHeader();
         setupGrid();
-        setupCategories();
+        //setupCategories();
+        setupCart();
 
         testSubcategory();
     }
@@ -60,16 +64,18 @@ public class shopHolder extends AnchorPane{
         categoryPane.toFront();
     }
 
-    private void testSubcategory() {
-        //cartPane.getChildren().clear();
-        //cartPane.getChildren().add(new ShopCart());
-        //cartPane.toFront();
+    private void setupCart() {
+        cartPane.getChildren().clear();
+        cartPane.getChildren().add(new ShopCart());
+        cartPane.toFront();
+    }
 
+    public void testSubcategory() {
         CategoryMenu categoryMenu = new CategoryMenu(this);
         cartPane.getChildren().clear();
         cartPane.getChildren().add(categoryMenu.getVegetableSubcategory().getHolder());
         cartPane.toFront();
-
+        //subcategoryPane.getChildren().add();
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
