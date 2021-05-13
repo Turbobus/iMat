@@ -81,9 +81,58 @@ public class shopHolder extends AnchorPane{
         subcategoryPane.toBack();
     }
 
+    public void openDrinkSubcategory(){
+        subcategoryPane.getChildren().clear();
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getDrinkPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getDrinkPane().getLayoutY() + (categoryMenu.getDrinkSubcategory().getHolder().getHeight()/3));
+
+        subcategoryPane.getChildren().add(categoryMenu.getDrinkSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openFruitSubcategory(){
+        subcategoryPane.getChildren().clear();
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getFruitPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getFruitPane().getLayoutY() + (categoryMenu.getFruitSubcategory().getHolder().getHeight()/3));
+
+        subcategoryPane.getChildren().add(categoryMenu.getFruitSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openVegetableSubcategory(){
+        subcategoryPane.getChildren().clear();
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getVegetablePane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getVegetablePane().getLayoutY() + (categoryMenu.getVegetableSubcategory().getHolder().getHeight()/3));
+
+        subcategoryPane.getChildren().add(categoryMenu.getVegetableSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
     public void openFishAndMeatSubcategory(){
         subcategoryPane.getChildren().clear();
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getFishAndMeatPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getFishAndMeatPane().getLayoutY() + (categoryMenu.getFishAndMeatSubcategory().getHolder().getHeight()/3));
+
         subcategoryPane.getChildren().add(categoryMenu.getFishAndMeatSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openDryGoodsSubcategory(){
+        subcategoryPane.getChildren().clear();
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(categoryMenu.getDryGoodsPane().getPrefWidth());
+        subcategoryPane.setLayoutY(categoryMenu.getDryGoodsPane().getLayoutY() + (categoryMenu.getDryGoodsSubcategory().getHolder().getHeight()/3));
+
+        subcategoryPane.getChildren().add(categoryMenu.getDryGoodsSubcategory().getHolder());
         subcategoryPane.toFront();
     }
 

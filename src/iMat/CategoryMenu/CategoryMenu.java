@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 
 import java.io.IOException;
@@ -16,6 +17,12 @@ public class CategoryMenu extends AnchorPane {
     private final shopHolder pController;
 
     @FXML private Button breadButton;
+    @FXML private Pane drinkPane;
+    @FXML private Pane fruitPane;
+    @FXML private Pane vegetablePane;
+    @FXML private Pane fishAndMeatPane;
+    @FXML private Pane dryGoodsPane;
+
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
 
@@ -84,15 +91,17 @@ public class CategoryMenu extends AnchorPane {
         return new Subcategory(nameOfSubcategory, subcategoryNames);
     }
 
-    @FXML
-    private void onMouseLeave() {
-        pController.closeSubcategory();
-    }
+    @FXML private void onMouseLeave() { pController.closeSubcategory(); }
 
-    @FXML
-    private void onFishAndMeatHover() {
-        pController.openFishAndMeatSubcategory();
-    }
+    @FXML private void onDrinkHover() { pController.openDrinkSubcategory(); }
+
+    @FXML private void onFruitHover() { pController.openFruitSubcategory(); }
+
+    @FXML private void onVegetableHover() { pController.openFruitSubcategory(); }
+
+    @FXML private void onFishAndMeatHover() { pController.openFishAndMeatSubcategory(); }
+
+    @FXML private void onDryGoodsHover() { pController.openDryGoodsSubcategory(); }
 
     @FXML
     private void onBreadClicked() {
@@ -109,5 +118,20 @@ public class CategoryMenu extends AnchorPane {
 
     public Subcategory getFruitSubcategory() { return fruitSubcategory; }
 
+    public Button getBreadButton() { return breadButton; }
+
+    public Pane getDrinkPane() { return drinkPane; }
+
+    public Pane getFruitPane() { return fruitPane; }
+
+    public Pane getVegetablePane() { return vegetablePane; }
+
+    public Pane getFishAndMeatPane() { return fishAndMeatPane; }
+
+    public Pane getDryGoodsPane() { return dryGoodsPane; }
+
+    public Button getDairyButton() { return dairyButton; }
+
+    public Button getSweetButton() { return sweetButton; }
 
 }
