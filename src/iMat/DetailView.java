@@ -46,6 +46,7 @@ public class DetailView extends AnchorPane {
     @FXML private Label gProdName;
     @FXML private Label gPrice;
     @FXML private Label gEco;
+    @FXML private Label totalPrice;
     @FXML private Label gCategory;
     @FXML private ImageView gImg;
     @FXML private ImageView gEcoImg;
@@ -176,6 +177,7 @@ public class DetailView extends AnchorPane {
         ShoppingItem item = db.getShoppingItem(productId);
         greenCard.toFront();
         amountTextCard.setText("" + (int) item.getAmount());
+        totalPrice.setText("Totalt pris: " + item.getTotal() + " kr");
     }
 
     // Gets the swedish name for the categories
