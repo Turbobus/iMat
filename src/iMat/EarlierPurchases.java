@@ -8,15 +8,15 @@ import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 
-public class EarlierPurchases {
+public class EarlierPurchases extends AnchorPane{
     @FXML private AnchorPane earlierPurchases;
     @FXML private ImageView closeImgView;
     @FXML private FlowPane purchasesFlowPane;
 
-    private shopHolder controller;
+    private Controller controller;
 
 
-    public EarlierPurchases(shopHolder controller){
+    public EarlierPurchases(Controller controller){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierPurchases.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

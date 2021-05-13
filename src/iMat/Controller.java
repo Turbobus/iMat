@@ -24,6 +24,7 @@ public class Controller extends AnchorPane implements Initializable {
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
+    private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -89,6 +90,12 @@ public class Controller extends AnchorPane implements Initializable {
         putHere.setLayoutY(y);
         darkPane.toFront();
     }
+
+    public void openEarlierPurchases(){
+
+        openOverlay(earlierPurchases);
+    }
+
 
 
     // Tror detta udner kan ts bort. Behövdes i labben när man bytte saker i listan så får se här med

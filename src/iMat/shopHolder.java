@@ -47,7 +47,7 @@ public class shopHolder extends AnchorPane{
 
     private void setupHeader(){
         headerPane.getChildren().clear();
-        headerPane.getChildren().add(new header(this));
+        headerPane.getChildren().add(new header(pController));
         headerPane.toFront();
     }
 
