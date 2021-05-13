@@ -48,41 +48,41 @@ public class CategoryMenu extends AnchorPane {
 
         List<String> items = new ArrayList<>();
 
-        items.add("Visa alla");
-        items.add("Drycker kalla");
         items.add("Drycker varma");
+        items.add("Drycker kalla");
+        items.add("Visa alla");
         drinkSubcategory = createNewSubcategory("drinks", items);
         items.clear();
 
-        items.add("Visa alla");
-        items.add("Bär");
-        items.add("Kål");
-        items.add("Potatis, ris");
         items.add("Örtkryddor");
+        items.add("Potatis, ris");
+        items.add("Kål");
+        items.add("Bär");
+        items.add("Visa alla");
         vegetableSubcategory = createNewSubcategory("vegetables", items);
         items.clear();
 
-        items.add("Visa alla");
-        items.add("Fisk");
         items.add("Kött");
+        items.add("Fisk");
+        items.add("Visa alla");
         fishAndMeatSubcategory = createNewSubcategory("fish and meat", items);
         items.clear();
 
-        items.add("Visa alla");
-        items.add("Baljväxter");
-        items.add("Mjöl, socker, salt");
-        items.add("Nötter & frön");
         items.add("Pasta");
+        items.add("Nötter & frön");
+        items.add("Mjöl, socker, salt");
+        items.add("Baljväxter");
+        items.add("Visa alla");
         dryGoodsSubcategory = createNewSubcategory("dryGoods", items);
         items.clear();
 
-        items.add("Visa alla");
-        items.add("Citrusfrukter");
-        items.add("Exotiska frukter");
-        items.add("Grönsaksfrukter");
-        items.add("Meloner");
-        items.add("Rotfrukter");
         items.add("Stenfrukter");
+        items.add("Rotfrukter");
+        items.add("Meloner");
+        items.add("Grönsaksfrukter");
+        items.add("Exotiska frukter");
+        items.add("Citrusfrukter");
+        items.add("Visa alla");
         fruitSubcategory = createNewSubcategory("fruit", items);
         items.clear();
     }
@@ -97,7 +97,7 @@ public class CategoryMenu extends AnchorPane {
 
     @FXML private void onFruitHover() { pController.openFruitSubcategory(); }
 
-    @FXML private void onVegetableHover() { pController.openFruitSubcategory(); }
+    @FXML private void onVegetableHover() { pController.openVegetableSubcategory(); }
 
     @FXML private void onFishAndMeatHover() { pController.openFishAndMeatSubcategory(); }
 
