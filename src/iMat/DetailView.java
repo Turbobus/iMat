@@ -21,6 +21,7 @@ public class DetailView extends AnchorPane {
     private final Controller pController;
     private final DB db = DB.getInstance();
     private int productId;
+    private double productPrice;
 
     // Blue card
     @FXML private AnchorPane blueCard;
@@ -64,6 +65,7 @@ public class DetailView extends AnchorPane {
     public void addToCartPressed(ActionEvent event){
         pController.addToCart(productId);
         amountTextCard.setText("1");
+        totalPrice.setText("Totalt pris: " + productPrice + " kr");
         greenCard.toFront();
     }
 
@@ -115,6 +117,7 @@ public class DetailView extends AnchorPane {
 
     public void setupInfo(Product product){
         this.productId = product.getProductId();
+        this.productPrice = product.getPrice();
 
         // The blue version of the card
         bProdName.setText(product.getName());
@@ -228,6 +231,7 @@ public class DetailView extends AnchorPane {
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+                totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * productPrice) + " kr");
             }
         });
 
