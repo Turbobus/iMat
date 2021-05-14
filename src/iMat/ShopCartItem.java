@@ -88,9 +88,9 @@ public class ShopCartItem extends AnchorPane {
 
             } else if (!newValue.matches("")){
 
-                if(Integer.parseInt(newValue) >= 100){
-                    amountTextCartItem.setText("99");
-                }
+//                if(Integer.parseInt(newValue) >= 100){
+//                    amountTextCartItem.setText("99");
+//                }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }

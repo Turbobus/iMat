@@ -224,7 +224,7 @@ public class DetailView extends AnchorPane {
             } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
-                    amountTextCard.setText("99");
+                    amountTextCard.setText("" + Integer.parseInt(newValue)/10);
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
