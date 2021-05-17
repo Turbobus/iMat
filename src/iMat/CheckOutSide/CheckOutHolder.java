@@ -42,7 +42,7 @@ public class CheckOutHolder extends AnchorPane {
         setupHeader();
         setupGrid();
         //setupCategories();
-        //setupMethod();
+        //setupLeftPanel();
     }
 
 
@@ -64,7 +64,7 @@ public class CheckOutHolder extends AnchorPane {
         categoryPane.toFront();
     }
 
-    private void setupMethod() {
+    private void setupLeftPanel() {
         methodPane.getChildren().clear();
         methodPane.getChildren().add(new AnchorPane());
         methodPane.toFront();

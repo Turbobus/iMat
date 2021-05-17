@@ -47,6 +47,12 @@
                                 <Button id="breadcrumb_button" fx:id="mainCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
                             </buttons>
                         </ButtonBar>
+                  <Button id="red_button" fx:id="emptyCart" layoutX="934.0" layoutY="52.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="230.0" text="Töm kundvagn">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="bold_28" />
+                     </styleClass>
+                  </Button>
                     </children>
                 </AnchorPane>
             </content>
