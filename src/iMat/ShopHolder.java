@@ -24,8 +24,6 @@ public class ShopHolder extends AnchorPane{
     @FXML AnchorPane gridPane;
     @FXML AnchorPane cartPane;
 
-    CategoryMenu categoryMenu = new CategoryMenu();
-
     public ShopHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -59,7 +57,7 @@ public class ShopHolder extends AnchorPane{
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(categoryMenu);
+        categoryPane.getChildren().add(new CategoryMenu());
         categoryPane.toFront();
     }
 
