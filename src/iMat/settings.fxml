@@ -562,7 +562,7 @@
                   <URL value="@main.css" />
                </stylesheets>
             </Button>
-            <TextField fx:id="cardnumber" layoutX="255.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="241.0" stylesheets="@main.css" text="20 52 3456 6345 9001">
+            <TextField fx:id="cardnumber" layoutX="255.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="241.0" promptText="20 52 3456 6345 9001" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -571,7 +571,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
-            <TextField fx:id="cardholername" layoutX="255.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="205.0" stylesheets="@main.css" text="Rune Svensson">
+            <TextField fx:id="cardholername" layoutX="255.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="205.0" promptText="Rune Svensson" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -580,7 +580,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
-            <TextField fx:id="validityperiod" layoutX="188.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" stylesheets="@main.css" text="4/10">
+            <TextField fx:id="validityperiod" layoutX="188.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" promptText="4/10" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -589,7 +589,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
-            <TextField fx:id="cvc" layoutX="333.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" stylesheets="@main.css" text="427">
+            <TextField fx:id="cvc" layoutX="333.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" promptText="427" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
