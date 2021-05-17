@@ -1,15 +1,18 @@
 package iMat.CategoryMenu;
 
+import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
 
 public class SubcategoryItem extends AnchorPane {
 
     @FXML private Button subcategoryButton;
+    private final DB database = DB.getInstance();
 
     private final String name;
 
@@ -33,9 +36,13 @@ public class SubcategoryItem extends AnchorPane {
     @FXML
     private void onAction() {
         switch (this.subcategoryButton.getText()) {
-            case "Fisk" -> System.out.println("You pressed Fisk.");
-            case "Kött" -> System.out.println("You pressed Kött.");
-            case "Visa alla" -> showAllEvent();
+            case "Fisk" :
+                System.out.println("You pressed Fisk.");
+                database.getProductCategory(ProductCategory.FISH);
+                break;
+
+            case "Kött" : System.out.println("You pressed Kött."); break;
+            case "Visa alla" : showAllEvent(); break;
         }
     }
 

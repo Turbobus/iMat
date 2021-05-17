@@ -7,10 +7,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 import se.chalmers.cse.dat216.project.util.IOUtilities;
 
 import java.util.List;
@@ -49,6 +46,8 @@ public class DB {
     }
 
     public Product getProduct(int prodId) { return iMatDataHandler.getProduct(prodId); }
+
+    public List<Product> getProductCategory(ProductCategory pc) { return iMatDataHandler.getProducts(pc); }
 
     public Image getImage(Product p, double width, double height) {
         return iMatDataHandler.getFXImage(p, width, height);
