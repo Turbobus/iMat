@@ -39,13 +39,15 @@ public class settings extends AnchorPane {
     //Textfields for payment window default
     @FXML private TextField cardnumber;
     @FXML private TextField cardholername;
-    @FXML private TextField validityperiod;
+    @FXML private TextField validmonth;
+    @FXML private TextField validyear;
     @FXML private TextField cvc;
 
     //Textfields for payment window changed
     @FXML private TextField cardnumber1;
     @FXML private TextField cardholername1;
-    @FXML private TextField validityperiod1;
+    @FXML private TextField validmonth1;
+    @FXML private TextField validyear1;
     @FXML private TextField cvc1;
 
 
@@ -106,8 +108,6 @@ public class settings extends AnchorPane {
         mobileTextField1.setText(db.getMobilePhoneNumber());
     }
 
-
-
     @FXML
     public void change2pressed(ActionEvent event){
 
@@ -165,6 +165,8 @@ public class settings extends AnchorPane {
 
     public void setupSettings(){
 
+        //Fill settings window textfields with databse information
+
         firstNameTextField.setText(db.getFirstName());
         lastNameTextField.setText(db.getLastName());
         addressTextField.setText(db.getAddress());
@@ -174,11 +176,18 @@ public class settings extends AnchorPane {
         telephoneTextField.setText(db.getPhoneNumber());
         mobileTextField.setText(db.getMobilePhoneNumber());
 
+        //Fill payment window textfields with databse information
+        cardnumber.setText(db.getCardNumber());
+        cardholername.setText(db.getHoldersName());
+        validmonth.setText(String.valueOf(db.getValidMonth()));
+        validyear.setText(String.valueOf(db.getValidYear()));
+        cvc.setText(String.valueOf(db.getVerificationCode()));
 
         try {
             isFilledIn(cardnumber.getText());
             isFilledIn(cardholername.getText());
-            isFilledIn(validityperiod.getText());
+            isFilledIn(validmonth.getText());
+            isFilledIn(validyear.getText());
             isFilledIn(cvc.getText());
 
         } catch (IOException ioe) {
