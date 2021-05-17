@@ -43,7 +43,7 @@ public class ShopGrid extends AnchorPane {
     }
 
 
-    private void populateCards(List<Product> products){
+    public void populateCards(List<Product> products){
         cardHolder.getChildren().clear();
 
 

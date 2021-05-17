@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 
 
@@ -14,7 +15,6 @@ import java.util.List;
 
 public class CategoryMenu extends AnchorPane {
 
-    private final ShopHolder pController;
     @FXML private Button breadButton;
     @FXML private Pane drinkPane;
     @FXML private Pane fruitPane;
@@ -25,13 +25,17 @@ public class CategoryMenu extends AnchorPane {
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
 
+    @FXML private FlowPane subcategoryPane;
+
     private final Subcategory drinkSubcategory;
     private final Subcategory vegetableSubcategory;
     private final Subcategory fishAndMeatSubcategory;
     private final Subcategory dryGoodsSubcategory;
     private final Subcategory fruitSubcategory;
 
-    public CategoryMenu(ShopHolder pController) {
+    private boolean mouseOnSubCategory;
+
+    public CategoryMenu() {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -42,8 +46,6 @@ public class CategoryMenu extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-        this.pController = pController;
 
         List<String> items = new ArrayList<>();
 
@@ -90,17 +92,77 @@ public class CategoryMenu extends AnchorPane {
         return new Subcategory(nameOfSubcategory, subcategoryNames);
     }
 
-    @FXML private void onMouseLeave() { pController.closeSubcategory(); }
+    @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }
 
-    @FXML private void onDrinkHover() { pController.openDrinkSubcategory(); }
+    public void closeSubcategory() {
+        if (!mouseOnSubCategory) {
+            subcategoryPane.getChildren().clear();
+            subcategoryPane.toBack();
+            subcategoryPane.setLayoutX(-500.0);
+        }
+    }
 
-    @FXML private void onFruitHover() { pController.openFruitSubcategory(); }
+    public void openDrinkSubcategory(){
+        subcategoryPane.getChildren().clear();
+        //mouseOnSubCategory = true;
 
-    @FXML private void onVegetableHover() { pController.openVegetableSubcategory(); }
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
+        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY());
 
-    @FXML private void onFishAndMeatHover() { pController.openFishAndMeatSubcategory(); }
+        subcategoryPane.getChildren().add(getDrinkSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
 
-    @FXML private void onDryGoodsHover() { pController.openDryGoodsSubcategory(); }
+    public void openFruitSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
+        subcategoryPane.setLayoutY(getFruitPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(getFruitSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openVegetableSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
+        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY());
+
+        subcategoryPane.getChildren().add(getVegetableSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openFishAndMeatSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
+        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(getFishAndMeatSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    public void openDryGoodsSubcategory(){
+        subcategoryPane.getChildren().clear();
+        mouseOnSubCategory = true;
+
+        //Behövs en bättre uträkning av y-koordinat.
+        subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
+        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY());
+
+        subcategoryPane.getChildren().add(getDryGoodsSubcategory().getHolder());
+        subcategoryPane.toFront();
+    }
+
+    @FXML private void onMouseLeave() { closeSubcategory(); }
 
     public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }
 

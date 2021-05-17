@@ -6,16 +6,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
       <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
-      <Button id="category_buttons" fx:id="sweetsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
-      <Pane id="category_multichoice_buttons" fx:id="drinkPane" layoutX="-2.0" layoutY="294.0" onMouseEntered="#onDrinkHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
+      <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="806.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
+      <Pane id="category_multichoice_buttons" fx:id="drinkPane" layoutX="-2.0" layoutY="294.0" onMouseEntered="#openDrinkSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_buttons" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
+            <Button id="category_buttons" fx:id="drinksButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/category_arrow.png" />
@@ -25,9 +26,9 @@
       </Pane>
       <Button id="home_button" fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Hem" />
       <Label layoutX="13.0" layoutY="150.0" styleClass="bold_36" text="Kategorier" />
-      <Pane id="category_multichoice_buttons" fx:id="fruitPane" layoutX="-2.0" layoutY="380.0" onMouseEntered="#onFruitHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" fx:id="fruitPane" layoutX="-2.0" layoutY="380.0" onMouseEntered="#openFruitSubcategory" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_buttons" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />
+            <Button id="category_buttons" fx:id="drinksButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/category_arrow.png" />
@@ -35,9 +36,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane id="category_multichoice_buttons" fx:id="vegetablePane" layoutX="-2.0" layoutY="466.0" onMouseEntered="#onVegetableHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" fx:id="vegetablePane" layoutX="-2.0" layoutY="466.0" onMouseEntered="#openVegetableSubcategory" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_buttons" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Grönsaker" />
+            <Button id="category_buttons" fx:id="drinksButton2" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Grönsaker" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/category_arrow.png" />
@@ -45,9 +46,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane id="category_multichoice_buttons" fx:id="fishAndMeatPane" layoutX="-2.0" layoutY="552.0" onMouseEntered="#onFishAndMeatHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" fx:id="fishAndMeatPane" layoutX="-2.0" layoutY="552.0" onMouseEntered="#openFishAndMeatSubcategory" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_buttons" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
+            <Button id="category_buttons" fx:id="drinksButton3" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/category_arrow.png" />
@@ -55,9 +56,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane id="category_multichoice_buttons" fx:id="dryGoodsPane" layoutX="-2.0" layoutY="638.0" onMouseEntered="#onDryGoodsHover" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
+      <Pane id="category_multichoice_buttons" fx:id="dryGoodsPane" layoutX="-2.0" layoutY="638.0" onMouseEntered="#openDryGoodsSubcategory" onMouseExited="#onMouseLeave" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_buttons" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Torrvaror" />
+            <Button id="category_buttons" fx:id="drinksButton31" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Torrvaror" />
             <ImageView fitHeight="26.0" fitWidth="14.0" layoutX="190.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/category_arrow.png" />
@@ -65,6 +66,7 @@
             </ImageView>
          </children>
       </Pane>
+      <FlowPane fx:id="subcategoryPane" layoutX="-255.0" layoutY="351.0" onMouseExited="#onMouseExitSubcategory" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" styleClass="border_radius_30" stylesheets="@../main.css" />
    </children>
    <styleClass>
       <String fx:value="background_color_blue_white" />
