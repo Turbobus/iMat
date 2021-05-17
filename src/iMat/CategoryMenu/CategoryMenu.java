@@ -94,7 +94,7 @@ public class CategoryMenu extends AnchorPane {
 
     @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }
 
-    public void closeSubcategory() {
+    @FXML private void closeSubcategory() {
         if (!mouseOnSubCategory) {
             subcategoryPane.getChildren().clear();
             subcategoryPane.toBack();
@@ -102,67 +102,60 @@ public class CategoryMenu extends AnchorPane {
         }
     }
 
-    public void openDrinkSubcategory(){
+    @FXML private void openDrinkSubcategory(){
         subcategoryPane.getChildren().clear();
-        //mouseOnSubCategory = true;
+        mouseOnSubCategory = true;
 
-        //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY());
+        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - getDrinkPane().getHeight()/1.5);
 
         subcategoryPane.getChildren().add(getDrinkSubcategory().getHolder());
         subcategoryPane.toFront();
     }
 
-    public void openFruitSubcategory(){
+    @FXML private void openFruitSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFruitPane().getLayoutY());
+        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - getFruitSubcategory().getHolder().getHeight()/2);
 
         subcategoryPane.getChildren().add(getFruitSubcategory().getHolder());
         subcategoryPane.toFront();
     }
 
-    public void openVegetableSubcategory(){
+    @FXML private void openVegetableSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
-        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY());
+        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - getVegetableSubcategory().getHolder().getHeight()/2);
 
         subcategoryPane.getChildren().add(getVegetableSubcategory().getHolder());
         subcategoryPane.toFront();
     }
 
-    public void openFishAndMeatSubcategory(){
+    @FXML private void openFishAndMeatSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY());
+        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - getFishAndMeatSubcategory().getHolder().getHeight()/2);
 
         subcategoryPane.getChildren().add(getFishAndMeatSubcategory().getHolder());
         subcategoryPane.toFront();
     }
 
-    public void openDryGoodsSubcategory(){
+    @FXML private void openDryGoodsSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        //Behövs en bättre uträkning av y-koordinat.
         subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY());
+        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - getDryGoodsSubcategory().getHolder().getHeight()/2);
 
         subcategoryPane.getChildren().add(getDryGoodsSubcategory().getHolder());
         subcategoryPane.toFront();
     }
-
-    @FXML private void onMouseLeave() { closeSubcategory(); }
 
     public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }
 
