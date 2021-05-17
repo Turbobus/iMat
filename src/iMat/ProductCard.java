@@ -1,5 +1,7 @@
 package iMat;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,8 +72,10 @@ public class ProductCard extends AnchorPane{
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        if(!amountTextCard.getText().matches("99")) {
+            amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+            pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        }
     }
 
     @FXML
@@ -128,23 +132,40 @@ public class ProductCard extends AnchorPane{
 
     private void setupTextField(){
 
-        // force the field to be numeric only
+        // force the field to be numeric only and updates the amount in shopping cart
         amountTextCard.textProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue.matches("\\d*")) {
-                amountTextCard.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if(newValue.matches("")){
-                amountTextCard.setText("1");
-            } else {
 
-                if(Integer.parseInt(newValue) >= 100){
-                    amountTextCard.setText("99");
-                }
+                amountTextCard.setText(newValue.replaceAll("[^\\d]", ""));
+
+            } else if (newValue.matches("0")){
+
+                amountTextCard.setText("1");
+
+            } else if (!newValue.matches("")){
+
+//                if(Integer.parseInt(newValue) >= 100){
+//                    amountTextCard.setText("99");
+//                }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
+        });
 
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        amountTextCard.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                amountTextCard.setText("");
+
+            } else {
+                // Focus lost
+                if(amountTextCard.getText().matches("")){
+                    amountTextCard.setText("1");
+                }
+            }
         });
     }
 
@@ -163,7 +184,6 @@ public class ProductCard extends AnchorPane{
 
     public void setUpFromCart(double amount){
         greenCard.toFront();
-        System.out.println(amount);
         amountTextCard.setText(String.valueOf((int) amount));
     }
 

@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class header extends AnchorPane {
 
-    private ShopHolder pController;
+    private AnchorPane pController;
     private Button earlierPurchaseButton;
 
 
 
-    public header(ShopHolder pController){
+    public header(AnchorPane pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

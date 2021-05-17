@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="929.0" maxWidth="484.0" minHeight="929.0" minWidth="484.0" prefHeight="929.0" prefWidth="484.0" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.CheckOutSide.CheckOutPanel">
+
+</AnchorPane>

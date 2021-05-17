@@ -44,8 +44,10 @@ public class ShopCartItem extends AnchorPane {
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        amountTextCartItem.setText("" + (Integer.parseInt(amountTextCartItem.getText()) + 1));
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCartItem.getText())));
+        if(!amountTextCartItem.getText().matches("99")) {
+            amountTextCartItem.setText("" + (Integer.parseInt(amountTextCartItem.getText()) + 1));
+            pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCartItem.getText())));
+        }
     }
 
     public ShopCartItem(ShoppingItem item, Controller pController){
@@ -74,22 +76,41 @@ public class ShopCartItem extends AnchorPane {
     }
 
     private void setupTextField(){
-        // force the field to be numeric only
-        amountTextCartItem.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                amountTextCartItem.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if(newValue.matches("")){
-                amountTextCartItem.setText("1");
-            } else {
 
-                if(Integer.parseInt(newValue) >= 100){
-                    amountTextCartItem.setText("99");
-                }
+        // force the field to be numeric only and updates the amount in shopping cart
+        amountTextCartItem.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                amountTextCartItem.setText(newValue.replaceAll("[^\\d]", ""));
+
+            } else if (newValue.matches("0")){
+
+                amountTextCartItem.setText("1");
+
+            } else if (!newValue.matches("")){
+
+//                if(Integer.parseInt(newValue) >= 100){
+//                    amountTextCartItem.setText("99");
+//                }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
+        });
 
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        amountTextCartItem.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                amountTextCartItem.setText("");
+
+            } else {
+                // Focus lost
+                if(amountTextCartItem.getText().matches("")){
+                    amountTextCartItem.setText("1");
+                }
+            }
         });
     }
 }

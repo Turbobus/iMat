@@ -21,6 +21,7 @@ public class DetailView extends AnchorPane {
     private final Controller pController;
     private final DB db = DB.getInstance();
     private int productId;
+    private double productPrice;
 
     // Blue card
     @FXML private AnchorPane blueCard;
@@ -64,6 +65,7 @@ public class DetailView extends AnchorPane {
     public void addToCartPressed(ActionEvent event){
         pController.addToCart(productId);
         amountTextCard.setText("1");
+        totalPrice.setText("Totalt pris: " + productPrice + " kr");
         greenCard.toFront();
     }
 
@@ -82,8 +84,10 @@ public class DetailView extends AnchorPane {
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        if(!amountTextCard.getText().matches("99")) {
+            amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+            pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        }
     }
 
     @FXML
@@ -115,6 +119,7 @@ public class DetailView extends AnchorPane {
 
     public void setupInfo(Product product){
         this.productId = product.getProductId();
+        this.productPrice = product.getPrice();
 
         // The blue version of the card
         bProdName.setText(product.getName());
@@ -210,20 +215,40 @@ public class DetailView extends AnchorPane {
 
     private void setupTextField(){
 
-        // force the field to be numeric only
+        // force the field to be numeric only and updates the amount in shopping cart
         amountTextCard.textProperty().addListener((observable, oldValue, newValue) -> {
+
             if (!newValue.matches("\\d*")) {
+
                 amountTextCard.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-            if(newValue.matches("")){
+
+            } else if (newValue.matches("0")){
+
                 amountTextCard.setText("1");
-            } else {
+
+            } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
-                    amountTextCard.setText("99");
+                    amountTextCard.setText("" + Integer.parseInt(newValue)/10);
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+                totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * productPrice) + " kr");
+            }
+        });
+
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        amountTextCard.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                amountTextCard.setText("");
+
+            } else {
+                // Focus lost
+                if(amountTextCard.getText().matches("")){
+                    amountTextCard.setText("1");
+                }
             }
         });
 
