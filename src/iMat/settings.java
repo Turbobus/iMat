@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,6 +23,8 @@ public class settings extends AnchorPane {
     @FXML private Button abort1;
     @FXML private Button save2;
     @FXML private Button abort2;
+    @FXML private Button newcard;
+    @FXML private MenuButton typeofcard;
 
 
 
@@ -30,6 +33,21 @@ public class settings extends AnchorPane {
     //Anchor panes
     @FXML private AnchorPane settingsdefault;
     @FXML private AnchorPane settingschanged;
+    @FXML private AnchorPane paymentdefault;
+    @FXML private AnchorPane paymentchanged;
+
+    //Textfields for payment window default
+    @FXML private TextField cardnumber;
+    @FXML private TextField cardholername;
+    @FXML private TextField validityperiod;
+    @FXML private TextField cvc;
+
+    //Textfields for payment window changed
+    @FXML private TextField cardnumber1;
+    @FXML private TextField cardholername1;
+    @FXML private TextField validityperiod1;
+    @FXML private TextField cvc1;
+
 
     //Textfields for account window default
 
@@ -88,6 +106,15 @@ public class settings extends AnchorPane {
         mobileTextField1.setText(db.getMobilePhoneNumber());
     }
 
+
+
+    @FXML
+    public void change2pressed(ActionEvent event){
+
+        paymentchanged.toFront();
+
+    }
+
     @FXML
     public void abort1pressed(ActionEvent event){
 
@@ -99,7 +126,6 @@ public class settings extends AnchorPane {
 
         updatesettings();
         savedSettingsValid();
-
     }
 
     @FXML
@@ -134,6 +160,9 @@ public class settings extends AnchorPane {
         mobileTextField.setText(mobileTextField1.getText());
         db.setMobileNumber(mobileTextField1.getText());
     }
+
+
+
     public void setupSettings(){
 
         firstNameTextField.setText(db.getFirstName());
@@ -144,6 +173,19 @@ public class settings extends AnchorPane {
         mailTextField.setText(db.getEmail());
         telephoneTextField.setText(db.getPhoneNumber());
         mobileTextField.setText(db.getMobilePhoneNumber());
+
+
+        try {
+            isFilledIn(cardnumber.getText());
+            isFilledIn(cardholername.getText());
+            isFilledIn(validityperiod.getText());
+            isFilledIn(cvc.getText());
+
+        } catch (IOException ioe) {
+            newcard.toFront();
+            typeofcard.toFront();
+        }
+        settings2.toFront();
 
     }
 
