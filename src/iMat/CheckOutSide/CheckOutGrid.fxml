@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="929.0" maxWidth="1193.0" minHeight="929.0" minWidth="1193.0" prefHeight="929.0" prefWidth="1193.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ScrollPane maxWidth="1193.0" minWidth="1193.0" prefHeight="929.0" prefWidth="1193.0" styleClass="background_color_blue_white">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1140.0" prefWidth="1178.0" styleClass="background_color_blue_white">
+                    <children>
+                        <GridPane fx:id="cardHolder" hgap="19.0" layoutX="29.0" layoutY="130.0" maxWidth="1137.0" minWidth="1137.0" prefHeight="1010.0" prefWidth="1137.0" vgap="25.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="320.0" minHeight="320.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="320.0" minHeight="320.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="320.0" minHeight="320.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                        <Label fx:id="currentPlace" layoutX="28.0" layoutY="60.0" styleClass="text_color_dark_dark_blue" text="Kassa">
+                            <font>
+                                <Font name="System Bold" size="46.0" />
+                            </font>
+                        </Label>
+                        <ButtonBar buttonMinWidth="0.0" layoutX="31.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                            <buttons>
+                                <Button id="breadcrumb_button" mnemonicParsing="false" text="Kassa" underline="true" />
+                                <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="&gt;">
+                                    <styleClass>
+                                        <String fx:value="text_color_dark_dark_blue" />
+                                        <String fx:value="font_28" />
+                                    </styleClass>
+                                </Label>
+                                <Button id="breadcrumb_button" fx:id="mainCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</fx:root>

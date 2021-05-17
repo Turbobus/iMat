@@ -44,8 +44,10 @@ public class ShopCartItem extends AnchorPane {
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        amountTextCartItem.setText("" + (Integer.parseInt(amountTextCartItem.getText()) + 1));
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCartItem.getText())));
+        if(!amountTextCartItem.getText().matches("99")) {
+            amountTextCartItem.setText("" + (Integer.parseInt(amountTextCartItem.getText()) + 1));
+            pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCartItem.getText())));
+        }
     }
 
     public ShopCartItem(ShoppingItem item, Controller pController){

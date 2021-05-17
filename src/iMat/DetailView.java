@@ -84,8 +84,10 @@ public class DetailView extends AnchorPane {
 
     @FXML
     public void increaseButtonPressed(ActionEvent event){
-        amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
-        pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        if(!amountTextCard.getText().matches("99")) {
+            amountTextCard.setText("" + (Integer.parseInt(amountTextCard.getText()) + 1));
+            pController.updateCartItemAmount(productId, (Integer.parseInt(amountTextCard.getText())));
+        }
     }
 
     @FXML

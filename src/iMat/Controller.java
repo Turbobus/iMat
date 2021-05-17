@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CheckOutSide.CheckOutHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
@@ -45,7 +46,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        setupShop();
+        //setupShop();
+
+        setupCheckOut();
     }
 
     private void setupLogIn(){
@@ -57,6 +60,12 @@ public class Controller extends AnchorPane implements Initializable {
     public void setupShop(){
         window.getChildren().clear();
         window.getChildren().add(new ShopHolder(this));
+        window.toFront();
+    }
+
+    public void setupCheckOut(){
+        window.getChildren().clear();
+        window.getChildren().add(new CheckOutHolder(this));
         window.toFront();
     }
 
