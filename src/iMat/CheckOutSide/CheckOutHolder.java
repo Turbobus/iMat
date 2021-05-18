@@ -2,8 +2,7 @@ package iMat.CheckOutSide;
 
 import iMat.Controller;
 import iMat.ProductCard;
-import iMat.ShopGrid;
-import iMat.header;
+import iMat.Header;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -48,7 +47,7 @@ public class CheckOutHolder extends AnchorPane {
 
     private void setupHeader(){
         headerPane.getChildren().clear();
-        headerPane.getChildren().add(new header(this));
+        headerPane.getChildren().add(new Header(this));
         headerPane.toFront();
     }
 

@@ -47,7 +47,7 @@ public class DB {
 
     public Product getProduct(int prodId) { return iMatDataHandler.getProduct(prodId); }
 
-    public List<Product> getProductCategory(ProductCategory pc) { return iMatDataHandler.getProducts(pc); }
+    public List<Product> getCategoryProducts(ProductCategory pc) { return iMatDataHandler.getProducts(pc); }
 
     public Image getImage(Product p, double width, double height) {
         return iMatDataHandler.getFXImage(p, width, height);

@@ -5,14 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SubcategoryItem extends AnchorPane {
 
     @FXML private Button subcategoryButton;
     private final DB database = DB.getInstance();
+    private final List<CategoryListener> categoryListeners = new ArrayList<>();
 
     private final String name;
 
@@ -29,21 +33,28 @@ public class SubcategoryItem extends AnchorPane {
         }
 
         this.subcategoryButton.setText(itemText);
-
         this.name = name;
+
+        //categoryListeners.add()
     }
 
     @FXML
     private void onAction() {
-        switch (this.subcategoryButton.getText()) {
-            case "Fisk" :
-                System.out.println("You pressed Fisk.");
-                database.getProductCategory(ProductCategory.FISH);
-                break;
 
-            case "Kött" : System.out.println("You pressed Kött."); break;
-            case "Visa alla" : showAllEvent(); break;
+        List<Product> pc = null;
+        switch (this.subcategoryButton.getText()) {
+            case "Fisk" -> {
+                System.out.println("You pressed Fisk.");
+                pc = database.getCategoryProducts(ProductCategory.FISH);
+            }
+            case "Kött" -> System.out.println("You pressed Kött.");
+            case "Visa alla" -> showAllEvent();
         }
+
+        for(CategoryListener c : categoryListeners) {
+            c.populateCards(pc);
+        }
+
     }
 
     private void showAllEvent() {

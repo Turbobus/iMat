@@ -22,7 +22,6 @@ public class Controller extends AnchorPane implements Initializable {
     private final DB db = DB.getInstance();
 
     private final Map<Integer, ProductCard> productCards = new HashMap<>();
-    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
@@ -46,9 +45,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        //setupShop();
+        setupShop();
 
-        setupCheckOut();
+        //setupCheckOut();
     }
 
     private void setupLogIn(){
@@ -155,5 +154,7 @@ public class Controller extends AnchorPane implements Initializable {
         img.setClip(null);
         img.setImage(image);
     }
+
+    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
 }
