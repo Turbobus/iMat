@@ -22,6 +22,8 @@ public class SubcategoryItem extends AnchorPane {
 
     private final String name;
 
+    private static final List<SubcategoryItem> allItems = new ArrayList<>();
+
     public SubcategoryItem(Controller pController, String name, String itemText) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subcategoryItem.fxml"));
@@ -37,6 +39,8 @@ public class SubcategoryItem extends AnchorPane {
 
         this.subcategoryButton.setText(itemText);
         this.name = name;
+
+        allItems.add(this);
     }
 
     @FXML
@@ -74,6 +78,7 @@ public class SubcategoryItem extends AnchorPane {
             c.populateCards(pc);
             c.bringToFront();
         }
+        updateButtons(this);
     }
 
     private List<Product> showAllEvent() {
@@ -109,6 +114,13 @@ public class SubcategoryItem extends AnchorPane {
             }
         }
         return pc;
+    }
+
+    private void updateButtons(SubcategoryItem clicked) {
+        for(SubcategoryItem si : allItems) {
+            si.subcategoryButton.setId("subcategory_buttons");;
+        }
+        clicked.subcategoryButton.setId("subcategory_pressed_buttons");
     }
 
     public String getName() { return this.name; }
