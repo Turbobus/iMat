@@ -107,6 +107,7 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.bringToFront();
         }
+        updateButtonStyle(ProductCategory.BREAD);
     }
 
     @FXML private void displayDairy() {
@@ -114,12 +115,26 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.bringToFront();
         }
+        updateButtonStyle(ProductCategory.DAIRIES);
     }
 
     @FXML private void displaySweet() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.bringToFront();
+        }
+        updateButtonStyle(ProductCategory.SWEET);
+    }
+
+    private void updateButtonStyle(ProductCategory pc) {
+        breadButton.setId("category_buttons");
+        dairyButton.setId("category_buttons");
+        sweetButton.setId("category_buttons");
+
+        switch (pc) {
+            case BREAD -> breadButton.setId("category_pressed_buttons");
+            case DAIRIES -> dairyButton.setId("category_pressed_buttons");
+            case SWEET -> sweetButton.setId("category_pressed_buttons");
         }
     }
 
