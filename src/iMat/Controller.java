@@ -28,6 +28,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
+    private final settings settings = new settings(this);
     private final Help help = new Help(this);
 
     @FXML AnchorPane window;
@@ -49,9 +50,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        //setupShop();
+        setupShop();
 
-        setupCheckOut();
+        //setupCheckOut();
     }
 
     private void setupLogIn(){
@@ -82,6 +83,11 @@ public class Controller extends AnchorPane implements Initializable {
         for (ShoppingItem item : db.getAllShoppingItems()){
             productCards.get(item.getProduct().getProductId()).setUpFromCart(item.getAmount());
         }
+    }
+
+    public void openAccountView(){
+
+        openOverlay(settings);
     }
 
 

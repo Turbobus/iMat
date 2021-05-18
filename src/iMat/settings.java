@@ -318,12 +318,13 @@ public class settings extends AnchorPane {
 
         } catch (IOException ioe) {
             paymentchanged.toFront();
-
+            newcard.toFront();
             missingField = true;
         }
 
         if(!missingField)
             paymentdefault.toFront();
+            settings2.toFront();
 
         missingField = false;
 

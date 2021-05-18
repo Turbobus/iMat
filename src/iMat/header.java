@@ -11,6 +11,7 @@ public class header extends AnchorPane {
 
     private Controller pController;
     private Button earlierPurchaseButton;
+    private Button myAccountButton;
 
 
 
@@ -36,4 +37,11 @@ public class header extends AnchorPane {
         pController.openHelp();
 
     }
+
+    public void accountButtonPressed (ActionEvent event) {
+        pController.openAccountView();
+
+    }
+
+
 }

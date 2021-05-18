@@ -173,7 +173,16 @@
     -fx-border-width: 1px;
     -fx-border-color: #002E48;
 }
+.menu-button > .arrow-button > .arrow {
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-background-color: #f1f4ff;
+    -fx-shape: "M2.9375 0L12.5 8.96917L22.0625 0L25 2.76125L12.5 14.5112L0 2.76125L2.9375 0Z";
+    -fx-pref-height: 75px;
+    -fx-pref-width: 25px;
 
+
+
+}
 .border_dark_red_width {
     -fx-border-radius: 30px;
     -fx-background-radius: 31px;
