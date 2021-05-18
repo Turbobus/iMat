@@ -64,4 +64,9 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         }
     }
 
+    @Override
+    public void bringToFront() {
+        pController.getpController().setupShop();
+    }
+
 }
