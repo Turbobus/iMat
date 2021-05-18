@@ -27,6 +27,8 @@ public class Controller extends AnchorPane implements Initializable {
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
+    private final PayConfirmation payConfirmation = new PayConfirmation(this);
+    private final PurchaseCompleted purchaseCompleted = new PurchaseCompleted(this);
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
@@ -50,9 +52,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        setupShop();
+        //setupShop();
 
-        //setupCheckOut();
+        setupCheckOut();
     }
 
     private void setupLogIn(){
@@ -86,18 +88,27 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openAccountView(){
-
         openOverlay(settings);
     }
 
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
-
         openOverlay(detailView);
     }
 
     public void openEmptyCart(){ openOverlay(EmptyCart); }
+
+    public void openPayConfirmation(String time){
+
+        // Måste göra en setup av information på sidan
+
+        openOverlay(payConfirmation);
+    }
+
+    public void openPurchaseCompleted(){
+        openOverlay(purchaseCompleted);
+    }
 
     // Opens a given overlay in the center of the screen
     private void openOverlay(AnchorPane overlay){
@@ -119,12 +130,10 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openEarlierPurchases(){
-
         openOverlay(earlierPurchases);
     }
 
     public void openHelp(){
-
         openOverlay(help);
     }
 
