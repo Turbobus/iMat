@@ -10,6 +10,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubcategoryItem extends AnchorPane {
@@ -66,7 +67,7 @@ public class SubcategoryItem extends AnchorPane {
             case "Rotfrukter" -> pc = database.getCategoryProducts(ProductCategory.ROOT_VEGETABLE);
             case "Stenfrukter" -> pc = database.getCategoryProducts(ProductCategory.FRUIT);
 
-            case "Visa alla" -> showAllEvent();
+            case "Visa alla" -> pc = showAllEvent();
         }
 
         for(CategoryListener c : pController.getCategoryListeners()) {
@@ -75,14 +76,39 @@ public class SubcategoryItem extends AnchorPane {
         }
     }
 
-    private void showAllEvent() {
+    private List<Product> showAllEvent() {
+        List<Product> pc = new ArrayList<>();
         switch (this.getName()) {
-            case "drinks" -> System.out.println("You pressed Visa alla drycker.");
-            case "vegetables" -> System.out.println("You pressed Visa alla grönsaker.");
-            case "fish and meat" -> System.out.println("You pressed Visa alla Kött och fisk");
-            case "dryGoods" -> System.out.println("You pressed Visa alla torrvaror");
-            case "fruit" -> System.out.println("You pressed Visa alla frukt");
+            case "drinks" -> {
+                pc.addAll(database.getCategoryProducts(ProductCategory.COLD_DRINKS));
+                pc.addAll(database.getCategoryProducts(ProductCategory.HOT_DRINKS));
+            }
+            case "vegetables" -> {
+                pc.addAll(database.getCategoryProducts(ProductCategory.BERRY));
+                pc.addAll(database.getCategoryProducts(ProductCategory.CABBAGE));
+                pc.addAll(database.getCategoryProducts(ProductCategory.POTATO_RICE));
+                pc.addAll(database.getCategoryProducts(ProductCategory.HERB));
+            }
+            case "fish and meat" -> {
+                pc.addAll(database.getCategoryProducts(ProductCategory.FISH));
+                pc.addAll(database.getCategoryProducts(ProductCategory.MEAT));
+            }
+            case "dryGoods" -> {
+                pc.addAll(database.getCategoryProducts(ProductCategory.POD));
+                pc.addAll(database.getCategoryProducts(ProductCategory.FLOUR_SUGAR_SALT));
+                pc.addAll(database.getCategoryProducts(ProductCategory.NUTS_AND_SEEDS));
+                pc.addAll(database.getCategoryProducts(ProductCategory.PASTA));
+            }
+            case "fruit" -> {
+                pc.addAll(database.getCategoryProducts(ProductCategory.CITRUS_FRUIT));
+                pc.addAll(database.getCategoryProducts(ProductCategory.EXOTIC_FRUIT));
+                pc.addAll(database.getCategoryProducts(ProductCategory.VEGETABLE_FRUIT));
+                pc.addAll(database.getCategoryProducts(ProductCategory.MELONS));
+                pc.addAll(database.getCategoryProducts(ProductCategory.ROOT_VEGETABLE));
+                pc.addAll(database.getCategoryProducts(ProductCategory.FRUIT));
+            }
         }
+        return pc;
     }
 
     public String getName() { return this.name; }
