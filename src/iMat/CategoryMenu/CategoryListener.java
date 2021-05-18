@@ -8,4 +8,5 @@ public interface CategoryListener {
 
     void populateCards(List<Product> products);
 
+    void bringToFront();
 }

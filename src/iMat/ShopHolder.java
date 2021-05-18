@@ -74,4 +74,6 @@ public class ShopHolder extends AnchorPane {
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
 
     public ShopGrid getShopGrid() { return this.shopGrid; }
+
+    public Controller getpController() { return this.pController; }
 }

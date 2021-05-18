@@ -71,8 +71,8 @@ public class SubcategoryItem extends AnchorPane {
 
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(pc);
+            c.bringToFront();
         }
-
     }
 
     private void showAllEvent() {
