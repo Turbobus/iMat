@@ -97,7 +97,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button id="green_button" fx:id="checkOutButton" contentDisplay="RIGHT" layoutX="141.0" layoutY="825.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="330.0" text="Betala">
+      <Button id="green_button" fx:id="buyButton" contentDisplay="RIGHT" layoutX="141.0" layoutY="825.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="90.0" prefWidth="330.0" text="Betala">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="bold_36" />

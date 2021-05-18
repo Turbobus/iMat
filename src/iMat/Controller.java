@@ -26,6 +26,8 @@ public class Controller extends AnchorPane implements Initializable {
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
+    private final PayConfirmation payConfirmation = new PayConfirmation(this);
+    private final PurchaseCompleted purchaseCompleted = new PurchaseCompleted(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -88,6 +90,17 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openEmptyCart(){ openOverlay(EmptyCart); }
+
+    public void openPayConfirmation(String time){
+
+        // Måste göra en setup av information på sidan
+
+        openOverlay(payConfirmation);
+    }
+
+    public void openPurchaseCompleted(){
+        openOverlay(purchaseCompleted);
+    }
 
     // Opens a given overlay in the center of the screen
     private void openOverlay(AnchorPane overlay){

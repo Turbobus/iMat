@@ -1,19 +1,19 @@
 package iMat.CheckOutSide;
 
+import iMat.Controller;
 import iMat.DB;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class CheckOutPanel extends AnchorPane {
 
+    private final Controller pController;
 
     private ToggleGroup timeToggleGroup = new ToggleGroup();
     private boolean haveSetUpCardPane = false;
@@ -25,8 +25,18 @@ public class CheckOutPanel extends AnchorPane {
     @FXML private RadioButton day;
     @FXML private RadioButton evening;
 
+    @FXML private Label totalPriceOfCart;
+    @FXML private Button buyButton;
 
-    public CheckOutPanel(){
+
+    @FXML public void placeOrder(){
+
+        // Behöver kolla så kreditkort är inskrivet samt hämta tid från radiobutton
+
+        pController.openPayConfirmation("TID");
+    }
+
+    public CheckOutPanel(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckOutPanel.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -37,7 +47,7 @@ public class CheckOutPanel extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        //this.pController = pController;
+        this.pController = pController;
         radioButtonSetup();
     }
 

@@ -24,9 +24,6 @@ public class CheckOutHolder extends AnchorPane {
     @FXML AnchorPane gridPane;
     @FXML AnchorPane methodPane;
 
-    private boolean mouseOnSubCategory;
-    @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; }
-
     public CheckOutHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckOutHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -67,7 +64,7 @@ public class CheckOutHolder extends AnchorPane {
 
     private void setupLeftPanel() {
         methodPane.getChildren().clear();
-        methodPane.getChildren().add(new CheckOutPanel());
+        methodPane.getChildren().add(new CheckOutPanel(pController));
         methodPane.toFront();
     }
 
