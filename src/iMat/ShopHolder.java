@@ -75,5 +75,7 @@ public class ShopHolder extends AnchorPane {
 
     public ShopGrid getShopGrid() { return this.shopGrid; }
 
+    public CategoryMenu getCategoryMenu() { return categoryMenu; }
+
     public Controller getpController() { return this.pController; }
 }

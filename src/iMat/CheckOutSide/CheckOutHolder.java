@@ -57,7 +57,7 @@ public class CheckOutHolder extends AnchorPane {
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(new CategoryMenu());
+        categoryPane.getChildren().add(pController.getShopHolder().getCategoryMenu());
         categoryPane.toFront();
     }
 
