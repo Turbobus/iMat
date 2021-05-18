@@ -14,6 +14,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -26,6 +27,8 @@ public class Controller extends AnchorPane implements Initializable {
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
+    private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
+    private final Help help = new Help(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -84,6 +87,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
+
         openOverlay(detailView);
     }
 
@@ -107,6 +111,17 @@ public class Controller extends AnchorPane implements Initializable {
         putHere.setLayoutY(y);
         darkPane.toFront();
     }
+
+    public void openEarlierPurchases(){
+
+        openOverlay(earlierPurchases);
+    }
+
+    public void openHelp(){
+
+        openOverlay(help);
+    }
+
 
 
     // Adds a product into the shoppingcart

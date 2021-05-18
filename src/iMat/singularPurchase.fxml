@@ -6,26 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane maxHeight="121.0" maxWidth="680.0" minHeight="121.0" minWidth="680.0" prefHeight="121.0" prefWidth="680.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.SingularPurchase">
+<fx:root fx:id="singularPurchaseCard" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="379.0" maxWidth="680.0" minHeight="121.0" minWidth="680.0" opacity="0.0" prefHeight="379.0" prefWidth="680.0">
-         <styleClass>
-            <String fx:value="background_color_light_light_blue" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="border_dark_dark_blue_1_width" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-         <children>
-            <Button id="light_blue_button" fx:id="bShowProducts1" layoutX="250.0" layoutY="315.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" text="Visa varor">
-               <styleClass>
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="font_20" />
-               </styleClass>
-            </Button>
-            <FlowPane fx:id="bAllProductsPane" prefHeight="302.0" prefWidth="680.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="gSingularPurchaseBack" maxHeight="121.0" maxWidth="680.0" minHeight="121.0" minWidth="680.0" prefHeight="121.0" prefWidth="680.0">
+      <AnchorPane fx:id="gSingularPurchaseBack" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
          <styleClass>
             <String fx:value="background_color_light_green" />
             <String fx:value="border_radius_30" />
@@ -33,96 +16,113 @@
             <String fx:value="shadow_25" />
          </styleClass>
          <children>
-            <Button id="green_button" fx:id="gShowProducts" layoutX="251.0" layoutY="72.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" text="Visa varor">
+            <AnchorPane fx:id="gSingularPurchaseFront" maxHeight="64.0" maxWidth="680.0" minHeight="64.0" minWidth="680.0" prefHeight="64.0" prefWidth="680.0">
                <styleClass>
-                  <String fx:value="border_dark_dark_green_1_width" />
-                  <String fx:value="font_20" />
-               </styleClass>
-            </Button>
-            <Button id="red_button" fx:id="gTakeOutCart" layoutX="505.0" layoutY="72.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="162.0" text="Ta ur kundvagn">
-               <styleClass>
+                  <String fx:value="background_color_green" />
+                  <String fx:value="shadow_25" />
                   <String fx:value="border_radius_30" />
-                  <String fx:value="font_20" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="gSingularPurchaseFront" maxHeight="64.0" maxWidth="680.0" minHeight="64.0" minWidth="680.0" prefHeight="64.0" prefWidth="680.0">
-         <styleClass>
-            <String fx:value="background_color_green" />
-            <String fx:value="shadow_25" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="border_dark_dark_green_1_width" />
-         </styleClass>
-         <children>
-            <Label fx:id="greenDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
-               <styleClass>
-                  <String fx:value="bold_24" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-            <Label fx:id="greenAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
-               <styleClass>
-                  <String fx:value="font_24" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-            <AnchorPane layoutX="444.0" layoutY="12.0" prefHeight="40.0" prefWidth="223.0">
-               <styleClass>
                   <String fx:value="border_dark_dark_green_1_width" />
-                  <String fx:value="border_radius_30" />
                </styleClass>
                <children>
-                  <Label layoutX="17.0" layoutY="6.0" styleClass="bold_20" text="Ligger i kundvagnen!" textAlignment="CENTER" />
+                  <Label fx:id="greenDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
+                     <styleClass>
+                        <String fx:value="bold_24" />
+                        <String fx:value="text_color_dark_dark_green" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="greenAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
+                     <styleClass>
+                        <String fx:value="font_24" />
+                        <String fx:value="text_color_dark_dark_green" />
+                     </styleClass>
+                  </Label>
+                  <AnchorPane layoutX="444.0" layoutY="12.0" prefHeight="40.0" prefWidth="223.0">
+                     <styleClass>
+                        <String fx:value="border_dark_dark_green_1_width" />
+                        <String fx:value="border_radius_30" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="17.0" layoutY="6.0" text="Ligger i kundvagnen!" textAlignment="CENTER">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_dark_green" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
+            <Button id="green_button" fx:id="gShowProducts" layoutX="251.0" layoutY="72.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" onAction="#gShowProducts" prefHeight="40.0" prefWidth="181.0" text="Visa varor" AnchorPane.bottomAnchor="15.0">
+               <styleClass>
+                  <String fx:value="border_dark_dark_green_1_width" />
+                  <String fx:value="font_20" />
+               </styleClass>
+            </Button>
+            <FlowPane fx:id="gProductFlowPane" prefHeight="0.0" prefWidth="655.0" vgap="10.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="71.0" />
+            <Button id="red_button" fx:id="gTakeOutCart" layoutX="505.0" layoutY="72.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="162.0" text="Ta ur kundvagn" AnchorPane.bottomAnchor="15.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="font_20" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bSingularPurchaseBack" maxHeight="121.0" maxWidth="680.0" minHeight="121.0" minWidth="680.0" prefHeight="121.0" prefWidth="680.0">
+      <AnchorPane fx:id="bSingularPurchaseBack" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
+         <children>
+            <AnchorPane fx:id="bSingularPurchaseFront" maxHeight="64.0" maxWidth="680.0" minHeight="64.0" minWidth="680.0" prefHeight="64.0" prefWidth="680.0">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="shadow_25" />
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="border_dark_dark_blue_1_width" />
+               </styleClass>
+               <children>
+                  <Label fx:id="bDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
+                     <styleClass>
+                        <String fx:value="bold_24" />
+                        <String fx:value="text_color_dark_dark_blue" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="bAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
+                     <styleClass>
+                        <String fx:value="font_24" />
+                        <String fx:value="text_color_dark_dark_blue" />
+                     </styleClass>
+                  </Label>
+                  <Button id="blue_button" fx:id="bPutAllInCart" layoutX="444.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonPutAllInCart" prefHeight="40.0" prefWidth="223.0">
+                     <styleClass>
+                        <String fx:value="border_dark_blue_1_width" />
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="bold_20" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                     <graphic>
+                        <Label text="Lägg allt i kundvagnen">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="shadow_50" />
+                              <String fx:value="text_color_blue_white" />
+                           </styleClass>
+                        </Label>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <FlowPane fx:id="bProductFlowPane" layoutX="14.0" layoutY="72.0" prefHeight="0.0" prefWidth="655.0" vgap="10.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="71.0" />
+            <Button id="light_blue_button" fx:id="bShowProducts" layoutX="251.0" layoutY="72.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="40.0" prefWidth="181.0" text="Visa varor" AnchorPane.bottomAnchor="15.0">
+               <styleClass>
+                  <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="font_20" />
+                  <String fx:value="border_radius_30" />
+               </styleClass>
+            </Button>
+         </children>
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
             <String fx:value="border_radius_30" />
             <String fx:value="border_dark_dark_blue_1_width" />
             <String fx:value="shadow_25" />
          </styleClass>
-         <children>
-            <Button id="light_blue_button" fx:id="bShowProducts" layoutX="251.0" layoutY="72.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" text="Visa varor">
-               <styleClass>
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="font_20" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="bSingularPurchaseFront" maxHeight="64.0" maxWidth="680.0" minHeight="64.0" minWidth="680.0" prefHeight="64.0" prefWidth="680.0">
-         <styleClass>
-            <String fx:value="background_color_light_blue" />
-            <String fx:value="shadow_25" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="border_dark_dark_blue_1_width" />
-         </styleClass>
-         <children>
-            <Label fx:id="bDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
-               <styleClass>
-                  <String fx:value="bold_24" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label fx:id="bAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
-               <styleClass>
-                  <String fx:value="font_24" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Button id="blue_button" fx:id="bPutAllInCart" layoutX="444.0" layoutY="12.0" mnemonicParsing="false" onMousePressed="#putAllInCart" prefHeight="40.0" prefWidth="223.0" text="Lägg allt i kundvagnen">
-               <styleClass>
-                  <String fx:value="border_dark_blue_1_width" />
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="bold_20" />
-                  <String fx:value="shadow_50" />
-               </styleClass>
-            </Button>
-         </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</fx:root>

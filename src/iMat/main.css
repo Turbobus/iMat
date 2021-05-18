@@ -131,6 +131,21 @@
     -fx-font-size: 19px;
 }
 
+.border_dark_dark_green_1_width{
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 1px;
+    -fx-border-color: #0A2500
+   ;
+}
+
+.border_dark_dark_green_1_width_no_radius{
+    -fx-background-radius: 31px;
+    -fx-border-width: 1px;
+    -fx-border-color: #0A2500
+   ;
+}
+
 .border_dark_dark_blue_2_width {
     -fx-border-radius: 30px;
     -fx-background-radius: 31px;
