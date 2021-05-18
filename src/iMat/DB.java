@@ -140,4 +140,53 @@ public class DB {
     public void setPhoneNumber(String phoneNumber) { iMatDataHandler.getCustomer().setPhoneNumber(phoneNumber);}
 
     public void setMobileNumber(String mobileNumber) { iMatDataHandler.getCustomer().setMobilePhoneNumber(mobileNumber);}
+
+    public String getCardType() {
+        return this.iMatDataHandler.getCreditCard().getCardType();
+    }
+
+    public String getCardNumber() {
+        return this.iMatDataHandler.getCreditCard().getCardNumber();
+    }
+
+    public String getHoldersName() {
+        return this.iMatDataHandler.getCreditCard().getHoldersName();
+    }
+
+    public int getValidMonth() {
+        return this.iMatDataHandler.getCreditCard().getValidMonth();
+    }
+
+    public int getValidYear() {
+        return this.iMatDataHandler.getCreditCard().getValidYear();
+    }
+
+    public int getVerificationCode() {
+        return this.iMatDataHandler.getCreditCard().getVerificationCode();
+    }
+
+    public void setCardType(String cardType) {
+        iMatDataHandler.getCreditCard().setCardType(cardType);
+    }
+
+    public void setCardNumber(String cardNumber) {
+        iMatDataHandler.getCreditCard().setCardNumber(cardNumber);
+    }
+
+    public void setHoldersName(String holdersName) {
+        iMatDataHandler.getCreditCard().setHoldersName(holdersName);
+    }
+
+    public void setValidMonth(int validMonth) {
+        iMatDataHandler.getCreditCard().setValidMonth(validMonth);
+    }
+
+    public void setValidYear(int validYear) {
+        iMatDataHandler.getCreditCard().setValidYear(validYear);
+    }
+
+    public void setVerificationCode(int verificationCode) {
+        iMatDataHandler.getCreditCard().setVerificationCode(verificationCode);
+    }
+
 }

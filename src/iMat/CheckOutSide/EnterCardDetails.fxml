@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="370.0" maxWidth="430.0" minHeight="370.0" minWidth="430.0" prefHeight="370.0" prefWidth="430.0" styleClass="border_radius_30" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+<fx:root maxHeight="370.0" maxWidth="430.0" minHeight="370.0" minWidth="430.0" prefHeight="370.0" prefWidth="430.0" styleClass="border_radius_30" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
+      <AnchorPane fx:id="useSavedCard" layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
             <String fx:value="border_radius_30" />
@@ -129,7 +129,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
+      <AnchorPane fx:id="writeNewCard" layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
             <String fx:value="border_radius_30" />
