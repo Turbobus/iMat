@@ -15,9 +15,9 @@ public class ShopHolder extends AnchorPane {
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
-    private Header header;
-    private ShopGrid shopGrid;
-    private CategoryMenu categoryMenu;
+    private final Header header;
+    private final ShopGrid shopGrid;
+    private final CategoryMenu categoryMenu;
 
     // Holders for individual components. Resides in mainPane above
     @FXML AnchorPane headerPane;
@@ -39,7 +39,7 @@ public class ShopHolder extends AnchorPane {
         this.pController = pController;
         this.header = new Header(this);
         this.shopGrid = new ShopGrid(this);
-        this.categoryMenu = new CategoryMenu();
+        this.categoryMenu = new CategoryMenu(pController);
 
         setupHeader();
         setupGrid();
@@ -73,4 +73,5 @@ public class ShopHolder extends AnchorPane {
 
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
 
+    public ShopGrid getShopGrid() { return this.shopGrid; }
 }
