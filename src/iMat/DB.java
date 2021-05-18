@@ -13,6 +13,8 @@ public class DB {
 
     private static DB instance = null;
     private IMatDataHandler iMatDataHandler;
+    private boolean firstRun = true;
+    private boolean firstRunReset = false;
 
     private DB() {
         // Exists only to defeat instantiation.
@@ -101,6 +103,10 @@ public class DB {
         return this.iMatDataHandler.getCreditCard().getVerificationCode();
     }
 
+
+    public boolean isFirstRun() {
+        return this.iMatDataHandler.isFirstRun();
+    }
 
 
     public void addFavourite(int prodId) { iMatDataHandler.addFavorite(prodId); }

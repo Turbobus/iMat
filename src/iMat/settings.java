@@ -5,8 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.io.IOException;
 
@@ -24,7 +26,9 @@ public class settings extends AnchorPane {
     @FXML private Button save2;
     @FXML private Button abort2;
     @FXML private Button newcard;
+    @FXML private Button visa;
     @FXML private MenuButton typeofcard;
+    @FXML private MenuItem mastercardtype;
 
 
 
@@ -76,6 +80,8 @@ public class settings extends AnchorPane {
 
     private static boolean missingField = false;
 
+
+
     public settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         fxmlLoader.setRoot(this);
@@ -89,8 +95,25 @@ public class settings extends AnchorPane {
         }
 
         this.pController = pController;
-        settingsdefault.toFront();
+
+
         setupSettings();
+        setupPayment();
+        paymentSettingsFirstRun();
+
+    }
+
+
+
+    @FXML void visatypepressed(ActionEvent event) {
+
+        db.setCardType("Visa");
+    }
+
+    @FXML void mastercardtypepressed(ActionEvent event) {
+
+        db.setCardType("Mastercard");
+        MenuItem.MENU_VALIDATION_EVENT
     }
 
     @FXML
@@ -111,8 +134,21 @@ public class settings extends AnchorPane {
     @FXML
     public void change2pressed(ActionEvent event){
 
-        paymentchanged.toFront();
 
+    }
+
+    @FXML
+    public void save2pressed(ActionEvent event) {
+
+        savedPaymentValid();
+        updatepayment();
+        newcard.setVisible(false);
+
+    }
+
+    @FXML
+    public void abort1paymentpressed(ActionEvent event) {
+        paymentdefault.toFront();
     }
 
     @FXML
@@ -124,17 +160,56 @@ public class settings extends AnchorPane {
     @FXML
     public void save1pressed(ActionEvent event){
 
-        updatesettings();
         savedSettingsValid();
+        updatesettings();
+
     }
 
     @FXML
     public void closeSettings(ActionEvent event){
         pController.closeOverlay();
         settingsdefault.toFront();
+        paymentdefault.toFront();
     }
 
+    public void updatepayment() {
+
+        cardnumber.setText(cardnumber1.getText());
+        db.setCardNumber(cardnumber1.getText());
+
+        cardholername.setText(cardholername1.getText());
+        db.setHoldersName(cardnumber1.getText());
+
+
+        try {
+            db.setValidMonth(Integer.parseInt(validmonth1.getText()));
+            validmonth.setText(validmonth1.getText());
+        } catch (NumberFormatException e) {
+            validmonth1.setId("red_button");
+        }
+
+        try {
+            db.setValidMonth(Integer.parseInt(validyear1.getText()));
+            validyear.setText(validyear1.getText());
+        } catch (NumberFormatException e) {
+            validyear1.setId("red_button");
+        }
+
+        try {
+            db.setVerificationCode(Integer.parseInt(cvc1.getText()));
+            cvc.setText(cvc1.getText());
+        } catch (NumberFormatException e) {
+            validmonth1.setId("red_button");
+        }
+
+
+
+        }
+
+
     public void updatesettings() {
+
+
 
         firstNameTextField.setText(firstNameTextField1.getText());
         db.setFirstName(firstNameTextField1.getText());
@@ -162,7 +237,51 @@ public class settings extends AnchorPane {
     }
 
 
+    public void paymentSettingsFirstRun() {
+        if(db.isFirstRun()) {
+            validmonth.setText("");
+            validyear.setText("");
+            cvc.setText("");
+        }
+    }
 
+    public void setupPayment () {
+
+
+        //Fill payment window textfields with databse information
+
+        cardnumber.setText(db.getCardNumber());
+        cardholername.setText(db.getHoldersName());
+
+
+
+        validmonth.setText(String.valueOf(db.getValidMonth()));
+        validyear.setText(String.valueOf(db.getValidYear()));
+        cvc.setText(String.valueOf(db.getVerificationCode()));
+
+
+
+        try {
+            isFilledIn(cardnumber.getText());
+            isFilledIn(cardholername.getText());
+            isFilledIn(validmonth.getText());
+            isFilledIn(validyear.getText());
+            isFilledIn(cvc.getText());
+
+
+
+        } catch (IOException ioe) {
+            paymentchanged.toFront();
+
+            missingField = true;
+        }
+
+        if(!missingField)
+            settings2.toFront();
+
+        missingField = false;
+
+    }
     public void setupSettings(){
 
         //Fill settings window textfields with databse information
@@ -176,29 +295,108 @@ public class settings extends AnchorPane {
         telephoneTextField.setText(db.getPhoneNumber());
         mobileTextField.setText(db.getMobilePhoneNumber());
 
-        //Fill payment window textfields with databse information
-        cardnumber.setText(db.getCardNumber());
-        cardholername.setText(db.getHoldersName());
-        validmonth.setText(String.valueOf(db.getValidMonth()));
-        validyear.setText(String.valueOf(db.getValidYear()));
-        cvc.setText(String.valueOf(db.getVerificationCode()));
 
-        try {
-            isFilledIn(cardnumber.getText());
-            isFilledIn(cardholername.getText());
-            isFilledIn(validmonth.getText());
-            isFilledIn(validyear.getText());
-            isFilledIn(cvc.getText());
 
-        } catch (IOException ioe) {
-            newcard.toFront();
-            typeofcard.toFront();
-        }
-        settings2.toFront();
 
     }
 
-    @FXML
+    private void savedPaymentValid() {
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            for(char c : cardnumber1.getText().toCharArray()) {
+                if (Character.isDigit(c)) {
+                    sb.append(c);
+                }
+            }
+            if(sb.length() == 16) {
+                cardnumber1.setId("green_button");
+            }
+            else {
+                System.out.println("Felaktigt kortnumber");
+                missingField = true;
+                cardnumber1.setId("red_button");
+            }
+        } catch(NullPointerException npe) {
+            cardnumber1.setPromptText("Kortnumber behöver fyllas i.");
+        }
+
+
+        try {
+            isFilledIn(cardholername1.getText());
+
+        } catch(IOException ioe) {
+            System.out.println("Namnet behöver fyllas i");
+            missingField = true;
+            cardholername1.setId("red_button");
+        }
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            for(char c : validmonth1.getText().toCharArray()) {
+                if (Character.isDigit(c)) {
+                    sb.append(c);
+                }
+            }
+            if(sb.length() == 2) {
+                validmonth1.setId("green_button");
+            }
+            else {
+                System.out.println("Felaktigt månad");
+                missingField = true;
+                validmonth1.setId("red_button");
+            }
+        } catch(NullPointerException npe) {
+            validmonth1.setPromptText("Månaden behöver fyllas i");
+        }
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            for(char c : validyear1.getText().toCharArray()) {
+                if (Character.isDigit(c)) {
+                    sb.append(c);
+                }
+            }
+            if(sb.length() == 2) {
+                validyear1.setId("green_button");
+            }
+            else {
+                System.out.println("Felaktigt månad");
+                missingField = true;
+                validyear1.setId("red_button");
+            }
+        } catch(NullPointerException npe) {
+            validyear1.setPromptText("Året behöver fyllas i");
+        }
+
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            for(char c : cvc1.getText().toCharArray()) {
+                if (Character.isDigit(c)) {
+                    sb.append(c);
+                }
+            }
+            if(sb.length() == 3) {
+                cvc1.setId("green_button");
+            }
+            else {
+                System.out.println("Felaktigt månad");
+                missingField = true;
+                cvc1.setId("red_button");
+            }
+        } catch(NullPointerException npe) {
+            cvc1.setPromptText("CVC behöver fyllas i");
+        }
+
+
+        if(!missingField)
+            paymentdefault.toFront();
+
+        missingField = false;
+
+    }
+
     private void savedSettingsValid() {
 
         try {

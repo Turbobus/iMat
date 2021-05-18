@@ -53,13 +53,13 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Text fill="#002e48" layoutX="282.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC:">
+            <Text fill="#002e48" layoutX="292.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC:">
                <styleClass>
                   <String fx:value="bold_22" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Button id="light_blue_button_with_border" layoutX="566.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48">
+            <Button id="light_blue_button_with_border" fx:id="save2" layoutX="566.0" layoutY="162.0" mnemonicParsing="false" onAction="#save2pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48">
                <font>
                   <Font size="20.0" />
                </font>
@@ -70,7 +70,7 @@
                   <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
-            <TextField layoutX="155.0" layoutY="70.0" prefHeight="39.0" prefWidth="218.0" text="20 52 3456 6345 9001">
+            <TextField fx:id="cardnumber1" layoutX="155.0" layoutY="70.0" prefHeight="39.0" prefWidth="218.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -79,7 +79,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <TextField layoutX="260.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" text="Rune Svensson">
+            <TextField fx:id="cardholername1" layoutX="260.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -88,7 +88,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <TextField layoutX="191.0" layoutY="162.0" prefHeight="39.0" prefWidth="64.0" text="4/10">
+            <TextField fx:id="validmonth1" layoutX="183.0" layoutY="163.0" prefHeight="39.0" prefWidth="45.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -97,7 +97,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <TextField layoutX="341.0" layoutY="161.0" prefHeight="39.0" prefWidth="64.0" text="427">
+            <TextField fx:id="cvc1" layoutX="341.0" layoutY="161.0" prefHeight="39.0" prefWidth="64.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -106,7 +106,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <Button id="light_blue_button_with_border" layoutX="441.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
+            <Button id="light_blue_button_with_border" fx:id="abort2" layoutX="441.0" layoutY="162.0" mnemonicParsing="false" onAction="#abort1paymentpressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
                <font>
                   <Font size="20.0" />
                </font>
@@ -117,9 +117,9 @@
                   <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
-            <MenuButton fx:id="typeofcard" alignment="TOP_CENTER" graphicTextGap="15.0" layoutX="164.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="176.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="341.0" AnchorPane.topAnchor="8.0">
+            <MenuButton fx:id="typeofcard" alignment="TOP_CENTER" graphicTextGap="15.0" layoutX="164.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#visatypepressed" prefHeight="45.0" prefWidth="176.0" stylesheets="@main.css" text="Visa" textFill="#f1f4ff" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="341.0" AnchorPane.topAnchor="8.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Mastercard">
+                  <MenuItem fx:id="mastercardtype" mnemonicParsing="false" onAction="#mastercardtypepressed" text="Mastercard">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -152,6 +152,20 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </MenuButton>
+            <TextField fx:id="validyear1" layoutX="242.0" layoutY="162.0" prefHeight="39.0" prefWidth="45.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="border_radius_10" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+            </TextField>
+            <Label layoutX="230.0" layoutY="164.0" text="/">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
@@ -510,20 +524,6 @@
                   <String fx:value="bold_24" />
                </styleClass>
             </Text>
-            <Button id="blue_button_with_border" layoutX="155.0" layoutY="11.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Visa">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="shadow_25" />
-                  <String fx:value="border_radius_30" />
-               </styleClass>
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/visaIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <Text fill="#002e48" layoutX="122.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer:">
                <styleClass>
                   <String fx:value="bold_22" />
@@ -563,7 +563,7 @@
                   <URL value="@main.css" />
                </stylesheets>
             </Button>
-            <TextField fx:id="cardnumber" layoutX="255.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="241.0" promptText="20 52 3456 6345 9001" stylesheets="@main.css">
+            <TextField fx:id="cardnumber" editable="false" layoutX="255.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="241.0" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -572,7 +572,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
-            <TextField fx:id="cardholername" layoutX="255.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="205.0" promptText="Rune Svensson" stylesheets="@main.css">
+            <TextField fx:id="cardholername" editable="false" layoutX="255.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="205.0" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -581,7 +581,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </TextField>
-            <TextField fx:id="validmonth" layoutX="180.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" promptText="4" stylesheets="@main.css">
+            <TextField fx:id="validmonth" editable="false" layoutX="185.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="35.0" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -589,8 +589,11 @@
                   <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
             </TextField>
-            <TextField fx:id="cvc" layoutX="350.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" promptText="427" stylesheets="@main.css">
+            <TextField fx:id="cvc" editable="false" layoutX="350.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="72.0" stylesheets="@main.css">
                <font>
                   <Font size="22.0" />
                </font>
@@ -614,12 +617,12 @@
                   <URL value="@main.css" />
                </stylesheets>
             </Button>
-            <Label layoutX="216.0" layoutY="150.0" prefHeight="35.0" prefWidth="13.0" styleClass="background_color_light_light_blue" text="/">
+            <Label layoutX="215.0" layoutY="150.0" prefHeight="35.0" prefWidth="13.0" styleClass="background_color_light_light_blue" text="/">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="validyear" layoutX="232.0" layoutY="146.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" promptText="10">
+            <TextField fx:id="validyear" editable="false" layoutX="230.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0">
                <styleClass>
                   <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
@@ -631,6 +634,20 @@
                   <Insets right="20.0" />
                </padding>
             </TextField>
+            <Button id="blue_button_with_border" fx:id="visa" layoutX="155.0" layoutY="11.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Visa">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="shadow_25" />
+                  <String fx:value="border_radius_30" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/visaIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
          <styleClass>
             <String fx:value="border_dark_dark_blue_1_width" />
