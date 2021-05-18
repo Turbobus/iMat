@@ -33,6 +33,11 @@ public class Controller extends AnchorPane implements Initializable {
 
     private final List<CategoryListener> categoryListeners = new ArrayList<>();
 
+    private static LogIn logIn;
+    private static ShopHolder shopHolder;
+
+    private final List<CategoryListener> categoryListeners = new ArrayList<>();
+
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
     @FXML AnchorPane putHere;
