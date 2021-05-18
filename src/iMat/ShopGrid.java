@@ -39,7 +39,8 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         this.pController = pController;
 
         this.currentPlace.setText("Hem");
-        this.mainCategoryButton.setText("Hem");
+        //this.mainCategoryButton.setText("Hem");
+        //this.subCategoryButton.setText("Hem");
 
        populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
     }
@@ -49,12 +50,12 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         switch (pc) {
             case COLD_DRINKS -> {
                 currentPlace.setText("Drycker kalla");
-                mainCategoryButton.setText("Drycker");
+                mainCategoryButton.setText("Dryck");
                 subCategoryButton.setText("Drycker kalla");
             }
             case HOT_DRINKS -> {
                 currentPlace.setText("Drycker varma");
-                mainCategoryButton.setText("Drycker");
+                mainCategoryButton.setText("Dryck");
                 subCategoryButton.setText("Drycker varma");
             }
             case BERRY -> {
