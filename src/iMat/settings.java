@@ -1,5 +1,6 @@
 package iMat;
 
+import com.sun.javafx.scene.control.behavior.MenuButtonBehavior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
@@ -33,6 +36,8 @@ public class settings extends AnchorPane {
 
 
 
+    @FXML private ImageView mastercardpic;
+    @FXML private ImageView visapic;
 
     //Anchor panes
     @FXML private AnchorPane settingsdefault;
@@ -108,12 +113,35 @@ public class settings extends AnchorPane {
     @FXML void visatypepressed(ActionEvent event) {
 
         db.setCardType("Visa");
+
+
+        typeofcard.setGraphic(visapic);
+        typeofcard.setText("Visa");
+        mastercardtype.setGraphic(mastercardpic);
+        mastercardtype.setText("Mastercard");
     }
 
     @FXML void mastercardtypepressed(ActionEvent event) {
 
-        db.setCardType("Mastercard");
-        MenuItem.MENU_VALIDATION_EVENT
+
+
+          if(mastercardtype.getGraphic() == visapic) {
+              db.setCardType("Visa");
+              mastercardtype.setGraphic(mastercardpic);
+              mastercardtype.setText("Mastercard");
+
+              typeofcard.setGraphic(visapic);
+              typeofcard.setText("Visa");
+
+          } else {
+              db.setCardType("Mastercard");
+              mastercardtype.setGraphic(visapic);
+              mastercardtype.setText("Visa");
+              typeofcard.setGraphic(mastercardpic);
+              typeofcard.setText("Mastercard");
+
+          }
+
     }
 
     @FXML
@@ -134,6 +162,13 @@ public class settings extends AnchorPane {
     @FXML
     public void change2pressed(ActionEvent event){
 
+        cardholername1.setText(cardholername.getText());
+        cardnumber1.setText(cardnumber.getText());
+        validmonth1.setText(validmonth.getText());
+        validyear1.setText(validyear.getText());
+        cvc1.setText(cvc.getText());
+
+             paymentchanged.toFront();
 
     }
 
@@ -142,7 +177,16 @@ public class settings extends AnchorPane {
 
         savedPaymentValid();
         updatepayment();
+
+    }
+
+    @FXML
+    public void newcardpressed(ActionEvent event) {
+
+        savedPaymentValid();
+        updatepayment();
         newcard.setVisible(false);
+        settings2.toFront();
 
     }
 
@@ -157,6 +201,7 @@ public class settings extends AnchorPane {
         settingsdefault.toFront();
 
     }
+
     @FXML
     public void save1pressed(ActionEvent event){
 
@@ -189,7 +234,7 @@ public class settings extends AnchorPane {
         }
 
         try {
-            db.setValidMonth(Integer.parseInt(validyear1.getText()));
+            db.setValidYear(Integer.parseInt(validyear1.getText()));
             validyear.setText(validyear1.getText());
         } catch (NumberFormatException e) {
             validyear1.setId("red_button");
@@ -205,7 +250,6 @@ public class settings extends AnchorPane {
 
 
         }
-
 
     public void updatesettings() {
 
@@ -242,6 +286,8 @@ public class settings extends AnchorPane {
             validmonth.setText("");
             validyear.setText("");
             cvc.setText("");
+            newcard.toFront();
+
         }
     }
 
@@ -277,11 +323,12 @@ public class settings extends AnchorPane {
         }
 
         if(!missingField)
-            settings2.toFront();
+            paymentdefault.toFront();
 
         missingField = false;
 
     }
+
     public void setupSettings(){
 
         //Fill settings window textfields with databse information
