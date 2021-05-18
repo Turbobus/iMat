@@ -115,6 +115,8 @@ public class DB {
         return total;
     }
 
+    public void placeOrder(){ iMatDataHandler.placeOrder(true); }
+
     public List<ShoppingItem> getAllShoppingItems() { return iMatDataHandler.getShoppingCart().getItems(); }
 
     public double getTotalCartPrice(){ return iMatDataHandler.getShoppingCart().getTotal(); }

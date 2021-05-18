@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="purchaseCompleted" maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.purchaseCompleted">
+<fx:root maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane fx:id="purchaseCompleted" maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
@@ -24,14 +24,9 @@
                         <String fx:value="bold_36" />
                     </styleClass>
                 </Label>
-            <ImageView fx:id="closeImgView" fitHeight="30.0" fitWidth="30.0" layoutX="605.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/closeIcon.png" />
-               </image>
-            </ImageView>
             </children>
         </AnchorPane>
-        <Button id="green_button" fx:id="backHomeButton" layoutX="370.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Tillbaka till startsida">
+        <Button id="green_button" fx:id="backHomeButton" layoutX="370.0" layoutY="312.0" mnemonicParsing="false" onAction="#backToStart" prefHeight="50.0" prefWidth="240.0" text="Tillbaka till startsida">
             <styleClass>
                 <String fx:value="shadow_25" />
                 <String fx:value="bold_20" />
@@ -49,11 +44,18 @@
                 <Image url="@../img/happy_face.png" />
             </image>
         </ImageView>
-      <Button id="green_button" fx:id="backEarlierPurchaseButton" layoutX="50.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Se ditt köp">
+      <Button id="green_button" fx:id="backEarlierPurchaseButton" layoutX="50.0" layoutY="312.0" mnemonicParsing="false" onAction="#openEarlierPurchase" prefHeight="50.0" prefWidth="240.0" text="Se ditt köp">
          <styleClass>
             <String fx:value="shadow_25" />
             <String fx:value="bold_20" />
             <String fx:value="border_radius_30" />
+         </styleClass>
+      </Button>
+      <Button fx:id="closeButton" layoutX="606.0" layoutY="17.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeOverlay" prefHeight="30.0" prefWidth="30.0">
+         <styleClass>
+            <String fx:value="exit_cross" />
+            <String fx:value="background_color_blue_white" />
+            <String fx:value="shadow_50" />
          </styleClass>
       </Button>
     </children>
@@ -62,4 +64,4 @@
         <String fx:value="background_color_blue_white" />
         <String fx:value="border_radius_30" />
     </styleClass>
-</AnchorPane>
+</fx:root>

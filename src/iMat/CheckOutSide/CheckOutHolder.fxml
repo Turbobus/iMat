@@ -10,7 +10,7 @@
                 <AnchorPane fx:id="headerPane" prefHeight="151.0" prefWidth="1920.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 <AnchorPane fx:id="categoryPane" prefHeight="910.0" prefWidth="243.0" style="-fx-background-color: yellow;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="151.0" />
                 <AnchorPane fx:id="gridPane" maxWidth="1193.0" minWidth="1176.0" prefHeight="929.0" prefWidth="1193.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="151.0" />
-                <FlowPane fx:id="subcategoryPane" layoutX="243.0" layoutY="500.0" onMouseExited="#onMouseExitSubcategory" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" styleClass="border_radius_30" />
+                <FlowPane fx:id="subcategoryPane" layoutX="243.0" layoutY="500.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" styleClass="border_radius_30" />
                 <AnchorPane fx:id="methodPane" maxHeight="929.0" maxWidth="490.0" minHeight="929.0" minWidth="484.0" prefHeight="929.0" prefWidth="484.0" style="-fx-background-color: lime;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             </children>
         </AnchorPane>

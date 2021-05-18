@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayBread" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
       <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayDairy" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
@@ -25,7 +25,11 @@
          </children>
       </Pane>
       <Button id="home_button" fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Hem" />
-      <Label layoutX="13.0" layoutY="150.0" styleClass="bold_36" text="Kategorier" />
+      <Label layoutX="13.0" layoutY="150.0" text="Kategorier">
+         <styleClass>
+            <String fx:value="bold_36" />
+            <String fx:value="text_color_dark_dark_blue" />
+         </styleClass></Label>
       <Pane id="category_multichoice_buttons" fx:id="fruitPane" layoutX="-2.0" layoutY="380.0" onMouseEntered="#openFruitSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
             <Button id="category_buttons" fx:id="drinksButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />

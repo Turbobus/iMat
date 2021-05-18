@@ -27,12 +27,15 @@
             <String fx:value="shadow_25" />
          </styleClass>
       </Button>
-      <Button id="green_button" fx:id="checkOutButton" layoutX="12.0" layoutY="825.0" mnemonicParsing="false" onAction="#checkoutPressed" prefHeight="90.0" prefWidth="330.0" text="Till kassa">
+      <Button id="green_button" fx:id="checkOutButton" contentDisplay="RIGHT" layoutX="12.0" layoutY="825.0" mnemonicParsing="false" onAction="#checkoutPressed" prefHeight="90.0" prefWidth="330.0" text="Till kassa">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="bold_36" />
             <String fx:value="shadow_50" />
          </styleClass>
+         <graphic>
+            <Pane prefHeight="29.0" prefWidth="30.0" styleClass="check_out_svg" translateX="10.0" />
+         </graphic>
       </Button>
       <Label fx:id="amountInCart" layoutX="26.0" layoutY="716.0" prefHeight="31.0" prefWidth="142.0" text="Antal: 6st">
          <styleClass>

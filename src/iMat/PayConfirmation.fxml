@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="payConfirmation" maxHeight="380.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="380.0" prefWidth="660.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.PurchaseCompleted">
+<fx:root fx:id="payConfirmation" maxHeight="511.0" maxWidth="660.0" minHeight="380.0" minWidth="660.0" prefHeight="439.0" prefWidth="660.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane fx:id="purchaseCompleted" maxHeight="64.0" maxWidth="660.0" minHeight="64.0" minWidth="660.0" prefHeight="64.0" prefWidth="660.0">
             <styleClass>
@@ -24,19 +24,21 @@
                         <String fx:value="bold_36" />
                     </styleClass>
                 </Label>
-            <ImageView fx:id="closeImgView" fitHeight="30.0" fitWidth="30.0" layoutX="605.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/closeIcon.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="190.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/payIcon.png" />
                </image>
             </ImageView>
+            <Button fx:id="closeButton" layoutX="606.0" layoutY="17.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeOverlay" prefHeight="30.0" prefWidth="30.0">
+               <styleClass>
+                  <String fx:value="exit_cross" />
+                  <String fx:value="background_color_blue_white" />
+                  <String fx:value="shadow_50" />
+               </styleClass>
+            </Button>
             </children>
         </AnchorPane>
-        <Button id="green_button" fx:id="confirmpurchaseButton" layoutX="370.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Jag är säker">
+        <Button id="green_button" fx:id="confirmPurchaseButton" layoutX="370.0" layoutY="356.0" mnemonicParsing="false" onAction="#buyShoppingCart" prefHeight="50.0" prefWidth="240.0" text="Jag är säker">
             <styleClass>
                 <String fx:value="shadow_25" />
                 <String fx:value="bold_22" />
@@ -49,26 +51,26 @@
                 <String fx:value="bold_32" />
             </styleClass>
         </Label>
-      <Button id="red_button" fx:id="cancelPurchaseButton" layoutX="50.0" layoutY="312.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="240.0" text="Nej ta mig tillbaka">
+      <Button id="red_button" fx:id="cancelPurchaseButton" layoutX="50.0" layoutY="356.0" mnemonicParsing="false" onAction="#closeOverlay" prefHeight="50.0" prefWidth="240.0" text="Nej ta mig tillbaka">
          <styleClass>
             <String fx:value="shadow_25" />
             <String fx:value="bold_22" />
             <String fx:value="border_radius_30" />
          </styleClass>
       </Button>
-      <Label fx:id="purchaseInformationLbl" layoutX="27.0" layoutY="128.0" prefHeight="98.0" prefWidth="353.0" text="Du håller just nu på att köpa 4 varor för 110,95 kr" wrapText="true">
+      <Label fx:id="purchaseInformationLbl" layoutX="27.0" layoutY="114.0" prefHeight="98.0" prefWidth="353.0" text="Du håller just nu på att köpa 4 varor för 110,95 kr" wrapText="true">
          <styleClass>
             <String fx:value="text_color_dark_dark_blue" />
             <String fx:value="font_28" />
          </styleClass>
       </Label>
-      <Label layoutX="27.0" layoutY="236.0" text="Valt kort:">
+      <Label layoutX="27.0" layoutY="230.0" text="Valt kort:">
          <styleClass>
             <String fx:value="text_color_dark_dark_blue" />
             <String fx:value="font_28" />
          </styleClass>
       </Label>
-      <Button id="blue_button" layoutX="152.0" layoutY="236.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Visa">
+      <Button id="blue_button" layoutX="152.0" layoutY="230.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Visa">
          <styleClass>
             <String fx:value="bold_22" />
             <String fx:value="shadow_25" />
@@ -83,10 +85,16 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label layoutX="27.0" layoutY="290.0" text="Ungefärlig leveranstid: 10-13">
+         <styleClass>
+            <String fx:value="text_color_dark_dark_blue" />
+            <String fx:value="font_28" />
+         </styleClass>
+      </Label>
     </children>
     <styleClass>
         <String fx:value="border_dark_dark_blue_2_width" />
         <String fx:value="background_color_blue_white" />
         <String fx:value="border_radius_30" />
     </styleClass>
-</AnchorPane>
+</fx:root>

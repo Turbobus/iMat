@@ -1,5 +1,6 @@
 package iMat.CheckOutSide;
 
+import iMat.CategoryMenu.CategoryMenu;
 import iMat.Controller;
 import iMat.ProductCard;
 import iMat.Header;
@@ -22,9 +23,6 @@ public class CheckOutHolder extends AnchorPane {
     @FXML AnchorPane gridPane;
     @FXML AnchorPane methodPane;
 
-    private boolean mouseOnSubCategory;
-    @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; }
-
     public CheckOutHolder(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckOutHolder.fxml"));
         fxmlLoader.setRoot(this);
@@ -40,8 +38,8 @@ public class CheckOutHolder extends AnchorPane {
 
         setupHeader();
         setupGrid();
-        //setupCategories();
-        //setupLeftPanel();
+        setupCategories();
+        setupLeftPanel();
     }
 
 
@@ -59,13 +57,13 @@ public class CheckOutHolder extends AnchorPane {
 
     private void setupCategories() {
         categoryPane.getChildren().clear();
-        //categoryPane.getChildren().add(categoryMenu);
+        categoryPane.getChildren().add(new CategoryMenu());
         categoryPane.toFront();
     }
 
     private void setupLeftPanel() {
         methodPane.getChildren().clear();
-        methodPane.getChildren().add(new AnchorPane());
+        methodPane.getChildren().add(new CheckOutPanel(pController));
         methodPane.toFront();
     }
 
