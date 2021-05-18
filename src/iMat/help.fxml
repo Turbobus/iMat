@@ -29,7 +29,7 @@
                   <Image url="@../img/help.png" />
                </image>
             </ImageView>
-            <Button layoutX="1003.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="25.0" prefWidth="25.0">
+            <Button layoutX="1003.0" layoutY="27.0" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="30.0" prefWidth="30.0">
                <styleClass>
                   <String fx:value="exit_cross" />
                   <String fx:value="shadow_50" />
