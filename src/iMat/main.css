@@ -433,6 +433,19 @@
     -fx-text-fill: #002E48;
 }
 
+#category_pressed_buttons {
+    -fx-background-color: #A3E983;
+    -fx-border-radius: 37.5 0 0 37.5;
+    -fx-background-radius: 37.5 0 0 37.5;
+    -fx-border-color: #002E48;
+    -fx-border-width: 3px;
+    -fx-font-weight: bold;
+    -fx-font-size: 27px;
+    -fx-padding: 0 10 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
+    -fx-text-fill: #002E48;
+}
+
 #category_multichoice_buttons {
     -fx-background-color: #F1F4FF;
     -fx-border-radius: 0 37.5 37.5 0;

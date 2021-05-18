@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subcategory extends AnchorPane {
+public class Subcategory {
 
     private final List<SubcategoryItem> subcategoryItems = new ArrayList<>();
 

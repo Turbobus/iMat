@@ -76,6 +76,7 @@ public class SubcategoryItem extends AnchorPane {
 
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(pc);
+            c.updateBreadCrumbs(pc.get(0).getCategory());
             c.bringToFront();
         }
         updateButtons(this);
