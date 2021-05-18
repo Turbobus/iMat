@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class header extends AnchorPane {
+public class Header extends AnchorPane {
 
     private Controller pController;
     private Button earlierPurchaseButton;
@@ -15,7 +15,7 @@ public class header extends AnchorPane {
 
 
 
-    public header(Controller pController){
+    public Header(AnchorPane pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -42,6 +42,4 @@ public class header extends AnchorPane {
         pController.openAccountView();
 
     }
-
-
 }

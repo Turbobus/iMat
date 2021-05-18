@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -11,11 +12,9 @@ import se.chalmers.cse.dat216.project.Product;
 import java.io.IOException;
 import java.util.List;
 
-public class ShopGrid extends AnchorPane {
+public class ShopGrid extends AnchorPane implements CategoryListener {
 
     private final ShopHolder pController;
-    private final DB db = DB.getInstance();
-
 
     @FXML Label currentPlace;           // Vilken kategori/subkategori (stora texten)
     @FXML Label lowerDown;              // " < " mellan de två knapparna
@@ -43,6 +42,7 @@ public class ShopGrid extends AnchorPane {
     }
 
 
+    @Override
     public void populateCards(List<Product> products){
         cardHolder.getChildren().clear();
 
