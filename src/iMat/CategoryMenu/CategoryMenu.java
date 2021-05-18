@@ -1,6 +1,7 @@
 package iMat.CategoryMenu;
 
 import iMat.Controller;
+import iMat.DB;
 import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 
 import java.io.IOException;
@@ -16,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryMenu extends AnchorPane {
+
+    private final DB database = DB.getInstance();
+    private final Controller pController;
 
     @FXML private Button breadButton;
     @FXML private Pane drinkPane;
@@ -48,6 +54,8 @@ public class CategoryMenu extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        this.pController = pController;
 
         List<String> items = new ArrayList<>();
 
@@ -92,6 +100,27 @@ public class CategoryMenu extends AnchorPane {
 
     public Subcategory createNewSubcategory(Controller pController, String nameOfSubcategory, List<String> subcategoryNames) {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
+    }
+
+    @FXML private void displayBread() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
+            c.bringToFront();
+        }
+    }
+
+    @FXML private void displayDairy() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
+            c.bringToFront();
+        }
+    }
+
+    @FXML private void displaySweet() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
+            c.bringToFront();
+        }
     }
 
     @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }
