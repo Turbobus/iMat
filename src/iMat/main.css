@@ -394,6 +394,7 @@
     -fx-padding: 0px;
     -fx-text-fill: #002E48;
     -fx-font-size: 23px;
+    -text-align: left;
 }
 
 #category_buttons {
