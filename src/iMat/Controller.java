@@ -30,6 +30,9 @@ public class Controller extends AnchorPane implements Initializable {
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
 
+    private static LogIn logIn;
+    private static ShopHolder shopHolder;
+
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
     @FXML AnchorPane putHere;
@@ -44,7 +47,8 @@ public class Controller extends AnchorPane implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         createProductCards();
 
-
+        logIn = new LogIn(this);
+        shopHolder = new ShopHolder(this);
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
         //setupLogIn();
@@ -54,15 +58,15 @@ public class Controller extends AnchorPane implements Initializable {
         //setupCheckOut();
     }
 
-    private void setupLogIn(){
+    private void setupLogIn() {
         window.getChildren().clear();
-        window.getChildren().add(new LogIn(this));
+        window.getChildren().add(logIn);
         window.toFront();
     }
 
-    public void setupShop(){
+    public void setupShop() {
         window.getChildren().clear();
-        window.getChildren().add(new ShopHolder(this));
+        window.getChildren().add(shopHolder);
         window.toFront();
     }
 
