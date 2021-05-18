@@ -1,9 +1,11 @@
 package iMat.CategoryMenu;
 
+import iMat.Controller;
 import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -35,7 +37,7 @@ public class CategoryMenu extends AnchorPane {
 
     private boolean mouseOnSubCategory;
 
-    public CategoryMenu() {
+    public CategoryMenu(Controller pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -52,7 +54,7 @@ public class CategoryMenu extends AnchorPane {
         items.add("Drycker varma");
         items.add("Drycker kalla");
         items.add("Visa alla");
-        drinkSubcategory = createNewSubcategory("drinks", items);
+        drinkSubcategory = createNewSubcategory(pController, "drinks", items);
         items.clear();
 
         items.add("Örtkryddor");
@@ -60,13 +62,13 @@ public class CategoryMenu extends AnchorPane {
         items.add("Kål");
         items.add("Bär");
         items.add("Visa alla");
-        vegetableSubcategory = createNewSubcategory("vegetables", items);
+        vegetableSubcategory = createNewSubcategory(pController, "vegetables", items);
         items.clear();
 
         items.add("Kött");
         items.add("Fisk");
         items.add("Visa alla");
-        fishAndMeatSubcategory = createNewSubcategory("fish and meat", items);
+        fishAndMeatSubcategory = createNewSubcategory(pController, "fish and meat", items);
         items.clear();
 
         items.add("Pasta");
@@ -74,7 +76,7 @@ public class CategoryMenu extends AnchorPane {
         items.add("Mjöl, socker, salt");
         items.add("Baljväxter");
         items.add("Visa alla");
-        dryGoodsSubcategory = createNewSubcategory("dryGoods", items);
+        dryGoodsSubcategory = createNewSubcategory(pController, "dryGoods", items);
         items.clear();
 
         items.add("Stenfrukter");
@@ -84,12 +86,12 @@ public class CategoryMenu extends AnchorPane {
         items.add("Exotiska frukter");
         items.add("Citrusfrukter");
         items.add("Visa alla");
-        fruitSubcategory = createNewSubcategory("fruit", items);
+        fruitSubcategory = createNewSubcategory(pController, "fruit", items);
         items.clear();
     }
 
-    public Subcategory createNewSubcategory(String nameOfSubcategory, List<String> subcategoryNames) {
-        return new Subcategory(nameOfSubcategory, subcategoryNames);
+    public Subcategory createNewSubcategory(Controller pController, String nameOfSubcategory, List<String> subcategoryNames) {
+        return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
     @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }

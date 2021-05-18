@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryListener;
 import iMat.CheckOutSide.CheckOutHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,10 +14,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller extends AnchorPane implements Initializable {
 
@@ -32,6 +30,8 @@ public class Controller extends AnchorPane implements Initializable {
 
     private static LogIn logIn;
     private static ShopHolder shopHolder;
+
+    private final List<CategoryListener> categoryListeners = new ArrayList<>();
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -49,6 +49,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         logIn = new LogIn(this);
         shopHolder = new ShopHolder(this);
+
+        categoryListeners.add(getShopHolder().getShopGrid());
+
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
         //setupLogIn();
@@ -96,7 +99,6 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
-
         openOverlay(detailView);
     }
 
@@ -182,4 +184,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
+    public ShopHolder getShopHolder() { return shopHolder; }
+
+    public List<CategoryListener> getCategoryListeners() { return this.categoryListeners; }
 }
