@@ -45,14 +45,18 @@
             <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
       </Button>
-      <Button id="white_button" contentDisplay="RIGHT" layoutX="1550.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Mitt konto">
+      <Button id="white_button" fx:id="myAccountButton" contentDisplay="RIGHT" layoutX="1550.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#accountButtonPressed" prefHeight="60.0" prefWidth="200.0" text="Mitt konto">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_50" />
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/accounticonblue.png" />
+               </image>
+            </ImageView>
          </graphic>
       </Button>
       <Label layoutX="700.0" layoutY="55.0" text="Sök:">

@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.util.Objects;
+
 
 public class Main extends Application {
 
@@ -16,10 +19,13 @@ public class Main extends Application {
         primaryStage.setTitle("iMat");
         primaryStage.setScene(new Scene(root, 1920, 1080));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
         launch(args);
+
+
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
