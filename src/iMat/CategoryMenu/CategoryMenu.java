@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryMenu extends AnchorPane {
+public class CategoryMenu extends AnchorPane implements CategoryEvent {
 
     private final DB database = DB.getInstance();
     private final Controller pController;
@@ -31,6 +31,13 @@ public class CategoryMenu extends AnchorPane {
     @FXML private Button sweetButton;
 
     @FXML private FlowPane subcategoryPane;
+
+    private final SubcategoryItem breadItem;
+    private final SubcategoryItem dairyItem;
+    private final SubcategoryItem sweetItem;
+
+    private final List<SubcategoryItem> allSubcategoryButtons;
+    private final List<CategoryEvent> eventListeners = new ArrayList<>();
 
     private final Subcategory drinkSubcategory;
     private final Subcategory vegetableSubcategory;
@@ -53,6 +60,16 @@ public class CategoryMenu extends AnchorPane {
         }
 
         this.pController = pController;
+
+        breadItem = new SubcategoryItem(pController, "BREAD", "bread");
+        //breadItem.setVisible(false);
+        dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
+        sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
+
+        allSubcategoryButtons = breadItem.getAllItems();
+        eventListeners.addAll(allSubcategoryButtons);
+        eventListeners.add(this);
+
 
         List<String> items = new ArrayList<>();
 
@@ -104,7 +121,7 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.bringToFront();
         }
-        updateButtonStyle("BREAD");
+        categoryEvent(this.breadItem);
     }
 
     @FXML private void displayDairy() {
@@ -112,7 +129,7 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.bringToFront();
         }
-        updateButtonStyle("DAIRIES");
+        categoryEvent(this.dairyItem);
     }
 
     @FXML private void displaySweet() {
@@ -120,10 +137,17 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.bringToFront();
         }
-        updateButtonStyle("SWEET");
+        categoryEvent(this.sweetItem);
     }
 
-    public void updateButtonStyle(String category) {
+    private void categoryEvent(SubcategoryItem clicked) {
+        for(CategoryEvent ce : eventListeners) {
+            ce.updateButtonStyle(clicked);
+        }
+    }
+
+    @Override
+    public void updateButtonStyle(SubcategoryItem clicked) {
         drinkPane.setId("category_multichoice_buttons");
         vegetablePane.setId("category_multichoice_buttons");
         fishAndMeatPane.setId("category_multichoice_buttons");
@@ -134,7 +158,7 @@ public class CategoryMenu extends AnchorPane {
         dairyButton.setId("category_buttons");
         sweetButton.setId("category_buttons");
 
-        switch (category) {
+        switch (clicked.getName()) {
             case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
             case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
             case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
@@ -142,9 +166,9 @@ public class CategoryMenu extends AnchorPane {
             case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
         }
 
-        switch (category) {
+        switch (clicked.getName()) {
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
-            case "DAIRIES" -> dairyButton.setId("category_pressed_buttons");
+            case "DAIRY" -> dairyButton.setId("category_pressed_buttons");
             case "SWEET" -> sweetButton.setId("category_pressed_buttons");
         }
     }

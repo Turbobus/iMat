@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubcategoryItem extends AnchorPane {
+public class SubcategoryItem extends AnchorPane implements CategoryEvent {
 
     private final Controller pController;
 
@@ -79,7 +79,7 @@ public class SubcategoryItem extends AnchorPane {
             c.updateBreadCrumbs(pc.get(0).getCategory());
             c.bringToFront();
         }
-        updateSubcategoryButtons(this);
+        updateButtonStyle(this);
     }
 
     private List<Product> showAllEvent() {
@@ -117,7 +117,8 @@ public class SubcategoryItem extends AnchorPane {
         return pc;
     }
 
-    private void updateSubcategoryButtons(SubcategoryItem clicked) {
+    @Override
+    public void updateButtonStyle(SubcategoryItem clicked) {
 
         for(SubcategoryItem si : allItems) {
             si.subcategoryButton.setId("subcategory_buttons");;
@@ -129,9 +130,11 @@ public class SubcategoryItem extends AnchorPane {
 
     private void updateMainCategoryButtons(SubcategoryItem clicked) {
 
-        pController.getShopHolder().getCategoryMenu().updateButtonStyle(clicked.getName());
+        pController.getShopHolder().getCategoryMenu().updateButtonStyle(clicked);
     }
 
     public String getName() { return this.name; }
+
+    public List<SubcategoryItem> getAllItems() { return allItems; }
 
 }
