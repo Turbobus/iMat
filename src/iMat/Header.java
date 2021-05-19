@@ -9,12 +9,12 @@ import java.io.IOException;
 
 public class Header extends AnchorPane {
 
-    private AnchorPane pController;
+    private Controller pController;
     private Button earlierPurchaseButton;
 
 
 
-    public Header(AnchorPane pController){
+    public Header(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -29,16 +29,16 @@ public class Header extends AnchorPane {
     }
     @FXML
     private void earlierPurchaseButtonPressed(){
-
+        pController.openEarlierPurchases();
     }
 
     @FXML
     private void helpButtonpressed() {
-
+        pController.openHelp();
     }
 
     @FXML
     private void accountButtonPressed() {
-
+        pController.openAccountView();
     }
 }
