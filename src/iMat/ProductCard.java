@@ -180,6 +180,10 @@ public class ProductCard extends AnchorPane{
             gfavImg.setOpacity(1);
         }
 
+
+        // Fixa så den blir blå ifall den inte finns i kundvagn när den ritas upp
+        //if(pController.cart)
+
     }
 
     public void setUpFromCart(double amount){
