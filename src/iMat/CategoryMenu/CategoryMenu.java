@@ -2,15 +2,12 @@ package iMat.CategoryMenu;
 
 import iMat.Controller;
 import iMat.DB;
-import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 
@@ -107,7 +104,7 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.BREAD);
+        updateButtonStyle("BREAD");
     }
 
     @FXML private void displayDairy() {
@@ -115,7 +112,7 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.DAIRIES);
+        updateButtonStyle("DAIRIES");
     }
 
     @FXML private void displaySweet() {
@@ -123,18 +120,32 @@ public class CategoryMenu extends AnchorPane {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.SWEET);
+        updateButtonStyle("SWEET");
     }
 
-    private void updateButtonStyle(ProductCategory pc) {
+    public void updateButtonStyle(String category) {
+        drinkPane.setId("category_multichoice_buttons");
+        vegetablePane.setId("category_multichoice_buttons");
+        fishAndMeatPane.setId("category_multichoice_buttons");
+        dryGoodsPane.setId("category_multichoice_buttons");
+        fruitPane.setId("category_multichoice_buttons");
+
         breadButton.setId("category_buttons");
         dairyButton.setId("category_buttons");
         sweetButton.setId("category_buttons");
 
-        switch (pc) {
-            case BREAD -> breadButton.setId("category_pressed_buttons");
-            case DAIRIES -> dairyButton.setId("category_pressed_buttons");
-            case SWEET -> sweetButton.setId("category_pressed_buttons");
+        switch (category) {
+            case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
+            case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
+            case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
+            case "dryGoods" -> dryGoodsPane.setId("category_pressed_multichoice_buttons");
+            case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
+        }
+
+        switch (category) {
+            case "BREAD" -> breadButton.setId("category_pressed_buttons");
+            case "DAIRIES" -> dairyButton.setId("category_pressed_buttons");
+            case "SWEET" -> sweetButton.setId("category_pressed_buttons");
         }
     }
 
