@@ -79,7 +79,7 @@ public class SubcategoryItem extends AnchorPane {
             c.updateBreadCrumbs(pc.get(0).getCategory());
             c.bringToFront();
         }
-        updateButtons(this);
+        updateSubcategoryButtons(this);
     }
 
     private List<Product> showAllEvent() {
@@ -117,11 +117,19 @@ public class SubcategoryItem extends AnchorPane {
         return pc;
     }
 
-    private void updateButtons(SubcategoryItem clicked) {
+    private void updateSubcategoryButtons(SubcategoryItem clicked) {
+
         for(SubcategoryItem si : allItems) {
             si.subcategoryButton.setId("subcategory_buttons");;
         }
         clicked.subcategoryButton.setId("subcategory_pressed_buttons");
+
+        updateMainCategoryButtons(clicked);
+    }
+
+    private void updateMainCategoryButtons(SubcategoryItem clicked) {
+
+        pController.getShopHolder().getCategoryMenu().updateButtonStyle(clicked.getName());
     }
 
     public String getName() { return this.name; }
