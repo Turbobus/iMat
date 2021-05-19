@@ -99,7 +99,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
         }
     }
 
-    private List<Product> showAllEvent() {
+    public List<Product> showAllEvent() {
         List<Product> pc = new ArrayList<>();
         switch (this.getName()) {
             case "drinks" -> {

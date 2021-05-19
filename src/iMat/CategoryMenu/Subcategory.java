@@ -14,7 +14,6 @@ public class Subcategory {
 
     private final SubcategoryHolder holder;
 
-
     public Subcategory(Controller pController, String name, List<String> subcategories) {
 
         for(String subcategoryName : subcategories) {
@@ -27,4 +26,5 @@ public class Subcategory {
 
     public SubcategoryHolder getHolder() { return this.holder; }
 
+    public List<SubcategoryItem> getSubcategoryItems() { return subcategoryItems; }
 }

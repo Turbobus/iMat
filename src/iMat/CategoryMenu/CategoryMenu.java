@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 
@@ -67,7 +68,6 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         this.pController = pController;
 
         breadItem = new SubcategoryItem(pController, "BREAD", "bread");
-        //breadItem.setVisible(false);
         dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
         sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
 
@@ -191,6 +191,106 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
                 case "dryGoods" -> dryGoodButton.setId("category_pressed_showAll_multichoice_buttons");
                 case "fruit" -> fruitButton.setId("category_pressed_showAll_multichoice_buttons");
             }
+        }
+    }
+
+    @FXML private void showAllDrink() {
+        SubcategoryItem drink = null;
+
+        for(SubcategoryItem si : drinkSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("drinks") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                drink = si;
+            }
+        }
+        try {
+            List<Product> products = drink.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.bringToFront();
+            }
+            updateCategoryButtons(drink);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllFruit() {
+        SubcategoryItem fruit = null;
+
+        for(SubcategoryItem si : fruitSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("fruit") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                fruit = si;
+            }
+        }
+        try {
+            List<Product> products = fruit.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.bringToFront();
+            }
+            updateCategoryButtons(fruit);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllVegetable() {
+        SubcategoryItem vegetable = null;
+
+        for(SubcategoryItem si : vegetableSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("vegetables") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                vegetable = si;
+            }
+        }
+        try {
+            List<Product> products = vegetable.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.bringToFront();
+            }
+            updateCategoryButtons(vegetable);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllFishAndMeat() {
+        SubcategoryItem fishAndMeat = null;
+
+        for(SubcategoryItem si : fishAndMeatSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("fish and meat") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                fishAndMeat = si;
+            }
+        }
+        try {
+            List<Product> products = fishAndMeat.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.bringToFront();
+            }
+            updateCategoryButtons(fishAndMeat);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllDryGood() {
+        SubcategoryItem dryGood = null;
+
+        for(SubcategoryItem si : dryGoodsSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("dryGoods") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                dryGood = si;
+            }
+        }
+        try {
+            List<Product> products = dryGood.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.bringToFront();
+            }
+            updateCategoryButtons(dryGood);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
         }
     }
 
