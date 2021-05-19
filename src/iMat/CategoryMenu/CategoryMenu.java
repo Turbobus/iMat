@@ -307,9 +307,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void openDrinkSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
-
         subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - getDrinkPane().getHeight()/1.5);
+        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - 90);
 
         subcategoryPane.getChildren().add(getDrinkSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -320,7 +319,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - getFruitSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - 250);
 
         subcategoryPane.getChildren().add(getFruitSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -331,7 +330,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
-        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - getVegetableSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - 170);
 
         subcategoryPane.getChildren().add(getVegetableSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -342,7 +341,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - getFishAndMeatSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - 90);
 
         subcategoryPane.getChildren().add(getFishAndMeatSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -353,7 +352,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - getDryGoodsSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - 170);
 
         subcategoryPane.getChildren().add(getDryGoodsSubcategory().getHolder());
         subcategoryPane.toFront();
