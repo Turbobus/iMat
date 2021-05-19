@@ -124,7 +124,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displayBread() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
-            c.updateBreadCrumbs(ProductCategory.BREAD);
+            c.updateBreadCrumbs(ProductCategory.BREAD, "");
             c.bringToFront();
         }
         updateCategoryButtons(this.breadItem);
@@ -133,7 +133,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displayDairy() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
-            c.updateBreadCrumbs(ProductCategory.DAIRIES);
+            c.updateBreadCrumbs(ProductCategory.DAIRIES, "");
             c.bringToFront();
         }
         updateCategoryButtons(this.dairyItem);
@@ -142,7 +142,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displaySweet() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
-            c.updateBreadCrumbs(ProductCategory.SWEET);
+            c.updateBreadCrumbs(ProductCategory.SWEET, "");
             c.bringToFront();
         }
         updateCategoryButtons(this.sweetItem);
@@ -209,6 +209,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             List<Product> products = drink.showAllEvent();
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
+                c.updateBreadCrumbs(null, "drinks");
                 c.bringToFront();
             }
             updateCategoryButtons(drink);
@@ -229,6 +230,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             List<Product> products = fruit.showAllEvent();
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
+                c.updateBreadCrumbs(null, "fruit");
                 c.bringToFront();
             }
             updateCategoryButtons(fruit);
@@ -249,6 +251,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             List<Product> products = vegetable.showAllEvent();
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
+                c.updateBreadCrumbs(null, "vegetables");
                 c.bringToFront();
             }
             updateCategoryButtons(vegetable);
@@ -269,6 +272,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             List<Product> products = fishAndMeat.showAllEvent();
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
+                c.updateBreadCrumbs(null, "fish and meat");
                 c.bringToFront();
             }
             updateCategoryButtons(fishAndMeat);
@@ -289,6 +293,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             List<Product> products = dryGood.showAllEvent();
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
+                c.updateBreadCrumbs(null, "dryGoods");
                 c.bringToFront();
             }
             updateCategoryButtons(dryGood);

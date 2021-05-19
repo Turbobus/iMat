@@ -22,6 +22,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
 
     private final String name;
     private boolean initialized = false;
+    private static boolean showAll = false;
 
     private static final List<SubcategoryItem> allItems = new ArrayList<>();
     private static final List<CategoryButtonUpdater> eventListeners = new ArrayList<>();
@@ -78,9 +79,13 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
 
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(pc);
-            c.updateBreadCrumbs(pc.get(0).getCategory());
+            if(showAll)
+                c.updateBreadCrumbs(null, this.getName());
+            else
+                c.updateBreadCrumbs(pc.get(0).getCategory(), "");
             c.bringToFront();
         }
+        showAll = false;
         updateCategoryButtons(this);
     }
 
@@ -131,6 +136,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
                 pc.addAll(database.getCategoryProducts(ProductCategory.FRUIT));
             }
         }
+        showAll = true;
         return pc;
     }
 

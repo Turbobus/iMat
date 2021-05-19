@@ -57,34 +57,43 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
     }
 
     @Override
-    public void updateBreadCrumbs(ProductCategory pc) {
-        switch (pc) {
-            case BREAD ->  setBreadCrumbText("Bröd", "Bröd", false, "");
-            case DAIRIES ->  setBreadCrumbText("Mejeri", "Mejeri", false, "");
-            case SWEET ->  setBreadCrumbText("Sötsaker", "Sötsaker", false, "");
+    public void updateBreadCrumbs(ProductCategory pc, String showAll) {
+        if(showAll.equals("")) {
+            switch (pc) {
+                case BREAD ->  setBreadCrumbText("Bröd", "Bröd", false, "");
+                case DAIRIES ->  setBreadCrumbText("Mejeri", "Mejeri", false, "");
+                case SWEET ->  setBreadCrumbText("Sötsaker", "Sötsaker", false, "");
 
-            case COLD_DRINKS -> setBreadCrumbText("Drycker kalla", "Dryck", true, "Drycker kalla");
-            case HOT_DRINKS -> setBreadCrumbText("Drycker varma", "Dryck", true, "Drycker varma");
+                case COLD_DRINKS -> setBreadCrumbText("Drycker kalla", "Dryck", true, "Drycker kalla");
+                case HOT_DRINKS -> setBreadCrumbText("Drycker varma", "Dryck", true, "Drycker varma");
 
-            case BERRY -> setBreadCrumbText("Bär", "Grönsaker", true, "Bär");
-            case CABBAGE -> setBreadCrumbText("Kål", "Grönsaker", true, "Kål");
-            case POTATO_RICE -> setBreadCrumbText("Potatis, ris", "Grönsaker", true, "Potatis, ris");
-            case HERB -> setBreadCrumbText("Örtkryddor", "Grönsaker", true, "Örtkryddor");
+                case BERRY -> setBreadCrumbText("Bär", "Grönsaker", true, "Bär");
+                case CABBAGE -> setBreadCrumbText("Kål", "Grönsaker", true, "Kål");
+                case POTATO_RICE -> setBreadCrumbText("Potatis, ris", "Grönsaker", true, "Potatis, ris");
+                case HERB -> setBreadCrumbText("Örtkryddor", "Grönsaker", true, "Örtkryddor");
 
-            case FISH -> setBreadCrumbText("Fisk", "Kött och fisk", true, "Fisk");
-            case MEAT -> setBreadCrumbText("Kött", "Kött och fisk", true, "Kött");
+                case FISH -> setBreadCrumbText("Fisk", "Kött och fisk", true, "Fisk");
+                case MEAT -> setBreadCrumbText("Kött", "Kött och fisk", true, "Kött");
 
-            case POD -> setBreadCrumbText("Baljväxter", "Torrvaror", true, "Baljväxter");
-            case FLOUR_SUGAR_SALT -> setBreadCrumbText("Mjöl, socker, salt", "Torrvaror", true, "Mjöl, socker, salt");
-            case NUTS_AND_SEEDS -> setBreadCrumbText("Nötter & frön", "Torrvaror", true, "Nötter & frön");
-            case PASTA -> setBreadCrumbText("Pasta", "Torrvaror", true, "Pasta");
+                case POD -> setBreadCrumbText("Baljväxter", "Torrvaror", true, "Baljväxter");
+                case FLOUR_SUGAR_SALT -> setBreadCrumbText("Mjöl, socker, salt", "Torrvaror", true, "Mjöl, socker, salt");
+                case NUTS_AND_SEEDS -> setBreadCrumbText("Nötter & frön", "Torrvaror", true, "Nötter & frön");
+                case PASTA -> setBreadCrumbText("Pasta", "Torrvaror", true, "Pasta");
 
-            case CITRUS_FRUIT -> setBreadCrumbText("Citrusfrukter", "Frukt", true, "Citrusfrukter");
-            case EXOTIC_FRUIT -> setBreadCrumbText("Exotiska frukter", "Frukt", true, "Exotiska frukter");
-            case VEGETABLE_FRUIT -> setBreadCrumbText("Grönsaksfrukter", "Frukt", true, "Grönsaksfrukter");
-            case MELONS -> setBreadCrumbText("Meloner", "Frukt", true, "Meloner");
-            case ROOT_VEGETABLE -> setBreadCrumbText("Rotfrukter", "Frukt", true, "Rotfrukter");
-            case FRUIT -> setBreadCrumbText("Stenfrukter", "Frukt", true, "Stenfrukter");
+                case CITRUS_FRUIT -> setBreadCrumbText("Citrusfrukter", "Frukt", true, "Citrusfrukter");
+                case EXOTIC_FRUIT -> setBreadCrumbText("Exotiska frukter", "Frukt", true, "Exotiska frukter");
+                case VEGETABLE_FRUIT -> setBreadCrumbText("Grönsaksfrukter", "Frukt", true, "Grönsaksfrukter");
+                case MELONS -> setBreadCrumbText("Meloner", "Frukt", true, "Meloner");
+                case ROOT_VEGETABLE -> setBreadCrumbText("Rotfrukter", "Frukt", true, "Rotfrukter");
+                case FRUIT -> setBreadCrumbText("Stenfrukter", "Frukt", true, "Stenfrukter");
+            }
+        }
+        switch (showAll) {
+            case "drinks" -> setBreadCrumbText("Dryck", "Dryck", true, "Visa alla");
+            case "fruit" -> setBreadCrumbText("Frukt", "Frukt", true, "Visa alla");
+            case "vegetables" -> setBreadCrumbText("Grönsaker", "Grönsaker", true, "Visa alla");
+            case "fish and meat" -> setBreadCrumbText("Kött och fisk", "Kött och fisk", true, "Visa alla");
+            case "dryGoods" -> setBreadCrumbText("Torrvaror", "Torrvaror", true, "Visa alla");
         }
     }
 
