@@ -124,6 +124,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displayBread() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
+            c.updateBreadCrumbs(ProductCategory.BREAD);
             c.bringToFront();
         }
         updateCategoryButtons(this.breadItem);
@@ -132,6 +133,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displayDairy() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
+            c.updateBreadCrumbs(ProductCategory.DAIRIES);
             c.bringToFront();
         }
         updateCategoryButtons(this.dairyItem);
@@ -140,6 +142,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displaySweet() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
+            c.updateBreadCrumbs(ProductCategory.SWEET);
             c.bringToFront();
         }
         updateCategoryButtons(this.sweetItem);

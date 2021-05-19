@@ -45,99 +45,46 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
        populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
     }
 
+    private void setBreadCrumbText(String current, String mainCategory, boolean lower, String subCategory) {
+        currentPlace.setText(current);
+        mainCategoryButton.setText(mainCategory);
+        lowerDown.setText("");
+        subCategoryButton.setText("");
+        if(lower) {
+            lowerDown.setText(">");
+            subCategoryButton.setText(subCategory);
+        }
+    }
+
     @Override
     public void updateBreadCrumbs(ProductCategory pc) {
         switch (pc) {
-            case COLD_DRINKS -> {
-                currentPlace.setText("Drycker kalla");
-                mainCategoryButton.setText("Dryck");
-                subCategoryButton.setText("Drycker kalla");
-            }
-            case HOT_DRINKS -> {
-                currentPlace.setText("Drycker varma");
-                mainCategoryButton.setText("Dryck");
-                subCategoryButton.setText("Drycker varma");
-            }
-            case BERRY -> {
-                currentPlace.setText("Bär");
-                mainCategoryButton.setText("Grönsaker");
-                subCategoryButton.setText("Bär");
-            }
-            case CABBAGE -> {
-                currentPlace.setText("Kål");
-                mainCategoryButton.setText("Grönsaker");
-                subCategoryButton.setText("Kål");
-            }
-            case POTATO_RICE -> {
-                currentPlace.setText("Potatis, ris");
-                mainCategoryButton.setText("Grönsaker");
-                subCategoryButton.setText("Potatis, ris");
-            }
-            case HERB -> {
-                currentPlace.setText("Örtkryddor");
-                mainCategoryButton.setText("Grönsaker");
-                subCategoryButton.setText("Örtkryddor");
-            }
-            case FISH -> {
-                currentPlace.setText("Fisk");
-                mainCategoryButton.setText("Kött och fisk");
-                subCategoryButton.setText("Fisk");
-            }
-            case MEAT -> {
-                currentPlace.setText("Kött");
-                mainCategoryButton.setText("Kött och fisk");
-                subCategoryButton.setText("Kött");
-            }
-            case POD -> {
-                currentPlace.setText("Baljväxter");
-                mainCategoryButton.setText("Torrvaror");
-                subCategoryButton.setText("Baljväxter");
-            }
-            case FLOUR_SUGAR_SALT -> {
-                currentPlace.setText("Mjöl, socker, salt");
-                mainCategoryButton.setText("Torrvaror");
-                subCategoryButton.setText("Mjöl, socker, salt");
-            }
-            case NUTS_AND_SEEDS -> {
-                currentPlace.setText("Nötter & frön");
-                mainCategoryButton.setText("Torrvaror");
-                subCategoryButton.setText("Nötter & frön");
-            }
-            case PASTA -> {
-                currentPlace.setText("Pasta");
-                mainCategoryButton.setText("Torrvaror");
-                subCategoryButton.setText("Pasta");
-            }
-            case CITRUS_FRUIT -> {
-                currentPlace.setText("Citrusfrukter");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Citrusfrukter");
-            }
-            case EXOTIC_FRUIT -> {
-                currentPlace.setText("Exotiska frukter");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Exotiska frukter");
-            }
-            case VEGETABLE_FRUIT -> {
-                currentPlace.setText("Grönsaksfrukter");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Grönsaksfrukter");
-            }
-            case MELONS -> {
-                currentPlace.setText("Meloner");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Meloner");
-            }
-            case ROOT_VEGETABLE -> {
-                currentPlace.setText("Rotfrukter");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Rotfrukter");
-            }
-            case FRUIT -> {
-                currentPlace.setText("Stenfrukter");
-                mainCategoryButton.setText("Frukt");
-                subCategoryButton.setText("Stenfrukter");
-            }
+            case BREAD ->  setBreadCrumbText("Bröd", "Bröd", false, "");
+            case DAIRIES ->  setBreadCrumbText("Mejeri", "Mejeri", false, "");
+            case SWEET ->  setBreadCrumbText("Sötsaker", "Sötsaker", false, "");
+
+            case COLD_DRINKS -> setBreadCrumbText("Drycker kalla", "Dryck", true, "Drycker kalla");
+            case HOT_DRINKS -> setBreadCrumbText("Drycker varma", "Dryck", true, "Drycker varma");
+
+            case BERRY -> setBreadCrumbText("Bär", "Grönsaker", true, "Bär");
+            case CABBAGE -> setBreadCrumbText("Kål", "Grönsaker", true, "Kål");
+            case POTATO_RICE -> setBreadCrumbText("Potatis, ris", "Grönsaker", true, "Potatis, ris");
+            case HERB -> setBreadCrumbText("Örtkryddor", "Grönsaker", true, "Örtkryddor");
+
+            case FISH -> setBreadCrumbText("Fisk", "Kött och fisk", true, "Fisk");
+            case MEAT -> setBreadCrumbText("Kött", "Kött och fisk", true, "Kött");
+
+            case POD -> setBreadCrumbText("Baljväxter", "Torrvaror", true, "Baljväxter");
+            case FLOUR_SUGAR_SALT -> setBreadCrumbText("Mjöl, socker, salt", "Torrvaror", true, "Mjöl, socker, salt");
+            case NUTS_AND_SEEDS -> setBreadCrumbText("Nötter & frön", "Torrvaror", true, "Nötter & frön");
+            case PASTA -> setBreadCrumbText("Pasta", "Torrvaror", true, "Pasta");
+
+            case CITRUS_FRUIT -> setBreadCrumbText("Citrusfrukter", "Frukt", true, "Citrusfrukter");
+            case EXOTIC_FRUIT -> setBreadCrumbText("Exotiska frukter", "Frukt", true, "Exotiska frukter");
+            case VEGETABLE_FRUIT -> setBreadCrumbText("Grönsaksfrukter", "Frukt", true, "Grönsaksfrukter");
+            case MELONS -> setBreadCrumbText("Meloner", "Frukt", true, "Meloner");
+            case ROOT_VEGETABLE -> setBreadCrumbText("Rotfrukter", "Frukt", true, "Rotfrukter");
+            case FRUIT -> setBreadCrumbText("Stenfrukter", "Frukt", true, "Stenfrukter");
         }
     }
 
