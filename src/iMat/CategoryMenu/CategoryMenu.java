@@ -20,15 +20,21 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     private final DB database = DB.getInstance();
     private final Controller pController;
 
-    @FXML private Button breadButton;
     @FXML private Pane drinkPane;
     @FXML private Pane fruitPane;
     @FXML private Pane vegetablePane;
     @FXML private Pane fishAndMeatPane;
     @FXML private Pane dryGoodsPane;
 
+    @FXML private Button breadButton;
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
+
+    @FXML private Button drinkButton;
+    @FXML private Button fruitButton;
+    @FXML private Button vegetableButton;
+    @FXML private Button fishAndMeatButton;
+    @FXML private Button dryGoodButton;
 
     @FXML private FlowPane subcategoryPane;
 
@@ -169,6 +175,16 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
             case "DAIRY" -> dairyButton.setId("category_pressed_buttons");
             case "SWEET" -> sweetButton.setId("category_pressed_buttons");
+        }
+
+        if(clicked.getSubcategoryButton().getText().equals("Visa alla")) {
+            switch (clicked.getName()) {
+                case "drinks" -> drinkButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "vegetables" -> vegetableButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "fish and meat" -> fishAndMeatButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "dryGoods" -> dryGoodButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "fruit" -> fruitButton.setId("category_pressed_showAll_multichoice_buttons");
+            }
         }
     }
 
