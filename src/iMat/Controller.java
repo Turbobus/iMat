@@ -184,6 +184,14 @@ public class Controller extends AnchorPane implements Initializable {
         productCards.get(prodId).updateCard();
     }
 
+    public void search(String word){
+        for(CategoryListener c : getCategoryListeners()) {
+            c.populateCards(db.getSearchResult(word));
+        }
+
+        setupShop();
+    }
+
     // Rounds the corners of a given imageview with a specified amount
     public void roundImage(ImageView img, int amount) {
         Rectangle clip = new Rectangle(img.getFitWidth(), img.getFitHeight());

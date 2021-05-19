@@ -7,8 +7,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="151.0" maxWidth="1920.0" minHeight="151.0" minWidth="1920.0" prefHeight="151.0" prefWidth="1920.0" styleClass="background_color_blue" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="151.0" maxWidth="1920.0" minHeight="151.0" minWidth="1920.0" prefHeight="151.0" prefWidth="1920.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="33.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,7 +23,12 @@
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="30.0" prefWidth="30.0" translateX="2.0">
+               <styleClass>
+                  <String fx:value="earlier_purchase_svg" />
+                  <String fx:value="background_color_dark_blue" />
+               </styleClass>
+            </Pane>
          </graphic>
       </Button>
       <Button id="white_button" contentDisplay="RIGHT" layoutX="1330.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#helpButtonpressed" prefHeight="60.0" prefWidth="200.0" text="Hjälp">
@@ -32,7 +38,10 @@
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../img/help_blue_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
       <Button id="white_button" contentDisplay="RIGHT" layoutX="470.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Favoriter">
@@ -42,7 +51,7 @@
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="30.0" prefWidth="32.0" style="-fx-shape: &quot;M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z&quot;; -fx-border-color: #004972; -fx-border-width: 2.8px;" styleClass="background_color_blue_white" translateX="5.0" />
          </graphic>
       </Button>
       <Button id="white_button" fx:id="myAccountButton" contentDisplay="RIGHT" layoutX="1550.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#accountButtonPressed" prefHeight="60.0" prefWidth="200.0" text="Mitt konto">
@@ -52,11 +61,12 @@
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/accounticonblue.png" />
-               </image>
-            </ImageView>
+            <Pane prefHeight="40.0" prefWidth="40.0" translateX="5.0">
+               <styleClass>
+                  <String fx:value="account_svg" />
+                  <String fx:value="background_color_dark_blue" />
+               </styleClass>
+            </Pane>
          </graphic>
       </Button>
       <Label layoutX="700.0" layoutY="55.0" text="Sök:">
@@ -66,6 +76,21 @@
             <String fx:value="shadow_50" />
          </styleClass>
       </Label>
-      <TextField layoutX="770.0" layoutY="46.0" prefHeight="60.0" prefWidth="495.0" />
+      <AnchorPane id="hide_white_textArea" layoutX="770.0" layoutY="46.0" prefHeight="60.0" prefWidth="495.0">
+         <children>
+            <TextField fx:id="searchTextField" alignment="CENTER" layoutX="57.0" onAction="#searchPressed" prefHeight="60.0" prefWidth="400.0" promptText="produkter...">
+               <styleClass>
+                  <String fx:value="background_color_blue_white" />
+                  <String fx:value="text_color_dark_blue" />
+                  <String fx:value="font_24" />
+               </styleClass>
+            </TextField>
+            <Pane layoutX="20.0" layoutY="17.0" prefHeight="31.0" prefWidth="31.0" styleClass="search_svg" />
+         </children>
+      </AnchorPane>
    </children>
+   <styleClass>
+      <String fx:value="background_color_blue" />
+      <String fx:value="shadow_50" />
+   </styleClass>
 </fx:root>
