@@ -1,21 +1,20 @@
 package iMat;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class header extends AnchorPane {
+public class Header extends AnchorPane {
 
-    private Controller pController;
+    private AnchorPane pController;
     private Button earlierPurchaseButton;
-    private Button myAccountButton;
 
 
 
-    public header(Controller pController){
+    public Header(AnchorPane pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -28,20 +27,18 @@ public class header extends AnchorPane {
 
         this.pController = pController;
     }
-    public void earlierPurchaseButtonPressed(ActionEvent event){
-        pController.openEarlierPurchases();
+    @FXML
+    private void earlierPurchaseButtonPressed(){
 
     }
 
-    public void helpButtonpressed(ActionEvent event){
-        pController.openHelp();
+    @FXML
+    private void helpButtonpressed() {
 
     }
 
-    public void accountButtonPressed (ActionEvent event) {
-        pController.openAccountView();
+    @FXML
+    private void accountButtonPressed() {
 
     }
-
-
 }

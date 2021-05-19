@@ -1,12 +1,17 @@
 package iMat.CategoryMenu;
 
+import iMat.Controller;
+import iMat.DB;
 import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 
 import java.io.IOException;
@@ -14,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryMenu extends AnchorPane {
+
+    private final DB database = DB.getInstance();
+    private final Controller pController;
 
     @FXML private Button breadButton;
     @FXML private Pane drinkPane;
@@ -35,7 +43,7 @@ public class CategoryMenu extends AnchorPane {
 
     private boolean mouseOnSubCategory;
 
-    public CategoryMenu() {
+    public CategoryMenu(Controller pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -47,12 +55,14 @@ public class CategoryMenu extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.pController = pController;
+
         List<String> items = new ArrayList<>();
 
         items.add("Drycker varma");
         items.add("Drycker kalla");
         items.add("Visa alla");
-        drinkSubcategory = createNewSubcategory("drinks", items);
+        drinkSubcategory = createNewSubcategory(pController, "drinks", items);
         items.clear();
 
         items.add("Örtkryddor");
@@ -60,13 +70,13 @@ public class CategoryMenu extends AnchorPane {
         items.add("Kål");
         items.add("Bär");
         items.add("Visa alla");
-        vegetableSubcategory = createNewSubcategory("vegetables", items);
+        vegetableSubcategory = createNewSubcategory(pController, "vegetables", items);
         items.clear();
 
         items.add("Kött");
         items.add("Fisk");
         items.add("Visa alla");
-        fishAndMeatSubcategory = createNewSubcategory("fish and meat", items);
+        fishAndMeatSubcategory = createNewSubcategory(pController, "fish and meat", items);
         items.clear();
 
         items.add("Pasta");
@@ -74,7 +84,7 @@ public class CategoryMenu extends AnchorPane {
         items.add("Mjöl, socker, salt");
         items.add("Baljväxter");
         items.add("Visa alla");
-        dryGoodsSubcategory = createNewSubcategory("dryGoods", items);
+        dryGoodsSubcategory = createNewSubcategory(pController, "dryGoods", items);
         items.clear();
 
         items.add("Stenfrukter");
@@ -84,12 +94,48 @@ public class CategoryMenu extends AnchorPane {
         items.add("Exotiska frukter");
         items.add("Citrusfrukter");
         items.add("Visa alla");
-        fruitSubcategory = createNewSubcategory("fruit", items);
+        fruitSubcategory = createNewSubcategory(pController, "fruit", items);
         items.clear();
     }
 
-    public Subcategory createNewSubcategory(String nameOfSubcategory, List<String> subcategoryNames) {
-        return new Subcategory(nameOfSubcategory, subcategoryNames);
+    public Subcategory createNewSubcategory(Controller pController, String nameOfSubcategory, List<String> subcategoryNames) {
+        return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
+    }
+
+    @FXML private void displayBread() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
+            c.bringToFront();
+        }
+        updateButtonStyle(ProductCategory.BREAD);
+    }
+
+    @FXML private void displayDairy() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
+            c.bringToFront();
+        }
+        updateButtonStyle(ProductCategory.DAIRIES);
+    }
+
+    @FXML private void displaySweet() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
+            c.bringToFront();
+        }
+        updateButtonStyle(ProductCategory.SWEET);
+    }
+
+    private void updateButtonStyle(ProductCategory pc) {
+        breadButton.setId("category_buttons");
+        dairyButton.setId("category_buttons");
+        sweetButton.setId("category_buttons");
+
+        switch (pc) {
+            case BREAD -> breadButton.setId("category_pressed_buttons");
+            case DAIRIES -> dairyButton.setId("category_pressed_buttons");
+            case SWEET -> sweetButton.setId("category_pressed_buttons");
+        }
     }
 
     @FXML private void onMouseExitSubcategory() { mouseOnSubCategory = false; closeSubcategory(); }

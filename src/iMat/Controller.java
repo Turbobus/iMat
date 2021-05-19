@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryListener;
 import iMat.CheckOutSide.CheckOutHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,17 +14,13 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller extends AnchorPane implements Initializable {
 
     private final DB db = DB.getInstance();
 
     private final Map<Integer, ProductCard> productCards = new HashMap<>();
-    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
@@ -32,6 +29,11 @@ public class Controller extends AnchorPane implements Initializable {
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
+
+    private static LogIn logIn;
+    private static ShopHolder shopHolder;
+
+    private final List<CategoryListener> categoryListeners = new ArrayList<>();
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -47,6 +49,10 @@ public class Controller extends AnchorPane implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         createProductCards();
 
+        logIn = new LogIn(this);
+        shopHolder = new ShopHolder(this);
+
+        categoryListeners.add(getShopHolder().getShopGrid());
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
@@ -64,15 +70,15 @@ public class Controller extends AnchorPane implements Initializable {
         //setupCheckOut();
     }
 
-    private void setupLogIn(){
+    private void setupLogIn() {
         window.getChildren().clear();
-        window.getChildren().add(new LogIn(this));
+        window.getChildren().add(logIn);
         window.toFront();
     }
 
-    public void setupShop(){
+    public void setupShop() {
         window.getChildren().clear();
-        window.getChildren().add(new ShopHolder(this));
+        window.getChildren().add(shopHolder);
         window.toFront();
     }
 
@@ -193,4 +199,9 @@ public class Controller extends AnchorPane implements Initializable {
         img.setImage(image);
     }
 
+    public Map<Integer, ProductCard> getProductCards(){ return productCards; }
+
+    public ShopHolder getShopHolder() { return shopHolder; }
+
+    public List<CategoryListener> getCategoryListeners() { return this.categoryListeners; }
 }
