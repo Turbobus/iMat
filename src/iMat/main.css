@@ -446,9 +446,10 @@
 }
 
 #hide_white_textArea {
-    -fx-fill: #FAFBFF;
-    -fx-stroke: none;
+    -fx-background-color: #FAFBFF;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
 }
 
 #breadcrumb_button {

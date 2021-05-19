@@ -40,7 +40,7 @@
       <TextField id="prodText_input" fx:id="amountTextCartItem" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />
       <AnchorPane id="cart_item_card" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="shadow_25_total_side">
          <children>
-            <ImageView fx:id="prodImg" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true">
+            <ImageView fx:id="prodImg" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../img/happy_face.png" />
                </image>
