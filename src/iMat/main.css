@@ -471,6 +471,7 @@
     -fx-padding: 0 10 0 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #category_pressed_buttons {
@@ -484,6 +485,7 @@
     -fx-padding: 0 10 0 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #category_multichoice_buttons {
@@ -494,6 +496,7 @@
     -fx-border-color: #002E48;
     -fx-border-width: 1px;
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #category_pressed_multichoice_buttons {
@@ -504,6 +507,7 @@
     -fx-border-color: #002E48;
     -fx-border-width: 2px;
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #category_pressed_showAll_multichoice_buttons {
@@ -517,6 +521,7 @@
     -fx-padding: 0 10 0 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #subcategory_buttons {
@@ -529,6 +534,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 23px;
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #subcategory_pressed_buttons {
@@ -541,6 +547,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 23px;
     -fx-text-fill: #0A2500;
+    -fx-border-insets: -1px;
 }
 
 #home_button {
@@ -554,6 +561,7 @@
     -fx-padding: 0 10 0 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
     -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
 }
 
 #cart_pane {

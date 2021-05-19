@@ -153,6 +153,12 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
+        drinkButton.setId("category_buttons");
+        vegetableButton.setId("category_buttons");
+        fishAndMeatButton.setId("category_buttons");
+        dryGoodButton.setId("category_buttons");
+        fruitButton.setId("category_buttons");
+
         drinkPane.setId("category_multichoice_buttons");
         vegetablePane.setId("category_multichoice_buttons");
         fishAndMeatPane.setId("category_multichoice_buttons");
