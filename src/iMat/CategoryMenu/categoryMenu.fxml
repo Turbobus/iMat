@@ -71,6 +71,12 @@
          </children>
       </Pane>
       <FlowPane fx:id="subcategoryPane" layoutX="-255.0" layoutY="351.0" onMouseExited="#onMouseExitSubcategory" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" styleClass="border_radius_30" stylesheets="@../main.css" />
+      <Pane layoutX="195.0" layoutY="160.0" prefHeight="30.0" prefWidth="30.0">
+         <styleClass>
+            <String fx:value="category_svg" />
+            <String fx:value="background_color_dark_dark_blue" />
+         </styleClass>
+      </Pane>
    </children>
    <styleClass>
       <String fx:value="background_color_blue_white" />

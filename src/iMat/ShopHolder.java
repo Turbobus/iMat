@@ -37,7 +37,7 @@ public class ShopHolder extends AnchorPane {
         }
 
         this.pController = pController;
-        this.header = new Header(this);
+        this.header = new Header(pController);
         this.shopGrid = new ShopGrid(this);
         this.categoryMenu = new CategoryMenu(pController);
 

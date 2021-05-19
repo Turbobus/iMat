@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="window" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="window" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -50,62 +50,6 @@
                         <String fx:value="bold_36" />
                      </styleClass>
                   </Label>
-                  <TextField fx:id="firstNameTextField" layoutX="35.0" layoutY="110.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="lastNameTextField" layoutX="35.0" layoutY="170.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="addressTextField" layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="mailTextField" layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="telephoneTextField" layoutX="35.0" layoutY="455.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="mobileTextField" layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="postalCodeTextField" layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
-                  <TextField fx:id="postAddressTextField" layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
-                        <String fx:value="background_color_blue_white" />
-                     </styleClass>
-                  </TextField>
                   <Button id="white_button" fx:id="nextButton" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Nästa">
                      <styleClass>
                         <String fx:value="border_radius_30" />
@@ -136,6 +80,142 @@
                         <String fx:value="shadow_50" />
                      </styleClass>
                   </Label>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="110.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="firstNameTextField" layoutX="73.0" prefHeight="45.0" prefWidth="436.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="text_color_dark_blue" />
+                              <String fx:value="font_20" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Namn:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="170.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="lastNameTextField" layoutX="113.0" prefHeight="45.0" prefWidth="397.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="font_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Efternamn:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="addressTextField" layoutX="79.0" prefHeight="45.0" prefWidth="430.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="text_color_dark_blue" />
+                              <String fx:value="font_20" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Adress:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                     <children>
+                        <TextField fx:id="postalCodeTextField" layoutX="135.0" prefHeight="45.0" prefWidth="98.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="font_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Postnummer:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                     <children>
+                        <TextField fx:id="postAddressTextField" layoutX="86.0" prefHeight="45.0" prefWidth="149.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="text_color_dark_blue" />
+                              <String fx:value="font_20" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Postort:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="mobileTextField" layoutX="147.0" prefHeight="45.0" prefWidth="363.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="font_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Mobilnummer:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="455.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="telephoneTextField" layoutX="163.0" prefHeight="45.0" prefWidth="347.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="text_color_dark_blue" />
+                              <String fx:value="font_20" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="Telefonnummer:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
+                     <children>
+                        <TextField fx:id="mailTextField" layoutX="130.0" prefHeight="45.0" prefWidth="382.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="font_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </TextField>
+                        <Label layoutX="15.0" layoutY="8.0" text="E-postadress:">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_blue" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>

@@ -228,6 +228,8 @@ public class DB {
         return this.iMatDataHandler.isFirstRun();
     }
 
+    public void resetFirstRun() { iMatDataHandler.resetFirstRun(); }
+
 
 
 
