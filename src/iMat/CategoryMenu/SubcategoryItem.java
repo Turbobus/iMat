@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubcategoryItem extends AnchorPane implements CategoryEvent {
+public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater {
 
     private final Controller pController;
 
@@ -21,8 +21,10 @@ public class SubcategoryItem extends AnchorPane implements CategoryEvent {
     private final DB database = DB.getInstance();
 
     private final String name;
+    private boolean initialized = false;
 
     private static final List<SubcategoryItem> allItems = new ArrayList<>();
+    private static final List<CategoryButtonUpdater> eventListeners = new ArrayList<>();
 
     public SubcategoryItem(Controller pController, String name, String itemText) {
 
@@ -79,7 +81,22 @@ public class SubcategoryItem extends AnchorPane implements CategoryEvent {
             c.updateBreadCrumbs(pc.get(0).getCategory());
             c.bringToFront();
         }
-        updateButtonStyle(this);
+        updateCategoryButtons(this);
+    }
+
+    private void initializeEventListeners() {
+        if (!initialized) {
+            eventListeners.addAll(allItems);
+            eventListeners.add(pController.getShopHolder().getCategoryMenu());
+            initialized = true;
+        }
+    }
+
+    private void updateCategoryButtons(SubcategoryItem clicked) {
+        initializeEventListeners();
+        for(CategoryButtonUpdater ce : eventListeners) {
+            ce.updateButtonStyle(clicked);
+        }
     }
 
     private List<Product> showAllEvent() {
@@ -119,19 +136,12 @@ public class SubcategoryItem extends AnchorPane implements CategoryEvent {
 
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
-
         for(SubcategoryItem si : allItems) {
             si.subcategoryButton.setId("subcategory_buttons");;
         }
         clicked.subcategoryButton.setId("subcategory_pressed_buttons");
-
-        updateMainCategoryButtons(clicked);
     }
 
-    private void updateMainCategoryButtons(SubcategoryItem clicked) {
-
-        pController.getShopHolder().getCategoryMenu().updateButtonStyle(clicked);
-    }
 
     public String getName() { return this.name; }
 

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryMenu extends AnchorPane implements CategoryEvent {
+public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     private final DB database = DB.getInstance();
     private final Controller pController;
@@ -36,8 +36,7 @@ public class CategoryMenu extends AnchorPane implements CategoryEvent {
     private final SubcategoryItem dairyItem;
     private final SubcategoryItem sweetItem;
 
-    private final List<SubcategoryItem> allSubcategoryButtons;
-    private final List<CategoryEvent> eventListeners = new ArrayList<>();
+    private final List<CategoryButtonUpdater> eventListeners = new ArrayList<>();
 
     private final Subcategory drinkSubcategory;
     private final Subcategory vegetableSubcategory;
@@ -66,7 +65,7 @@ public class CategoryMenu extends AnchorPane implements CategoryEvent {
         dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
         sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
 
-        allSubcategoryButtons = breadItem.getAllItems();
+        List<SubcategoryItem> allSubcategoryButtons = breadItem.getAllItems();
         eventListeners.addAll(allSubcategoryButtons);
         eventListeners.add(this);
 
@@ -121,7 +120,7 @@ public class CategoryMenu extends AnchorPane implements CategoryEvent {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.bringToFront();
         }
-        categoryEvent(this.breadItem);
+        updateCategoryButtons(this.breadItem);
     }
 
     @FXML private void displayDairy() {
@@ -129,7 +128,7 @@ public class CategoryMenu extends AnchorPane implements CategoryEvent {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.bringToFront();
         }
-        categoryEvent(this.dairyItem);
+        updateCategoryButtons(this.dairyItem);
     }
 
     @FXML private void displaySweet() {
@@ -137,11 +136,11 @@ public class CategoryMenu extends AnchorPane implements CategoryEvent {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.bringToFront();
         }
-        categoryEvent(this.sweetItem);
+        updateCategoryButtons(this.sweetItem);
     }
 
-    private void categoryEvent(SubcategoryItem clicked) {
-        for(CategoryEvent ce : eventListeners) {
+    private void updateCategoryButtons(SubcategoryItem clicked) {
+        for(CategoryButtonUpdater ce : eventListeners) {
             ce.updateButtonStyle(clicked);
         }
     }

@@ -1,6 +1,6 @@
 package iMat.CategoryMenu;
 
-public interface CategoryEvent {
+public interface CategoryButtonUpdater {
 
     void updateButtonStyle(SubcategoryItem clicked);
 }
