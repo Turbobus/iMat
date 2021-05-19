@@ -55,17 +55,17 @@ public class Controller extends AnchorPane implements Initializable {
         categoryListeners.add(getShopHolder().getShopGrid());
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
-
+        db.reset();
         db.resetFirstRun();
-        if(db.isFirstRun()){
+       /* if(db.isFirstRun()){
             setupLogIn();
         } else {
             setupShop();
-        }
+        }*/
 
         //setupLogIn();
 
-        //setupShop();
+        setupShop();
 
         //setupCheckOut();
     }
@@ -75,6 +75,8 @@ public class Controller extends AnchorPane implements Initializable {
         window.getChildren().add(logIn);
         window.toFront();
     }
+
+
 
     public void setupShop() {
         window.getChildren().clear();
@@ -101,6 +103,10 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openAccountView(){
+
+        settings.setupPayment();
+        settings.setupSettings();
+        settings.paymentSettingsFirstRun();
         openOverlay(settings);
     }
 

@@ -231,7 +231,7 @@ public class DB {
     public void resetFirstRun() { iMatDataHandler.resetFirstRun(); }
 
 
-
+    public void reset() {iMatDataHandler.reset();}
 
 
 

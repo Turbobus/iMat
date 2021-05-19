@@ -1,19 +1,18 @@
 package iMat;
 
 import com.sun.javafx.scene.control.behavior.MenuButtonBehavior;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.io.IOException;
+import java.util.function.UnaryOperator;
 
 public class settings extends AnchorPane {
 
@@ -21,71 +20,110 @@ public class settings extends AnchorPane {
     DB db = DB.getInstance();
 
     //Buttons for window default
-    @FXML private Button closeAccount;
-    @FXML private Button settings1;
-    @FXML private Button settings2;
-    @FXML private Button save1;
-    @FXML private Button abort1;
-    @FXML private Button save2;
-    @FXML private Button abort2;
-    @FXML private Button newcard;
-    @FXML private Button visa;
-    @FXML private MenuButton typeofcard;
-    @FXML private MenuItem mastercardtype;
+    @FXML
+    private Button closeAccount;
+    @FXML
+    private Button settings1;
+    @FXML
+    private Button settings2;
+    @FXML
+    private Button save1;
+    @FXML
+    private Button abort1;
+    @FXML
+    private Button save2;
+    @FXML
+    private Button abort2;
+    @FXML
+    private Button newcard;
+    @FXML
+    private Button visa;
+    @FXML
+    private MenuButton typeofcard;
+    @FXML
+    private MenuItem mastercardtype;
 
 
-
-
-    @FXML private ImageView mastercardpic;
-    @FXML private ImageView visapic;
+    @FXML
+    private ImageView mastercardpic;
+    @FXML
+    private ImageView visapic;
 
     //Anchor panes
-    @FXML private AnchorPane settingsdefault;
-    @FXML private AnchorPane settingschanged;
-    @FXML private AnchorPane paymentdefault;
-    @FXML private AnchorPane paymentchanged;
+    @FXML
+    private AnchorPane settingsdefault;
+    @FXML
+    private AnchorPane settingschanged;
+    @FXML
+    private AnchorPane paymentdefault;
+    @FXML
+    private AnchorPane paymentchanged;
 
     //Textfields for payment window default
-    @FXML private TextField cardnumber;
-    @FXML private TextField cardholername;
-    @FXML private TextField validmonth;
-    @FXML private TextField validyear;
-    @FXML private TextField cvc;
+    @FXML
+    private TextField cardnumber;
+    @FXML
+    private TextField cardholername;
+    @FXML
+    private TextField validmonth;
+    @FXML
+    private TextField validyear;
+    @FXML
+    private TextField cvc;
 
     //Textfields for payment window changed
-    @FXML private TextField cardnumber1;
-    @FXML private TextField cardholername1;
-    @FXML private TextField validmonth1;
-    @FXML private TextField validyear1;
-    @FXML private TextField cvc1;
+    @FXML
+    private TextField cardnumber1;
+    @FXML
+    private TextField cardholername1;
+    @FXML
+    private TextField validmonth1;
+    @FXML
+    private TextField validyear1;
+    @FXML
+    private TextField cvc1;
 
 
     //Textfields for account window default
 
-    @FXML private TextField firstNameTextField;
-    @FXML private TextField lastNameTextField;
-    @FXML private TextField addressTextField;
-    @FXML private TextField postalCodeTextField;
-    @FXML private TextField postAddressTextField;
-    @FXML private TextField mailTextField;
-    @FXML private TextField telephoneTextField;
-    @FXML private TextField mobileTextField;
+    @FXML
+    private TextField firstNameTextField;
+    @FXML
+    private TextField lastNameTextField;
+    @FXML
+    private TextField addressTextField;
+    @FXML
+    private TextField postalCodeTextField;
+    @FXML
+    private TextField postAddressTextField;
+    @FXML
+    private TextField mailTextField;
+    @FXML
+    private TextField telephoneTextField;
+    @FXML
+    private TextField mobileTextField;
 
     //Textfields for account window changed
 
-    @FXML private TextField firstNameTextField1;
-    @FXML private TextField lastNameTextField1;
-    @FXML private TextField addressTextField1;
-    @FXML private TextField postalCodeTextField1;
-    @FXML private TextField postAddressTextField1;
-    @FXML private TextField mailTextField1;
-    @FXML private TextField telephoneTextField1;
-    @FXML private TextField mobileTextField1;
+    @FXML
+    private TextField firstNameTextField1;
+    @FXML
+    private TextField lastNameTextField1;
+    @FXML
+    private TextField addressTextField1;
+    @FXML
+    private TextField postalCodeTextField1;
+    @FXML
+    private TextField postAddressTextField1;
+    @FXML
+    private TextField mailTextField1;
+    @FXML
+    private TextField telephoneTextField1;
+    @FXML
+    private TextField mobileTextField1;
 
 
     private static boolean missingField = false;
-
-
 
     public settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
@@ -101,16 +139,12 @@ public class settings extends AnchorPane {
 
         this.pController = pController;
 
-
-        setupSettings();
-        setupPayment();
-        paymentSettingsFirstRun();
+        setupTextField();
 
     }
 
-
-
-    @FXML void visatypepressed(ActionEvent event) {
+    @FXML
+    void visatypepressed(ActionEvent event) {
 
         db.setCardType("Visa");
 
@@ -121,31 +155,31 @@ public class settings extends AnchorPane {
         mastercardtype.setText("Mastercard");
     }
 
-    @FXML void mastercardtypepressed(ActionEvent event) {
+    @FXML
+    void mastercardtypepressed(ActionEvent event) {
 
 
+        if (mastercardtype.getGraphic() == visapic) {
+            db.setCardType("Visa");
+            mastercardtype.setGraphic(mastercardpic);
+            mastercardtype.setText("Mastercard");
 
-          if(mastercardtype.getGraphic() == visapic) {
-              db.setCardType("Visa");
-              mastercardtype.setGraphic(mastercardpic);
-              mastercardtype.setText("Mastercard");
+            typeofcard.setGraphic(visapic);
+            typeofcard.setText("Visa");
 
-              typeofcard.setGraphic(visapic);
-              typeofcard.setText("Visa");
+        } else {
+            db.setCardType("Mastercard");
+            mastercardtype.setGraphic(visapic);
+            mastercardtype.setText("Visa");
+            typeofcard.setGraphic(mastercardpic);
+            typeofcard.setText("Mastercard");
 
-          } else {
-              db.setCardType("Mastercard");
-              mastercardtype.setGraphic(visapic);
-              mastercardtype.setText("Visa");
-              typeofcard.setGraphic(mastercardpic);
-              typeofcard.setText("Mastercard");
-
-          }
+        }
 
     }
 
     @FXML
-    public void change1pressed(ActionEvent event){
+    public void change1pressed(ActionEvent event) {
 
         settingschanged.toFront();
 
@@ -160,7 +194,7 @@ public class settings extends AnchorPane {
     }
 
     @FXML
-    public void change2pressed(ActionEvent event){
+    public void change2pressed(ActionEvent event) {
 
         cardholername1.setText(cardholername.getText());
         cardnumber1.setText(cardnumber.getText());
@@ -168,7 +202,7 @@ public class settings extends AnchorPane {
         validyear1.setText(validyear.getText());
         cvc1.setText(cvc.getText());
 
-             paymentchanged.toFront();
+        paymentchanged.toFront();
 
     }
 
@@ -177,33 +211,43 @@ public class settings extends AnchorPane {
 
         savedPaymentValid();
         updatepayment();
+        newcard.setVisible(false);
 
     }
 
     @FXML
     public void newcardpressed(ActionEvent event) {
 
-        savedPaymentValid();
-        updatepayment();
-        newcard.setVisible(false);
-        settings2.toFront();
+
+        paymentchanged.toFront();
 
     }
 
     @FXML
     public void abort1paymentpressed(ActionEvent event) {
+
+
+        if (db.isFirstRun()) {
+
+            newcard.toFront();
+            paymentdefault.toFront();
+
+        } else
+            newcard.toBack();
         paymentdefault.toFront();
+
     }
 
     @FXML
-    public void abort1pressed(ActionEvent event){
+    public void abort1pressed(ActionEvent event) {
+
 
         settingsdefault.toFront();
 
     }
 
     @FXML
-    public void save1pressed(ActionEvent event){
+    public void save1pressed(ActionEvent event) {
 
         savedSettingsValid();
         updatesettings();
@@ -211,7 +255,7 @@ public class settings extends AnchorPane {
     }
 
     @FXML
-    public void closeSettings(ActionEvent event){
+    public void closeSettings(ActionEvent event) {
         pController.closeOverlay();
         settingsdefault.toFront();
         paymentdefault.toFront();
@@ -248,11 +292,9 @@ public class settings extends AnchorPane {
         }
 
 
-
-        }
+    }
 
     public void updatesettings() {
-
 
 
         firstNameTextField.setText(firstNameTextField1.getText());
@@ -282,7 +324,9 @@ public class settings extends AnchorPane {
 
 
     public void paymentSettingsFirstRun() {
-        if(db.isFirstRun()) {
+        if (db.isFirstRun()) {
+            cardnumber.setText("");
+            cardholername.setText("");
             validmonth.setText("");
             validyear.setText("");
             cvc.setText("");
@@ -291,7 +335,7 @@ public class settings extends AnchorPane {
         }
     }
 
-    public void setupPayment () {
+    public void setupPayment() {
 
 
         //Fill payment window textfields with databse information
@@ -300,11 +344,9 @@ public class settings extends AnchorPane {
         cardholername.setText(db.getHoldersName());
 
 
-
         validmonth.setText(String.valueOf(db.getValidMonth()));
         validyear.setText(String.valueOf(db.getValidYear()));
         cvc.setText(String.valueOf(db.getVerificationCode()));
-
 
 
         try {
@@ -315,22 +357,21 @@ public class settings extends AnchorPane {
             isFilledIn(cvc.getText());
 
 
-
         } catch (IOException ioe) {
-            paymentchanged.toFront();
+
             newcard.toFront();
             missingField = true;
         }
 
-        if(!missingField)
+        if (!missingField)
             paymentdefault.toFront();
-            settings2.toFront();
+        settings2.toFront();
 
         missingField = false;
 
     }
 
-    public void setupSettings(){
+    public void setupSettings() {
 
         //Fill settings window textfields with databse information
 
@@ -344,103 +385,98 @@ public class settings extends AnchorPane {
         mobileTextField.setText(db.getMobilePhoneNumber());
 
 
-
-
     }
 
     private void savedPaymentValid() {
 
         try {
             StringBuilder sb = new StringBuilder();
-            for(char c : cardnumber1.getText().toCharArray()) {
+            for (char c : cardnumber1.getText().toCharArray()) {
                 if (Character.isDigit(c)) {
                     sb.append(c);
                 }
             }
-            if(sb.length() == 16) {
-                cardnumber1.setId("green_button");
-            }
-            else {
-                System.out.println("Felaktigt kortnumber");
+            if (sb.length() == 16) {
+
+            } else {
+                cardnumber1.setPromptText("Felaktigt kortnummer");
                 missingField = true;
                 cardnumber1.setId("red_button");
             }
-        } catch(NullPointerException npe) {
-            cardnumber1.setPromptText("Kortnumber behöver fyllas i.");
+        } catch (NullPointerException npe) {
+            cardnumber1.setPromptText("Kortnummer behöver fyllas i.");
         }
 
 
         try {
             isFilledIn(cardholername1.getText());
 
-        } catch(IOException ioe) {
-            System.out.println("Namnet behöver fyllas i");
+        } catch (IOException ioe) {
+            cardholername1.setPromptText("Var vänlig fyll i ditt namn");
             missingField = true;
             cardholername1.setId("red_button");
         }
 
         try {
             StringBuilder sb = new StringBuilder();
-            for(char c : validmonth1.getText().toCharArray()) {
+            for (char c : validmonth1.getText().toCharArray()) {
                 if (Character.isDigit(c)) {
                     sb.append(c);
                 }
             }
-            if(sb.length() == 2) {
-                validmonth1.setId("green_button");
-            }
-            else {
+            if (sb.length() == 2) {
+
+            } else {
                 System.out.println("Felaktigt månad");
                 missingField = true;
                 validmonth1.setId("red_button");
             }
-        } catch(NullPointerException npe) {
+        } catch (NullPointerException npe) {
             validmonth1.setPromptText("Månaden behöver fyllas i");
         }
 
         try {
             StringBuilder sb = new StringBuilder();
-            for(char c : validyear1.getText().toCharArray()) {
+            for (char c : validyear1.getText().toCharArray()) {
                 if (Character.isDigit(c)) {
                     sb.append(c);
                 }
             }
-            if(sb.length() == 2) {
-                validyear1.setId("green_button");
-            }
-            else {
+            if (sb.length() == 2) {
+
+            } else {
                 System.out.println("Felaktigt månad");
                 missingField = true;
                 validyear1.setId("red_button");
             }
-        } catch(NullPointerException npe) {
+        } catch (NullPointerException npe) {
             validyear1.setPromptText("Året behöver fyllas i");
         }
 
 
         try {
             StringBuilder sb = new StringBuilder();
-            for(char c : cvc1.getText().toCharArray()) {
+            for (char c : cvc1.getText().toCharArray()) {
                 if (Character.isDigit(c)) {
                     sb.append(c);
                 }
             }
-            if(sb.length() == 3) {
-                cvc1.setId("green_button");
-            }
-            else {
+            if (sb.length() == 3) {
+
+            } else {
                 System.out.println("Felaktigt månad");
                 missingField = true;
                 cvc1.setId("red_button");
             }
-        } catch(NullPointerException npe) {
+        } catch (NullPointerException npe) {
             cvc1.setPromptText("CVC behöver fyllas i");
         }
 
 
-        if(!missingField)
+        if (!missingField) {
             paymentdefault.toFront();
 
+        }
         missingField = false;
 
     }
@@ -452,7 +488,6 @@ public class settings extends AnchorPane {
 
         } catch (IOException ioe) {
             firstNameTextField1.setPromptText("First name must be filled in.");
-            System.out.println("First name must be filled in.");
             missingField = true;
             firstNameTextField1.setId("red_button");             //An example of how to handle missing field.
         }
@@ -460,8 +495,8 @@ public class settings extends AnchorPane {
         try {
             isFilledIn(lastNameTextField1.getText());
 
-        } catch(IOException ioe) {
-            System.out.println("Last name must be filled in.");
+        } catch (IOException ioe) {
+
             missingField = true;
             lastNameTextField1.setId("red_button");
         }
@@ -469,7 +504,7 @@ public class settings extends AnchorPane {
         try {
             isFilledIn(addressTextField1.getText());
 
-        } catch(IOException ioe) {
+        } catch (IOException ioe) {
             System.out.println("Address must be filled in.");
             missingField = true;
             addressTextField1.setId("red_button");
@@ -477,48 +512,87 @@ public class settings extends AnchorPane {
 
         try {
             StringBuilder sb = new StringBuilder();
-            for(char c : postalCodeTextField1.getText().toCharArray()) {
+            for (char c : postalCodeTextField1.getText().toCharArray()) {
                 if (Character.isDigit(c)) {
                     sb.append(c);
                 }
             }
-            if(sb.length() == 5) {
+            if (sb.length() == 5) {
                 System.out.println("Postal code successfully set");
-            }
-            else {
+            } else {
                 System.out.println("Invalid post code");
                 missingField = true;
                 postalCodeTextField1.setId("red_button");
             }
-        } catch(NullPointerException npe) {
+        } catch (NullPointerException npe) {
             System.out.println("Postal code must be filled in.");
         }
 
         try {
             isFilledIn(postAddressTextField1.getText());
 
-        } catch(IOException ioe) {
+        } catch (IOException ioe) {
             System.out.println("City must be filled in.");
             postAddressTextField1.setId("red_button");
             missingField = true;
         }
 
 
-        if(!missingField)
+        if (!missingField)
             settingsdefault.toFront();
 
         missingField = false;
 
 
-
-
     }
 
     private static void isFilledIn(String field) throws IOException {
-        if(field.length() < 1) {
+        if (field.length() < 1) {
             throw new IOException();
         }
     }
+
+    private void setupTextField(){
+
+        // force the field to be numeric only and updates the amount in shopping cart
+        cvc1.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                cvc1.setText(newValue.replaceAll("[^\\dd]", ""));
+
+            } else if (newValue.matches("0")){
+
+                cvc1.setText("1");
+
+            } else if (!newValue.matches("")){
+
+                if(Integer.parseInt(newValue) >= 100){
+                    cvc1.setText("" + Integer.parseInt(newValue)/10);
+                }
+
+            }
+        });
+
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+        cvc1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue) {
+                // Focus gained
+                cvc1.setText("");
+
+            } else {
+                // Focus lost
+                if(cvc1.getText().matches("")){
+                    cvc1.setText("1");
+                }
+            }
+        });
+
+    }
+
+
+
 
 
 }
