@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,6 +45,8 @@ public class Header extends AnchorPane {
         pController.openFavourites();
 
     }
+
+    @FXML private void logoPressed() { CategoryMenu.getInstance().toHomePage(); }
 
     public Header(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));

@@ -49,6 +49,8 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
     @FXML
     private void onAction() {
 
+        pController.getShopHolder().setupCategories();
+
         List<Product> pc = null;
         switch (this.subcategoryButton.getText()) {
             case "Drycker kalla" -> pc = database.getCategoryProducts(ProductCategory.COLD_DRINKS);
@@ -82,7 +84,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
             if(showAll)
                 c.updateBreadCrumbs(null, this.getName());
             else
-                c.updateBreadCrumbs(pc.get(0).getCategory(), "");
+                c.updateBreadCrumbs(pc.get(0).getCategory(), null);
             c.bringToFront();
         }
         showAll = false;
@@ -92,7 +94,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
     private void initializeEventListeners() {
         if (!initialized) {
             eventListeners.addAll(allItems);
-            eventListeners.add(pController.getShopHolder().getCategoryMenu());
+            eventListeners.add(CategoryMenu.getInstance());
             initialized = true;
         }
     }
@@ -148,9 +150,11 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
         clicked.subcategoryButton.setId("subcategory_pressed_buttons");
     }
 
+    public void setShowAll(boolean setShowAll) { showAll = setShowAll; }
+
     public String getName() { return this.name; }
 
-    public List<SubcategoryItem> getAllItems() { return allItems; }
+    public static List<SubcategoryItem> getAllItems() { return allItems; }
 
     public Button getSubcategoryButton() { return this.subcategoryButton; }
 

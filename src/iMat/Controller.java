@@ -1,6 +1,6 @@
 package iMat;
 
-import iMat.CategoryMenu.CategoryListener;
+import iMat.CategoryMenu.*;
 import iMat.CheckOutSide.CheckOutHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,10 +31,13 @@ public class Controller extends AnchorPane implements Initializable {
     private final Help help = new Help(this);
     private final Favourites favourites = new Favourites(this);
 
+    private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
+
     private static LogIn logIn;
     private static ShopHolder shopHolder;
 
     private final List<CategoryListener> categoryListeners = new ArrayList<>();
+    private final List<CategoryButtonUpdater> categoryButtonUpdaters = new ArrayList<>();
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -55,14 +58,17 @@ public class Controller extends AnchorPane implements Initializable {
 
         categoryListeners.add(getShopHolder().getShopGrid());
 
+        categoryButtonUpdaters.addAll(SubcategoryItem.getAllItems());
+        categoryButtonUpdaters.add(CategoryMenu.getInstance());
+
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-//        db.resetFirstRun();
-//        if(db.isFirstRun()){
-//            setupLogIn();
-//        } else {
-//            setupShop();
-//        }
+        /*db.resetFirstRun();
+        if(db.isFirstRun()){
+            setupLogIn();
+        } else {
+            setupShop();
+        }*/
 
         //setupLogIn();
 
@@ -82,10 +88,14 @@ public class Controller extends AnchorPane implements Initializable {
     public void setupShop() {
         window.getChildren().clear();
         window.getChildren().add(shopHolder);
+        getShopHolder().setupCategories();
         window.toFront();
     }
 
     public void setupCheckOut(){
+        for(CategoryButtonUpdater cbu : categoryButtonUpdaters) {
+            cbu.updateButtonStyle(decoyItem);
+        }
         window.getChildren().clear();
         window.getChildren().add(new CheckOutHolder(this));
         window.toFront();
@@ -199,6 +209,10 @@ public class Controller extends AnchorPane implements Initializable {
     public void search(String word){
         for(CategoryListener c : getCategoryListeners()) {
             c.populateCards(db.getSearchResult(word));
+            c.updateBreadCrumbs(null, word);
+        }
+        for(CategoryButtonUpdater cbu : categoryButtonUpdaters) {
+            cbu.updateButtonStyle(decoyItem);
         }
 
         setupShop();

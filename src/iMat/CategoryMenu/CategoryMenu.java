@@ -5,6 +5,7 @@ import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
+    private static CategoryMenu instance = null;
     private final DB database = DB.getInstance();
     private final Controller pController;
 
@@ -27,6 +29,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private Pane fishAndMeatPane;
     @FXML private Pane dryGoodsPane;
 
+    @FXML private Button homeButton;
     @FXML private Button breadButton;
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
@@ -53,7 +56,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     private boolean mouseOnSubCategory;
 
-    public CategoryMenu(Controller pController) {
+    private CategoryMenu(Controller pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -71,7 +74,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
         sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
 
-        List<SubcategoryItem> allSubcategoryButtons = breadItem.getAllItems();
+        List<SubcategoryItem> allSubcategoryButtons = SubcategoryItem.getAllItems();
         eventListeners.addAll(allSubcategoryButtons);
         eventListeners.add(this);
 
@@ -115,16 +118,37 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         items.add("Visa alla");
         fruitSubcategory = createNewSubcategory(pController, "fruit", items);
         items.clear();
+
+        homeButton.setId("home_pressed_button");
+    }
+
+    public static void initialize(Controller pController) {
+        if (instance == null) {
+            instance = new CategoryMenu(pController);
+        }
+    }
+
+    public static CategoryMenu getInstance() {
+        return instance;
     }
 
     public Subcategory createNewSubcategory(Controller pController, String nameOfSubcategory, List<String> subcategoryNames) {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
+    @FXML public void toHomePage() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getProducts());
+            c.updateBreadCrumbs(null, "home");
+            c.bringToFront();
+        }
+        updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
+    }
+
     @FXML private void displayBread() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
-            c.updateBreadCrumbs(ProductCategory.BREAD, "");
+            c.updateBreadCrumbs(ProductCategory.BREAD, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.breadItem);
@@ -133,7 +157,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displayDairy() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
-            c.updateBreadCrumbs(ProductCategory.DAIRIES, "");
+            c.updateBreadCrumbs(ProductCategory.DAIRIES, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.dairyItem);
@@ -142,7 +166,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void displaySweet() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
-            c.updateBreadCrumbs(ProductCategory.SWEET, "");
+            c.updateBreadCrumbs(ProductCategory.SWEET, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.sweetItem);
@@ -156,6 +180,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
+        pController.getShopHolder().setupCategories();
+        homeButton.setId("home_button");
         drinkButton.setId("category_buttons");
         vegetableButton.setId("category_buttons");
         fishAndMeatButton.setId("category_buttons");
@@ -178,9 +204,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
             case "dryGoods" -> dryGoodsPane.setId("category_pressed_multichoice_buttons");
             case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
-        }
 
-        switch (clicked.getName()) {
+            case "HOME" -> homeButton.setId("home_pressed_button");
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
             case "DAIRY" -> dairyButton.setId("category_pressed_buttons");
             case "SWEET" -> sweetButton.setId("category_pressed_buttons");
@@ -197,7 +222,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllDrink() {
+    @FXML public void showAllDrink() {
         SubcategoryItem drink = null;
 
         for(SubcategoryItem si : drinkSubcategory.getSubcategoryItems()){
@@ -207,6 +232,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = drink.showAllEvent();
+            drink.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "drinks");
@@ -218,7 +244,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllFruit() {
+    @FXML public void showAllFruit() {
         SubcategoryItem fruit = null;
 
         for(SubcategoryItem si : fruitSubcategory.getSubcategoryItems()){
@@ -228,6 +254,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = fruit.showAllEvent();
+            fruit.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "fruit");
@@ -239,7 +266,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllVegetable() {
+    @FXML public void showAllVegetable() {
         SubcategoryItem vegetable = null;
 
         for(SubcategoryItem si : vegetableSubcategory.getSubcategoryItems()){
@@ -249,6 +276,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = vegetable.showAllEvent();
+            vegetable.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "vegetables");
@@ -260,7 +288,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllFishAndMeat() {
+    @FXML public void showAllFishAndMeat() {
         SubcategoryItem fishAndMeat = null;
 
         for(SubcategoryItem si : fishAndMeatSubcategory.getSubcategoryItems()){
@@ -270,6 +298,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = fishAndMeat.showAllEvent();
+            fishAndMeat.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "fish and meat");
@@ -281,7 +310,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllDryGood() {
+    @FXML public void showAllDryGood() {
         SubcategoryItem dryGood = null;
 
         for(SubcategoryItem si : dryGoodsSubcategory.getSubcategoryItems()){
@@ -291,6 +320,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = dryGood.showAllEvent();
+            dryGood.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "dryGoods");
