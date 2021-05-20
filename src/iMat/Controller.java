@@ -30,6 +30,8 @@ public class Controller extends AnchorPane implements Initializable {
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
 
+    private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
+
     private static LogIn logIn;
     private static ShopHolder shopHolder;
 
@@ -83,10 +85,14 @@ public class Controller extends AnchorPane implements Initializable {
     public void setupShop() {
         window.getChildren().clear();
         window.getChildren().add(shopHolder);
+        getShopHolder().setupCategories();
         window.toFront();
     }
 
     public void setupCheckOut(){
+        for(CategoryButtonUpdater cbu : categoryButtonUpdaters) {
+            cbu.updateButtonStyle(decoyItem);
+        }
         window.getChildren().clear();
         window.getChildren().add(new CheckOutHolder(this));
         window.toFront();
@@ -193,7 +199,6 @@ public class Controller extends AnchorPane implements Initializable {
             c.populateCards(db.getSearchResult(word));
             c.updateBreadCrumbs(null, word);
         }
-        SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
         for(CategoryButtonUpdater cbu : categoryButtonUpdaters) {
             cbu.updateButtonStyle(decoyItem);
         }
