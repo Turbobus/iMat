@@ -140,4 +140,6 @@ public class DB {
     public void setPhoneNumber(String phoneNumber) { iMatDataHandler.getCustomer().setPhoneNumber(phoneNumber);}
 
     public void setMobileNumber(String mobileNumber) { iMatDataHandler.getCustomer().setMobilePhoneNumber(mobileNumber);}
+
+    public java.util.List<se.chalmers.cse.dat216.project.Product> getFavorites() {return iMatDataHandler.favorites(); }
 }

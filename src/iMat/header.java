@@ -36,4 +36,9 @@ public class header extends AnchorPane {
         pController.openHelp();
 
     }
+
+    public void favouritesButtonpressed(ActionEvent event){
+        pController.openFavourites();
+
+    }
 }

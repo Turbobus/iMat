@@ -23,14 +23,14 @@
             <String fx:value="shadow_25" />
          </styleClass>
          <children>
-            <Label layoutX="30.0" layoutY="18.0" text="Tidigare köp">
+            <Label fx:id="titleLabel" layoutX="30.0" layoutY="18.0">
                <styleClass>
                   <String fx:value="bold_36" />
                   <String fx:value="text_color_blue_white" />
                   <String fx:value="shadow_50" />
                </styleClass>
             </Label>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="248.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconImgView" fitHeight="35.0" fitWidth="35.0" layoutX="248.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/earlierPurchase_White.png" />
                </image>
@@ -43,9 +43,9 @@
             </Button>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="25.0" layoutY="100.0" maxHeight="668.0" maxWidth="700.0" minHeight="668.0" minWidth="700.0" prefHeight="668.0" prefWidth="700.0">
+      <ScrollPane layoutX="25.0" layoutY="100.0" maxHeight="668.0" maxWidth="700.0" minHeight="668.0" minWidth="700.0" prefHeight="668.0" prefWidth="700.0" styleClass="background_color_blue_white">
          <content>
-            <FlowPane fx:id="purchasesFlowPane" maxWidth="680.0" minWidth="680.0" prefHeight="668.0" prefWidth="680.0" vgap="20.0" />
+            <FlowPane fx:id="purchasesFlowPane" maxWidth="680.0" minWidth="680.0" prefHeight="668.0" prefWidth="680.0" styleClass="background_color_blue_white" vgap="20.0" />
          </content>
       </ScrollPane>
    </children>

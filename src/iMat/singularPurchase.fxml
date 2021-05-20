@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<fx:root fx:id="singularPurchaseCard" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="singularPurchaseCard" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="gSingularPurchaseBack" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
+      <AnchorPane fx:id="gSingularPurchaseBack" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
          <styleClass>
             <String fx:value="background_color_light_green" />
             <String fx:value="border_radius_30" />
@@ -42,12 +42,7 @@
                         <String fx:value="border_radius_30" />
                      </styleClass>
                      <children>
-                        <Label layoutX="17.0" layoutY="6.0" text="Ligger i kundvagnen!" textAlignment="CENTER">
-                           <styleClass>
-                              <String fx:value="bold_20" />
-                              <String fx:value="text_color_dark_dark_green" />
-                           </styleClass>
-                        </Label>
+                        <Label layoutX="17.0" layoutY="6.0" styleClass="bold_20" text="Ligger i kundvagnen!" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                </children>
@@ -58,16 +53,22 @@
                   <String fx:value="font_20" />
                </styleClass>
             </Button>
-            <FlowPane fx:id="gProductFlowPane" prefHeight="0.0" prefWidth="655.0" vgap="10.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="71.0" />
             <Button id="red_button" fx:id="gTakeOutCart" layoutX="505.0" layoutY="72.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="162.0" text="Ta ur kundvagn" AnchorPane.bottomAnchor="15.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="font_20" />
                </styleClass>
             </Button>
+            <FlowPane fx:id="gProductFlowPane" layoutX="9.5" layoutY="67.0" prefHeight="5.0" prefWidth="661.0" vgap="10.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="bSingularPurchaseBack" maxWidth="680.0" minHeight="-Infinity" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
+      <AnchorPane fx:id="bSingularPurchaseBack" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
+         <styleClass>
+            <String fx:value="background_color_light_light_blue" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="border_dark_dark_blue_1_width" />
+            <String fx:value="shadow_25" />
+         </styleClass>
          <children>
             <AnchorPane fx:id="bSingularPurchaseFront" maxHeight="64.0" maxWidth="680.0" minHeight="64.0" minWidth="680.0" prefHeight="64.0" prefWidth="680.0">
                <styleClass>
@@ -97,9 +98,8 @@
                         <String fx:value="shadow_50" />
                      </styleClass>
                      <graphic>
-                        <Label text="Lägg allt i kundvagnen">
+                        <Label fx:id="setButtonPutAllInCart" text="Lägg allt i kundvagnen">
                            <styleClass>
-                              <String fx:value="bold_20" />
                               <String fx:value="shadow_50" />
                               <String fx:value="text_color_blue_white" />
                            </styleClass>
@@ -108,21 +108,14 @@
                   </Button>
                </children>
             </AnchorPane>
-            <FlowPane fx:id="bProductFlowPane" layoutX="14.0" layoutY="72.0" prefHeight="0.0" prefWidth="655.0" vgap="10.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="71.0" />
-            <Button id="light_blue_button" fx:id="bShowProducts" layoutX="251.0" layoutY="72.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="40.0" prefWidth="181.0" text="Visa varor" AnchorPane.bottomAnchor="15.0">
+            <Button id="light_blue_button" fx:id="bShowProducts" layoutX="251.0" layoutY="74.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="40.0" prefWidth="181.0" text="Visa varor" AnchorPane.bottomAnchor="15.0">
                <styleClass>
                   <String fx:value="border_dark_dark_blue_1_width" />
                   <String fx:value="font_20" />
-                  <String fx:value="border_radius_30" />
                </styleClass>
             </Button>
+            <FlowPane fx:id="bProductFlowPane" layoutX="9.5" layoutY="67.0" prefHeight="5.0" prefWidth="661.0" vgap="10.0" />
          </children>
-         <styleClass>
-            <String fx:value="background_color_light_light_blue" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="border_dark_dark_blue_1_width" />
-            <String fx:value="shadow_25" />
-         </styleClass>
       </AnchorPane>
    </children>
 </fx:root>

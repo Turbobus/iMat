@@ -16,7 +16,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SingularPurchase extends AnchorPane{
+public class SingularPurchase extends AnchorPane implements ProductHolder{
 
     @FXML private AnchorPane singularPurchaseCard;
     //green version
@@ -40,12 +40,15 @@ public class SingularPurchase extends AnchorPane{
 
     private boolean expanded = false;
 
+    private DB db = DB.getInstance();
 
-    private EarlierPurchases pController;
+
+    private Controller pController;
     private Order order;
     private ArrayList<ProductItem> items = new ArrayList<>();
 
-    public SingularPurchase(EarlierPurchases controller, Order order){
+
+    public SingularPurchase(Controller pController, Order order){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("singularPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -56,7 +59,7 @@ public class SingularPurchase extends AnchorPane{
             throw new RuntimeException(exception);
         }
 
-        this.pController = controller;
+        this.pController = pController;
         this.order = order;
         setUp();
     }
@@ -72,7 +75,7 @@ public class SingularPurchase extends AnchorPane{
         //bAmountLabel;
 
         for(int i = 0;i<order.getItems().size();i++){
-            ProductItem product = new ProductItem(order.getItems().get(i), this);
+            ProductItem product = new ProductItem(order.getItems().get(i),this, pController);
             items.add(product);
         }
 
@@ -90,11 +93,11 @@ public class SingularPurchase extends AnchorPane{
 
     public void checkAllOutOfCart(){
         for(int i = 0;i<items.size();i++){
-            if(items.get(i).isInCart()){
-                return;
+            if(!(items.get(i).isInCart())){
+                takeOutOfCart();;
             }
         }
-        takeOutOfCart();
+
     }
 
     public void putAllInCart(){
@@ -121,18 +124,18 @@ public class SingularPurchase extends AnchorPane{
         bProductFlowPane.getChildren().clear();
         bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
         bSingularPurchaseBack.toFront();
+
+        if(expanded){
+            addProductItems(bProductFlowPane);
+        }
+    }
+
+    @FXML public void setButtonTakeOutOfCart(ActionEvent event){
+
         for (ProductItem s :  items)
         {
             s.outOfCart();
         }
-        if(expanded){
-            addProductItems(bProductFlowPane);
-        }
-
-
-    }
-
-    @FXML void setButtonTakeOutOfCart(ActionEvent event){
         takeOutOfCart();
     }
 
@@ -142,7 +145,7 @@ public class SingularPurchase extends AnchorPane{
         singularPurchaseCard.setPrefHeight(130);
         expanded = false;
     }
-    private void addItems(FlowPane fPane, AnchorPane aPane){
+    private void addItems(FlowPane fPane){
         bProductFlowPane.getChildren().clear();
         gProductFlowPane.getChildren().clear();
 
@@ -151,7 +154,8 @@ public class SingularPurchase extends AnchorPane{
         }
         else{
             singularPurchaseCard.setPrefHeight(180+78*(order.getItems().size()));
-            aPane.setPrefHeight(180+78*(order.getItems().size()));
+            gSingularPurchaseBack.setPrefHeight(180+78*(order.getItems().size()));
+            bSingularPurchaseBack.setPrefHeight(180+78*(order.getItems().size()));
             addProductItems(fPane);
             expanded = true;
 
@@ -166,11 +170,11 @@ public class SingularPurchase extends AnchorPane{
     }
 
     public void showProducts(ActionEvent event){
-        addItems(bProductFlowPane, bSingularPurchaseBack);
+        addItems(bProductFlowPane);
     }
 
     public void gShowProducts(ActionEvent event){
-        addItems(gProductFlowPane, gSingularPurchaseBack);
+        addItems(gProductFlowPane);
     }
 
 

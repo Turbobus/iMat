@@ -12,9 +12,9 @@ import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -29,6 +29,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final EmptyCart EmptyCart = new EmptyCart(this);
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
     private final Help help = new Help(this);
+    private final Favourites favourites = new Favourites(this);
 
     @FXML AnchorPane window;
     @FXML AnchorPane darkPane;
@@ -49,9 +50,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        //setupShop();
+        setupShop();
 
-        setupCheckOut();
+        //setupCheckOut();
     }
 
     private void setupLogIn(){
@@ -120,6 +121,12 @@ public class Controller extends AnchorPane implements Initializable {
     public void openHelp(){
 
         openOverlay(help);
+    }
+
+    public void openFavourites(){
+        favourites.setUp();
+        openOverlay(favourites);
+
     }
 
 
