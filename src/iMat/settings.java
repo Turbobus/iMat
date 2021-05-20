@@ -291,7 +291,7 @@ public class settings extends AnchorPane {
         }
     }
 
-    public void setupPayment () {
+    public void setupPayment() {
 
 
         //Fill payment window textfields with databse information

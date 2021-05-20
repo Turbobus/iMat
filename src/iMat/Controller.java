@@ -63,20 +63,18 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-        /*db.resetFirstRun();
-        if(db.isFirstRun()){
-            setupLogIn();
-        } else {
-            setupShop();
-        }*/
+//        db.resetFirstRun();
+//        if(db.isFirstRun()){
+//            setupLogIn();
+//        } else {
+//            setupShop();
+//        }
 
         //setupLogIn();
 
-        //setupCheckOut();
-
         setupShop();
 
-
+        //setupCheckOut();
     }
 
     private void setupLogIn() {
@@ -114,13 +112,13 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openAccountView(){
+        settings.setupPayment();
         openOverlay(settings);
     }
 
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
-
         openOverlay(detailView);
     }
 
@@ -162,7 +160,6 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openHelp(){
-
         openOverlay(help);
     }
 

@@ -50,6 +50,11 @@ public class ShopCartItem extends AnchorPane {
         }
     }
 
+    @FXML
+    public void openDetailView(){
+        pController.openDetailView(productId);
+    }
+
     public ShopCartItem(ShoppingItem item, Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCartItem.fxml"));
         fxmlLoader.setRoot(this);
