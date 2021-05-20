@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -24,7 +25,7 @@ public class PurchaseCompleted extends AnchorPane {
     @FXML public void openEarlierPurchase(){ pController.openEarlierPurchases(); }
     @FXML public void backToStart(){
         pController.closeOverlay();
-        pController.setupShop();
+        CategoryMenu.getInstance().toHomePage();
     }
 
     public PurchaseCompleted(Controller pController){
