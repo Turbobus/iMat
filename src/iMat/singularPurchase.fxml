@@ -24,13 +24,13 @@
                   <String fx:value="border_dark_dark_green_1_width" />
                </styleClass>
                <children>
-                  <Label fx:id="greenDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
+                  <Label fx:id="gDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
                      <styleClass>
                         <String fx:value="bold_24" />
                         <String fx:value="text_color_dark_dark_green" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="greenAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
+                  <Label fx:id="gAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
                      <styleClass>
                         <String fx:value="font_24" />
                         <String fx:value="text_color_dark_dark_green" />

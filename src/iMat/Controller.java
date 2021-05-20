@@ -147,7 +147,7 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openEarlierPurchases(){
-
+        earlierPurchases.showPurchases();
         openOverlay(earlierPurchases);
     }
 
