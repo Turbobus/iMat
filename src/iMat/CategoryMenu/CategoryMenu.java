@@ -74,7 +74,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
         sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
 
-        List<SubcategoryItem> allSubcategoryButtons = breadItem.getAllItems();
+        List<SubcategoryItem> allSubcategoryButtons = SubcategoryItem.getAllItems();
         eventListeners.addAll(allSubcategoryButtons);
         eventListeners.add(this);
 
@@ -118,6 +118,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         items.add("Visa alla");
         fruitSubcategory = createNewSubcategory(pController, "fruit", items);
         items.clear();
+
+        homeButton.setId("home_pressed_button");
     }
 
     public static void initialize(Controller pController) {

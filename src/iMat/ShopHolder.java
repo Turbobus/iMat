@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryButtonUpdater;
 import iMat.CategoryMenu.CategoryMenu;
 
 import javafx.fxml.FXML;

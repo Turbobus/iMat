@@ -1,6 +1,7 @@
 package iMat;
 
 import iMat.CategoryMenu.CategoryListener;
+import iMat.CategoryMenu.CategoryMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -43,7 +44,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         this.lowerDown.setText("");
         this.subCategoryButton.setText("");
 
-       populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
+        populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
     }
 
     private void setBreadCrumbText(String current, String mainCategory, boolean lower, String subCategory) {
