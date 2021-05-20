@@ -137,10 +137,10 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void toHomePage() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getProducts());
-            c.updateBreadCrumbs(null, "Hem");
+            c.updateBreadCrumbs(null, "home");
             c.bringToFront();
         }
-        updateCategoryButtons(new SubcategoryItem(pController, "home", "Decoy"));
+        updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
     }
 
     @FXML private void displayBread() {
@@ -197,15 +197,13 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         sweetButton.setId("category_buttons");
 
         switch (clicked.getName()) {
-            case "home" -> homeButton.setId("home_pressed_button");
             case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
             case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
             case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
             case "dryGoods" -> dryGoodsPane.setId("category_pressed_multichoice_buttons");
             case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
-        }
 
-        switch (clicked.getName()) {
+            case "HOME" -> homeButton.setId("home_pressed_button");
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
             case "DAIRY" -> dairyButton.setId("category_pressed_buttons");
             case "SWEET" -> sweetButton.setId("category_pressed_buttons");

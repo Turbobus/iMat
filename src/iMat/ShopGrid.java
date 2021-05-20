@@ -73,8 +73,8 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
                 case POTATO_RICE -> setBreadCrumbText("Potatis, ris", "Grönsaker", true, "Potatis, ris");
                 case HERB -> setBreadCrumbText("Örtkryddor", "Grönsaker", true, "Örtkryddor");
 
-                case FISH -> setBreadCrumbText("Fisk", "Kött och fisk", true, "Fisk");
-                case MEAT -> setBreadCrumbText("Kött", "Kött och fisk", true, "Kött");
+                case FISH -> setBreadCrumbText("Fisk", "Kött & fisk", true, "Fisk");
+                case MEAT -> setBreadCrumbText("Kött", "Kött & fisk", true, "Kött");
 
                 case POD -> setBreadCrumbText("Baljväxter", "Torrvaror", true, "Baljväxter");
                 case FLOUR_SUGAR_SALT -> setBreadCrumbText("Mjöl, socker, salt", "Torrvaror", true, "Mjöl, socker, salt");
@@ -91,6 +91,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         }
         else {
             switch (showAll) {
+                case "home" -> setBreadCrumbText("Hem", "Hem", false, "");
                 case "drinks" -> setBreadCrumbText("Dryck", "Dryck", true, "Visa alla");
                 case "fruit" -> setBreadCrumbText("Frukt", "Frukt", true, "Visa alla");
                 case "vegetables" -> setBreadCrumbText("Grönsaker", "Grönsaker", true, "Visa alla");
