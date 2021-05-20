@@ -2,6 +2,9 @@ package iMat;
 
 import iMat.CategoryMenu.CategoryListener;
 import iMat.CategoryMenu.CategoryMenu;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -55,6 +58,17 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         if(lower) {
             lowerDown.setText(">");
             subCategoryButton.setText(subCategory);
+        }
+    }
+
+    @FXML
+    private void breadCrumbClicked() {
+        switch (mainCategoryButton.getText()) {
+            case "Dryck" -> CategoryMenu.getInstance().showAllDrink();
+            case "Grönsaker" -> CategoryMenu.getInstance().showAllVegetable();
+            case "Kött & fisk" -> CategoryMenu.getInstance().showAllFishAndMeat();
+            case "Torrvaror" -> CategoryMenu.getInstance().showAllDryGood();
+            case "Frukt" -> CategoryMenu.getInstance().showAllFruit();
         }
     }
 

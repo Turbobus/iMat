@@ -222,7 +222,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllDrink() {
+    @FXML public void showAllDrink() {
         SubcategoryItem drink = null;
 
         for(SubcategoryItem si : drinkSubcategory.getSubcategoryItems()){
@@ -244,7 +244,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllFruit() {
+    @FXML public void showAllFruit() {
         SubcategoryItem fruit = null;
 
         for(SubcategoryItem si : fruitSubcategory.getSubcategoryItems()){
@@ -266,7 +266,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllVegetable() {
+    @FXML public void showAllVegetable() {
         SubcategoryItem vegetable = null;
 
         for(SubcategoryItem si : vegetableSubcategory.getSubcategoryItems()){
@@ -288,7 +288,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllFishAndMeat() {
+    @FXML public void showAllFishAndMeat() {
         SubcategoryItem fishAndMeat = null;
 
         for(SubcategoryItem si : fishAndMeatSubcategory.getSubcategoryItems()){
@@ -310,7 +310,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
     }
 
-    @FXML private void showAllDryGood() {
+    @FXML public void showAllDryGood() {
         SubcategoryItem dryGood = null;
 
         for(SubcategoryItem si : dryGoodsSubcategory.getSubcategoryItems()){
