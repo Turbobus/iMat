@@ -133,8 +133,16 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
+    @FXML private void toHomePage() {
+        for(CategoryListener c : pController.getCategoryListeners()) {
+            c.populateCards(database.getProducts());
+            c.updateBreadCrumbs(null, "Hem");
+            c.bringToFront();
+        }
+        updateCategoryButtons(new SubcategoryItem(pController, "Decoy", "Decoy"));
+    }
+
     @FXML private void displayBread() {
-        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.updateBreadCrumbs(ProductCategory.BREAD, null);
@@ -144,7 +152,6 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     @FXML private void displayDairy() {
-        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.updateBreadCrumbs(ProductCategory.DAIRIES, null);
@@ -154,7 +161,6 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     @FXML private void displaySweet() {
-        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.updateBreadCrumbs(ProductCategory.SWEET, null);

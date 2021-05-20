@@ -39,8 +39,9 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         this.pController = pController;
 
         this.currentPlace.setText("Hem");
-        //this.mainCategoryButton.setText("Hem");
-        //this.subCategoryButton.setText("Hem");
+        this.mainCategoryButton.setText("Hem");
+        this.lowerDown.setText("");
+        this.subCategoryButton.setText("");
 
        populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
     }

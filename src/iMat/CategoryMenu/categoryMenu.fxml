@@ -24,7 +24,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button id="home_button" fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Hem" />
+      <Button id="home_button" fx:id="breadButton1" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#toHomePage" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Hem" />
       <Label layoutX="13.0" layoutY="150.0" text="Kategorier">
          <styleClass>
             <String fx:value="bold_36" />
