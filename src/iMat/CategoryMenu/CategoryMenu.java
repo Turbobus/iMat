@@ -254,6 +254,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = fruit.showAllEvent();
+            fruit.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "fruit");
@@ -275,6 +276,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = vegetable.showAllEvent();
+            vegetable.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "vegetables");
@@ -296,6 +298,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = fishAndMeat.showAllEvent();
+            fishAndMeat.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "fish and meat");
@@ -317,6 +320,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = dryGood.showAllEvent();
+            dryGood.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "dryGoods");
