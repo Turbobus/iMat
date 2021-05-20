@@ -38,9 +38,7 @@ public class Header extends AnchorPane {
         pController.search(searchTextField.getText());
     }
 
-    @FXML private void logoPressed() {
-        CategoryMenu.getInstance().toHomePage();
-    }
+    @FXML private void logoPressed() { CategoryMenu.getInstance().toHomePage(); }
 
     public Header(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("header.fxml"));

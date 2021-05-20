@@ -232,6 +232,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         }
         try {
             List<Product> products = drink.showAllEvent();
+            drink.setShowAll(false);
             for(CategoryListener c : pController.getCategoryListeners()) {
                 c.populateCards(products);
                 c.updateBreadCrumbs(null, "drinks");

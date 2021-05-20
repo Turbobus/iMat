@@ -150,6 +150,8 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
         clicked.subcategoryButton.setId("subcategory_pressed_buttons");
     }
 
+    public void setShowAll(boolean setShowAll) { showAll = setShowAll; }
+
     public String getName() { return this.name; }
 
     public static List<SubcategoryItem> getAllItems() { return allItems; }
