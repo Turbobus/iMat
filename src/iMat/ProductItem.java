@@ -99,8 +99,10 @@ public class ProductItem extends AnchorPane {
     @FXML
     public void increaseButtonPressed2(ActionEvent event){
 
-        amountTextField.setText("" + (Integer.parseInt(amountTextField.getText()) + 1));
-        controller.updateCartItemAmount(productID,Integer.parseInt(amountTextField.getText()));
+        if(!amountTextField.getText().matches("99")) {
+            amountTextField.setText("" + (Integer.parseInt(amountTextField.getText()) + 1));
+            controller.updateCartItemAmount(productID,Integer.parseInt(amountTextField.getText()));
+        }
     }
 
     @FXML
@@ -127,6 +129,7 @@ public class ProductItem extends AnchorPane {
     public void setUpFromCart(double amount){
         gProductItem.toFront();
         amountTextField.setText(String.valueOf((int) amount));
+        inCart = true;
     }
 
 

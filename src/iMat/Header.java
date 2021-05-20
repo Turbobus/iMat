@@ -40,7 +40,6 @@ public class Header extends AnchorPane {
 
     @FXML
     private void favouritesButtonpressed(ActionEvent event){
-        System.out.printf("ja");
         pController.openFavourites();
 
     }
