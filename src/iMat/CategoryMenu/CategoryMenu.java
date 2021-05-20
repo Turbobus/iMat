@@ -29,6 +29,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private Pane fishAndMeatPane;
     @FXML private Pane dryGoodsPane;
 
+    @FXML private Button homeButton;
     @FXML private Button breadButton;
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
@@ -139,7 +140,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             c.updateBreadCrumbs(null, "Hem");
             c.bringToFront();
         }
-        updateCategoryButtons(new SubcategoryItem(pController, "Decoy", "Decoy"));
+        updateCategoryButtons(new SubcategoryItem(pController, "home", "Decoy"));
     }
 
     @FXML private void displayBread() {
@@ -178,6 +179,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
         pController.getShopHolder().setupCategories();
+        homeButton.setId("home_button");
         drinkButton.setId("category_buttons");
         vegetableButton.setId("category_buttons");
         fishAndMeatButton.setId("category_buttons");
@@ -195,6 +197,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         sweetButton.setId("category_buttons");
 
         switch (clicked.getName()) {
+            case "home" -> homeButton.setId("home_pressed_button");
             case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
             case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
             case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
