@@ -27,7 +27,19 @@ public class EnterCardDetails extends AnchorPane {
 
 
     @FXML public void saveCardDetails(){
+        if (isAllTrue(isCorrectInformation)){
+            db.setCardNumber(cardNumber.getText());
+            db.setHoldersName(cardName.getText());
+            db.setValidMonth(Integer.parseInt(cardMonth.getText()));
+            db.setValidYear(Integer.parseInt(cardYear.getText()));
+            db.setVerificationCode(Integer.parseInt(cardCVC.getText()));
+            saveUntilNextTime.setText("Kortet är sparat!");
+        }
+    }
 
+    private boolean isAllTrue(boolean[] array) {
+        for(boolean b : array) if(!b) return false;
+        return true;
     }
 
     public EnterCardDetails(){
