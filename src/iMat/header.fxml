@@ -44,7 +44,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button id="white_button" contentDisplay="RIGHT" layoutX="470.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Favoriter">
+      <Button id="white_button" contentDisplay="RIGHT" layoutX="470.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#favouritesButtonpressed" prefHeight="60.0" prefWidth="200.0" text="Favoriter">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="shadow_50" />

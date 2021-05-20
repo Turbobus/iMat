@@ -29,6 +29,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
+    private final Favourites favourites = new Favourites(this);
 
     private static LogIn logIn;
     private static ShopHolder shopHolder;
@@ -65,9 +66,11 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
+        //setupCheckOut();
+
         setupShop();
 
-        //setupCheckOut();
+
     }
 
     private void setupLogIn() {
@@ -107,6 +110,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openDetailView(int prodId){
         detailView.setupInfo(db.getProduct(prodId));
+
         openOverlay(detailView);
     }
 
@@ -143,11 +147,19 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openEarlierPurchases(){
+
         openOverlay(earlierPurchases);
     }
 
     public void openHelp(){
+
         openOverlay(help);
+    }
+
+    public void openFavourites(){
+        favourites.setUp();
+        openOverlay(favourites);
+
     }
 
 
