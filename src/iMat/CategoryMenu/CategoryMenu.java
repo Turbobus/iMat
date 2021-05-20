@@ -2,11 +2,9 @@ package iMat.CategoryMenu;
 
 import iMat.Controller;
 import iMat.DB;
-import iMat.ShopHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -18,22 +16,34 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryMenu extends AnchorPane {
+public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     private final DB database = DB.getInstance();
     private final Controller pController;
 
-    @FXML private Button breadButton;
     @FXML private Pane drinkPane;
     @FXML private Pane fruitPane;
     @FXML private Pane vegetablePane;
     @FXML private Pane fishAndMeatPane;
     @FXML private Pane dryGoodsPane;
 
+    @FXML private Button breadButton;
     @FXML private Button dairyButton;
     @FXML private Button sweetButton;
 
+    @FXML private Button drinkButton;
+    @FXML private Button fruitButton;
+    @FXML private Button vegetableButton;
+    @FXML private Button fishAndMeatButton;
+    @FXML private Button dryGoodButton;
+
     @FXML private FlowPane subcategoryPane;
+
+    private final SubcategoryItem breadItem;
+    private final SubcategoryItem dairyItem;
+    private final SubcategoryItem sweetItem;
+
+    private final List<CategoryButtonUpdater> eventListeners = new ArrayList<>();
 
     private final Subcategory drinkSubcategory;
     private final Subcategory vegetableSubcategory;
@@ -56,6 +66,15 @@ public class CategoryMenu extends AnchorPane {
         }
 
         this.pController = pController;
+
+        breadItem = new SubcategoryItem(pController, "BREAD", "bread");
+        dairyItem = new SubcategoryItem(pController, "DAIRY", "dairy");
+        sweetItem = new SubcategoryItem(pController, "SWEET", "sweet");
+
+        List<SubcategoryItem> allSubcategoryButtons = breadItem.getAllItems();
+        eventListeners.addAll(allSubcategoryButtons);
+        eventListeners.add(this);
+
 
         List<String> items = new ArrayList<>();
 
@@ -105,36 +124,181 @@ public class CategoryMenu extends AnchorPane {
     @FXML private void displayBread() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
+            c.updateBreadCrumbs(ProductCategory.BREAD, "");
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.BREAD);
+        updateCategoryButtons(this.breadItem);
     }
 
     @FXML private void displayDairy() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
+            c.updateBreadCrumbs(ProductCategory.DAIRIES, "");
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.DAIRIES);
+        updateCategoryButtons(this.dairyItem);
     }
 
     @FXML private void displaySweet() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
+            c.updateBreadCrumbs(ProductCategory.SWEET, "");
             c.bringToFront();
         }
-        updateButtonStyle(ProductCategory.SWEET);
+        updateCategoryButtons(this.sweetItem);
     }
 
-    private void updateButtonStyle(ProductCategory pc) {
+    private void updateCategoryButtons(SubcategoryItem clicked) {
+        for(CategoryButtonUpdater ce : eventListeners) {
+            ce.updateButtonStyle(clicked);
+        }
+    }
+
+    @Override
+    public void updateButtonStyle(SubcategoryItem clicked) {
+        drinkButton.setId("category_buttons");
+        vegetableButton.setId("category_buttons");
+        fishAndMeatButton.setId("category_buttons");
+        dryGoodButton.setId("category_buttons");
+        fruitButton.setId("category_buttons");
+
+        drinkPane.setId("category_multichoice_buttons");
+        vegetablePane.setId("category_multichoice_buttons");
+        fishAndMeatPane.setId("category_multichoice_buttons");
+        dryGoodsPane.setId("category_multichoice_buttons");
+        fruitPane.setId("category_multichoice_buttons");
+
         breadButton.setId("category_buttons");
         dairyButton.setId("category_buttons");
         sweetButton.setId("category_buttons");
 
-        switch (pc) {
-            case BREAD -> breadButton.setId("category_pressed_buttons");
-            case DAIRIES -> dairyButton.setId("category_pressed_buttons");
-            case SWEET -> sweetButton.setId("category_pressed_buttons");
+        switch (clicked.getName()) {
+            case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
+            case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
+            case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
+            case "dryGoods" -> dryGoodsPane.setId("category_pressed_multichoice_buttons");
+            case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
+        }
+
+        switch (clicked.getName()) {
+            case "BREAD" -> breadButton.setId("category_pressed_buttons");
+            case "DAIRY" -> dairyButton.setId("category_pressed_buttons");
+            case "SWEET" -> sweetButton.setId("category_pressed_buttons");
+        }
+
+        if(clicked.getSubcategoryButton().getText().equals("Visa alla")) {
+            switch (clicked.getName()) {
+                case "drinks" -> drinkButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "vegetables" -> vegetableButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "fish and meat" -> fishAndMeatButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "dryGoods" -> dryGoodButton.setId("category_pressed_showAll_multichoice_buttons");
+                case "fruit" -> fruitButton.setId("category_pressed_showAll_multichoice_buttons");
+            }
+        }
+    }
+
+    @FXML private void showAllDrink() {
+        SubcategoryItem drink = null;
+
+        for(SubcategoryItem si : drinkSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("drinks") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                drink = si;
+            }
+        }
+        try {
+            List<Product> products = drink.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.updateBreadCrumbs(null, "drinks");
+                c.bringToFront();
+            }
+            updateCategoryButtons(drink);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllFruit() {
+        SubcategoryItem fruit = null;
+
+        for(SubcategoryItem si : fruitSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("fruit") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                fruit = si;
+            }
+        }
+        try {
+            List<Product> products = fruit.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.updateBreadCrumbs(null, "fruit");
+                c.bringToFront();
+            }
+            updateCategoryButtons(fruit);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllVegetable() {
+        SubcategoryItem vegetable = null;
+
+        for(SubcategoryItem si : vegetableSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("vegetables") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                vegetable = si;
+            }
+        }
+        try {
+            List<Product> products = vegetable.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.updateBreadCrumbs(null, "vegetables");
+                c.bringToFront();
+            }
+            updateCategoryButtons(vegetable);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllFishAndMeat() {
+        SubcategoryItem fishAndMeat = null;
+
+        for(SubcategoryItem si : fishAndMeatSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("fish and meat") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                fishAndMeat = si;
+            }
+        }
+        try {
+            List<Product> products = fishAndMeat.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.updateBreadCrumbs(null, "fish and meat");
+                c.bringToFront();
+            }
+            updateCategoryButtons(fishAndMeat);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
+        }
+    }
+
+    @FXML private void showAllDryGood() {
+        SubcategoryItem dryGood = null;
+
+        for(SubcategoryItem si : dryGoodsSubcategory.getSubcategoryItems()){
+            if(si.getName().equals("dryGoods") && si.getSubcategoryButton().getText().equals("Visa alla")) {
+                dryGood = si;
+            }
+        }
+        try {
+            List<Product> products = dryGood.showAllEvent();
+            for(CategoryListener c : pController.getCategoryListeners()) {
+                c.populateCards(products);
+                c.updateBreadCrumbs(null, "dryGoods");
+                c.bringToFront();
+            }
+            updateCategoryButtons(dryGood);
+        } catch(NullPointerException npe) {
+            npe.getMessage();
         }
     }
 
@@ -151,9 +315,8 @@ public class CategoryMenu extends AnchorPane {
     @FXML private void openDrinkSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
-
         subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - getDrinkPane().getHeight()/1.5);
+        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - 90);
 
         subcategoryPane.getChildren().add(getDrinkSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -164,7 +327,7 @@ public class CategoryMenu extends AnchorPane {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - getFruitSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - 250);
 
         subcategoryPane.getChildren().add(getFruitSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -175,7 +338,7 @@ public class CategoryMenu extends AnchorPane {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
-        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - getVegetableSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - 170);
 
         subcategoryPane.getChildren().add(getVegetableSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -186,7 +349,7 @@ public class CategoryMenu extends AnchorPane {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - getFishAndMeatSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - 90);
 
         subcategoryPane.getChildren().add(getFishAndMeatSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -197,7 +360,7 @@ public class CategoryMenu extends AnchorPane {
         mouseOnSubCategory = true;
 
         subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - getDryGoodsSubcategory().getHolder().getHeight()/2);
+        subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - 170);
 
         subcategoryPane.getChildren().add(getDryGoodsSubcategory().getHolder());
         subcategoryPane.toFront();

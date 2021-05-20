@@ -9,7 +9,7 @@ public interface CategoryListener {
 
     void populateCards(List<Product> products);
 
-    void updateBreadCrumbs(ProductCategory pc);
+    void updateBreadCrumbs(ProductCategory pc, String showAll);
 
     void bringToFront();
 }

@@ -65,9 +65,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        //setupShop();
+        setupShop();
 
-        setupCheckOut();
+        //setupCheckOut();
     }
 
     private void setupLogIn() {

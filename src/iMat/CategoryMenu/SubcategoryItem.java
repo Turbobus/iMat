@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubcategoryItem extends AnchorPane {
+public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater {
 
     private final Controller pController;
 
@@ -21,8 +21,11 @@ public class SubcategoryItem extends AnchorPane {
     private final DB database = DB.getInstance();
 
     private final String name;
+    private boolean initialized = false;
+    private static boolean showAll = false;
 
     private static final List<SubcategoryItem> allItems = new ArrayList<>();
+    private static final List<CategoryButtonUpdater> eventListeners = new ArrayList<>();
 
     public SubcategoryItem(Controller pController, String name, String itemText) {
 
@@ -76,13 +79,32 @@ public class SubcategoryItem extends AnchorPane {
 
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(pc);
-            c.updateBreadCrumbs(pc.get(0).getCategory());
+            if(showAll)
+                c.updateBreadCrumbs(null, this.getName());
+            else
+                c.updateBreadCrumbs(pc.get(0).getCategory(), "");
             c.bringToFront();
         }
-        updateButtons(this);
+        showAll = false;
+        updateCategoryButtons(this);
     }
 
-    private List<Product> showAllEvent() {
+    private void initializeEventListeners() {
+        if (!initialized) {
+            eventListeners.addAll(allItems);
+            eventListeners.add(pController.getShopHolder().getCategoryMenu());
+            initialized = true;
+        }
+    }
+
+    private void updateCategoryButtons(SubcategoryItem clicked) {
+        initializeEventListeners();
+        for(CategoryButtonUpdater ce : eventListeners) {
+            ce.updateButtonStyle(clicked);
+        }
+    }
+
+    public List<Product> showAllEvent() {
         List<Product> pc = new ArrayList<>();
         switch (this.getName()) {
             case "drinks" -> {
@@ -114,10 +136,12 @@ public class SubcategoryItem extends AnchorPane {
                 pc.addAll(database.getCategoryProducts(ProductCategory.FRUIT));
             }
         }
+        showAll = true;
         return pc;
     }
 
-    private void updateButtons(SubcategoryItem clicked) {
+    @Override
+    public void updateButtonStyle(SubcategoryItem clicked) {
         for(SubcategoryItem si : allItems) {
             si.subcategoryButton.setId("subcategory_buttons");;
         }
@@ -125,5 +149,9 @@ public class SubcategoryItem extends AnchorPane {
     }
 
     public String getName() { return this.name; }
+
+    public List<SubcategoryItem> getAllItems() { return allItems; }
+
+    public Button getSubcategoryButton() { return this.subcategoryButton; }
 
 }
