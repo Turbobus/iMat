@@ -232,12 +232,5 @@ public class DB {
 
     public void resetFirstRun() { iMatDataHandler.resetFirstRun(); }
 
-
-
-
-
-
-
-
-
+    public List<Product> getFavorites() {return iMatDataHandler.favorites(); }
 }

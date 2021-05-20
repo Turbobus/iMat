@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -20,6 +22,8 @@ public class EarlierPurchases extends AnchorPane{
     @FXML private AnchorPane earlierPurchases;
     @FXML private Button closeButton;
     @FXML private FlowPane purchasesFlowPane;
+    @FXML private Label titleLabel;
+    @FXML private ImageView iconImgView;
 
     private Controller pController;
     List<SingularPurchase> purchasesList = new ArrayList<SingularPurchase>();
@@ -37,7 +41,13 @@ public class EarlierPurchases extends AnchorPane{
         }
 
         this.pController = controller;
+        titleLabel.setText("Tidigare köp");
+        /*iconImgView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "iMat/img/earlierPurchase_White.png")));
+
+         */
         showPurchases();
+
     }
 
 
@@ -59,7 +69,7 @@ public class EarlierPurchases extends AnchorPane{
 
         o1.setItems(items);
         purchasesFlowPane.getChildren().clear();
-        SingularPurchase purchase = new SingularPurchase(this, o1);
+        SingularPurchase purchase = new SingularPurchase(pController, o1);
         purchasesFlowPane.getChildren().add(purchase);
 
         Order o2 = new Order();
@@ -67,7 +77,7 @@ public class EarlierPurchases extends AnchorPane{
                 Arrays.asList(new ShoppingItem(new Product()), new ShoppingItem(new Product()), new ShoppingItem(new Product())));
 
         o2.setItems(items2);
-        SingularPurchase purchase2 = new SingularPurchase(this,o2);
+        SingularPurchase purchase2 = new SingularPurchase(pController,o2);
 
         purchasesFlowPane.getChildren().add(purchase2);
 
@@ -76,7 +86,7 @@ public class EarlierPurchases extends AnchorPane{
                 Arrays.asList(new ShoppingItem(new Product()), new ShoppingItem(new Product()), new ShoppingItem(new Product())));
 
         o3.setItems(items3);
-        SingularPurchase purchase3 = new SingularPurchase(this,o3);
+        SingularPurchase purchase3 = new SingularPurchase(pController,o3);
 
         purchasesFlowPane.getChildren().add(purchase3);
 
