@@ -17,7 +17,7 @@ public class ShopHolder extends AnchorPane {
 
     private final Header header;
     private final ShopGrid shopGrid;
-    private final CategoryMenu categoryMenu;
+    private final DB database = DB.getInstance();
 
     // Holders for individual components. Resides in mainPane above
     @FXML AnchorPane headerPane;
@@ -39,8 +39,8 @@ public class ShopHolder extends AnchorPane {
         this.pController = pController;
         this.header = new Header(pController);
         this.shopGrid = new ShopGrid(this);
-        this.categoryMenu = new CategoryMenu(pController);
 
+        CategoryMenu.initialize(pController);
         setupHeader();
         setupGrid();
         setupCategories();
@@ -61,7 +61,7 @@ public class ShopHolder extends AnchorPane {
 
     public void setupCategories() {
         categoryPane.getChildren().clear();
-        categoryPane.getChildren().add(this.categoryMenu);
+        categoryPane.getChildren().add(CategoryMenu.getInstance());
         categoryPane.toFront();
     }
 
@@ -74,8 +74,6 @@ public class ShopHolder extends AnchorPane {
     public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
 
     public ShopGrid getShopGrid() { return this.shopGrid; }
-
-    public CategoryMenu getCategoryMenu() { return categoryMenu; }
 
     public Controller getpController() { return this.pController; }
 }

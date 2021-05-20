@@ -5,6 +5,7 @@ import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
+    private static CategoryMenu instance = null;
     private final DB database = DB.getInstance();
     private final Controller pController;
 
@@ -53,7 +55,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     private boolean mouseOnSubCategory;
 
-    public CategoryMenu(Controller pController) {
+    private CategoryMenu(Controller pController) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("categoryMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -115,6 +117,16 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         items.add("Visa alla");
         fruitSubcategory = createNewSubcategory(pController, "fruit", items);
         items.clear();
+    }
+
+    public static void initialize(Controller pController) {
+        if (instance == null) {
+            instance = new CategoryMenu(pController);
+        }
+    }
+
+    public static CategoryMenu getInstance() {
+        return instance;
     }
 
     public Subcategory createNewSubcategory(Controller pController, String nameOfSubcategory, List<String> subcategoryNames) {

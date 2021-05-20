@@ -94,7 +94,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
     private void initializeEventListeners() {
         if (!initialized) {
             eventListeners.addAll(allItems);
-            eventListeners.add(pController.getShopHolder().getCategoryMenu());
+            eventListeners.add(CategoryMenu.getInstance());
             initialized = true;
         }
     }
