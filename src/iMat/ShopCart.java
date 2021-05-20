@@ -25,12 +25,14 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     @FXML Label totalPriceOfCart;
 
     @FXML public void checkoutPressed(ActionEvent event){
-        //cartItemHolder.getChildren().add(0, new ShopCartItem());
+        pController.setupCheckOut();
     }
 
     @FXML public void emptyCartPressed(ActionEvent event){
         pController.openEmptyCart();
     }
+
+
 
     public ShopCart(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCart.fxml"));
