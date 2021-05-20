@@ -26,7 +26,8 @@ public class EarlierPurchases extends AnchorPane{
     @FXML private ImageView iconImgView;
 
     private Controller pController;
-    List<SingularPurchase> purchasesList = new ArrayList<SingularPurchase>();
+    List<SingularPurchase> purchasesList = new ArrayList<>();
+    private DB db = DB.getInstance();
 
 
     public EarlierPurchases(Controller controller){
@@ -46,7 +47,7 @@ public class EarlierPurchases extends AnchorPane{
                 "iMat/img/earlierPurchase_White.png")));
 
          */
-        showPurchases();
+
 
     }
 
@@ -59,42 +60,28 @@ public class EarlierPurchases extends AnchorPane{
 
 
     //adds previous purchases to the flowpane
-    private void showPurchases(){
+    public void showPurchases(){
 
-        //hårdkodat fult, allt ska bytas ut!!!!!!!!!!
-
-        Order o1 = new Order();
-        List<ShoppingItem> items = new ArrayList<ShoppingItem>(
-                Arrays.asList(new ShoppingItem(new Product()), new ShoppingItem(new Product()), new ShoppingItem(new Product())));
-
-        o1.setItems(items);
         purchasesFlowPane.getChildren().clear();
-        SingularPurchase purchase = new SingularPurchase(pController, o1);
-        purchasesFlowPane.getChildren().add(purchase);
+        for(int i = 0;i<db.getOrders().size();i++){
+            SingularPurchase purchase = new SingularPurchase(pController, db.getOrders().get(i));
+            purchase.reload();
+            purchasesList.add(purchase);
+            purchasesFlowPane.getChildren().add(0,purchasesList.get(i));
 
-        Order o2 = new Order();
-        List<ShoppingItem> items2 = new ArrayList<ShoppingItem>(
-                Arrays.asList(new ShoppingItem(new Product()), new ShoppingItem(new Product()), new ShoppingItem(new Product())));
-
-        o2.setItems(items2);
-        SingularPurchase purchase2 = new SingularPurchase(pController,o2);
-
-        purchasesFlowPane.getChildren().add(purchase2);
-
-        Order o3 = new Order();
-        List<ShoppingItem> items3 = new ArrayList<ShoppingItem>(
-                Arrays.asList(new ShoppingItem(new Product()), new ShoppingItem(new Product()), new ShoppingItem(new Product())));
-
-        o3.setItems(items3);
-        SingularPurchase purchase3 = new SingularPurchase(pController,o3);
-
-        purchasesFlowPane.getChildren().add(purchase3);
+        }
 
 
+        /*for (ShoppingItem item : db.getAllShoppingItems()){
+            for (ProductItem s :  favourites)
+            {
+                if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
+                    s.setUpFromCart(item.getAmount());
+                }
+            }
+        }
 
-        purchasesList.add(purchase);
-        purchasesList.add(purchase2);
-        purchasesList.add(purchase3);
+         */
     }
 
 

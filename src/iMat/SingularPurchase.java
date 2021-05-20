@@ -15,6 +15,8 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class SingularPurchase extends AnchorPane implements ProductHolder{
 
@@ -66,18 +68,41 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
 
     private void setUp(){
-        //green card
-        //gDateLabel.setText(order.getDate().toString());
-        //gAmountLabel.setText(order.get);
-
-        //blue card
-        //bDateLabel.setText(order.getDate().toString());
-        //bAmountLabel;
-
+        int total = 0;
+        //creates productitems out of orders, and calculates what the price of the whole purchase is
         for(int i = 0;i<order.getItems().size();i++){
             ProductItem product = new ProductItem(order.getItems().get(i),this, pController);
             items.add(product);
+            total += product.getShoppingItem().getTotal();
         }
+        bAmountLabel.setText("Totalt: "+ total + " kr");
+        gAmountLabel.setText("Totalt: "+ total + " kr");
+        Calendar date = dateToCalendar(order.getDate());
+        //green card
+        //gDateLabel.setText(order.getDate().toString());
+
+
+        //blue card
+        //bDateLabel.setText(date.getWeekYear());
+
+    }
+
+    public void reload(){
+        for (ShoppingItem item : db.getAllShoppingItems()){
+            for (ProductItem s :  items)
+            {
+                if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
+                    s.setUpFromCart(item.getAmount());
+                }
+            }
+        }
+    }
+
+    private Calendar dateToCalendar(Date date) {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
 
     }
 
@@ -106,11 +131,15 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         gSingularPurchaseBack.toFront();
         for (ProductItem s :  items)
         {
-            s.inCart();
+            if(!(s.isInCart())){
+                s.inCart();
+            }
         }
         if(expanded){
             addProductItems(gProductFlowPane);
         }
+
+
 
     }
 
@@ -125,6 +154,12 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
         bSingularPurchaseBack.toFront();
 
+        for (ProductItem s :  items)
+        {
+            if(s.isInCart()){
+                s.outOfCart();
+            }
+        }
         if(expanded){
             addProductItems(bProductFlowPane);
         }
@@ -132,10 +167,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
     @FXML public void setButtonTakeOutOfCart(ActionEvent event){
 
-        for (ProductItem s :  items)
-        {
-            s.outOfCart();
-        }
+
         takeOutOfCart();
     }
 

@@ -97,15 +97,22 @@ public class Favourites extends AnchorPane implements ProductHolder{
     public void putAllInCart(){
         for (ProductItem s :  favourites)
         {
-            s.inCart();
+            if(!(s.isInCart())){
+                s.inCart();
+            }
         }
+
     }
 
 
     public void takeOutOfCart(){
         for (ProductItem s :  favourites)
         {
-            s.outOfCart();
+            if(s.isInCart()){
+                s.outOfCart();
+
+            }
+
         }
     }
 }
