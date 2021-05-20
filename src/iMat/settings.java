@@ -1,7 +1,7 @@
 package iMat;
 
-import com.sun.javafx.scene.control.behavior.MenuButtonBehavior;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,10 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import javafx.util.Callback;
 
 import java.io.IOException;
-import java.util.function.UnaryOperator;
 
 public class settings extends AnchorPane {
 
@@ -39,15 +38,8 @@ public class settings extends AnchorPane {
     @FXML
     private Button visa;
     @FXML
-    private MenuButton typeofcard;
-    @FXML
     private MenuItem mastercardtype;
 
-
-    @FXML
-    private ImageView mastercardpic;
-    @FXML
-    private ImageView visapic;
 
     //Anchor panes
     @FXML
@@ -122,8 +114,18 @@ public class settings extends AnchorPane {
     @FXML
     private TextField mobileTextField1;
 
+    // Combobox items
+    @FXML
+    private ComboBox<String> typeofcard;
+    @FXML
+    private ImageView mastercardpic;
+    @FXML
+    private ImageView visapic;
+
 
     private static boolean missingField = false;
+
+
 
     public settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
@@ -139,9 +141,14 @@ public class settings extends AnchorPane {
 
         this.pController = pController;
 
-        setupTextField();
+
+        setupCvcTextField();
+        populateComboBox();
+
+
 
     }
+
 
     @FXML
     void visatypepressed(ActionEvent event) {
@@ -149,8 +156,7 @@ public class settings extends AnchorPane {
         db.setCardType("Visa");
 
 
-        typeofcard.setGraphic(visapic);
-        typeofcard.setText("Visa");
+
         mastercardtype.setGraphic(mastercardpic);
         mastercardtype.setText("Mastercard");
     }
@@ -164,15 +170,13 @@ public class settings extends AnchorPane {
             mastercardtype.setGraphic(mastercardpic);
             mastercardtype.setText("Mastercard");
 
-            typeofcard.setGraphic(visapic);
-            typeofcard.setText("Visa");
+
 
         } else {
             db.setCardType("Mastercard");
             mastercardtype.setGraphic(visapic);
             mastercardtype.setText("Visa");
-            typeofcard.setGraphic(mastercardpic);
-            typeofcard.setText("Mastercard");
+
 
         }
 
@@ -321,7 +325,6 @@ public class settings extends AnchorPane {
         mobileTextField.setText(mobileTextField1.getText());
         db.setMobileNumber(mobileTextField1.getText());
     }
-
 
     public void paymentSettingsFirstRun() {
         if (db.isFirstRun()) {
@@ -552,14 +555,14 @@ public class settings extends AnchorPane {
         }
     }
 
-    private void setupTextField(){
+    private void setupCvcTextField(){
 
         // force the field to be numeric only and updates the amount in shopping cart
         cvc1.textProperty().addListener((observable, oldValue, newValue) -> {
 
-            if (!newValue.matches("\\d*")) {
+            if (!newValue.matches("(?<!\\d)\\d{4}(?!\\d)")) {
 
-                cvc1.setText(newValue.replaceAll("[^\\dd]", ""));
+                cvc1.setText(newValue.replaceAll("[^\\d]", ""));
 
             } else if (newValue.matches("0")){
 
@@ -590,6 +593,59 @@ public class settings extends AnchorPane {
         });
 
     }
+
+    private void populateComboBox() {
+
+            Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
+
+                @Override public ListCell<String> call(ListView<String> p) {
+
+                    return new ListCell<String>() {
+
+                        @Override
+                        protected void updateItem(String item, boolean empty) {
+                            super.updateItem(item, empty);
+
+                            setText(item);
+
+                            if (item == null || empty) {
+                                setGraphic(null);
+                            }
+
+                            else {
+                                Image icon = null;
+                                String iconPath;
+                                try {
+                                    switch (item) {
+                                        case "Visa" -> {
+                                            iconPath = "iMat/img/visaicon.png";
+                                            icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        }
+                                        case "Mastercard" -> {
+                                            iconPath = "iMat/img/mastercard.png";
+                                            icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        }
+                                    }
+                                } catch(NullPointerException ex) {
+                                    //This should never happen in this lab but could load a default image in case of a NullPointer
+                                }
+                                ImageView iconImageView = new ImageView(icon);
+                                iconImageView.setFitHeight(12);
+                                iconImageView.setPreserveRatio(true);
+                                setGraphic(iconImageView);
+                            }
+                        }
+                    };
+                }
+            };
+            typeofcard.setButtonCell(cellFactory.call(null));
+            typeofcard.setCellFactory(cellFactory);
+
+
+
+    }
+
+
 
 
 
