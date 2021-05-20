@@ -136,7 +136,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
-    @FXML private void toHomePage() {
+    @FXML public void toHomePage() {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getProducts());
             c.updateBreadCrumbs(null, "home");

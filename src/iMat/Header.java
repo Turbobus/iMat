@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CategoryMenu.CategoryMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -35,6 +36,10 @@ public class Header extends AnchorPane {
     @FXML
     private void searchPressed(){
         pController.search(searchTextField.getText());
+    }
+
+    @FXML private void logoPressed() {
+        CategoryMenu.getInstance().toHomePage();
     }
 
     public Header(Controller pController){
