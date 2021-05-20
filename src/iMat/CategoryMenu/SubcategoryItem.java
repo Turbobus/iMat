@@ -152,7 +152,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
 
     public String getName() { return this.name; }
 
-    public List<SubcategoryItem> getAllItems() { return allItems; }
+    public static List<SubcategoryItem> getAllItems() { return allItems; }
 
     public Button getSubcategoryButton() { return this.subcategoryButton; }
 
