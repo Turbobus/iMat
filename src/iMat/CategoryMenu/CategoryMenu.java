@@ -122,6 +122,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     @FXML private void displayBread() {
+        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.updateBreadCrumbs(ProductCategory.BREAD, "");
@@ -131,6 +132,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     @FXML private void displayDairy() {
+        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.updateBreadCrumbs(ProductCategory.DAIRIES, "");
@@ -140,6 +142,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     @FXML private void displaySweet() {
+        pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.updateBreadCrumbs(ProductCategory.SWEET, "");
@@ -156,6 +159,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
+        pController.getShopHolder().setupCategories();
         drinkButton.setId("category_buttons");
         vegetableButton.setId("category_buttons");
         fishAndMeatButton.setId("category_buttons");

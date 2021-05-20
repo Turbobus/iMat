@@ -49,6 +49,8 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
     @FXML
     private void onAction() {
 
+        pController.getShopHolder().setupCategories();
+
         List<Product> pc = null;
         switch (this.subcategoryButton.getText()) {
             case "Drycker kalla" -> pc = database.getCategoryProducts(ProductCategory.COLD_DRINKS);

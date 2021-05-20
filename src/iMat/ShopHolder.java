@@ -59,7 +59,7 @@ public class ShopHolder extends AnchorPane {
         gridPane.toFront();
     }
 
-    private void setupCategories() {
+    public void setupCategories() {
         categoryPane.getChildren().clear();
         categoryPane.getChildren().add(this.categoryMenu);
         categoryPane.toFront();
