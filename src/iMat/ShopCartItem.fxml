@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="cart_item_card" maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" prefHeight="80.0" prefWidth="302.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="cart_item_card" maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" onMouseClicked="#openDetailView" prefHeight="80.0" prefWidth="302.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
          <styleClass>
