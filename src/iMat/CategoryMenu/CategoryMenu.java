@@ -137,7 +137,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
-            c.updateBreadCrumbs(ProductCategory.BREAD, "");
+            c.updateBreadCrumbs(ProductCategory.BREAD, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.breadItem);
@@ -147,7 +147,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
-            c.updateBreadCrumbs(ProductCategory.DAIRIES, "");
+            c.updateBreadCrumbs(ProductCategory.DAIRIES, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.dairyItem);
@@ -157,7 +157,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         pController.getShopHolder().setupCategories();
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
-            c.updateBreadCrumbs(ProductCategory.SWEET, "");
+            c.updateBreadCrumbs(ProductCategory.SWEET, null);
             c.bringToFront();
         }
         updateCategoryButtons(this.sweetItem);

@@ -84,7 +84,7 @@ public class SubcategoryItem extends AnchorPane implements CategoryButtonUpdater
             if(showAll)
                 c.updateBreadCrumbs(null, this.getName());
             else
-                c.updateBreadCrumbs(pc.get(0).getCategory(), "");
+                c.updateBreadCrumbs(pc.get(0).getCategory(), null);
             c.bringToFront();
         }
         showAll = false;

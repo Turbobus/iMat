@@ -187,6 +187,7 @@ public class Controller extends AnchorPane implements Initializable {
     public void search(String word){
         for(CategoryListener c : getCategoryListeners()) {
             c.populateCards(db.getSearchResult(word));
+            c.updateBreadCrumbs(null, word);
         }
 
         setupShop();

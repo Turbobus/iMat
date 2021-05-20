@@ -58,7 +58,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
 
     @Override
     public void updateBreadCrumbs(ProductCategory pc, String showAll) {
-        if(showAll.equals("")) {
+        if(showAll == null) {
             switch (pc) {
                 case BREAD ->  setBreadCrumbText("Bröd", "Bröd", false, "");
                 case DAIRIES ->  setBreadCrumbText("Mejeri", "Mejeri", false, "");
@@ -88,12 +88,15 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
                 case FRUIT -> setBreadCrumbText("Stenfrukter", "Frukt", true, "Stenfrukter");
             }
         }
-        switch (showAll) {
-            case "drinks" -> setBreadCrumbText("Dryck", "Dryck", true, "Visa alla");
-            case "fruit" -> setBreadCrumbText("Frukt", "Frukt", true, "Visa alla");
-            case "vegetables" -> setBreadCrumbText("Grönsaker", "Grönsaker", true, "Visa alla");
-            case "fish and meat" -> setBreadCrumbText("Kött och fisk", "Kött och fisk", true, "Visa alla");
-            case "dryGoods" -> setBreadCrumbText("Torrvaror", "Torrvaror", true, "Visa alla");
+        else {
+            switch (showAll) {
+                case "drinks" -> setBreadCrumbText("Dryck", "Dryck", true, "Visa alla");
+                case "fruit" -> setBreadCrumbText("Frukt", "Frukt", true, "Visa alla");
+                case "vegetables" -> setBreadCrumbText("Grönsaker", "Grönsaker", true, "Visa alla");
+                case "fish and meat" -> setBreadCrumbText("Kött och fisk", "Kött och fisk", true, "Visa alla");
+                case "dryGoods" -> setBreadCrumbText("Torrvaror", "Torrvaror", true, "Visa alla");
+                default -> setBreadCrumbText(showAll, "Hem", true, showAll);
+            }
         }
     }
 
