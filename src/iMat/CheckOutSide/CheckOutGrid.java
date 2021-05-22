@@ -23,6 +23,7 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
     @FXML Label currentPlace;           // Vilken kategori/subkategori (stora texten)
     @FXML Label lowerDown;              // " < " mellan de två knapparna
+    @FXML Label amountLabel;            // Antal varor i kundvagn label
     @FXML Button mainCategoryButton;    // Breadcrumb knappen till vänster. Håller huvudkategori
     @FXML Button subCategoryButton;     // Breadcrumb knappen till höger. Håller subkategorier
 
@@ -48,6 +49,7 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
         this.pController = pController;
 
         db.setCartListener(this);
+        updateAmountLabel();
         populateCards(DB.getInstance().getAllShoppingItems());          // Temp Vet inte om vi kommer ha kvar detta
     }
 
@@ -73,8 +75,13 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
         }
     }
 
+    private void updateAmountLabel(){
+        amountLabel.setText("Antal: " + db.getTotalAmountInCart() + " st");
+    }
+
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
+        updateAmountLabel();
         populateCards(db.getAllShoppingItems());
     }
 }
