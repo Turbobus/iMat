@@ -144,11 +144,6 @@ public class ProductCard extends AnchorPane{
                 amountTextCard.setText("1");
 
             } else if (!newValue.matches("")){
-
-//                if(Integer.parseInt(newValue) >= 100){
-//                    amountTextCard.setText("99");
-//                }
-
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
         });

@@ -25,6 +25,7 @@ public class PayConfirmation extends AnchorPane {
 
     @FXML public void buyShoppingCart() {
         db.placeOrder();
+        pController.removeAllFromCart();
         pController.openPurchaseCompleted();
     }
 

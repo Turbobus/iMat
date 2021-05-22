@@ -117,7 +117,7 @@ public class DB {
 
     public List<Product> getSearchResult(String prod) { return iMatDataHandler.findProducts(prod); }
 
-    public void placeOrder(){ iMatDataHandler.placeOrder(true); }
+    public void placeOrder(){ iMatDataHandler.placeOrder(false); }
 
     public List<ShoppingItem> getAllShoppingItems() { return iMatDataHandler.getShoppingCart().getItems(); }
 
