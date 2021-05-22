@@ -121,11 +121,12 @@
                         <String fx:value="shadow_50" />
                      </styleClass>
                      <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/shopping_cart_card.png" />
-                           </image>
-                        </ImageView>
+                        <Pane prefHeight="23.0" prefWidth="27.0">
+                           <styleClass>
+                              <String fx:value="background_color_blue_white" />
+                              <String fx:value="shopping_cart" />
+                           </styleClass>
+                        </Pane>
                      </graphic>
                   </Label>
                </graphic>
