@@ -140,7 +140,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openPayConfirmation(String time){
 
-        // Måste göra en setup av information på sidan
+        payConfirmation.setupInfo(time);
 
         openOverlay(payConfirmation);
     }

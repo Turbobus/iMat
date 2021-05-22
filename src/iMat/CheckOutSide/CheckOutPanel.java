@@ -19,6 +19,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private ToggleGroup timeToggleGroup = new ToggleGroup();
     private boolean haveSetUpCardPane = false;
+    private String time;
 
     @FXML AnchorPane cardInformationPanel;
 
@@ -35,7 +36,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
         // Behöver kolla så kreditkort är inskrivet samt hämta tid från radiobutton
 
-        pController.openPayConfirmation("TID");
+        pController.openPayConfirmation(time);
     }
 
     public CheckOutPanel(Controller pController){
@@ -68,6 +69,12 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
                 if (timeToggleGroup.getSelectedToggle() != null) {
                     RadioButton selected = (RadioButton) timeToggleGroup.getSelectedToggle();
+
+                    switch (selected.getText().charAt(0)){
+                        case 'F' -> time = "10 - 13";
+                        case 'E' -> time = "13 - 17";
+                        case 'K' -> time = "18 - 21";
+                    }
 
                     if (!haveSetUpCardPane){
                         setupCardPane();

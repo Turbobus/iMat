@@ -19,6 +19,9 @@ public class PayConfirmation extends AnchorPane {
     @FXML private Button cancelPurchaseButton;
     @FXML private Button confirmPurchaseButton;
     @FXML private Button closeButton;
+    @FXML private Label visaLabel;
+    @FXML private Label masterCardLabel;
+    @FXML private Label shippingTimeLabel;
 
     // Methods
     @FXML public void closeOverlay(){ pController.closeOverlay(); }
@@ -43,4 +46,28 @@ public class PayConfirmation extends AnchorPane {
         this.pController = pController;
     }
 
+    public void setupInfo(String time){
+        purchaseInformationLbl.setText("Du håller just nu på att köpa " + db.getTotalAmountInCart() + wordHelper() + "för " + String.format("%.2f",db.getTotalCartPrice()) + " kr");
+
+        if (db.getCardType().matches("Visa")){
+            masterCardLabel.setOpacity(0);
+            visaLabel.setOpacity(1);
+        } else {
+            masterCardLabel.setOpacity(1);
+            visaLabel.setOpacity(0);
+        }
+
+        shippingTimeLabel.setText(" Ungefärlig leveranstid: Imorgon klockan " + time);
+
+        System.out.println("NUUU");
+        System.out.println(db.getCardType());
+    }
+
+    private String wordHelper(){
+        String helper;
+        if(db.getTotalAmountInCart() == 1){
+            helper = " vara ";
+        } else { helper = " varor "; }
+        return helper;
+    }
 }

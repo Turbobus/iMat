@@ -58,7 +58,7 @@
             <String fx:value="border_radius_30" />
          </styleClass>
       </Button>
-      <Label fx:id="purchaseInformationLbl" layoutX="27.0" layoutY="114.0" prefHeight="98.0" prefWidth="353.0" text="Du håller just nu på att köpa 4 varor för 110,95 kr" wrapText="true">
+      <Label fx:id="purchaseInformationLbl" layoutX="27.0" layoutY="114.0" prefHeight="98.0" prefWidth="412.0" text="Du håller just nu på att köpa 4 varor för 110,95 kr" wrapText="true">
          <styleClass>
             <String fx:value="text_color_dark_dark_blue" />
             <String fx:value="font_28" />
@@ -70,26 +70,37 @@
             <String fx:value="font_28" />
          </styleClass>
       </Label>
-      <Button id="blue_button" layoutX="152.0" layoutY="230.0" maxHeight="38.0" minHeight="38.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Visa">
+      <Label fx:id="shippingTimeLabel" layoutX="27.0" layoutY="290.0" text="Ungefärlig leveranstid: 10-13">
          <styleClass>
-            <String fx:value="bold_22" />
-            <String fx:value="shadow_25" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="border_dark_dark_blue_1_width" />
+            <String fx:value="text_color_dark_dark_blue" />
+            <String fx:value="font_28" />
+         </styleClass>
+      </Label>
+      <Label fx:id="masterCardLabel" layoutX="155.0" layoutY="230.0" opacity="0.0" text="Mastercard">
+         <styleClass>
+            <String fx:value="font_28" />
+            <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
          <graphic>
-            <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
+               <image>
+                  <Image url="@../img/mastercard.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label fx:id="visaLabel" layoutX="155.0" layoutY="230.0" text="Visa">
+         <styleClass>
+            <String fx:value="font_28" />
+            <String fx:value="text_color_dark_dark_blue" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
                <image>
                   <Image url="@../img/visaIcon.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <Label layoutX="27.0" layoutY="290.0" text="Ungefärlig leveranstid: 10-13">
-         <styleClass>
-            <String fx:value="text_color_dark_dark_blue" />
-            <String fx:value="font_28" />
-         </styleClass>
       </Label>
     </children>
     <styleClass>

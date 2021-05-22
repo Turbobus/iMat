@@ -13,7 +13,7 @@ public class EnterCardDetails extends AnchorPane {
 
     private final DB db = DB.getInstance();
     private boolean[] isCorrectInformation= {false, false, false, false, false};
-    private boolean isVisaCard;
+    private String cardType;
 
     @FXML AnchorPane writeNewCard;
     @FXML AnchorPane useSavedCard;
@@ -34,6 +34,7 @@ public class EnterCardDetails extends AnchorPane {
             db.setValidMonth(Integer.parseInt(cardMonth.getText()));
             db.setValidYear(Integer.parseInt(cardYear.getText()));
             db.setVerificationCode(Integer.parseInt(cardCVC.getText()));
+            db.setCardType(cardType);
             saveUntilNextTime.setText("Kortet är sparat!");
         }
     }
@@ -93,9 +94,9 @@ public class EnterCardDetails extends AnchorPane {
                 } else {
                     cardNumber.setId("blue_text_field");
                     if (cardNumber.getText().charAt(0) == '4'){
-                        System.out.println("Korttyp: Visa");
-                        isVisaCard = true;
-                    } else { System.out.println("Korttyp: MasterCard"); isVisaCard = false; }
+                        System.out.println("Korttyp: Visa");                                            // Behöver sätta in bilden över vilket kort det är
+                        cardType = "Visa";
+                    } else { System.out.println("Korttyp: MasterCard"); cardType = "MasterCard"; }
                     isCorrectInformation[0] = true;
                 }
 
