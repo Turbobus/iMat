@@ -8,10 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.CartEvent;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 import java.io.IOException;
 
-public class CheckOutPanel extends AnchorPane {
+public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private final Controller pController;
 
@@ -48,9 +50,11 @@ public class CheckOutPanel extends AnchorPane {
         }
 
         this.pController = pController;
-        radioButtonSetup();
-    }
 
+        DB.getInstance().setCartListener(this);
+        radioButtonSetup();
+        updateTotalPrice();
+    }
 
 
     private void radioButtonSetup() {
@@ -79,4 +83,12 @@ public class CheckOutPanel extends AnchorPane {
         cardInformationPanel.getChildren().add(new EnterCardDetails());
     }
 
+    private void updateTotalPrice(){
+        totalPriceOfCart.setText("Totalt: " + String.format("%.2f",DB.getInstance().getTotalCartPrice()) + " kr");
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        updateTotalPrice();
+    }
 }
