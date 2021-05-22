@@ -1,6 +1,7 @@
 package iMat.CheckOutSide;
 
 import iMat.*;
+import iMat.CategoryMenu.CategoryMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -32,7 +33,7 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     public void goHome(){
-        pController.setupShop();
+        CategoryMenu.getInstance().toHomePage();
     }
 
     public CheckOutGrid(Controller pController){
