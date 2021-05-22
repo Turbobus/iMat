@@ -10,13 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.List;
 
-public class CheckOutGrid extends AnchorPane {
+public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
     private final CheckOutHolder pController;
     private final DB db = DB.getInstance();
@@ -43,7 +45,7 @@ public class CheckOutGrid extends AnchorPane {
 
         this.pController = pController;
 
-
+        db.setCartListener(this);
         populateCards(DB.getInstance().getAllShoppingItems());          // Temp Vet inte om vi kommer ha kvar detta
     }
 
@@ -57,7 +59,7 @@ public class CheckOutGrid extends AnchorPane {
 
 
         for(ShoppingItem product : products){
-            ProductCard card = pController.getProductCards().get(product.getProduct().getProductId());
+            CheckOutProductCard card = pController.getProductCards().get(product.getProduct().getProductId());
             cardHolder.add(card, index1, index2);
 
 
@@ -67,5 +69,10 @@ public class CheckOutGrid extends AnchorPane {
                 index1 = 0;
             }
         }
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        populateCards(db.getAllShoppingItems());
     }
 }

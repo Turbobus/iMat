@@ -68,5 +68,5 @@ public class CheckOutHolder extends AnchorPane {
     }
 
 
-    public Map<Integer, ProductCard> getProductCards(){ return pController.getProductCards(); }
+    public Map<Integer, CheckOutProductCard> getProductCards(){ return pController.getCheckOutProductCards(); }
 }

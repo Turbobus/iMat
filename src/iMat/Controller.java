@@ -1,7 +1,9 @@
 package iMat;
 
 import iMat.CategoryMenu.*;
+import iMat.CheckOutSide.CheckOutGrid;
 import iMat.CheckOutSide.CheckOutHolder;
+import iMat.CheckOutSide.CheckOutProductCard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
@@ -21,6 +23,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final DB db = DB.getInstance();
 
     private final Map<Integer, ProductCard> productCards = new HashMap<>();
+    private final Map<Integer, CheckOutProductCard> checkOutProdCards = new HashMap<>();
 
     private final DetailView detailView = new DetailView(this);
     private final EmptyCart EmptyCart = new EmptyCart(this);
@@ -43,6 +46,7 @@ public class Controller extends AnchorPane implements Initializable {
     @FXML AnchorPane darkPane;
     @FXML AnchorPane putHere;
 
+
     @FXML
     public void closeOverlay(){
         putHere.getChildren().clear();
@@ -52,6 +56,7 @@ public class Controller extends AnchorPane implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         createProductCards();
+        CategoryMenu.initialize(this);
 
         logIn = new LogIn(this);
         shopHolder = new ShopHolder(this);
@@ -72,9 +77,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        setupShop();
+        //setupShop();
 
-        //setupCheckOut();
+        setupCheckOut();
     }
 
     private void setupLogIn() {
@@ -103,7 +108,9 @@ public class Controller extends AnchorPane implements Initializable {
     private void createProductCards(){
         for (Product product : db.getProducts()) {
             ProductCard card = new ProductCard(product, this);
+            CheckOutProductCard checkCard = new CheckOutProductCard(product, this);
             productCards.put(product.getProductId(), card);
+            checkOutProdCards.put(product.getProductId(), checkCard);
         }
 
         for (ShoppingItem item : db.getAllShoppingItems()){
@@ -196,11 +203,13 @@ public class Controller extends AnchorPane implements Initializable {
         if(newAmount >= 100) { newAmount /= 10; }
         db.updateShoppingItemAmount(prodId, newAmount);
         productCards.get(prodId).setUpFromCart(newAmount);
+        checkOutProdCards.get(prodId).setUpFromCart(newAmount);
     }
 
     // Updates the gridcard
     public void updateGridCard(int prodId) {
         productCards.get(prodId).updateCard();
+        checkOutProdCards.get(prodId).updateCard();
     }
 
     public void search(String word){
@@ -231,6 +240,7 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
+    public Map<Integer, CheckOutProductCard> getCheckOutProductCards(){ return checkOutProdCards; }
 
     public ShopHolder getShopHolder() { return shopHolder; }
 
