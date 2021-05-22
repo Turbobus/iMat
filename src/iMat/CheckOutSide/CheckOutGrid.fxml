@@ -43,7 +43,7 @@
                                         <String fx:value="font_28" />
                                     </styleClass>
                                 </Label>
-                                <Button id="breadcrumb_button" fx:id="mainCategoryButton" mnemonicParsing="false" text="Hem" underline="true" />
+                                <Button id="breadcrumb_button" fx:id="mainCategoryButton" mnemonicParsing="false" onAction="#goHome" text="Hem" underline="true" />
                             </buttons>
                         </ButtonBar>
                     </children>

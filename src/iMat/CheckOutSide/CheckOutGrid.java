@@ -1,9 +1,6 @@
 package iMat.CheckOutSide;
 
-import iMat.DB;
-import iMat.ProductCard;
-import iMat.ShopCartItem;
-import iMat.ShopHolder;
+import iMat.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -20,7 +17,7 @@ import java.util.List;
 
 public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
-    private final CheckOutHolder pController;
+    private final Controller pController;
     private final DB db = DB.getInstance();
 
 
@@ -32,7 +29,12 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
     @FXML GridPane cardHolder;          // Griden som håller produktkorten
 
 
-    public CheckOutGrid(CheckOutHolder pController){
+    @FXML
+    public void goHome(){
+        pController.setupShop();
+    }
+
+    public CheckOutGrid(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckOutGrid.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -59,7 +61,7 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
 
         for(ShoppingItem product : products){
-            CheckOutProductCard card = pController.getProductCards().get(product.getProduct().getProductId());
+            CheckOutProductCard card = pController.getCheckOutProductCards().get(product.getProduct().getProductId());
             cardHolder.add(card, index1, index2);
 
 

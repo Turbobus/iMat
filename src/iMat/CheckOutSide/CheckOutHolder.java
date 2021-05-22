@@ -50,7 +50,7 @@ public class CheckOutHolder extends AnchorPane {
 
     private void setupGrid(){
         gridPane.getChildren().clear();
-        gridPane.getChildren().add(new CheckOutGrid(this));
+        gridPane.getChildren().add(new CheckOutGrid(pController));
         gridPane.toFront();
     }
 
@@ -66,6 +66,4 @@ public class CheckOutHolder extends AnchorPane {
         methodPane.toFront();
     }
 
-
-    public Map<Integer, CheckOutProductCard> getProductCards(){ return pController.getCheckOutProductCards(); }
 }

@@ -15,8 +15,10 @@ import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 public class Controller extends AnchorPane implements Initializable {
 
