@@ -16,6 +16,8 @@ public class Header extends AnchorPane {
 
 
     @FXML private Button earlierPurchaseButton;
+
+    @FXML private Button searchButton;
     @FXML private TextField searchTextField;
 
 
@@ -36,7 +38,10 @@ public class Header extends AnchorPane {
 
     @FXML
     private void searchPressed(){
-        pController.search(searchTextField.getText());
+        if (!searchTextField.getText().matches("")) {
+            pController.search(searchTextField.getText());
+            searchTextField.setText("");
+        }
     }
 
     @FXML
@@ -59,6 +64,35 @@ public class Header extends AnchorPane {
         }
 
         this.pController = pController;
+        setupTextField();
+    }
+
+    private void setupTextField(){
+
+        // force the field to be numeric only and updates the amount in shopping cart
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue.matches("")){
+                searchButton.setId("search_button");
+            } else {
+                searchButton.setId("search_button_active");
+            }
+        });
+
+        // Clears the field when focused and sets a default value if the field is empty when focus is lost
+//        searchTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+//
+//            if (newValue) {
+//                // Focus gained
+//                searchTextField.setText("");
+//
+//            } else {
+//                // Focus lost
+//                if(searchTextField.getText().matches("")){
+//                    searchTextField.setText("1");
+//                }
+//            }
+//        });
     }
 
 }
