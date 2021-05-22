@@ -58,9 +58,6 @@ public class PayConfirmation extends AnchorPane {
         }
 
         shippingTimeLabel.setText(" Ungefärlig leveranstid: Imorgon klockan " + time);
-
-        System.out.println("NUUU");
-        System.out.println(db.getCardType());
     }
 
     private String wordHelper(){

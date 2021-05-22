@@ -140,7 +140,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getProducts());
             c.updateBreadCrumbs(null, "home");
-            c.bringToFront();
+            pController.setupShop();
         }
         updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
     }
@@ -149,7 +149,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.BREAD));
             c.updateBreadCrumbs(ProductCategory.BREAD, null);
-            c.bringToFront();
+            pController.setupShop();
         }
         updateCategoryButtons(this.breadItem);
     }
@@ -158,7 +158,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.DAIRIES));
             c.updateBreadCrumbs(ProductCategory.DAIRIES, null);
-            c.bringToFront();
+            pController.setupShop();
         }
         updateCategoryButtons(this.dairyItem);
     }
@@ -167,7 +167,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getCategoryProducts(ProductCategory.SWEET));
             c.updateBreadCrumbs(ProductCategory.SWEET, null);
-            c.bringToFront();
+            pController.setupShop();
         }
         updateCategoryButtons(this.sweetItem);
     }

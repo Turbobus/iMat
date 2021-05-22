@@ -22,7 +22,9 @@ public class PurchaseCompleted extends AnchorPane {
     // Methods
 
     @FXML public void closeOverlay(){ pController.closeOverlay(); }
-    @FXML public void openEarlierPurchase(){ pController.openEarlierPurchases(); }
+    @FXML public void openEarlierPurchase(){
+        CategoryMenu.getInstance().toHomePage();
+        pController.openEarlierPurchases(); }
     @FXML public void backToStart(){
         pController.closeOverlay();
         CategoryMenu.getInstance().toHomePage();
