@@ -16,7 +16,6 @@ public class ShopHolder extends AnchorPane {
 
     @FXML AnchorPane mainPane;      // Holder for all "component holder anchorpanes"
 
-    private final Header header;
     private final ShopGrid shopGrid;
     private final DB database = DB.getInstance();
 
@@ -38,18 +37,17 @@ public class ShopHolder extends AnchorPane {
         }
 
         this.pController = pController;
-        this.header = new Header(pController);
         this.shopGrid = new ShopGrid(this);
 
-        setupHeader();
+
         setupGrid();
         setupCategories();
         setupCart();
     }
 
-    private void setupHeader(){
+    public void setupHeader(Header header){
         headerPane.getChildren().clear();
-        headerPane.getChildren().add(this.header);
+        headerPane.getChildren().add(header);
         headerPane.toFront();
     }
 

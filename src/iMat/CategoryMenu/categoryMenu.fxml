@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" onMouseExited="#onMouseExitSubcategory" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" onMouseExited="#onMouseExitSubcategory" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayBread" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
       <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="720.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayDairy" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
@@ -80,6 +80,6 @@
    </children>
    <styleClass>
       <String fx:value="background_color_blue_white" />
-      <String fx:value="shadow_25" />
+      <String fx:value="shadow_25_total_side" />
    </styleClass>
 </fx:root>

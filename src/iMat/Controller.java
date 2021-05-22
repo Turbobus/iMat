@@ -33,6 +33,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
     private final Favourites favourites = new Favourites(this);
+    private final Header header = new Header(this);
 
     private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
 
@@ -91,6 +92,7 @@ public class Controller extends AnchorPane implements Initializable {
     public void setupShop() {
         window.getChildren().clear();
         window.getChildren().add(shopHolder);
+        shopHolder.setupHeader(header);
         getShopHolder().setupCategories();
         window.toFront();
     }
@@ -100,7 +102,10 @@ public class Controller extends AnchorPane implements Initializable {
             cbu.updateButtonStyle(decoyItem);
         }
         window.getChildren().clear();
-        window.getChildren().add(new CheckOutHolder(this));
+        CheckOutHolder temp = new CheckOutHolder(this);
+        temp.setupHeader(header);
+        window.getChildren().add(temp);
+
         window.toFront();
     }
 

@@ -39,13 +39,12 @@ public class CheckOutHolder extends AnchorPane {
         setupGrid();
         setupCategories();
         setupLeftPanel();
-        setupHeader();
     }
 
 
-    private void setupHeader(){
+    public void setupHeader(Header header){
         headerPane.getChildren().clear();
-        headerPane.getChildren().add(new Header(pController));
+        headerPane.getChildren().add(header);
         headerPane.toFront();
     }
 

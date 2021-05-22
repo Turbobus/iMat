@@ -64,7 +64,7 @@ public class CheckOutGrid extends AnchorPane implements ShoppingCartListener {
 
 
             index1++;
-            if( index1 %4 == 0){
+            if( index1 %3 == 0){
                 index2++;
                 index1 = 0;
             }

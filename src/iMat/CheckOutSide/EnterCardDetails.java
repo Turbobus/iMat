@@ -13,6 +13,7 @@ public class EnterCardDetails extends AnchorPane {
 
     private final DB db = DB.getInstance();
     private boolean[] isCorrectInformation= {false, false, false, false, false};
+    private boolean isVisaCard;
 
     @FXML AnchorPane writeNewCard;
     @FXML AnchorPane useSavedCard;
@@ -86,11 +87,15 @@ public class EnterCardDetails extends AnchorPane {
 
             if (!newValue) {
                 // Focus lost
-                if (cardNumber.getText().length() != 16){
+                if (cardNumber.getText().length() != 16 || (cardNumber.getText().charAt(0) != '4' && cardNumber.getText().charAt(0) != '5') ){
                     cardNumber.setId("blue_text_field_wrong");
                     isCorrectInformation[0] = false;
                 } else {
                     cardNumber.setId("blue_text_field");
+                    if (cardNumber.getText().charAt(0) == '4'){
+                        System.out.println("Korttyp: Visa");
+                        isVisaCard = true;
+                    } else { System.out.println("Korttyp: MasterCard"); isVisaCard = false; }
                     isCorrectInformation[0] = true;
                 }
 
