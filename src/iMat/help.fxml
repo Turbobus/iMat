@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
 <fx:root fx:id="help" maxHeight="900.0" maxWidth="1060.0" minHeight="900.0" minWidth="1060.0" prefHeight="900.0" prefWidth="1060.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -24,7 +25,7 @@
                   <String fx:value="shadow_50" />
                </styleClass>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="133.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="52.0" layoutX="133.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/help.png" />
                </image>
@@ -33,6 +34,7 @@
                <styleClass>
                   <String fx:value="exit_cross" />
                   <String fx:value="shadow_50" />
+                  <String fx:value="background_color_blue_white" />
                </styleClass>
             </Button>
          </children>
@@ -66,43 +68,46 @@
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="19.0" layoutY="173.0" text="Leta bland kategorierna">
+            <Label layoutX="19.0" layoutY="173.0" text="  Leta bland kategorierna">
                <styleClass>
                   <String fx:value="font_20" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/category.png" />
-                     </image>
-                  </ImageView>
+                  <Pane prefHeight="25.0" prefWidth="25.0">
+                     <styleClass>
+                        <String fx:value="background_color_dark_blue" />
+                        <String fx:value="category_svg" />
+                     </styleClass>
+                  </Pane>
                </graphic>
             </Label>
-            <Label layoutX="19.0" layoutY="236.0" text="Sök i sökrutan">
+            <Label layoutX="19.0" layoutY="236.0" text="  Sök i sökrutan">
                <styleClass>
                   <String fx:value="font_20" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/search.png" />
-                     </image>
-                  </ImageView>
+                  <Pane prefHeight="25.0" prefWidth="25.0">
+                     <styleClass>
+                        <String fx:value="background_color_dark_blue" />
+                        <String fx:value="search_svg" />
+                     </styleClass>
+                  </Pane>
                </graphic>
             </Label>
-            <Label layoutX="14.0" layoutY="293.0" prefHeight="64.0" prefWidth="225.0" text="Titta bland tidigare köp eller i inköpslistor" wrapText="true">
+            <Label layoutX="24.0" layoutY="293.0" prefHeight="64.0" prefWidth="225.0" text="Titta bland tidigare köp eller i favoriter" wrapText="true">
                <styleClass>
                   <String fx:value="font_20" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/earlierPurchase.png" />
-                     </image>
-                  </ImageView>
+                  <Pane prefHeight="25.0" prefWidth="25.0" translateX="-5.0">
+                     <styleClass>
+                        <String fx:value="background_color_dark_blue" />
+                        <String fx:value="earlier_purchase_svg" />
+                     </styleClass>
+                  </Pane>
                </graphic>
             </Label>
          </children>
@@ -216,39 +221,36 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label layoutX="23.0" layoutY="84.0" text="Inköpslistor">
+            <Label layoutX="23.0" layoutY="84.0" text="  Favoriter">
                <styleClass>
                   <String fx:value="bold_24" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/shoppingList.png" />
-                     </image>
-                  </ImageView>
+                  <Pane prefHeight="25.0" prefWidth="25.0" style="-fx-shape: &quot;M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z&quot;; -fx-border-color: #004972; -fx-border-width: 2.8px;" styleClass="background_color_light_light_blue" />
                </graphic>
             </Label>
-            <Label layoutX="30.0" layoutY="123.0" prefHeight="113.0" prefWidth="218.0" text="Välj Lägg till i inköpslista i produktvyn, du kan välja en existerande lista eller skapa en ny" wrapText="true">
+            <Label layoutX="40.0" layoutY="123.0" prefHeight="113.0" prefWidth="218.0" text="Välj &quot;Lägg till som favorit&quot; i produkvyn, du kan sedan komma åt alla favoriter genom menyn överst" wrapText="true">
                <styleClass>
                   <String fx:value="font_20" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="23.0" layoutY="254.0" text="Tidigare köp">
+            <Label layoutX="23.0" layoutY="254.0" text="  Tidigare köp">
                <styleClass>
                   <String fx:value="bold_24" />
                   <String fx:value="text_color_dark_blue" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/earlierPurchase.png" />
-                     </image>
-                  </ImageView>
+                  <Pane prefHeight="25.0" prefWidth="25.0">
+                     <styleClass>
+                        <String fx:value="background_color_dark_blue" />
+                        <String fx:value="earlier_purchase_svg" />
+                     </styleClass>
+                  </Pane>
                </graphic>
             </Label>
-            <Label layoutX="30.0" layoutY="280.0" prefHeight="113.0" prefWidth="218.0" text="Välj Tidigare köp och lägg till produkter du köpt tidigare direkt" wrapText="true">
+            <Label layoutX="40.0" layoutY="280.0" prefHeight="113.0" prefWidth="218.0" text="Välj Tidigare köp och lägg till produkter du köpt tidigare direkt" wrapText="true">
                <styleClass>
                   <String fx:value="font_20" />
                   <String fx:value="text_color_dark_blue" />
@@ -256,7 +258,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="86.0" layoutY="117.0" maxHeight="322.0" maxWidth="878.0" minHeight="322.0" minWidth="878.0" prefHeight="322.0" prefWidth="878.0">
+      <AnchorPane layoutX="82.0" layoutY="115.0" maxHeight="322.0" maxWidth="896.0" minHeight="322.0" minWidth="896.0" prefHeight="322.0" prefWidth="896.0">
          <styleClass>
             <String fx:value="background_color_light_blue" />
             <String fx:value="border_dark_dark_blue_1_width" />
