@@ -35,8 +35,6 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
         }
     }
 
-
-
     public ShopCart(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCart.fxml"));
         fxmlLoader.setRoot(this);

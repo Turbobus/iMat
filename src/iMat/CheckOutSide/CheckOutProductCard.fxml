@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<fx:root prefHeight="320.0" prefWidth="270.0" styleClass="border_radius_30" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+<fx:root prefHeight="320.0" prefWidth="270.0" styleClass="border_radius_30" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@../main.css">
+      <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@../main.css">
          <children>
             <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
                <children>
