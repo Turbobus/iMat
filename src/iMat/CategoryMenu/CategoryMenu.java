@@ -141,9 +141,9 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         for(CategoryListener c : pController.getCategoryListeners()) {
             c.populateCards(database.getProducts());
             c.updateBreadCrumbs(null, "home");
-            pController.setupShop();
         }
         updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
+        pController.setupShop();
     }
 
     @FXML private void displayBread() {

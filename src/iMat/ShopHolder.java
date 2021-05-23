@@ -61,6 +61,7 @@ public class ShopHolder extends AnchorPane {
         categoryPane.getChildren().clear();
         categoryPane.getChildren().add(CategoryMenu.getInstance());
         categoryPane.toFront();
+        headerPane.toFront();
     }
 
     private void setupCart() {
