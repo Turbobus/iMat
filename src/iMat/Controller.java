@@ -55,8 +55,8 @@ public class Controller extends AnchorPane implements Initializable {
         categoryListeners.add(getShopHolder().getShopGrid());
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
-        db.reset();
-        db.resetFirstRun();
+
+
        /* if(db.isFirstRun()){
             setupLogIn();
         } else {
@@ -65,9 +65,9 @@ public class Controller extends AnchorPane implements Initializable {
 
         //setupLogIn();
 
-        setupShop();
+       setupShop();
 
-        //setupCheckOut();
+       // setupCheckOut();
     }
 
     private void setupLogIn() {

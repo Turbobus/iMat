@@ -17,6 +17,8 @@ public class settings extends AnchorPane {
 
     private final Controller pController;
     DB db = DB.getInstance();
+    private boolean[] isCorrectInformation = {false, false, false, false, false};
+    private String cardType;
 
     //Buttons for window default
     @FXML
@@ -115,16 +117,16 @@ public class settings extends AnchorPane {
     private TextField mobileTextField1;
 
     // Combobox items
-    @FXML
-    private ComboBox<String> typeofcard;
+
     @FXML
     private ImageView mastercardpic;
     @FXML
     private ImageView visapic;
+    @FXML
+    private ImageView defaultcard;
 
 
     private static boolean missingField = false;
-
 
 
     public settings(Controller pController) {
@@ -142,45 +144,17 @@ public class settings extends AnchorPane {
         this.pController = pController;
 
 
-        setupCvcTextField();
-        populateComboBox();
+
+        setupPayment2();
+        saveCardDetails();
 
 
 
-    }
-
-
-    @FXML
-    void visatypepressed(ActionEvent event) {
-
-        db.setCardType("Visa");
-
-
-
-        mastercardtype.setGraphic(mastercardpic);
-        mastercardtype.setText("Mastercard");
-    }
-
-    @FXML
-    void mastercardtypepressed(ActionEvent event) {
-
-
-        if (mastercardtype.getGraphic() == visapic) {
-            db.setCardType("Visa");
-            mastercardtype.setGraphic(mastercardpic);
-            mastercardtype.setText("Mastercard");
-
-
-
-        } else {
-            db.setCardType("Mastercard");
-            mastercardtype.setGraphic(visapic);
-            mastercardtype.setText("Visa");
-
-
-        }
 
     }
+
+
+
 
     @FXML
     public void change1pressed(ActionEvent event) {
@@ -207,15 +181,20 @@ public class settings extends AnchorPane {
         cvc1.setText(cvc.getText());
 
         paymentchanged.toFront();
+        cardType();
 
     }
 
     @FXML
     public void save2pressed(ActionEvent event) {
 
-        savedPaymentValid();
-        updatepayment();
-        newcard.setVisible(false);
+       if(isAllTrue(isCorrectInformation)) {
+            saveCardDetails();
+            updatepayment();
+            cardType();
+            newcard.setVisible(false);
+            paymentdefault.toFront();
+        }
 
     }
 
@@ -253,8 +232,8 @@ public class settings extends AnchorPane {
     @FXML
     public void save1pressed(ActionEvent event) {
 
-        savedSettingsValid();
         updatesettings();
+        settingsdefault.toFront();
 
     }
 
@@ -268,35 +247,15 @@ public class settings extends AnchorPane {
     public void updatepayment() {
 
         cardnumber.setText(cardnumber1.getText());
-        db.setCardNumber(cardnumber1.getText());
-
         cardholername.setText(cardholername1.getText());
-        db.setHoldersName(cardnumber1.getText());
+        validmonth.setText(validmonth1.getText());
+        validyear.setText(validyear1.getText());
+        cvc.setText(cvc1.getText());
 
 
-        try {
-            db.setValidMonth(Integer.parseInt(validmonth1.getText()));
-            validmonth.setText(validmonth1.getText());
-        } catch (NumberFormatException e) {
-            validmonth1.setId("red_button");
+
         }
 
-        try {
-            db.setValidYear(Integer.parseInt(validyear1.getText()));
-            validyear.setText(validyear1.getText());
-        } catch (NumberFormatException e) {
-            validyear1.setId("red_button");
-        }
-
-        try {
-            db.setVerificationCode(Integer.parseInt(cvc1.getText()));
-            cvc.setText(cvc1.getText());
-        } catch (NumberFormatException e) {
-            validmonth1.setId("red_button");
-        }
-
-
-    }
 
     public void updatesettings() {
 
@@ -327,14 +286,19 @@ public class settings extends AnchorPane {
     }
 
     public void paymentSettingsFirstRun() {
-        if (db.isFirstRun()) {
+        if (db.getCardNumber().matches("")) {
             cardnumber.setText("");
             cardholername.setText("");
             validmonth.setText("");
             validyear.setText("");
             cvc.setText("");
             newcard.toFront();
+            settingsdefault.toFront();
+            defaultcard.toFront();
 
+        }
+        else {
+            settings2.toFront();
         }
     }
 
@@ -345,8 +309,6 @@ public class settings extends AnchorPane {
 
         cardnumber.setText(db.getCardNumber());
         cardholername.setText(db.getHoldersName());
-
-
         validmonth.setText(String.valueOf(db.getValidMonth()));
         validyear.setText(String.valueOf(db.getValidYear()));
         cvc.setText(String.valueOf(db.getVerificationCode()));
@@ -362,7 +324,7 @@ public class settings extends AnchorPane {
 
         } catch (IOException ioe) {
 
-            newcard.toFront();
+
             missingField = true;
         }
 
@@ -390,164 +352,181 @@ public class settings extends AnchorPane {
 
     }
 
-    private void savedPaymentValid() {
+    public void cardType() {
 
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (char c : cardnumber1.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
-                }
-            }
-            if (sb.length() == 16) {
 
-            } else {
-                cardnumber1.setPromptText("Felaktigt kortnummer");
-                missingField = true;
-                cardnumber1.setId("red_button");
-            }
-        } catch (NullPointerException npe) {
-            cardnumber1.setPromptText("Kortnummer behöver fyllas i.");
+        switch (db.getCardType()) {
+
+            case "Visa":
+                defaultcard.toBack();
+                visapic.toFront();
+                break;
+            case "MasterCard":
+                defaultcard.toBack();
+                mastercardpic.toFront();
+
+            case "":
+                defaultcard.toFront();
         }
-
-
-        try {
-            isFilledIn(cardholername1.getText());
-
-        } catch (IOException ioe) {
-            cardholername1.setPromptText("Var vänlig fyll i ditt namn");
-            missingField = true;
-            cardholername1.setId("red_button");
-        }
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (char c : validmonth1.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
-                }
-            }
-            if (sb.length() == 2) {
-
-            } else {
-                System.out.println("Felaktigt månad");
-                missingField = true;
-                validmonth1.setId("red_button");
-            }
-        } catch (NullPointerException npe) {
-            validmonth1.setPromptText("Månaden behöver fyllas i");
-        }
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (char c : validyear1.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
-                }
-            }
-            if (sb.length() == 2) {
-
-            } else {
-                System.out.println("Felaktigt månad");
-                missingField = true;
-                validyear1.setId("red_button");
-            }
-        } catch (NullPointerException npe) {
-            validyear1.setPromptText("Året behöver fyllas i");
-        }
-
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (char c : cvc1.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
-                }
-            }
-            if (sb.length() == 3) {
-
-            } else {
-                System.out.println("Felaktigt månad");
-                missingField = true;
-                cvc1.setId("red_button");
-            }
-        } catch (NullPointerException npe) {
-            cvc1.setPromptText("CVC behöver fyllas i");
-        }
-
-
-        if (!missingField) {
-            paymentdefault.toFront();
-
-        }
-        missingField = false;
 
     }
 
-    private void savedSettingsValid() {
+    private void setupPayment2() {
 
-        try {
-            isFilledIn(firstNameTextField1.getText());
+        cardnumber1.textProperty().addListener((observable, oldValue, newValue) -> {
 
-        } catch (IOException ioe) {
-            firstNameTextField1.setPromptText("First name must be filled in.");
-            missingField = true;
-            firstNameTextField1.setId("red_button");             //An example of how to handle missing field.
-        }
+            if (!newValue.matches("\\d*")) {
 
-        try {
-            isFilledIn(lastNameTextField1.getText());
+                cardnumber1.setText(newValue.replaceAll("[^\\d]", ""));
 
-        } catch (IOException ioe) {
+            }
 
-            missingField = true;
-            lastNameTextField1.setId("red_button");
-        }
+            if (newValue.length() > 16) {
+                cardnumber1.setText(oldValue);
+            }
+        });
 
-        try {
-            isFilledIn(addressTextField1.getText());
+        cardnumber1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
-        } catch (IOException ioe) {
-            System.out.println("Address must be filled in.");
-            missingField = true;
-            addressTextField1.setId("red_button");
-        }
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (char c : postalCodeTextField1.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
+            if (!newValue) {
+                // Focus lost
+                if (cardnumber1.getText().length() != 16 || (cardnumber1.getText().charAt(0) != '4' && cardnumber1.getText().charAt(0) != '5')) {
+                    cardnumber1.setId("blue_text_field_wrong");
+                    isCorrectInformation[0] = false;
+                } else {
+                    cardnumber1.setId("blue_text_field");
+                    if (cardnumber1.getText().charAt(0) == '4') {
+                        System.out.println("Korttyp: Visa");                                            // Behöver sätta in bilden över vilket kort det är
+                        cardType = "Visa";
+                    } else {
+                        System.out.println("Korttyp: MasterCard");
+                        cardType = "MasterCard";
+                        defaultcard.setOpacity(0);
+                        mastercardpic.setOpacity(100);
+                    }
+                    isCorrectInformation[0] = true;
                 }
+
             }
-            if (sb.length() == 5) {
-                System.out.println("Postal code successfully set");
-            } else {
-                System.out.println("Invalid post code");
-                missingField = true;
-                postalCodeTextField1.setId("red_button");
+        });
+
+        cardholername1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (cardholername1.getText().matches("")) {
+                    cardholername1.setId("blue_text_field_wrong");
+                    isCorrectInformation[1] = false;
+                } else {
+                    cardholername1.setId("blue_text_field");
+                    isCorrectInformation[1] = true;
+                }
+
             }
-        } catch (NullPointerException npe) {
-            System.out.println("Postal code must be filled in.");
-        }
+        });
 
-        try {
-            isFilledIn(postAddressTextField1.getText());
+        validmonth1.textProperty().addListener((observable, oldValue, newValue) -> {
 
-        } catch (IOException ioe) {
-            System.out.println("City must be filled in.");
-            postAddressTextField1.setId("red_button");
-            missingField = true;
-        }
+            if (!newValue.matches("\\d*")) {
 
+                validmonth1.setText(newValue.replaceAll("[^\\d]", ""));
 
-        if (!missingField)
-            settingsdefault.toFront();
+            }
 
-        missingField = false;
+            if (newValue.length() > 2) {
+                validmonth1.setText(oldValue);
+            }
+        });
 
+        validmonth1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
+            if (!newValue) {
+                // Focus lost
+                if ( validmonth1.getText().matches("") ||  validmonth1.getText().matches("0") || Integer.parseInt( validmonth1.getText()) > 12) {
+                    validmonth1.setId("blue_text_field_wrong");
+                    isCorrectInformation[2] = false;
+                } else {
+                    validmonth1.setId("blue_text_field");
+                    isCorrectInformation[2] = true;
+                }
+
+            }
+        });
+
+        validyear1.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                validyear1.setText(newValue.replaceAll("[^\\d]", ""));
+
+            }
+
+            if (newValue.length() > 2) {
+                validyear1.setText(oldValue);
+            }
+
+        });
+
+        validyear1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (validyear1.getText().matches("") || Integer.parseInt(validyear1.getText()) < 20 || Integer.parseInt(validyear1.getText()) > 30) {
+                    validyear1.setId("blue_text_field_wrong");
+                    isCorrectInformation[3] = false;
+                } else {
+                    validyear1.setId("blue_text_field");
+                    isCorrectInformation[3] = true;
+                }
+
+            }
+        });
+
+        cvc1.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                cvc1.setText(newValue.replaceAll("[^\\d]", ""));
+
+            }
+
+            if (newValue.length() > 3) {
+                cvc1.setText(oldValue);
+            }
+        });
+
+        cvc1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if ( cvc1.getText().length() != 3) {
+                    cvc1.setId("blue_text_field_wrong");
+                    isCorrectInformation[4] = false;
+                } else {
+                    cvc1.setId("blue_text_field");
+                    isCorrectInformation[4] = true;
+                }
+
+            }
+        });
     }
+
+    private boolean isAllTrue(boolean[] array) {
+        for(boolean b : array) if(!b) return false;
+        return true;
+    }
+
+    @FXML public void saveCardDetails(){
+        if (isAllTrue(isCorrectInformation)){
+            db.setCardNumber(cardnumber1.getText());
+            db.setHoldersName(cardholername1.getText());
+            db.setValidMonth(Integer.parseInt(validmonth1.getText()));
+            db.setValidYear(Integer.parseInt(validyear1.getText()));
+            db.setVerificationCode(Integer.parseInt(cvc1.getText()));
+            db.setCardType(cardType);
+        }
+    }
+
 
     private static void isFilledIn(String field) throws IOException {
         if (field.length() < 1) {
@@ -555,95 +534,9 @@ public class settings extends AnchorPane {
         }
     }
 
-    private void setupCvcTextField(){
 
-        // force the field to be numeric only and updates the amount in shopping cart
-        cvc1.textProperty().addListener((observable, oldValue, newValue) -> {
-
-            if (!newValue.matches("(?<!\\d)\\d{4}(?!\\d)")) {
-
-                cvc1.setText(newValue.replaceAll("[^\\d]", ""));
-
-            } else if (newValue.matches("0")){
-
-                cvc1.setText("1");
-
-            } else if (!newValue.matches("")){
-
-                if(Integer.parseInt(newValue) >= 100){
-                    cvc1.setText("" + Integer.parseInt(newValue)/10);
-                }
-
-            }
-        });
-
-        // Clears the field when focused and sets a default value if the field is empty when focus is lost
-        cvc1.focusedProperty().addListener((observable, oldValue, newValue) -> {
-
-            if (newValue) {
-                // Focus gained
-                cvc1.setText("");
-
-            } else {
-                // Focus lost
-                if(cvc1.getText().matches("")){
-                    cvc1.setText("1");
-                }
-            }
-        });
-
-    }
-
-    private void populateComboBox() {
-
-            Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
-
-                @Override public ListCell<String> call(ListView<String> p) {
-
-                    return new ListCell<String>() {
-
-                        @Override
-                        protected void updateItem(String item, boolean empty) {
-                            super.updateItem(item, empty);
-
-                            setText(item);
-
-                            if (item == null || empty) {
-                                setGraphic(null);
-                            }
-
-                            else {
-                                Image icon = null;
-                                String iconPath;
-                                try {
-                                    switch (item) {
-                                        case "Visa" -> {
-                                            iconPath = "iMat/img/visaicon.png";
-                                            icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        }
-                                        case "Mastercard" -> {
-                                            iconPath = "iMat/img/mastercard.png";
-                                            icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        }
-                                    }
-                                } catch(NullPointerException ex) {
-                                    //This should never happen in this lab but could load a default image in case of a NullPointer
-                                }
-                                ImageView iconImageView = new ImageView(icon);
-                                iconImageView.setFitHeight(12);
-                                iconImageView.setPreserveRatio(true);
-                                setGraphic(iconImageView);
-                            }
-                        }
-                    };
-                }
-            };
-            typeofcard.setButtonCell(cellFactory.call(null));
-            typeofcard.setCellFactory(cellFactory);
-
-
-
-    }
+//Blue text field
+//Blue text field worng
 
 
 
