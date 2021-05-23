@@ -454,7 +454,15 @@
     -fx-border-insets: -1px;
 }
 
-#light_blue_button{
+#red_button_disabled {
+    -fx-text-fill: #8E8380;
+    -fx-background-color: #FCC1A9;
+    -fx-border-color: #8E8380;
+    -fx-padding: 0px;
+    -fx-border-insets: -1px;
+}
+
+#light_blue_button {
     -fx-text-fill: #002E48;
     -fx-background-color: #C7E1FF;
     -fx-border-color: #002E48;

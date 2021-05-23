@@ -17,6 +17,7 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
 
     private final Controller pController;
     private final DB db = DB.getInstance();
+    private boolean isButtonsActive;
 
     @FXML Button checkOutButton;
     @FXML Button emptyCartButton;
@@ -29,7 +30,9 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     }
 
     @FXML public void emptyCartPressed(ActionEvent event){
-        pController.openEmptyCart();
+        if (isButtonsActive) {
+            pController.openEmptyCart();
+        }
     }
 
 
@@ -59,5 +62,17 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
         }
         totalPriceOfCart.setText("Totalt: " + String.format("%.2f",db.getTotalCartPrice()) + " kr");
         amountInCart.setText("Antal: " + db.getTotalAmountInCart());
+
+        updateButtonState();
+    }
+
+    private void updateButtonState(){
+        if (db.getTotalAmountInCart() <= 0){
+            isButtonsActive = false;
+            emptyCartButton.setId("red_button_disabled");
+        } else {
+            isButtonsActive = true;
+            emptyCartButton.setId("red_button");
+        }
     }
 }
