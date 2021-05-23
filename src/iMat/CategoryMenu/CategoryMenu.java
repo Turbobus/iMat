@@ -359,6 +359,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
+        //Bättre eller sämre placering?
         //subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
         subcategoryPane.setLayoutX(243);
         subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - 200);
