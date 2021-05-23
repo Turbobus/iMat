@@ -41,6 +41,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private Button dryGoodButton;
 
     @FXML private FlowPane subcategoryPane;
+    @FXML private AnchorPane shaodwPane;
 
     private final SubcategoryItem breadItem;
     private final SubcategoryItem dairyItem;
@@ -339,6 +340,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
             subcategoryPane.getChildren().clear();
             subcategoryPane.toBack();
             subcategoryPane.setLayoutX(-500.0);
+            shadowPaneToBack();
         }
     }
 
@@ -346,7 +348,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
         subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - 90);
+        subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - 100);
+        shadowPaneToFront();
 
         subcategoryPane.getChildren().add(getDrinkSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -356,8 +359,10 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
-        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - 250);
+        //subcategoryPane.setLayoutX(getFruitPane().getPrefWidth());
+        subcategoryPane.setLayoutX(243);
+        subcategoryPane.setLayoutY(getFruitPane().getLayoutY() - 200);
+        shadowPaneToFront();
 
         subcategoryPane.getChildren().add(getFruitSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -369,6 +374,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
         subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
         subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - 170);
+        shadowPaneToFront();
 
         subcategoryPane.getChildren().add(getVegetableSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -380,6 +386,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
         subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
         subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - 90);
+        shadowPaneToFront();
 
         subcategoryPane.getChildren().add(getFishAndMeatSubcategory().getHolder());
         subcategoryPane.toFront();
@@ -391,9 +398,21 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
         subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
         subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - 170);
+        shadowPaneToFront();
 
         subcategoryPane.getChildren().add(getDryGoodsSubcategory().getHolder());
         subcategoryPane.toFront();
+    }
+
+    private void shadowPaneToFront() {
+        shaodwPane.setLayoutX(243);
+        shaodwPane.setLayoutY(0);
+        shaodwPane.toFront();
+    }
+
+    private void shadowPaneToBack() {
+        shaodwPane.setLayoutX(-1700);
+        shaodwPane.toBack();
     }
 
     public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }

@@ -37,8 +37,8 @@ public class CheckOutHolder extends AnchorPane {
         this.pController = pController;
 
         setupGrid();
-        setupCategories();
         setupLeftPanel();
+        setupCategories();
     }
 
 
