@@ -138,9 +138,9 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openEmptyCart(){ openOverlay(EmptyCart); }
 
-    public void openPayConfirmation(String time){
+    public void openPayConfirmation(String time, String cardType){
 
-        payConfirmation.setupInfo(time);
+        payConfirmation.setupInfo(time, cardType);
 
         openOverlay(payConfirmation);
     }
@@ -182,7 +182,6 @@ public class Controller extends AnchorPane implements Initializable {
         openOverlay(favourites);
 
     }
-
 
 
     // Adds a product into the shoppingcart

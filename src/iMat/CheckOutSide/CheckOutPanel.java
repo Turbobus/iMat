@@ -20,6 +20,8 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
     private ToggleGroup timeToggleGroup = new ToggleGroup();
     private boolean haveSetUpCardPane = false;
     private String time;
+    private final EnterCardDetails enterCardDetails = new EnterCardDetails();
+
 
     @FXML AnchorPane cardInformationPanel;
 
@@ -34,9 +36,8 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     @FXML public void placeOrder(){
 
-        // Behöver kolla så kreditkort är inskrivet samt hämta tid från radiobutton
-
-        pController.openPayConfirmation(time);
+        // Kolla så att man får placera order från kortuppgifterna
+        pController.openPayConfirmation(time, enterCardDetails.getCardType());
     }
 
     public CheckOutPanel(Controller pController){
@@ -78,6 +79,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
                     if (!haveSetUpCardPane){
                         setupCardPane();
+                        haveSetUpCardPane = true;
                     }
 
                 }
@@ -87,7 +89,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private void setupCardPane(){
         cardInformationPanel.getChildren().clear();
-        cardInformationPanel.getChildren().add(new EnterCardDetails());
+        cardInformationPanel.getChildren().add(enterCardDetails);
     }
 
     private void updateTotalPrice(){

@@ -263,4 +263,6 @@ public class EnterCardDetails extends AnchorPane {
         });
     }
 
+
+    public String getCardType(){ return cardType; }
 }
