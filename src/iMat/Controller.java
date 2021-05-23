@@ -94,8 +94,8 @@ public class Controller extends AnchorPane implements Initializable {
     public void setupShop() {
         window.getChildren().clear();
         window.getChildren().add(shopHolder);
-        shopHolder.setupHeader(header);
         getShopHolder().setupCategories();
+        shopHolder.setupHeader(header);
         window.toFront();
     }
 
