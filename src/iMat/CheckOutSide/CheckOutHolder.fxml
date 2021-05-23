@@ -8,8 +8,8 @@
             <children>
                 <AnchorPane fx:id="headerPane" prefHeight="151.0" prefWidth="1920.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                 <AnchorPane fx:id="categoryPane" prefHeight="910.0" prefWidth="243.0" style="-fx-background-color: yellow;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="151.0" />
-                <AnchorPane fx:id="gridPane" maxWidth="1007.0" minWidth="1007.0" prefHeight="929.0" prefWidth="1007.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="670.0" AnchorPane.topAnchor="151.0" />
-                <AnchorPane fx:id="methodPane" maxHeight="929.0" maxWidth="670.0" minHeight="929.0" minWidth="670.0" prefHeight="929.0" prefWidth="670.0" style="-fx-background-color: lime;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <AnchorPane fx:id="gridPane" maxWidth="1017.0" minWidth="1017.0" prefHeight="929.0" prefWidth="1017.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="660.0" AnchorPane.topAnchor="151.0" />
+                <AnchorPane fx:id="methodPane" maxHeight="929.0" maxWidth="670.0" minHeight="929.0" minWidth="655.0" prefHeight="929.0" prefWidth="660.0" style="-fx-background-color: lime;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             </children>
         </AnchorPane>
     </children>

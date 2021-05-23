@@ -4,7 +4,10 @@ import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -12,7 +15,7 @@ import java.io.IOException;
 public class EnterCardDetails extends AnchorPane {
 
     private final DB db = DB.getInstance();
-    private boolean[] isCorrectInformation= {false, false, false, false, false};
+    private boolean[] isCorrectInformation = {false, false, false, false, false};
     private String cardType;
 
     @FXML AnchorPane writeNewCard;
@@ -24,8 +27,24 @@ public class EnterCardDetails extends AnchorPane {
     @FXML TextField cardYear;
     @FXML TextField cardCVC;
 
+    @FXML ImageView enterInfoVisaImg;
+    @FXML ImageView enterInfoMasterImg;
+    @FXML ImageView showInfoVisaImg;
+    @FXML ImageView showInfoMasterImg;
+
+    @FXML Label cardNumberText;
+    @FXML Label cardNameText;
+    @FXML Label cardMonthText;
+    @FXML Label cardYearText;
+    @FXML Label cardCVCText;
+
     @FXML Button saveUntilNextTime;
 
+
+    @FXML public void writeCardInfo(){
+        saveUntilNextTime.setText("Spara uppgifterna igen");
+        writeNewCard.toFront();
+    }
 
     @FXML public void saveCardDetails(){
         if (isAllTrue(isCorrectInformation)){
@@ -35,7 +54,8 @@ public class EnterCardDetails extends AnchorPane {
             db.setValidYear(Integer.parseInt(cardYear.getText()));
             db.setVerificationCode(Integer.parseInt(cardCVC.getText()));
             db.setCardType(cardType);
-            saveUntilNextTime.setText("Kortet är sparat!");
+            setupSavedCardInfo();
+            useSavedCard.toFront();
         }
     }
 
@@ -57,16 +77,47 @@ public class EnterCardDetails extends AnchorPane {
 
         setupPane();
         setupTextField();
+
     }
 
     private void setupPane(){
         if (db.getCardNumber().matches("")){
             writeNewCard.toFront();
         } else {
+            setupSavedCardInfo();
             useSavedCard.toFront();
         }
+    }
 
-        writeNewCard.toFront();
+    private void setupSavedCardInfo(){
+        cardNumberText.setText(db.getCardNumber());
+        cardNameText.setText(db.getHoldersName());
+        cardMonthText.setText("" + db.getValidMonth());
+        cardYearText.setText("" + db.getValidYear());
+        cardCVCText.setText("" + db.getVerificationCode());
+        cardNumber.setText(db.getCardNumber());
+        cardName.setText(db.getHoldersName());
+        cardMonth.setText("" + db.getValidMonth());
+        cardYear.setText("" + db.getValidYear());
+        cardCVC.setText("" + db.getVerificationCode());
+        isCorrectInformation = new boolean[]{true, true, true, true, true};
+        displayCardType(db.getCardType());
+        cardType = db.getCardType();
+    }
+
+    private void displayCardType(String cardType){
+        enterInfoMasterImg.setOpacity(0);
+        showInfoMasterImg.setOpacity(0);
+        enterInfoVisaImg.setOpacity(0);
+        showInfoVisaImg.setOpacity(0);
+
+        if (cardType.matches("Visa")) {
+            enterInfoVisaImg.setOpacity(1);
+            showInfoVisaImg.setOpacity(1);
+        } else if (cardType.matches("MasterCard")){
+            enterInfoMasterImg.setOpacity(1);
+            showInfoMasterImg.setOpacity(1);
+        }
     }
 
     private void setupTextField(){
@@ -90,13 +141,21 @@ public class EnterCardDetails extends AnchorPane {
                 // Focus lost
                 if (cardNumber.getText().length() != 16 || (cardNumber.getText().charAt(0) != '4' && cardNumber.getText().charAt(0) != '5') ){
                     cardNumber.setId("blue_text_field_wrong");
+                    displayCardType("No");
                     isCorrectInformation[0] = false;
                 } else {
                     cardNumber.setId("blue_text_field");
                     if (cardNumber.getText().charAt(0) == '4'){
-                        System.out.println("Korttyp: Visa");                                            // Behöver sätta in bilden över vilket kort det är
+
+                        displayCardType("Visa");                                          // Behöver sätta in bilden över vilket kort det är
                         cardType = "Visa";
-                    } else { System.out.println("Korttyp: MasterCard"); cardType = "MasterCard"; }
+
+                    } else {
+
+                        displayCardType("MasterCard");
+                        cardType = "MasterCard";
+                    }
+
                     isCorrectInformation[0] = true;
                 }
 
