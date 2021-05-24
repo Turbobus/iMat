@@ -103,7 +103,7 @@
             <String fx:value="shadow_50" />
          </styleClass>
          <graphic>
-            <Pane prefHeight="29.0" prefWidth="30.0" styleClass="check_out_svg" translateX="10.0" />
+            <Pane id="check_out_svg" prefHeight="29.0" prefWidth="30.0" translateX="10.0" />
          </graphic>
       </Button>
       <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" layoutX="316.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
