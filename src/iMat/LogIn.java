@@ -44,14 +44,16 @@ public class LogIn extends AnchorPane {
         if (flag){
             // Knapp Ska vara grå
             nextButton.setId("white_button_disabled");
+            isFieldsRight = false;
         } else{
             // Knapp ska ha färg
             nextButton.setId("white_button");
+            isFieldsRight = true;
         }
 
     }
 
-    private static boolean missingField = false;
+    private boolean isFieldsRight = true;
 
     public LogIn(Controller pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
@@ -158,69 +160,17 @@ public class LogIn extends AnchorPane {
 
     @FXML
     private void logInPressed(ActionEvent event) {
-
-        try {
-            isFilledIn(firstNameTextField.getText());
+        if (isFieldsRight){
             db.setFirstName(firstNameTextField.getText());
-        } catch (IOException ioe) {
-            firstNameTextField.setPromptText("First name must be filled in.");
-            System.out.println("First name must be filled in.");
-            missingField = true;
-            firstNameTextField.setId("red_button");             //An example of how to handle missing field.
-        }
-
-        try {
-            isFilledIn(lastNameTextField.getText());
             db.setLastName(lastNameTextField.getText());
-        } catch(IOException ioe) {
-            System.out.println("Last name must be filled in.");
-            missingField = true;
-        }
-
-        try {
-            isFilledIn(addressTextField.getText());
             db.setAddress(addressTextField.getText());
-        } catch(IOException ioe) {
-            System.out.println("Address must be filled in.");
-            missingField = true;
-        }
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            for(char c : postalCodeTextField.getText().toCharArray()) {
-                if (Character.isDigit(c)) {
-                    sb.append(c);
-                }
-            }
-            if(sb.length() == 5) {
-                db.setPostCode(sb.toString());
-                System.out.println("Postal code successfully set");
-            }
-            else {
-                System.out.println("Invalid post code");
-                missingField = true;
-            }
-        } catch(NullPointerException npe) {
-            System.out.println("Postal code must be filled in.");
-        }
-
-        try {
-            isFilledIn(postAddressTextField.getText());
+            db.setPostCode(postalCodeTextField.getText());
             db.setPostAddress(postAddressTextField.getText());
-        } catch(IOException ioe) {
-            System.out.println("City must be filled in.");
-            missingField = true;
+            db.setEMail(mailTextField.getText());
+            db.setPhoneNumber(telephoneTextField.getText());
+            db.setMobileNumber(mobileTextField.getText());
+            pController.setupShop();
         }
-
-        //Even if these fields are left empty they don't produce a NullPointerException.
-        db.setEMail(mailTextField.getText());
-        db.setPhoneNumber(telephoneTextField.getText());
-        db.setMobileNumber(mobileTextField.getText());
-
-        // Byter till main view
-        if(!missingField) { pController.setupShop(); }
-
-        missingField = false;
     }
 
     private static void isFilledIn(String field) throws IOException {
