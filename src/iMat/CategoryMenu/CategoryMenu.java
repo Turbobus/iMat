@@ -5,7 +5,6 @@ import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -22,6 +21,12 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     private static CategoryMenu instance = null;
     private final DB database = DB.getInstance();
     private final Controller pController;
+
+    @FXML private Pane fruitArrow;
+    @FXML private Pane vegetableArrow;
+    @FXML private Pane fishAndMeatArrow;
+    @FXML private Pane drinkArrow;
+    @FXML private Pane dryGoodsArrow;
 
     @FXML private Pane drinkPane;
     @FXML private Pane fruitPane;
@@ -41,7 +46,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private Button dryGoodButton;
 
     @FXML private FlowPane subcategoryPane;
-    @FXML private AnchorPane shaodwPane;
+    @FXML private AnchorPane shadowPane;
 
     private final SubcategoryItem breadItem;
     private final SubcategoryItem dairyItem;
@@ -199,12 +204,18 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         dairyButton.setId("category_buttons");
         sweetButton.setId("category_buttons");
 
+        drinkArrow.setId("category_arrow_blue");
+        vegetableArrow.setId("category_arrow_blue");
+        fishAndMeatArrow.setId("category_arrow_blue");
+        dryGoodsArrow.setId("category_arrow_blue");
+        fruitArrow.setId("category_arrow_blue");
+
         switch (clicked.getName()) {
-            case "drinks" -> drinkPane.setId("category_pressed_multichoice_buttons");
-            case "vegetables" -> vegetablePane.setId("category_pressed_multichoice_buttons");
-            case "fish and meat" -> fishAndMeatPane.setId("category_pressed_multichoice_buttons");
-            case "dryGoods" -> dryGoodsPane.setId("category_pressed_multichoice_buttons");
-            case "fruit" -> fruitPane.setId("category_pressed_multichoice_buttons");
+            case "drinks" -> { drinkPane.setId("category_pressed_multichoice_buttons"); drinkArrow.setId("category_arrow_green"); }
+            case "vegetables" -> { vegetablePane.setId("category_pressed_multichoice_buttons"); vegetableArrow.setId("category_arrow_green"); }
+            case "fish and meat" -> { fishAndMeatPane.setId("category_pressed_multichoice_buttons"); fishAndMeatArrow.setId("category_arrow_green"); }
+            case "dryGoods" -> { dryGoodsPane.setId("category_pressed_multichoice_buttons"); dryGoodsArrow.setId("category_arrow_green"); }
+            case "fruit" -> { fruitPane.setId("category_pressed_multichoice_buttons"); fruitArrow.setId("category_arrow_green"); }
 
             case "HOME" -> homeButton.setId("home_pressed_button");
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
@@ -347,7 +358,9 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     @FXML private void openDrinkSubcategory(){
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
-        subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
+
+        //subcategoryPane.setLayoutX(getDrinkPane().getPrefWidth());
+        subcategoryPane.setLayoutX(243);
         subcategoryPane.setLayoutY(getDrinkPane().getLayoutY() - 100);
         shadowPaneToFront();
 
@@ -373,7 +386,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
+        //subcategoryPane.setLayoutX(getVegetablePane().getPrefWidth());
+        subcategoryPane.setLayoutX(243);
         subcategoryPane.setLayoutY(getVegetablePane().getLayoutY() - 170);
         shadowPaneToFront();
 
@@ -385,7 +399,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
+        //subcategoryPane.setLayoutX(getFishAndMeatPane().getPrefWidth());
+        subcategoryPane.setLayoutX(243);
         subcategoryPane.setLayoutY(getFishAndMeatPane().getLayoutY() - 90);
         shadowPaneToFront();
 
@@ -397,7 +412,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         subcategoryPane.getChildren().clear();
         mouseOnSubCategory = true;
 
-        subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
+        //subcategoryPane.setLayoutX(getDryGoodsPane().getPrefWidth());
+        subcategoryPane.setLayoutX(243);
         subcategoryPane.setLayoutY(getDryGoodsPane().getLayoutY() - 170);
         shadowPaneToFront();
 
@@ -406,14 +422,14 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     }
 
     private void shadowPaneToFront() {
-        shaodwPane.setLayoutX(243);
-        shaodwPane.setLayoutY(0);
-        shaodwPane.toFront();
+        shadowPane.setLayoutX(243);
+        shadowPane.setLayoutY(0);
+        shadowPane.toFront();
     }
 
     private void shadowPaneToBack() {
-        shaodwPane.setLayoutX(-1700);
-        shaodwPane.toBack();
+        shadowPane.setLayoutX(-1700);
+        shadowPane.toBack();
     }
 
     public Subcategory getDrinkSubcategory() { return this.drinkSubcategory; }
