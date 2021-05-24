@@ -48,7 +48,7 @@
             </AnchorPane>
             <AnchorPane layoutX="15.0" layoutY="76.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="morning" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Förmiddag:   Mellan klockan 10-13">
+                  <RadioButton fx:id="morning" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Förmiddag:   Mellan klockan 10-13">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -64,7 +64,7 @@
             </AnchorPane>
             <AnchorPane layoutX="15.0" layoutY="130.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="day" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Eftermiddag:   Mellan klockan 13-17">
+                  <RadioButton fx:id="day" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Eftermiddag:   Mellan klockan 13-17">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -80,7 +80,7 @@
             </AnchorPane>
             <AnchorPane layoutX="15.0" layoutY="185.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="evening" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Kväll:   Mellan klockan 18-21">
+                  <RadioButton fx:id="evening" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Kväll:   Mellan klockan 18-21">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
