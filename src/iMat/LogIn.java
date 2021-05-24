@@ -3,6 +3,7 @@ package iMat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
@@ -29,6 +30,8 @@ public class LogIn extends AnchorPane {
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
 
+    @FXML private Button nextButton;
+
     @FXML public void updateNextButton(){
         boolean flag = false;
 
@@ -40,10 +43,10 @@ public class LogIn extends AnchorPane {
 
         if (flag){
             // Knapp Ska vara grå
-            System.out.println("Grå");
+            nextButton.setId("white_button_disabled");
         } else{
             // Knapp ska ha färg
-            System.out.println("Färg");
+            nextButton.setId("white_button");
         }
 
     }
