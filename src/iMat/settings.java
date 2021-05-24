@@ -18,6 +18,8 @@ public class settings extends AnchorPane {
     private final Controller pController;
     DB db = DB.getInstance();
     private boolean[] isCorrectInformation = {false, false, false, false, false};
+
+
     private String cardType;
 
     //Buttons for window default
@@ -122,8 +124,7 @@ public class settings extends AnchorPane {
     private ImageView mastercardpic;
     @FXML
     private ImageView visapic;
-    @FXML
-    private ImageView defaultcard;
+
 
 
     private static boolean missingField = false;
@@ -144,8 +145,9 @@ public class settings extends AnchorPane {
         this.pController = pController;
 
 
-
+        cardType();
         setupPayment2();
+        setupValidSettings();
         saveCardDetails();
 
 
@@ -231,11 +233,133 @@ public class settings extends AnchorPane {
 
     @FXML
     public void save1pressed(ActionEvent event) {
+        setupValidSettings();
+        if (isAllTrue(isCorrectInformation)){
+            updatesettings();
+            settingsdefault.toFront();
+        }
 
-        updatesettings();
-        settingsdefault.toFront();
 
     }
+
+    public void setupValidSettings () {
+
+        firstNameTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+                    if (!newValue) {
+                        // Focus lost
+                        if (firstNameTextField1.getText().matches("")) {
+                            firstNameTextField1.setId("blue_text_field_wrong");
+                            isCorrectInformation[0] = false;
+                        } else {
+                            firstNameTextField1.setId("blue_text_field");
+                            isCorrectInformation[0] = true;
+                        }
+
+                    }
+                });
+
+            lastNameTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+                if (!newValue) {
+                    // Focus lost
+                    if (lastNameTextField1.getText().matches("")) {
+                        lastNameTextField1.setId("blue_text_field_wrong");
+                        isCorrectInformation[1] = false;
+                    } else {
+                        lastNameTextField1.setId("blue_text_field");
+                        isCorrectInformation[1] = true;
+                    }
+
+                }
+
+
+            });
+
+        addressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (addressTextField1.getText().matches("")) {
+                    addressTextField1.setId("blue_text_field_wrong");
+                    isCorrectInformation[2] = false;
+                } else {
+                    addressTextField1.setId("blue_text_field");
+                    isCorrectInformation[2] = true;
+                }
+
+            }
+
+
+        });
+
+        postAddressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (postAddressTextField1.getText().matches("")) {
+                    postAddressTextField1.setId("blue_text_field_wrong");
+                    isCorrectInformation[3] = false;
+                } else {
+                    postAddressTextField1.setId("blue_text_field");
+                    isCorrectInformation[3] = true;
+                }
+
+            }
+
+
+        });
+
+        postalCodeTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (postAddressTextField1.getText().matches("")) {
+                    postAddressTextField1.setId("blue_text_field_wrong");
+                    isCorrectInformation[3] = false;
+                } else {
+                    postAddressTextField1.setId("blue_text_field");
+                    isCorrectInformation[3] = true;
+                }
+
+            }
+
+
+        });
+
+        postalCodeTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                postalCodeTextField1.setText(newValue.replaceAll("[^\\d]", ""));
+
+            }
+
+            if (newValue.length() > 5) {
+                postalCodeTextField1.setText(oldValue);
+            }
+        });
+
+        postalCodeTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if ( postalCodeTextField1.getText().length() != 5) {
+                    postalCodeTextField1.setId("blue_text_field_wrong");
+                    isCorrectInformation[4] = false;
+                } else {
+                    postalCodeTextField1.setId("blue_text_field");
+                    isCorrectInformation[4] = true;
+                }
+
+            }
+        });
+
+
+
+        }
+
+
 
     @FXML
     public void closeSettings(ActionEvent event) {
@@ -255,7 +379,6 @@ public class settings extends AnchorPane {
 
 
         }
-
 
     public void updatesettings() {
 
@@ -294,7 +417,7 @@ public class settings extends AnchorPane {
             cvc.setText("");
             newcard.toFront();
             settingsdefault.toFront();
-            defaultcard.toFront();
+
 
         }
         else {
@@ -312,6 +435,7 @@ public class settings extends AnchorPane {
         validmonth.setText(String.valueOf(db.getValidMonth()));
         validyear.setText(String.valueOf(db.getValidYear()));
         cvc.setText(String.valueOf(db.getVerificationCode()));
+
 
 
         try {
@@ -356,17 +480,12 @@ public class settings extends AnchorPane {
 
 
         switch (db.getCardType()) {
-
-            case "Visa":
-                defaultcard.toBack();
-                visapic.toFront();
-                break;
-            case "MasterCard":
-                defaultcard.toBack();
-                mastercardpic.toFront();
-
-            case "":
-                defaultcard.toFront();
+            case "Visa" -> visapic.setVisible(true);
+            case "MasterCard" -> mastercardpic.setVisible(true);
+            case "" -> {
+                mastercardpic.setVisible(false);
+                visapic.setVisible(false);
+            }
         }
 
     }
@@ -401,7 +520,7 @@ public class settings extends AnchorPane {
                     } else {
                         System.out.println("Korttyp: MasterCard");
                         cardType = "MasterCard";
-                        defaultcard.setOpacity(0);
+
                         mastercardpic.setOpacity(100);
                     }
                     isCorrectInformation[0] = true;
@@ -526,6 +645,10 @@ public class settings extends AnchorPane {
             db.setCardType(cardType);
         }
     }
+
+
+
+
 
 
     private static void isFilledIn(String field) throws IOException {
