@@ -518,6 +518,20 @@
     -fx-border-insets: -1px;
 }
 
+#category_buttons:hover {
+    -fx-background-color: #210A00;
+    -fx-border-radius: 37.5 0 0 37.5;
+    -fx-background-radius: 37.5 0 0 37.5;
+    -fx-border-color: #002E48;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 27px;
+    -fx-padding: 0 10 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
+    -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
+}
+
 #category_pressed_buttons {
     -fx-background-color: #A3E983;
     -fx-border-radius: 37.5 0 0 37.5;
@@ -548,6 +562,17 @@
 
 #category_multichoice_buttons {
     -fx-background-color: #F1F4FF;
+    -fx-border-radius: 0 37.5 37.5 0;
+    -fx-background-radius: 0 37.5 37.5 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
+    -fx-border-color: #002E48;
+    -fx-border-width: 1px;
+    -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
+}
+
+#category_multichoice_buttons:hover {
+    -fx-background-color: #210A00;
     -fx-border-radius: 0 37.5 37.5 0;
     -fx-background-radius: 0 37.5 37.5 0;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
