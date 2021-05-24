@@ -33,7 +33,7 @@
                                 <Font name="System Bold" size="46.0" />
                             </font>
                         </Label>
-                        <ButtonBar buttonMinWidth="0.0" layoutX="31.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                        <ButtonBar buttonMinWidth="0.0" layoutX="26.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
                             <buttons>
                                 <Button id="breadcrumb_button" mnemonicParsing="false" text="Kassa" underline="true" />
                                 <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="&gt;">

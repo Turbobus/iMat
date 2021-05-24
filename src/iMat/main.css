@@ -219,39 +219,6 @@
     -fx-background-color: #004972;
 }
 
-.menu-button {
-    -fx-background-color: #007FC5;
-    -fx-font-weight: bold;
-    -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
-    -fx-border-radius: 30px;
-    -fx-background-radius: 31px;
-    -fx-border-width: 1px;
-    -fx-border-color: #004972;
-    -fx-padding: 0px;
-    -fx-border-insets: -1px;
-}
-
-.menu-button .label {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
-    -fx-padding: 0 0 0 15;
-    -fx-text-fill: #FAFBFF;
-}
-
-.context-menu {
-    -fx-background-color: #007FC5;
-    -fx-background-radius: 0 0 20 20, 0 0 20 20, 0 0 20 20;
-}
-
-.menu-button > .arrow-button > .arrow {
-    -fx-background-insets: 1 0 -1 0, 0;
-    -fx-background-color: #f1f4ff;
-    -fx-shape: "M6.9375 0L16.5 8.96917L26.0625 0L29 2.76125L16.5 14.5112L4 2.76125L6.9375 0Z";
-    -fx-pref-height: 15px;
-    -fx-pref-width: 25px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
-}
-
 #text_login_page {
     -fx-font-size: 60px;
     -fx-font-weight: bold;
@@ -265,12 +232,46 @@
     -fx-background-color: #F1F4FF;
 }
 
+#prodCard_blue:hover {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #007FC5;
+    -fx-background-color: #E8EDFF;
+}
+
+#prodCard_blue:pressed {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 31px;
+    -fx-border-width: 2px;
+    -fx-border-color: #007FC5;
+    -fx-background-color: #E8EDFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 0, 1);
+}
+
 #prodCard_green {
     -fx-border-radius: 30px;
     -fx-background-radius: 32px;
     -fx-border-width: 4px;
     -fx-border-color: #A3E983;
     -fx-background-color: #E3FFD6;
+}
+
+#prodCard_green:hover {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 32px;
+    -fx-border-width: 4px;
+    -fx-border-color: #A3E983;
+    -fx-background-color: #CAFFB1;
+}
+
+#prodCard_green:pressed {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 32px;
+    -fx-border-width: 4px;
+    -fx-border-color: #A3E983;
+    -fx-background-color: #CAFFB1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 0, 1);
 }
 
 #detailCard_blue {
@@ -306,7 +307,7 @@
     -fx-border-color: #002E48;
     -fx-border-insets: -1px;
     -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-border-width: 3px;
@@ -359,7 +360,7 @@
     -fx-border-color: #0A2500;
     -fx-border-insets: -1px;
     -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-border-width: 3px;
@@ -410,6 +411,20 @@
     -fx-background-color: #FAFBFF;
     -fx-padding: 0px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 5);
+}
+
+#white_button:hover {
+    -fx-text-fill: #004972;
+    -fx-background-color: #EBEBEB;
+    -fx-padding: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 5);
+}
+
+#white_button:pressed {
+    -fx-text-fill: #004972;
+    -fx-background-color: #EBEBEB;
+    -fx-padding: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
 }
 
 #white_button_disabled {
@@ -512,6 +527,23 @@
     -fx-border-insets: -1px;
 }
 
+#red_button:hover {
+    -fx-text-fill: #210A00;
+    -fx-background-color: #E37B4E;
+    -fx-border-color: #210A00;
+    -fx-padding: 0px;
+    -fx-border-insets: -1px;
+}
+
+#red_button:pressed {
+    -fx-text-fill: #210A00;
+    -fx-background-color: #E37B4E;
+    -fx-border-color: #210A00;
+    -fx-padding: 0px;
+    -fx-border-insets: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
+}
+
 #red_button_disabled {
     -fx-text-fill: #8E8380;
     -fx-background-color: #FCC1A9;
@@ -547,6 +579,24 @@
 #breadcrumb_button {
     -fx-background-color: #FAFBFF;
     -fx-padding: 0px;
+    -fx-text-fill: #002E48;
+    -fx-font-size: 23px;
+    -text-align: left;
+}
+
+#breadcrumb_button:hover {
+    -fx-background-color: #E9EDFF;
+    -fx-padding: 0px;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #002E48;
+    -fx-font-size: 23px;
+    -text-align: left;
+}
+
+#breadcrumb_button:pressed   {
+    -fx-background-color: #D7DAE8;
+    -fx-padding: 0px;
+    -fx-background-radius: 5px;
     -fx-text-fill: #002E48;
     -fx-font-size: 23px;
     -text-align: left;
