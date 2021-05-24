@@ -480,6 +480,15 @@
     -fx-background-radius: 30px;
 }
 
+#hide_white_textArea_wrong {
+    -fx-background-color: #FAFBFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-border-color: #DC5A21;
+    -fx-border-width: 3px;
+}
+
 #breadcrumb_button {
     -fx-background-color: #FAFBFF;
     -fx-padding: 0px;

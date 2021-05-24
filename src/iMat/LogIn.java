@@ -19,9 +19,34 @@ public class LogIn extends AnchorPane {
     @FXML private TextField postalCodeTextField;
     @FXML private TextField postAddressTextField;
 
+    @FXML private AnchorPane nameHide;
+    @FXML private AnchorPane lastHide;
+    @FXML private AnchorPane adressHide;
+    @FXML private AnchorPane postNumberHide;
+    @FXML private AnchorPane postAdressHide;
+
     @FXML private TextField mailTextField;
     @FXML private TextField telephoneTextField;
     @FXML private TextField mobileTextField;
+
+    @FXML public void updateNextButton(){
+        boolean flag = false;
+
+        if (isTextFieldEmpty(firstNameTextField)) { flag = true; }
+        if (isTextFieldEmpty(lastNameTextField)) { flag = true; }
+        if (isTextFieldEmpty(addressTextField)) { flag = true; }
+        if (isTextFieldEmpty(postAddressTextField)) { flag = true; }
+        if (isPostalCodeWrong()) { flag = true; }
+
+        if (flag){
+            // Knapp Ska vara grå
+            System.out.println("Grå");
+        } else{
+            // Knapp ska ha färg
+            System.out.println("Färg");
+        }
+
+    }
 
     private static boolean missingField = false;
 
@@ -37,6 +62,95 @@ public class LogIn extends AnchorPane {
         }
 
         this.pController = pController;
+        setupTextField();
+    }
+
+    private boolean isTextFieldEmpty(TextField field){
+        return field.getText().matches("");
+    }
+
+    private boolean isPostalCodeWrong(){
+        return postalCodeTextField.getText().length() != 5;
+    }
+
+    private void setupTextField(){
+
+        postalCodeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*")) {
+
+                postalCodeTextField.setText(newValue.replaceAll("[^\\d]", ""));
+
+            }
+
+            if (newValue.length() > 5){
+                postalCodeTextField.setText(oldValue);
+            }
+        });
+
+        postalCodeTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (isPostalCodeWrong()){
+                    postNumberHide.setId("hide_white_textArea_wrong");
+                } else {
+                    postNumberHide.setId("hide_white_textArea");
+                }
+            }
+        });
+
+        firstNameTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (isTextFieldEmpty(firstNameTextField)){
+                    nameHide.setId("hide_white_textArea_wrong");
+                } else {
+                    nameHide.setId("hide_white_textArea");
+                }
+            }
+
+        });
+
+        lastNameTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (isTextFieldEmpty(lastNameTextField)){
+                    lastHide.setId("hide_white_textArea_wrong");
+                } else {
+                    lastHide.setId("hide_white_textArea");
+                }
+            }
+
+        });
+
+        addressTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (isTextFieldEmpty(addressTextField)){
+                    adressHide.setId("hide_white_textArea_wrong");
+                } else {
+                    adressHide.setId("hide_white_textArea");
+                }
+            }
+
+        });
+
+        postAddressTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue) {
+                // Focus lost
+                if (isTextFieldEmpty(postAddressTextField)){
+                    postAdressHide.setId("hide_white_textArea_wrong");
+                } else {
+                    postAdressHide.setId("hide_white_textArea");
+                }
+            }
+
+        });
     }
 
     @FXML
@@ -101,8 +215,7 @@ public class LogIn extends AnchorPane {
         db.setMobileNumber(mobileTextField.getText());
 
         // Byter till main view
-        if(!missingField)
-            pController.setupShop();
+        if(!missingField) { pController.setupShop(); }
 
         missingField = false;
     }
