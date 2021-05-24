@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -54,6 +55,8 @@ public class settings extends AnchorPane {
     private AnchorPane paymentdefault;
     @FXML
     private AnchorPane paymentchanged;
+    @FXML
+    private AnchorPane removeCardAnchorPane;
 
     //Textfields for payment window default
     @FXML
@@ -125,6 +128,9 @@ public class settings extends AnchorPane {
     @FXML
     private ImageView visapic;
 
+    @FXML
+    private Button removeCard;
+
 
 
     private static boolean missingField = false;
@@ -149,14 +155,20 @@ public class settings extends AnchorPane {
         setupPayment2();
         setupValidSettings();
         saveCardDetails();
+        removeCardAnchorPane.setVisible(false);
 
 
 
 
     }
 
+    @FXML
+    public void removeCardPressed(ActionEvent event) {
 
+        removeCardAnchorPane.setVisible(true);
+        removeCardAnchorPane.toFront();
 
+    }
 
     @FXML
     public void change1pressed(ActionEvent event) {
@@ -205,6 +217,7 @@ public class settings extends AnchorPane {
 
 
         paymentchanged.toFront();
+        removeCard.setVisible(false);
 
     }
 
@@ -417,6 +430,7 @@ public class settings extends AnchorPane {
             cvc.setText("");
             newcard.toFront();
             settingsdefault.toFront();
+            removeCard.setVisible(false);
 
 
         }
