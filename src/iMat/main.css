@@ -425,6 +425,19 @@
     -fx-padding: 0px;
 }
 
+#blue_button:hover {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #006BA6;
+    -fx-padding: 0px;
+}
+
+#blue_button:pressed {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #006BA6;
+    -fx-padding: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
 #blue_button_with_border {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
@@ -433,12 +446,46 @@
     -fx-border-insets: -1px;
 }
 
+#blue_button_with_border:hover {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #006BA6;
+    -fx-padding: 0px;
+    -fx-border-color: #002E48;
+    -fx-border-insets: -1px;
+}
+
+#blue_button_with_border:pressed {
+    -fx-text-fill: #FAFBFF;
+    -fx-background-color: #006BA6;
+    -fx-padding: 0px;
+    -fx-border-color: #002E48;
+    -fx-border-insets: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
 #green_button {
     -fx-text-fill: #0A2500;
     -fx-background-color: #A3E983;
     -fx-padding: 0px;
     -fx-border-color: #0A2500;
     -fx-border-insets: -1px;
+}
+
+#green_button:hover {
+    -fx-text-fill: #0A2500;
+    -fx-background-color: #96D778;
+    -fx-padding: 0px;
+    -fx-border-color: #0A2500;
+    -fx-border-insets: -1px;
+}
+
+#green_button:pressed {
+    -fx-text-fill: #0A2500;
+    -fx-background-color: #96D778;
+    -fx-padding: 0px;
+    -fx-border-color: #0A2500;
+    -fx-border-insets: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
 }
 
 #green_button_disabled {
