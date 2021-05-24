@@ -57,7 +57,7 @@ public class PayConfirmation extends AnchorPane {
             visaLabel.setOpacity(0);
         }
 
-        shippingTimeLabel.setText(" Ungefärlig leveranstid: Imorgon klockan " + time);
+        shippingTimeLabel.setText("Ungefärlig leveranstid: Imorgon klockan " + time);
     }
 
     private String wordHelper(){

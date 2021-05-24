@@ -17,6 +17,7 @@ public class EnterCardDetails extends AnchorPane {
     private final DB db = DB.getInstance();
     private boolean[] isCorrectInformation = {false, false, false, false, false};
     private String cardType;
+    private final CheckOutPanel pController;
 
     @FXML AnchorPane writeNewCard;
     @FXML AnchorPane useSavedCard;
@@ -64,7 +65,7 @@ public class EnterCardDetails extends AnchorPane {
         return true;
     }
 
-    public EnterCardDetails(){
+    public EnterCardDetails(CheckOutPanel pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EnterCardDetails.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -75,6 +76,7 @@ public class EnterCardDetails extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.pController = pController;
         setupPane();
         setupTextField();
 
@@ -147,7 +149,7 @@ public class EnterCardDetails extends AnchorPane {
                     cardNumber.setId("blue_text_field");
                     if (cardNumber.getText().charAt(0) == '4'){
 
-                        displayCardType("Visa");                                          // Behöver sätta in bilden över vilket kort det är
+                        displayCardType("Visa");
                         cardType = "Visa";
 
                     } else {
@@ -158,8 +160,8 @@ public class EnterCardDetails extends AnchorPane {
 
                     isCorrectInformation[0] = true;
                 }
-
             }
+            pController.updateButtonState();
         });
 
         cardName.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -173,8 +175,9 @@ public class EnterCardDetails extends AnchorPane {
                     cardName.setId("blue_text_field");
                     isCorrectInformation[1] = true;
                 }
-
             }
+
+            pController.updateButtonState();
         });
 
         cardMonth.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -201,8 +204,8 @@ public class EnterCardDetails extends AnchorPane {
                     cardMonth.setId("blue_text_field");
                     isCorrectInformation[2] = true;
                 }
-
             }
+            pController.updateButtonState();
         });
 
         cardYear.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -230,8 +233,8 @@ public class EnterCardDetails extends AnchorPane {
                     cardYear.setId("blue_text_field");
                     isCorrectInformation[3] = true;
                 }
-
             }
+            pController.updateButtonState();
         });
 
         cardCVC.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -245,6 +248,7 @@ public class EnterCardDetails extends AnchorPane {
             if (newValue.length() > 3){
                 cardCVC.setText(oldValue);
             }
+
         });
 
         cardCVC.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -258,11 +262,12 @@ public class EnterCardDetails extends AnchorPane {
                     cardCVC.setId("blue_text_field");
                     isCorrectInformation[4] = true;
                 }
-
             }
+            pController.updateButtonState();
         });
     }
 
 
     public String getCardType(){ return cardType; }
+    public boolean correctCardInfo(){ return isAllTrue(isCorrectInformation); }
 }
