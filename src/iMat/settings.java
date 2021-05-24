@@ -55,8 +55,6 @@ public class settings extends AnchorPane {
     private AnchorPane paymentdefault;
     @FXML
     private AnchorPane paymentchanged;
-    @FXML
-    private AnchorPane removeCardAnchorPane;
 
     //Textfields for payment window default
     @FXML
@@ -128,8 +126,7 @@ public class settings extends AnchorPane {
     @FXML
     private ImageView visapic;
 
-    @FXML
-    private Button removeCard;
+
 
 
 
@@ -155,20 +152,15 @@ public class settings extends AnchorPane {
         setupPayment2();
         setupValidSettings();
         saveCardDetails();
-        removeCardAnchorPane.setVisible(false);
 
 
 
 
-    }
-
-    @FXML
-    public void removeCardPressed(ActionEvent event) {
-
-        removeCardAnchorPane.setVisible(true);
-        removeCardAnchorPane.toFront();
 
     }
+
+
+
 
     @FXML
     public void change1pressed(ActionEvent event) {
@@ -195,6 +187,8 @@ public class settings extends AnchorPane {
         cvc1.setText(cvc.getText());
 
         paymentchanged.toFront();
+
+
         cardType();
 
     }
@@ -217,7 +211,7 @@ public class settings extends AnchorPane {
 
 
         paymentchanged.toFront();
-        removeCard.setVisible(false);
+
 
     }
 
@@ -372,8 +366,6 @@ public class settings extends AnchorPane {
 
         }
 
-
-
     @FXML
     public void closeSettings(ActionEvent event) {
         pController.closeOverlay();
@@ -388,6 +380,14 @@ public class settings extends AnchorPane {
         validmonth.setText(validmonth1.getText());
         validyear.setText(validyear1.getText());
         cvc.setText(cvc1.getText());
+
+
+        db.setCardNumber(cardnumber1.getText());
+        db.setHoldersName(cardholername1.getText());
+        db.setValidMonth(Integer.parseInt(validmonth1.getText()));
+        db.setValidYear(Integer.parseInt(validyear1.getText()));
+        db.setVerificationCode(Integer.parseInt(cvc1.getText()));
+
 
 
 
@@ -429,9 +429,7 @@ public class settings extends AnchorPane {
             validyear.setText("");
             cvc.setText("");
             newcard.toFront();
-            settingsdefault.toFront();
-            removeCard.setVisible(false);
-
+            paymentdefault.toFront();
 
         }
         else {
@@ -449,6 +447,7 @@ public class settings extends AnchorPane {
         validmonth.setText(String.valueOf(db.getValidMonth()));
         validyear.setText(String.valueOf(db.getValidYear()));
         cvc.setText(String.valueOf(db.getVerificationCode()));
+
 
 
 
@@ -494,11 +493,11 @@ public class settings extends AnchorPane {
 
 
         switch (db.getCardType()) {
-            case "Visa" -> visapic.setVisible(true);
-            case "MasterCard" -> mastercardpic.setVisible(true);
+            case "Visa" -> visapic.setOpacity(1);
+            case "MasterCard" -> mastercardpic.setOpacity(1);
             case "" -> {
-                mastercardpic.setVisible(false);
-                visapic.setVisible(false);
+                mastercardpic.setOpacity(0);
+                visapic.setOpacity(0);
             }
         }
 
@@ -660,20 +659,12 @@ public class settings extends AnchorPane {
         }
     }
 
-
-
-
-
-
     private static void isFilledIn(String field) throws IOException {
         if (field.length() < 1) {
             throw new IOException();
         }
     }
 
-
-//Blue text field
-//Blue text field worng
 
 
 

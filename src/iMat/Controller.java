@@ -56,7 +56,7 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-
+db.reset();
        /* if(db.isFirstRun()){
             setupLogIn();
         } else {
@@ -103,7 +103,7 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openAccountView(){
-
+        settings.cardType();
         settings.setupPayment();
         settings.setupSettings();
         settings.paymentSettingsFirstRun();
