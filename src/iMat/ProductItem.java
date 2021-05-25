@@ -92,7 +92,6 @@ public class ProductItem extends AnchorPane {
 
         if (newValue <= 0) {
             outOfCart();
-            controller.removeFromCart(productID);
         } else {
             controller.updateCartItemAmount(productID, newValue);
             amountTextField.setText("" + newValue);
@@ -127,6 +126,7 @@ public class ProductItem extends AnchorPane {
 
     }
     public void outOfCart(){
+        controller.removeFromCart(productID);
         bProductItem.toFront();
         pController.checkAllOutOfCart();
         inCart = false;
