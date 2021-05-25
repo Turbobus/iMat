@@ -108,7 +108,6 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     }
 
     private Calendar dateToCalendar(Date date) {
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return calendar;
@@ -117,21 +116,21 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
 
     public void checkAllInCart(){
-        for(int i = 0;i<items.size();i++){
-            if(!(items.get(i).isInCart())){
-                return;
-            }
+        for(ProductItem item : items){
+            if (!item.isInCart()) { return; }
         }
+
         putAllInCart();
     }
 
     public void checkAllOutOfCart(){
-        for(int i = 0;i<items.size();i++){
-            if(!(items.get(i).isInCart())){
-                takeOutOfCart();;
-            }
-        }
+        bProductFlowPane.getChildren().clear();
+        bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
+        bSingularPurchaseBack.toFront();
 
+        if(expanded){
+            addProductItems(bProductFlowPane);
+        }
     }
 
     public void putAllInCart(){
@@ -142,14 +141,14 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
                 s.inCart();
             }
         }
-        if(expanded){
-            addProductItems(gProductFlowPane);
-        }
-
 
         gProductFlowPane.getChildren().clear();
         gSingularPurchaseBack.setPrefHeight(bSingularPurchaseBack.getPrefHeight());
         gSingularPurchaseBack.toFront();
+
+        if(expanded){
+            addProductItems(gProductFlowPane);
+        }
     }
 
     @FXML
@@ -167,18 +166,17 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
                 s.outOfCart();
             }
         }
-        if(expanded){
-            addProductItems(bProductFlowPane);
-        }
-
 
         bProductFlowPane.getChildren().clear();
         bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
         bSingularPurchaseBack.toFront();
+
+        if(expanded){
+            addProductItems(bProductFlowPane);
+        }
     }
 
     @FXML public void setButtonTakeOutOfCart(ActionEvent event){
-
 
         takeOutOfCart();
     }
@@ -208,7 +206,6 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
     private void addProductItems(FlowPane pane){
         pane.getChildren().clear();
-        System.out.println(items.size());
         for(ProductItem item : items){
             pane.getChildren().add(item);
         }

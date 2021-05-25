@@ -128,7 +128,7 @@ public class ProductItem extends AnchorPane {
     }
     public void outOfCart(){
         bProductItem.toFront();
-        controller.removeFromCart(productID);
+        pController.checkAllOutOfCart();
         inCart = false;
     }
 

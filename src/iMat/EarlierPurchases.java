@@ -46,8 +46,6 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
         this.pController = controller;
 
         db.setCartListener(this);
-
-
     }
 
 
