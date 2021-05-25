@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class SingularPurchase extends AnchorPane implements ProductHolder{
 
@@ -75,27 +76,35 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
             items.add(product);
             total += product.getShoppingItem().getTotal();
         }
+        reload();
         bAmountLabel.setText("Totalt: "+ total + " kr");
         gAmountLabel.setText("Totalt: "+ total + " kr");
-        Calendar date = dateToCalendar(order.getDate());
-        //green card
-        //gDateLabel.setText(order.getDate().toString());
+
+        //sets date
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        String date2 = simpleDateFormat.format(order.getDate());
+        bDateLabel.setText(date2);
+        gDateLabel.setText(date2);
 
 
-        //blue card
-        //bDateLabel.setText(date.getWeekYear());
 
     }
 
+    @Override
     public void reload(){
         for (ShoppingItem item : db.getAllShoppingItems()){
             for (ProductItem s :  items)
             {
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
                     s.setUpFromCart(item.getAmount());
+                    s.setInCart(true);
                 }
+
             }
         }
+
     }
 
     private Calendar dateToCalendar(Date date) {
@@ -185,9 +194,9 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
             hideProducts();
         }
         else{
-            singularPurchaseCard.setPrefHeight(180+78*(order.getItems().size()));
-            gSingularPurchaseBack.setPrefHeight(180+78*(order.getItems().size()));
-            bSingularPurchaseBack.setPrefHeight(180+78*(order.getItems().size()));
+            singularPurchaseCard.setPrefHeight(130+88*(items.size()));
+            gSingularPurchaseBack.setPrefHeight(130+88*(items.size()));
+            bSingularPurchaseBack.setPrefHeight(130+88*(items.size()));
             addProductItems(fPane);
             expanded = true;
 
@@ -210,9 +219,10 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     }
 
 
-
-
-
+    @Override
+    public ArrayList<ProductItem> getItems() {
+        return items;
+    }
 }
 
 
