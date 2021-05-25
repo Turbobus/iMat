@@ -59,16 +59,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField id="prodText_input" fx:id="amountTextField" layoutX="528.31" layoutY="16.0" maxHeight="45.0" maxWidth="60.0" minHeight="45.0" minWidth="60.0" prefHeight="45.0" prefWidth="60.0" styleClass="font_24" text="1" />
-            <AnchorPane layoutX="350.0" layoutY="19.0" prefHeight="40.0" prefWidth="120.0" styleClass="border_dark_dark_green_1_width">
-               <children>
-                  <Label layoutX="15.0" layoutY="6.0" text="Välj antal!">
-                     <styleClass>
-                        <String fx:value="bold_20" />
-                        <String fx:value="text_color_dark_dark_green" />
-                     </styleClass></Label>
-               </children>
-            </AnchorPane>
+            <TextField id="prodText_input" fx:id="amountTextField" alignment="CENTER" layoutX="528.31" layoutY="16.0" maxHeight="45.0" maxWidth="60.0" minHeight="45.0" minWidth="60.0" prefHeight="45.0" prefWidth="60.0" styleClass="font_24" text="1" />
+            <Label layoutX="373.0" layoutY="25.0" text="Välj antal!">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
          </children>
          <styleClass>
             <String fx:value="border_dark_dark_green_1_width_no_radius" />

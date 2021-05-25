@@ -60,20 +60,23 @@ public class ProductItem extends AnchorPane {
 
     private void setup(){
         //blue item
+        // ska hamna i textfield: item.getAmount()
+        setupTextField();
         bProductNameLabel.setText(item.getProduct().getName());
         bProductImgView.setImage(db.getImage(item.getProduct(),76,76));
         controller.roundImage(bProductImgView,29);
-        bProductPriceLabel.setText(item.getProduct().getPrice()+" kr");
-        bAmountLabel.setText(String.valueOf(item.getAmount()));
+        bAmountLabel.setText("Antal: " + (int)item.getAmount());
 
         //green item
         gProductNameLabel.setText(item.getProduct().getName());
         gProductImgView.setImage(db.getImage(item.getProduct(),76,76));
         controller.roundImage(gProductImgView,29);
-        gProductPriceLabel.setText(item.getProduct().getPrice()+" kr");
-        // ska hamna i textfield: item.getAmount()
-        setupTextField();
+
         productID = item.getProduct().getProductId();
+
+
+        //gProductPriceLabel.setText(String.format("%.2f",item.getTotal()) + " kr");
+        bProductPriceLabel.setText(item.getProduct().getPrice() + "  " + item.getProduct().getUnit());
     }
 
     public ShoppingItem getShoppingItem(){
@@ -109,6 +112,9 @@ public class ProductItem extends AnchorPane {
     public void putInCart(ActionEvent event){
         inCart();
         pController.checkAllInCart();
+        gProductPriceLabel.setText(String.format("%.2f",item.getAmount()*item.getProduct().getPrice()) + " kr");
+        System.out.println(item.getAmount());
+        amountTextField.setText(String.valueOf((int) item.getAmount()));
     }
     public void inCart(){
         gProductItem.toFront();
@@ -128,10 +134,16 @@ public class ProductItem extends AnchorPane {
 
     public void setUpFromCart(double amount){
         gProductItem.toFront();
+        gProductPriceLabel.setText(String.format("%.2f",item.getProduct().getPrice()*amount) + " kr");
+        //gProductPriceLabel.setText(item.getProduct().getPrice()*amount+ " kr");
         amountTextField.setText(String.valueOf((int) amount));
         inCart = true;
+        pController.checkAllInCart();
     }
 
+    public void setInCart(boolean b){
+        inCart = b;
+    }
 
 
     private void setupTextField(){
@@ -153,10 +165,10 @@ public class ProductItem extends AnchorPane {
                     amountTextField.setText("" + Integer.parseInt(newValue)/10);
                 }
 
-                /*pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
-                totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * productPrice) + " kr");
+                controller.updateCartItemAmount(productID, Integer.parseInt(newValue));
+                gProductPriceLabel.setText(String.format("%.2f", Integer.parseInt(newValue) * (item.getProduct().getPrice())) + " kr");
 
-                 */
+
             }
         });
 

@@ -9,25 +9,27 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import javafx.scene.layout.Pane;
+import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EarlierPurchases extends AnchorPane{
+public class EarlierPurchases extends AnchorPane implements ShoppingCartListener {
     @FXML private AnchorPane earlierPurchases;
     @FXML private Button closeButton;
     @FXML private FlowPane purchasesFlowPane;
     @FXML private Label titleLabel;
     @FXML private ImageView iconImgView;
+    @FXML private Pane iconPane;
 
     private Controller pController;
-    List<SingularPurchase> purchasesList = new ArrayList<>();
     private DB db = DB.getInstance();
+    private List<ProductHolder> holder = new ArrayList<>();
+    private List<ProductHolder> favourites = new ArrayList<>();
+    private List<ProductHolder> purchases = new ArrayList<>();
 
 
     public EarlierPurchases(Controller controller){
@@ -42,11 +44,8 @@ public class EarlierPurchases extends AnchorPane{
         }
 
         this.pController = controller;
-        titleLabel.setText("Tidigare köp");
-        /*iconImgView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "iMat/img/earlierPurchase_White.png")));
 
-         */
+        db.setCartListener(this);
 
 
     }
@@ -61,16 +60,18 @@ public class EarlierPurchases extends AnchorPane{
 
     //adds previous purchases to the flowpane
     public void showPurchases(){
-
+        purchases.clear();
+        titleLabel.setText("Tidigare köp");
+        iconPane.setId("earlier_purchase_svg");
+        //clear list
         purchasesFlowPane.getChildren().clear();
         for(int i = 0;i<db.getOrders().size();i++){
             SingularPurchase purchase = new SingularPurchase(pController, db.getOrders().get(i));
-            purchase.reload();
-            purchasesList.add(purchase);
-            purchasesFlowPane.getChildren().add(0,purchasesList.get(i));
+            //purchase.reload();
+            purchases.add(purchase);
+            purchasesFlowPane.getChildren().add(0,purchase);
 
         }
-
 
         /*for (ShoppingItem item : db.getAllShoppingItems()){
             for (ProductItem s :  favourites)
@@ -84,9 +85,25 @@ public class EarlierPurchases extends AnchorPane{
          */
     }
 
+    public void showFavourites(){
+        favourites.clear();
+        titleLabel.setText("Favoriter");
+        iconPane.setId("heartIcon_white");
+        purchasesFlowPane.getChildren().clear();
+        FavouritesButtons favouritesButtons = new FavouritesButtons(pController);
+        favourites.add(favouritesButtons);
+        purchasesFlowPane.getChildren().add(favouritesButtons);
 
+    }
 
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        holder.clear();
+        holder.addAll(favourites);
+        holder.addAll(purchases);
+        for(int i = 0; i<holder.size();i++){
+            holder.get(i).reload();
 
-
-
+        }
+    }
 }

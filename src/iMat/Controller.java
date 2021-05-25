@@ -29,7 +29,7 @@ public class Controller extends AnchorPane implements Initializable {
     private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
     private final settings settings = new settings(this);
     private final Help help = new Help(this);
-    private final Favourites favourites = new Favourites(this);
+    private final EarlierPurchases favourites = new EarlierPurchases(this);
 
     private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
 
@@ -167,7 +167,7 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openFavourites(){
-        favourites.setUp();
+        favourites.showFavourites();
         openOverlay(favourites);
 
     }

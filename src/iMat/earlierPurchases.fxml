@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
 
 <fx:root fx:id="earlierPurchases" maxHeight="800.0" maxWidth="740.0" minHeight="800.0" minWidth="740.0" prefHeight="800.0" prefWidth="740.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <styleClass>
@@ -30,22 +30,20 @@
                   <String fx:value="shadow_50" />
                </styleClass>
             </Label>
-            <ImageView fx:id="iconImgView" fitHeight="35.0" fitWidth="35.0" layoutX="248.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/earlierPurchase_White.png" />
-               </image>
-            </ImageView>
+            <Pane fx:id="iconPane" layoutX="248.0" layoutY="29.0" prefHeight="35.0" prefWidth="35.0" />
+            <ImageView fx:id="iconImgView" fitHeight="35.0" fitWidth="35.0" layoutX="248.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="closeButton" layoutX="686.0" layoutY="28.0" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="30.0" prefWidth="30.0">
                <styleClass>
                   <String fx:value="exit_cross" />
                   <String fx:value="shadow_50" />
+                  <String fx:value="background_color_blue_white" />
                </styleClass>
             </Button>
          </children>
       </AnchorPane>
       <ScrollPane layoutX="25.0" layoutY="100.0" maxHeight="668.0" maxWidth="700.0" minHeight="668.0" minWidth="700.0" prefHeight="668.0" prefWidth="700.0" styleClass="background_color_blue_white">
          <content>
-            <FlowPane fx:id="purchasesFlowPane" maxWidth="680.0" minWidth="680.0" prefHeight="668.0" prefWidth="680.0" styleClass="background_color_blue_white" vgap="20.0" />
+            <FlowPane fx:id="purchasesFlowPane" maxWidth="680.0" minWidth="680.0" prefHeight="668.0" prefWidth="680.0" styleClass="background_color_blue_white" vgap="30.0" />
          </content>
       </ScrollPane>
    </children>
