@@ -2,6 +2,7 @@ package iMat.CheckOutSide;
 
 import iMat.CategoryMenu.CategoryMenu;
 import iMat.Controller;
+import iMat.Header;
 import iMat.ProductCard;
 import iMat.Header;
 import javafx.fxml.FXML;

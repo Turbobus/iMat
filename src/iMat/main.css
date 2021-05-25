@@ -774,6 +774,20 @@
     -fx-border-width: 3px;
 }
 
+#blue_text_field_2 {
+    -fx-background-color: #FAFBFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 7, 0, 1, 3);
+    -fx-text-fill: #002E48;
+}
+
+#blue_text_field_wrong_2 {
+    -fx-background-color: #FAFBFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 7, 0, 1, 3);
+    -fx-text-fill: #002E48;
+    -fx-border-color: #DC5A21;
+
+}
+
 #search_button {
     -fx-font-weight: bold;
     -fx-font-size: 24px;
