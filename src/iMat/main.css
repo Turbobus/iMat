@@ -610,17 +610,9 @@
 }
 
 #breadcrumb_button:hover {
-    -fx-background-color: #FAFBFF;
-    -fx-padding: 0px;
-    -fx-text-fill: #002E48;
-    -fx-font-size: 23px;
-    -text-align: left;
-    -fx-cursor: hand;
-}
-
-#breadcrumb_button:hover {
     -fx-background-color: #E9EDFF;
     -fx-background-radius: 5px;
+    -fx-cursor: hand;
 }
 
 #breadcrumb_button:pressed   {
@@ -643,31 +635,12 @@
 }
 
 #category_buttons:hover {
-    -fx-background-color: #F3F9FF;
-    -fx-border-radius: 37.5 0 0 37.5;
-    -fx-background-radius: 37.5 0 0 37.5;
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
-    -fx-font-weight: bold;
-    -fx-font-size: 27px;
-    -fx-padding: 0 10 0 0;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
+    -fx-background-color: #B4D0F1;
 }
 
 #category_buttons:pressed {
-    -fx-background-color: #7F90A3;
-    -fx-border-radius: 37.5 0 0 37.5;
-    -fx-background-radius: 37.5 0 0 37.5;
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
-    -fx-font-weight: bold;
-    -fx-font-size: 27px;
-    -fx-padding: 0 10 0 0;
+    -fx-background-color: #B4D0F1;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
 }
 
 #category_pressed_buttons {
@@ -759,29 +732,12 @@
 }
 
 #subcategory_buttons:hover {
-    -fx-background-color: #F3F9FF;
-    -fx-border-radius: 40;
-    -fx-background-radius: 40;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
-    -fx-border-color: #002E48;
-    -fx-border-width: 1px;
-    -fx-font-weight: bold;
-    -fx-font-size: 23px;
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
+    -fx-background-color: #B4D0F1;
 }
 
 #subcategory_buttons:pressed {
-    -fx-background-color: #778799;
-    -fx-border-radius: 40;
-    -fx-background-radius: 40;
+    -fx-background-color: #B4D0F1;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
-    -fx-border-color: #002E48;
-    -fx-border-width: 1px;
-    -fx-font-weight: bold;
-    -fx-font-size: 23px;
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
 }
 
 #subcategory_pressed_buttons {
@@ -795,6 +751,14 @@
     -fx-font-size: 23px;
     -fx-text-fill: #0A2500;
     -fx-border-insets: -1px;
+}
+
+#logo_button {
+
+}
+
+#logo_button:hover {
+    -fx-cursor: hand;
 }
 
 #home_button {
@@ -812,31 +776,12 @@
 }
 
 #home_button:hover {
-    -fx-background-color: #fcfcff;
-    -fx-border-radius: 37.5 0 0 37.5;
-    -fx-background-radius: 37.5 0 0 37.5;
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
-    -fx-font-weight: bold;
-    -fx-font-size: 27px;
-    -fx-padding: 0 10 0 0;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
+    -fx-background-color: #E8EDFF;
 }
 
 #home_button:pressed {
-    -fx-background-color: #909299;
-    -fx-border-radius: 37.5 0 0 37.5;
-    -fx-background-radius: 37.5 0 0 37.5;
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
-    -fx-font-weight: bold;
-    -fx-font-size: 27px;
-    -fx-padding: 0 10 0 0;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
+    -fx-background-color: #E8EDFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 0, 1);
 }
 
 #home_pressed_button {
