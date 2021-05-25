@@ -130,8 +130,6 @@ public class settings extends AnchorPane {
     @FXML
     private Label slash;
 
-
-
     private static boolean missingField = false;
 
     public settings(Controller pController) {
@@ -185,10 +183,9 @@ public class settings extends AnchorPane {
         validmonth1.setText(validmonth.getText());
         validyear1.setText(validyear.getText());
         cvc1.setText(cvc.getText());
+        isCorrectInformation = new boolean[]{true, true, true, true, true};
 
         paymentchanged.toFront();
-
-
         cardType();
 
     }
@@ -239,8 +236,8 @@ public class settings extends AnchorPane {
 
     @FXML
     public void save1pressed(ActionEvent event) {
-
-        if (isAllTrue(isCorrectInformation)){
+        updateNextButton();
+        if (isFieldsRight){
             updatesettings();
             settingsdefault.toFront();
         }
@@ -372,24 +369,17 @@ public class settings extends AnchorPane {
         paymentdefault.toFront();
     }
 
-    @FXML public void updateNextButton(){
+    public void updateNextButton(){
         boolean flag = false;
 
-        if (isTextFieldEmpty(firstNameTextField)) { flag = true; }
-        if (isTextFieldEmpty(lastNameTextField)) { flag = true; }
-        if (isTextFieldEmpty(addressTextField)) { flag = true; }
-        if (isTextFieldEmpty(postAddressTextField)) { flag = true; }
+        if (isTextFieldEmpty(firstNameTextField1)) { flag = true; }
+        if (isTextFieldEmpty(lastNameTextField1)) { flag = true; }
+        if (isTextFieldEmpty(addressTextField1)) { flag = true; }
+        if (isTextFieldEmpty(postAddressTextField1)) { flag = true; }
         if (isPostalCodeWrong()) { flag = true; }
 
-        if (flag){
-
-
-            isFieldsRight = false;
-        } else{
-            // Knapp ska ha färg
-
-            isFieldsRight = true;
-        }
+        // Knapp ska ha färg
+        isFieldsRight = !flag;
 
     }
 
@@ -400,7 +390,7 @@ public class settings extends AnchorPane {
     }
 
     private boolean isPostalCodeWrong(){
-        return postalCodeTextField.getText().length() != 5;
+        return postalCodeTextField1.getText().length() != 5;
     }
 
     public void updatepayment() {
@@ -417,8 +407,6 @@ public class settings extends AnchorPane {
         db.setValidMonth(Integer.parseInt(validmonth1.getText()));
         db.setValidYear(Integer.parseInt(validyear1.getText()));
         db.setVerificationCode(Integer.parseInt(cvc1.getText()));
-
-
 
 
         }
@@ -458,6 +446,7 @@ public class settings extends AnchorPane {
             validmonth.setText("");
             validyear.setText("");
             cvc.setText("");
+            db.setCardType("");
             newcard.toFront();
             paymentdefault.toFront();
             slash.setVisible(false);
@@ -523,19 +512,18 @@ public class settings extends AnchorPane {
 
     public void cardType() {
 
+           visapic.setVisible(false);
+           mastercardpic.setVisible(false);
 
-        switch (db.getCardType()) {
-            case "Visa" -> visapic.toFront();
-            case "MasterCard" -> mastercardpic.toFront();
-            case "" -> {
-                mastercardpic.setOpacity(0);
-                visapic.setOpacity(0);
-            }
-        }
+           if(db.getCardType().equals("Visa")) {
+               visapic.setVisible(true);
+           } else if (db.getCardType().equals("MasterCard")) {
+               mastercardpic.setVisible(true);
+           }
 
     }
 
-    private void setupPayment2() {
+    public void setupPayment2() {
 
         cardnumber1.textProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -560,12 +548,12 @@ public class settings extends AnchorPane {
                 } else {
                     cardnumber1.setId("blue_text_field_2");
                     if (cardnumber1.getText().charAt(0) == '4') {
-                        db.setCardType("Visa");
+                          db.setCardType("Visa");
                        cardType = "Visa";
                     } else {
-
+                        db.setCardType("MasterCard");
                         cardType = "MasterCard";
-                        db.setCardType("Mastercard");
+
 
                         mastercardpic.setOpacity(100);
                     }
@@ -688,6 +676,7 @@ public class settings extends AnchorPane {
             db.setValidMonth(Integer.parseInt(validmonth1.getText()));
             db.setValidYear(Integer.parseInt(validyear1.getText()));
             db.setVerificationCode(Integer.parseInt(cvc1.getText()));
+
 
         }
     }
