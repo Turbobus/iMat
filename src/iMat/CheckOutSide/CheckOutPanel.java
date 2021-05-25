@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
@@ -19,7 +20,9 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private ToggleGroup timeToggleGroup = new ToggleGroup();
     private boolean haveSetUpCardPane = false;
+    private boolean isButtonsActive;
     private String time;
+    private final EnterCardDetails enterCardDetails = new EnterCardDetails(this);
 
     @FXML AnchorPane cardInformationPanel;
 
@@ -30,13 +33,13 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     @FXML private Label totalPriceOfCart;
     @FXML private Button buyButton;
+    @FXML private Pane payArrow;
 
 
     @FXML public void placeOrder(){
-
-        // Behöver kolla så kreditkort är inskrivet samt hämta tid från radiobutton
-
-        pController.openPayConfirmation(time);
+        if (isButtonsActive) {
+            pController.openPayConfirmation(time, enterCardDetails.getCardType());
+        }
     }
 
     public CheckOutPanel(Controller pController){
@@ -55,6 +58,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
         DB.getInstance().setCartListener(this);
         radioButtonSetup();
         updateTotalPrice();
+        updateButtonState();
     }
 
 
@@ -78,6 +82,8 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
                     if (!haveSetUpCardPane){
                         setupCardPane();
+                        haveSetUpCardPane = true;
+                        updateButtonState();
                     }
 
                 }
@@ -87,7 +93,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private void setupCardPane(){
         cardInformationPanel.getChildren().clear();
-        cardInformationPanel.getChildren().add(new EnterCardDetails());
+        cardInformationPanel.getChildren().add(enterCardDetails);
     }
 
     private void updateTotalPrice(){
@@ -96,6 +102,19 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
+        updateButtonState();
         updateTotalPrice();
+    }
+
+    public void updateButtonState(){
+        if (DB.getInstance().getTotalAmountInCart() <= 0 || !enterCardDetails.correctCardInfo() || !haveSetUpCardPane){
+            isButtonsActive = false;
+            buyButton.setId("green_button_disabled");
+            payArrow.setId("check_out_svg_disabled");
+        } else {
+            isButtonsActive = true;
+            buyButton.setId("green_button");
+            payArrow.setId("check_out_svg");
+        }
     }
 }

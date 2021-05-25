@@ -9,20 +9,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="929.0" maxWidth="670.0" minHeight="929.0" minWidth="670.0" prefHeight="929.0" prefWidth="670.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="929.0" maxWidth="660.0" minHeight="929.0" minWidth="655.0" prefHeight="929.0" prefWidth="660.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="131.0" layoutY="45.0" text="Betalning">
+      <Label layoutX="213.0" layoutY="45.0" text="Betalning">
          <styleClass>
             <String fx:value="bold_36" />
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="304.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="386.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/credit_card.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="27.0" layoutY="130.0" maxWidth="430.0" minWidth="430.0" prefHeight="245.0" prefWidth="430.0">
+      <AnchorPane layoutX="19.0" layoutY="130.0" maxWidth="645.0" minWidth="430.0" prefHeight="245.0" prefWidth="630.0">
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
             <String fx:value="border_radius_30" />
@@ -30,7 +30,7 @@
             <String fx:value="border_dark_dark_blue_1_width" />
          </styleClass>
          <children>
-            <AnchorPane maxHeight="60.0" maxWidth="430.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="430.0">
+            <AnchorPane maxHeight="60.0" maxWidth="630.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="630.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="background_color_light_blue" />
@@ -38,7 +38,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
                <children>
-                  <Label layoutX="23.0" layoutY="13.0" text="Välj ungefärlig leveranstid">
+                  <Label layoutX="23.0" layoutY="13.0" text="Välj ungefärlig leveranstid inför imorgon">
                      <styleClass>
                         <String fx:value="bold_24" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -46,9 +46,9 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="76.0" prefHeight="40.0" prefWidth="400.0">
+            <AnchorPane layoutX="15.0" layoutY="76.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="morning" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Förmiddag:   Mellan klockan 10-13">
+                  <RadioButton fx:id="morning" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Förmiddag:   Mellan klockan 10-13">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -62,9 +62,9 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="130.0" prefHeight="40.0" prefWidth="400.0">
+            <AnchorPane layoutX="15.0" layoutY="130.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="day" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Eftermiddag:   Mellan klockan 13-17">
+                  <RadioButton fx:id="day" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Eftermiddag:   Mellan klockan 13-17">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -78,9 +78,9 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="185.0" prefHeight="40.0" prefWidth="400.0">
+            <AnchorPane layoutX="15.0" layoutY="185.0" prefHeight="40.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="evening" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" text="Kväll:   Mellan klockan 18-21">
+                  <RadioButton fx:id="evening" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Kväll:   Mellan klockan 18-21">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -96,22 +96,22 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button id="green_button" fx:id="buyButton" contentDisplay="RIGHT" layoutX="141.0" layoutY="825.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="90.0" prefWidth="330.0" text="Betala">
+      <Button id="green_button" fx:id="buyButton" contentDisplay="RIGHT" layoutX="318.0" layoutY="825.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="90.0" prefWidth="330.0" text="Betala">
          <styleClass>
             <String fx:value="border_radius_30" />
             <String fx:value="bold_36" />
             <String fx:value="shadow_50" />
          </styleClass>
          <graphic>
-            <Pane prefHeight="29.0" prefWidth="30.0" styleClass="check_out_svg" translateX="10.0" />
+            <Pane id="check_out_svg" fx:id="payArrow" prefHeight="29.0" prefWidth="30.0" translateX="10.0" />
          </graphic>
       </Button>
-      <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" layoutX="139.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
+      <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" layoutX="316.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
          <styleClass>
             <String fx:value="bold_28" />
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <AnchorPane fx:id="cardInformationPanel" layoutX="27.0" layoutY="400.0" maxHeight="370.0" maxWidth="430.0" minHeight="370.0" minWidth="430.0" prefHeight="370.0" prefWidth="430.0" />
+      <AnchorPane fx:id="cardInformationPanel" layoutX="19.0" layoutY="400.0" maxHeight="370.0" maxWidth="630.0" minHeight="370.0" minWidth="430.0" prefHeight="370.0" prefWidth="630.0" />
    </children>
 </fx:root>

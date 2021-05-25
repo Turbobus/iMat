@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -24,9 +26,12 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     @FXML FlowPane cartItemHolder;
     @FXML Label amountInCart;
     @FXML Label totalPriceOfCart;
+    @FXML Pane rightArrow;
 
     @FXML public void checkoutPressed(ActionEvent event){
-        pController.setupCheckOut();
+        if (isButtonsActive) {
+            pController.setupCheckOut();
+        }
     }
 
     @FXML public void emptyCartPressed(ActionEvent event){
@@ -68,9 +73,13 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
         if (db.getTotalAmountInCart() <= 0){
             isButtonsActive = false;
             emptyCartButton.setId("red_button_disabled");
+            checkOutButton.setId("green_button_disabled");
+            rightArrow.setId("check_out_svg_disabled");
         } else {
             isButtonsActive = true;
             emptyCartButton.setId("red_button");
+            checkOutButton.setId("green_button");
+            rightArrow.setId("check_out_svg");
         }
     }
 }

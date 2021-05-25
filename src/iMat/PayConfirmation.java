@@ -46,10 +46,10 @@ public class PayConfirmation extends AnchorPane {
         this.pController = pController;
     }
 
-    public void setupInfo(String time){
+    public void setupInfo(String time, String  cardType){
         purchaseInformationLbl.setText("Du håller just nu på att köpa " + db.getTotalAmountInCart() + wordHelper() + "för " + String.format("%.2f",db.getTotalCartPrice()) + " kr");
 
-        if (db.getCardType().matches("Visa")){
+        if (cardType.matches("Visa")){
             masterCardLabel.setOpacity(0);
             visaLabel.setOpacity(1);
         } else {
@@ -57,7 +57,7 @@ public class PayConfirmation extends AnchorPane {
             visaLabel.setOpacity(0);
         }
 
-        shippingTimeLabel.setText(" Ungefärlig leveranstid: Imorgon klockan " + time);
+        shippingTimeLabel.setText("Ungefärlig leveranstid: Imorgon klockan " + time);
     }
 
     private String wordHelper(){

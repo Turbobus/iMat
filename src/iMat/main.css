@@ -206,11 +206,6 @@
     -fx-shape: "M11.6667 0H1.66667C1.22464 0 0.800716 0.175595 0.488155 0.488155C0.175595 0.800716 0 1.22464 0 1.66667V11.6667C0 12.1087 0.175595 12.5326 0.488155 12.8452C0.800716 13.1577 1.22464 13.3333 1.66667 13.3333H11.6667C12.1087 13.3333 12.5326 13.1577 12.8452 12.8452C13.1577 12.5326 13.3333 12.1087 13.3333 11.6667V1.66667C13.3333 1.22464 13.1577 0.800716 12.8452 0.488155C12.5326 0.175595 12.1087 0 11.6667 0ZM10 10H3.33333V3.33333H10V10ZM28.3333 0H18.3333C17.8913 0 17.4674 0.175595 17.1548 0.488155C16.8423 0.800716 16.6667 1.22464 16.6667 1.66667V11.6667C16.6667 12.1087 16.8423 12.5326 17.1548 12.8452C17.4674 13.1577 17.8913 13.3333 18.3333 13.3333H28.3333C28.7754 13.3333 29.1993 13.1577 29.5118 12.8452C29.8244 12.5326 30 12.1087 30 11.6667V1.66667C30 1.22464 29.8244 0.800716 29.5118 0.488155C29.1993 0.175595 28.7754 0 28.3333 0ZM26.6667 10H20V3.33333H26.6667V10ZM11.6667 16.6667H1.66667C1.22464 16.6667 0.800716 16.8423 0.488155 17.1548C0.175595 17.4674 0 17.8913 0 18.3333V28.3333C0 28.7754 0.175595 29.1993 0.488155 29.5118C0.800716 29.8244 1.22464 30 1.66667 30H11.6667C12.1087 30 12.5326 29.8244 12.8452 29.5118C13.1577 29.1993 13.3333 28.7754 13.3333 28.3333V18.3333C13.3333 17.8913 13.1577 17.4674 12.8452 17.1548C12.5326 16.8423 12.1087 16.6667 11.6667 16.6667ZM10 26.6667H3.33333V20H10V26.6667ZM23.3333 16.6667C19.6567 16.6667 16.6667 19.6567 16.6667 23.3333C16.6667 27.01 19.6567 30 23.3333 30C27.01 30 30 27.01 30 23.3333C30 19.6567 27.01 16.6667 23.3333 16.6667ZM23.3333 26.6667C21.495 26.6667 20 25.1717 20 23.3333C20 21.495 21.495 20 23.3333 20C25.1717 20 26.6667 21.495 26.6667 23.3333C26.6667 25.1717 25.1717 26.6667 23.3333 26.6667Z";
 }
 
-.check_out_svg { /*  Är pilen i knapparna "Till kassa" och Betala" */
-    -fx-shape: "M14.7156 0.666687L12.2005 3.01669L22.1537 12.3334H0.445801V15.6667H22.1537L12.2005 24.9834L14.7156 27.3334L28.9854 14L14.7156 0.666687Z";
-    -fx-background-color: #0A2500;
-}
-
 .account_svg {
     -fx-shape: "M45 22.4775C45 10.0687 34.92 0 22.5 0C10.08 0 0 10.0687 0 22.4775C0 29.3119 3.105 35.4712 7.965 39.6056C8.01 39.6506 8.055 39.6506 8.055 39.6956C8.46 40.0106 8.865 40.3256 9.315 40.6406C9.54 40.7756 9.72 40.9528 9.945 41.1328C13.6633 43.6538 18.0526 45.001 22.545 45C27.0374 45.001 31.4267 43.6538 35.145 41.1328C35.37 40.9978 35.55 40.8206 35.775 40.6828C36.18 40.3706 36.63 40.0556 37.035 39.7406C37.08 39.6956 37.125 39.6956 37.125 39.6506C41.895 35.4684 45 29.3119 45 22.4775ZM22.5 42.1678C18.27 42.1678 14.4 40.8178 11.205 38.5706C11.25 38.2106 11.34 37.8534 11.43 37.4934C11.6981 36.5178 12.0914 35.581 12.6 34.7062C13.095 33.8512 13.68 33.0863 14.4 32.4113C15.075 31.7362 15.885 31.1091 16.695 30.6141C17.55 30.1191 18.45 29.7591 19.44 29.4891C20.4377 29.2201 21.4667 29.0849 22.5 29.0869C25.5675 29.0652 28.5222 30.2418 30.735 32.3663C31.77 33.4013 32.58 34.6163 33.165 36.0084C33.48 36.8184 33.705 37.6734 33.84 38.5706C30.5189 40.9054 26.5597 42.1614 22.5 42.1678ZM15.615 21.3553C15.2185 20.4475 15.0191 19.4659 15.03 18.4753C15.03 17.4881 15.21 16.4981 15.615 15.5981C16.02 14.6981 16.56 13.8909 17.235 13.2159C17.91 12.5409 18.72 12.0037 19.62 11.5988C20.52 11.1938 21.51 11.0138 22.5 11.0138C23.535 11.0138 24.48 11.1938 25.38 11.5988C26.28 12.0037 27.09 12.5437 27.765 13.2159C28.44 13.8909 28.98 14.7009 29.385 15.5981C29.79 16.4981 29.97 17.4881 29.97 18.4753C29.97 19.5103 29.79 20.4553 29.385 21.3525C28.9941 22.2392 28.4452 23.0473 27.765 23.7375C27.0746 24.4167 26.2665 24.9647 25.38 25.3547C23.5205 26.1189 21.4345 26.1189 19.575 25.3547C18.6885 24.9647 17.8804 24.4167 17.19 23.7375C16.5089 23.0574 15.973 22.246 15.615 21.3525V21.3553ZM36.495 36.2784C36.495 36.1884 36.45 36.1434 36.45 36.0534C36.0074 34.6455 35.3551 33.3124 34.515 32.0991C33.6741 30.8767 32.6407 29.7987 31.455 28.9069C30.5494 28.2256 29.5679 27.6518 28.53 27.1969C29.0022 26.8854 29.4397 26.5243 29.835 26.1197C30.5059 25.4574 31.0951 24.7171 31.59 23.9147C32.5866 22.2773 33.1013 20.392 33.075 18.4753C33.0889 17.0564 32.8133 15.6497 32.265 14.3409C31.7237 13.0799 30.9445 11.935 29.97 10.9688C28.997 10.0126 27.8518 9.24916 26.595 8.71875C25.2841 8.17142 23.8755 7.89678 22.455 7.91156C21.0343 7.89767 19.6257 8.17327 18.315 8.72156C17.0473 9.25084 15.8994 10.0305 14.94 11.0138C13.9839 11.9857 13.2204 13.1299 12.69 14.3859C12.1417 15.6947 11.8661 17.1014 11.88 18.5203C11.88 19.5103 12.015 20.4553 12.285 21.3525C12.555 22.2975 12.915 23.1525 13.41 23.9597C13.86 24.7697 14.49 25.4897 15.165 26.1647C15.57 26.5697 16.02 26.9269 16.515 27.2419C15.4739 27.7089 14.492 28.2981 13.59 28.9969C12.42 29.8969 11.385 30.9741 10.53 32.1441C9.68135 33.3524 9.02835 34.6869 8.595 36.0984C8.55 36.1884 8.55 36.2784 8.55 36.3234C4.995 32.7262 2.79 27.8719 2.79 22.4775C2.79 11.6438 11.655 2.78719 22.5 2.78719C33.345 2.78719 42.21 11.6438 42.21 22.4775C42.2041 27.6524 40.1493 32.6144 36.495 36.2784Z";
 }
@@ -222,39 +217,6 @@
 .search_svg {
     -fx-shape: "M10.4 0C13.1583 0 15.8035 1.09571 17.7539 3.04609C19.7043 4.99647 20.8 7.64175 20.8 10.4C20.8 12.976 19.856 15.344 18.304 17.168L18.736 17.6H20L28 25.6L25.6 28L17.6 20V18.736L17.168 18.304C15.2809 19.9148 12.8811 20.7998 10.4 20.8C7.64175 20.8 4.99647 19.7043 3.04609 17.7539C1.09571 15.8035 0 13.1583 0 10.4C0 7.64175 1.09571 4.99647 3.04609 3.04609C4.99647 1.09571 7.64175 0 10.4 0ZM10.4 3.2C6.4 3.2 3.2 6.4 3.2 10.4C3.2 14.4 6.4 17.6 10.4 17.6C14.4 17.6 17.6 14.4 17.6 10.4C17.6 6.4 14.4 3.2 10.4 3.2Z";
     -fx-background-color: #004972;
-}
-
-.menu-button {
-    -fx-background-color: #007FC5;
-    -fx-font-weight: bold;
-    -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
-    -fx-border-radius: 30px;
-    -fx-background-radius: 31px;
-    -fx-border-width: 1px;
-    -fx-border-color: #004972;
-    -fx-padding: 0px;
-    -fx-border-insets: -1px;
-}
-
-.menu-button .label {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
-    -fx-padding: 0 0 0 15;
-    -fx-text-fill: #FAFBFF;
-}
-
-.context-menu {
-    -fx-background-color: #007FC5;
-    -fx-background-radius: 0 0 20 20, 0 0 20 20, 0 0 20 20;
-}
-
-.menu-button > .arrow-button > .arrow {
-    -fx-background-insets: 1 0 -1 0, 0;
-    -fx-background-color: #f1f4ff;
-    -fx-shape: "M6.9375 0L16.5 8.96917L26.0625 0L29 2.76125L16.5 14.5112L4 2.76125L6.9375 0Z";
-    -fx-pref-height: 15px;
-    -fx-pref-width: 25px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
 }
 
 #text_login_page {
@@ -270,12 +232,30 @@
     -fx-background-color: #F1F4FF;
 }
 
+#prodCard_blue:hover {
+    -fx-background-color: #E8EDFF;
+}
+
+#prodCard_blue:pressed {
+    -fx-background-color: #E8EDFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 0, 1);
+}
+
 #prodCard_green {
     -fx-border-radius: 30px;
     -fx-background-radius: 32px;
     -fx-border-width: 4px;
     -fx-border-color: #A3E983;
     -fx-background-color: #E3FFD6;
+}
+
+#prodCard_green:hover {
+    -fx-background-color: #CAFFB1;
+}
+
+#prodCard_green:pressed {
+    -fx-background-color: #CAFFB1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 0, 1);
 }
 
 #detailCard_blue {
@@ -297,6 +277,15 @@
     -fx-background-radius: 30px;
 }
 
+#addFavorites_blue:hover {
+    -fx-background-color: #B4D0F1;
+}
+
+#addFavorites_blue:pressed {
+    -fx-background-color: #B4D0F1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
+}
+
 #heartIcon_blue {
     -fx-shape: "M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z";
     -fx-background-color: #C7E1FF;
@@ -311,10 +300,20 @@
     -fx-border-color: #002E48;
     -fx-border-insets: -1px;
     -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-border-width: 3px;
+}
+
+#addFavorites_blue_active:hover {
+    -fx-background-color: #A4C4E9;
+}
+
+#addFavorites_blue_active:pressed {
+    -fx-background-color: #A4C4E9;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 0);
+    -fx-border-width: 2px;
 }
 
 #heartIcon_blue_active {
@@ -350,6 +349,15 @@
     -fx-background-radius: 30px;
 }
 
+#addFavorites_green:hover {
+    -fx-background-color: #74CD49;
+}
+
+#addFavorites_green:pressed {
+    -fx-background-color: #74CD49;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
+}
+
 #heartIcon_green {
     -fx-shape: "M50.3337 9C27.3253 9 8.66699 27.4667 8.66699 50.25C8.66699 68.6417 15.9587 112.292 87.7337 156.417C89.0193 157.199 90.4953 157.613 92.0003 157.613C93.5053 157.613 94.9813 157.199 96.267 156.417C168.042 112.292 175.334 68.6417 175.334 50.25C175.334 27.4667 156.675 9 133.667 9C110.659 9 92.0003 34 92.0003 34C92.0003 34 73.342 9 50.3337 9Z";
     -fx-background-color: #88DC60;
@@ -364,10 +372,20 @@
     -fx-border-color: #0A2500;
     -fx-border-insets: -1px;
     -fx-font-size: 21px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 1);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-border-width: 3px;
+}
+
+#addFavorites_green_active:hover {
+    -fx-background-color: #68BA41;
+}
+
+#addFavorites_green_active:pressed {
+    -fx-background-color: #68BA41;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 0);
+    -fx-border-width: 2px;
 }
 
 #heartIcon_green_active {
@@ -403,7 +421,6 @@
 
 #empty_cart {
     -fx-border-radius: 30px;
-   
     -fx-border-width: 2px;
     -fx-background-radius: 31px;
     -fx-border-color: #210A00;
@@ -414,12 +431,38 @@
     -fx-text-fill: #004972;
     -fx-background-color: #FAFBFF;
     -fx-padding: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 5);
+}
+
+#white_button:hover {
+    -fx-background-color: #EBEBEB;
+}
+
+#white_button:pressed {
+    -fx-background-color: #EBEBEB;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
+#white_button_disabled {
+    -fx-text-fill: #C9C9C9;
+    -fx-background-color: #E9E9E9;
+    -fx-padding: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
 }
 
 #blue_button {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
     -fx-padding: 0px;
+}
+
+#blue_button:hover {
+    -fx-background-color: #006BA6;
+}
+
+#blue_button:pressed {
+    -fx-background-color: #006BA6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
 }
 
 #blue_button_with_border {
@@ -430,11 +473,37 @@
     -fx-border-insets: -1px;
 }
 
+#blue_button_with_border:hover {
+    -fx-background-color: #006BA6;
+}
+
+#blue_button_with_border:pressed {
+    -fx-background-color: #006BA6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
 #green_button {
     -fx-text-fill: #0A2500;
     -fx-background-color: #A3E983;
     -fx-padding: 0px;
     -fx-border-color: #0A2500;
+    -fx-border-insets: -1px;
+}
+
+#green_button:hover {
+    -fx-background-color: #96D778;
+}
+
+#green_button:pressed {
+    -fx-background-color: #96D778;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
+}
+
+#green_button_disabled {
+    -fx-text-fill: #829080;
+    -fx-background-color: #CFF2C1;
+    -fx-padding: 0px;
+    -fx-border-color: #829080;
     -fx-border-insets: -1px;
 }
 
@@ -446,12 +515,30 @@
     -fx-border-insets: -1px;
 }
 
+#green_add_button:hover {
+    -fx-background-color: #74CD49;
+}
+
+#green_add_button:pressed {
+    -fx-background-color: #74CD49;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
+}
+
 #red_button {
     -fx-text-fill: #210A00;
     -fx-background-color: #FE8652;
     -fx-border-color: #210A00;
     -fx-padding: 0px;
     -fx-border-insets: -1px;
+}
+
+#red_button:hover {
+    -fx-background-color: #E37B4E;
+}
+
+#red_button:pressed {
+    -fx-background-color: #E37B4E;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
 }
 
 #red_button_disabled {
@@ -470,11 +557,29 @@
     -fx-border-insets: -1px;
 }
 
+#light_blue_button:hover {
+    -fx-background-color: #B4D0F1;
+}
+
+#light_blue_button:pressed {
+    -fx-background-color: #B4D0F1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
 #hide_white_textArea {
     -fx-background-color: #FAFBFF;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
+}
+
+#hide_white_textArea_wrong {
+    -fx-background-color: #FAFBFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 4);
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-border-color: #DC5A21;
+    -fx-border-width: 3px;
 }
 
 #breadcrumb_button {
@@ -483,6 +588,16 @@
     -fx-text-fill: #002E48;
     -fx-font-size: 23px;
     -text-align: left;
+}
+
+#breadcrumb_button:hover {
+    -fx-background-color: #E9EDFF;
+    -fx-background-radius: 5px;
+}
+
+#breadcrumb_button:pressed   {
+    -fx-background-color: #D7DAE8;
+    -fx-background-radius: 5px;
 }
 
 #category_buttons {
@@ -633,6 +748,14 @@
     -fx-border-color: #0A2500;
 }
 
+#cart_item_card:hover {
+    -fx-background-color: #CAFFB1;
+}
+
+#cart_item_card:pressed {
+    -fx-background-color: #BDECA7;
+}
+
 #blue_text_field {
     -fx-background-color: #FAFBFF;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 7, 0, 1, 3);
@@ -695,29 +818,20 @@
 }
 
 #search_button_active:hover {
-    -fx-font-weight: bold;
-    -fx-font-size: 24px;
-    -fx-text-fill: #004972;
     -fx-background-color: #C7E1FF;
-    -fx-border-radius: 30px;
-    -fx-background-radius: 31px;
-    -fx-border-color: #004972;
-    -fx-border-width: 1px;
-    -fx-border-insets: -1px;
-    -fx-padding: 0px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 1, 4);
 }
 
 #search_button_active:pressed {
-    -fx-font-weight: bold;
-    -fx-font-size: 24px;
-    -fx-text-fill: #004972;
     -fx-background-color: #BED8F5;
-    -fx-border-radius: 30px;
-    -fx-background-radius: 31px;
-    -fx-border-color: #004972;
-    -fx-border-width: 1px;
-    -fx-border-insets: -1px;
-    -fx-padding: 0px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
+
+#check_out_svg { /*  Är pilen i knapparna "Till kassa" och Betala" */
+    -fx-shape: "M14.7156 0.666687L12.2005 3.01669L22.1537 12.3334H0.445801V15.6667H22.1537L12.2005 24.9834L14.7156 27.3334L28.9854 14L14.7156 0.666687Z";
+    -fx-background-color: #0A2500;
+}
+
+#check_out_svg_disabled { /*  Är pilen i knapparna "Till kassa" och Betala" */
+    -fx-shape: "M14.7156 0.666687L12.2005 3.01669L22.1537 12.3334H0.445801V15.6667H22.1537L12.2005 24.9834L14.7156 27.3334L28.9854 14L14.7156 0.666687Z";
+    -fx-background-color: #829080;
 }
