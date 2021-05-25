@@ -188,17 +188,17 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     public void updateButtonStyle(SubcategoryItem clicked) {
         //pController.getShopHolder().setupCategories();
         homeButton.setId("home_button");
-        drinkButton.setId("category_buttons");
-        vegetableButton.setId("category_buttons");
-        fishAndMeatButton.setId("category_buttons");
-        dryGoodButton.setId("category_buttons");
-        fruitButton.setId("category_buttons");
+        drinkButton.setId("category_multichoice_buttons");
+        vegetableButton.setId("category_multichoice_buttons");
+        fishAndMeatButton.setId("category_multichoice_buttons");
+        dryGoodButton.setId("category_multichoice_buttons");
+        fruitButton.setId("category_multichoice_buttons");
 
-        drinkPane.setId("category_multichoice_buttons");
-        vegetablePane.setId("category_multichoice_buttons");
-        fishAndMeatPane.setId("category_multichoice_buttons");
-        dryGoodsPane.setId("category_multichoice_buttons");
-        fruitPane.setId("category_multichoice_buttons");
+        drinkPane.setId("category_multichoice_panes");
+        vegetablePane.setId("category_multichoice_panes");
+        fishAndMeatPane.setId("category_multichoice_panes");
+        dryGoodsPane.setId("category_multichoice_panes");
+        fruitPane.setId("category_multichoice_panes");
 
         breadButton.setId("category_buttons");
         dairyButton.setId("category_buttons");
@@ -211,11 +211,11 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         fruitArrow.setId("category_arrow_blue");
 
         switch (clicked.getName()) {
-            case "drinks" -> { drinkPane.setId("category_pressed_multichoice_buttons"); drinkArrow.setId("category_arrow_green"); }
-            case "vegetables" -> { vegetablePane.setId("category_pressed_multichoice_buttons"); vegetableArrow.setId("category_arrow_green"); }
-            case "fish and meat" -> { fishAndMeatPane.setId("category_pressed_multichoice_buttons"); fishAndMeatArrow.setId("category_arrow_green"); }
-            case "dryGoods" -> { dryGoodsPane.setId("category_pressed_multichoice_buttons"); dryGoodsArrow.setId("category_arrow_green"); }
-            case "fruit" -> { fruitPane.setId("category_pressed_multichoice_buttons"); fruitArrow.setId("category_arrow_green"); }
+            case "drinks" -> { drinkPane.setId("category_pressed_multichoice_panes"); drinkArrow.setId("category_arrow_green"); }
+            case "vegetables" -> { vegetablePane.setId("category_pressed_multichoice_panes"); vegetableArrow.setId("category_arrow_green"); }
+            case "fish and meat" -> { fishAndMeatPane.setId("category_pressed_multichoice_panes"); fishAndMeatArrow.setId("category_arrow_green"); }
+            case "dryGoods" -> { dryGoodsPane.setId("category_pressed_multichoice_panes"); dryGoodsArrow.setId("category_arrow_green"); }
+            case "fruit" -> { fruitPane.setId("category_pressed_multichoice_panes"); fruitArrow.setId("category_arrow_green"); }
 
             case "HOME" -> homeButton.setId("home_pressed_button");
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
