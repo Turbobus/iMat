@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.Product;
@@ -28,6 +29,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
 
     @FXML GridPane cardHolder;          // Griden som håller produktkorten
 
+    @FXML ScrollPane scrollPane;
 
     public ShopGrid(ShopHolder pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopGrid.fxml"));
@@ -51,11 +53,13 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
     }
 
     private void setBreadCrumbText(String current, String mainCategory, boolean lower, String subCategory) {
+        mainCategoryButton.setId("breadcrumb_button_no_hover");
         currentPlace.setText(current);
         mainCategoryButton.setText(mainCategory);
         lowerDown.setText("");
         subCategoryButton.setText("");
         if(lower) {
+            mainCategoryButton.setId("breadcrumb_button");
             lowerDown.setText(">");
             subCategoryButton.setText(subCategory);
         }
@@ -69,6 +73,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
             case "Kött & Fisk" -> CategoryMenu.getInstance().showAllFishAndMeat();
             case "Torrvaror" -> CategoryMenu.getInstance().showAllDryGood();
             case "Frukt" -> CategoryMenu.getInstance().showAllFruit();
+            case "Hem" -> CategoryMenu.getInstance().toHomePage();
         }
     }
 
@@ -137,6 +142,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
                 index1 = 0;
             }
         }
+        this.scrollPane.setVvalue(0);
     }
 
     @Override

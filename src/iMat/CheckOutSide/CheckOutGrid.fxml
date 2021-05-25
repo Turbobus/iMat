@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="929.0" maxWidth="1022.0" minHeight="929.0" minWidth="1007.0" prefHeight="929.0" prefWidth="1017.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="929.0" maxWidth="1022.0" minHeight="929.0" minWidth="1007.0" prefHeight="929.0" prefWidth="1017.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ScrollPane maxWidth="1193.0" minWidth="1007.0" prefHeight="929.0" prefWidth="1017.0" styleClass="background_color_blue_white">
             <content>
@@ -35,7 +35,7 @@
                         </Label>
                         <ButtonBar buttonMinWidth="0.0" layoutX="26.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
                             <buttons>
-                                <Button id="breadcrumb_button" mnemonicParsing="false" text="Kassa" underline="true" />
+                                <Button id="breadcrumb_button_no_hover" mnemonicParsing="false" text="Kassa" underline="true" />
                                 <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="&gt;">
                                     <styleClass>
                                         <String fx:value="text_color_dark_dark_blue" />
