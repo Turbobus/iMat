@@ -504,6 +504,15 @@
     -text-align: left;
 }
 
+#breadcrumb_button:hover {
+    -fx-background-color: #FAFBFF;
+    -fx-padding: 0px;
+    -fx-text-fill: #002E48;
+    -fx-font-size: 23px;
+    -text-align: left;
+    -fx-cursor: hand;
+}
+
 #category_buttons {
     -fx-background-color: #C7E1FF;
     -fx-border-radius: 37.5 0 0 37.5;
@@ -702,7 +711,7 @@
 }
 
 #home_button:pressed {
-    -fx-background-color: #fcfcff;
+    -fx-background-color: #909299;
     -fx-border-radius: 37.5 0 0 37.5;
     -fx-background-radius: 37.5 0 0 37.5;
     -fx-border-color: #002E48;
