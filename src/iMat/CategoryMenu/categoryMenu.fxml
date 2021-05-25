@@ -80,7 +80,7 @@
             <String fx:value="background_color_dark_dark_blue" />
          </styleClass>
       </Pane>
-      <AnchorPane fx:id="shadowPane" layoutX="-1762.0" layoutY="-755.0" maxHeight="1080.0" maxWidth="1677.0" minHeight="1080.0" minWidth="1677.0" opacity="0.5" prefHeight="1080.0" prefWidth="1677.0" style="-fx-background-color: black;" />
+      <AnchorPane fx:id="shadowPane" layoutX="-1762.0" layoutY="-755.0" maxHeight="1080.0" maxWidth="1677.0" minHeight="1080.0" minWidth="1677.0" opacity="0.25" prefHeight="1080.0" prefWidth="1677.0" style="-fx-background-color: black;" />
    </children>
    <styleClass>
       <String fx:value="background_color_blue_white" />

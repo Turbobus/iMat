@@ -1,3 +1,7 @@
+.button:hover {
+    -fx-cursor: hand;
+}
+
 .border_radius_30 {
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
@@ -467,6 +471,7 @@
     -fx-background-color: #E9E9E9;
     -fx-padding: 0px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+    -fx-cursor: pointer;
 }
 
 #blue_button {
@@ -524,6 +529,7 @@
     -fx-padding: 0px;
     -fx-border-color: #829080;
     -fx-border-insets: -1px;
+    -fx-cursor: pointer;
 }
 
 #green_add_button {
@@ -566,6 +572,7 @@
     -fx-border-color: #8E8380;
     -fx-padding: 0px;
     -fx-border-insets: -1px;
+    -fx-cursor: pointer;
 }
 
 #light_blue_button {
@@ -753,9 +760,7 @@
     -fx-border-insets: -1px;
 }
 
-#logo_button {
-
-}
+#logo_button {}
 
 #logo_button:hover {
     -fx-cursor: hand;
@@ -867,6 +872,7 @@
     -fx-border-width: 1px;
     -fx-border-insets: -1px;
     -fx-padding: 0px;
+    -fx-cursor: pointer;
 }
 
 #search_button_active {
@@ -900,4 +906,5 @@
 #check_out_svg_disabled { /*  Är pilen i knapparna "Till kassa" och Betala" */
     -fx-shape: "M14.7156 0.666687L12.2005 3.01669L22.1537 12.3334H0.445801V15.6667H22.1537L12.2005 24.9834L14.7156 27.3334L28.9854 14L14.7156 0.666687Z";
     -fx-background-color: #829080;
+    -fx-cursor: pointer;
 }
