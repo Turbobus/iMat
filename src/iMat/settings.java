@@ -127,8 +127,7 @@ public class settings extends AnchorPane {
     @FXML
     private ImageView visapic;
 
-    @FXML
-    private Label slash;
+
 
     private static boolean missingField = false;
 
@@ -449,7 +448,7 @@ public class settings extends AnchorPane {
             db.setCardType("");
             newcard.toFront();
             paymentdefault.toFront();
-            slash.setVisible(false);
+
 
         }
         else {
