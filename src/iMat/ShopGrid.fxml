@@ -13,7 +13,7 @@
 
 <fx:root maxHeight="929.0" maxWidth="1323.0" minHeight="929.0" minWidth="1323.0" prefHeight="929.0" prefWidth="1323.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane prefHeight="929.0" prefWidth="1323.0" styleClass="background_color_blue_white">
+      <ScrollPane fx:id="scrollPane" prefHeight="929.0" prefWidth="1323.0" styleClass="background_color_blue_white">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="1308.0" styleClass="background_color_blue_white">
                <children>
