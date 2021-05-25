@@ -257,6 +257,7 @@
 
 #prodCard_blue:hover {
     -fx-background-color: #E8EDFF;
+    -fx-cursor: hand;
 }
 
 #prodCard_blue:pressed {
@@ -274,6 +275,7 @@
 
 #prodCard_green:hover {
     -fx-background-color: #CAFFB1;
+    -fx-cursor: hand;
 }
 
 #prodCard_green:pressed {
@@ -845,6 +847,7 @@
 
 #cart_item_card:hover {
     -fx-background-color: #CAFFB1;
+    -fx-cursor: hand;
 }
 
 #cart_item_card:pressed {
@@ -883,6 +886,15 @@
     -fx-text-fill: #002E48;
     -fx-border-color: #DC5A21;
 
+}
+
+#check_out_radio_button {
+    -fx-font-size: 21px;
+    -fx-text-fill: #002E48;
+}
+
+#check_out_radio_button:hover {
+    -fx-cursor: hand;
 }
 
 #search_button {
