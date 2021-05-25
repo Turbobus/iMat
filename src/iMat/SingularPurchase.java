@@ -104,7 +104,6 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
             }
         }
-
     }
 
     private Calendar dateToCalendar(Date date) {
