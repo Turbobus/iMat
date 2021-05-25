@@ -186,7 +186,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
 
     @Override
     public void updateButtonStyle(SubcategoryItem clicked) {
-        pController.getShopHolder().setupCategories();
+        //pController.getShopHolder().setupCategories();
         homeButton.setId("home_button");
         drinkButton.setId("category_buttons");
         vegetableButton.setId("category_buttons");

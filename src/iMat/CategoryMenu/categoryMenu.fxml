@@ -14,7 +14,7 @@
       <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="803.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displaySweet" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
       <Pane id="category_multichoice_buttons" fx:id="drinkPane" layoutX="-2.0" layoutY="718.0" onMouseEntered="#openDrinkSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_multichoice_textButton" fx:id="drinkButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDrink" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
+            <Button id="category_buttons" fx:id="drinkButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDrink" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
             <Pane fx:id="drinkArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
                <styleClass>
                   <String fx:value="background_color_dark_dark_blue" />
@@ -31,7 +31,7 @@
          </styleClass></Label>
       <Pane id="category_multichoice_buttons" fx:id="fruitPane" layoutX="-2.0" layoutY="208.0" onMouseEntered="#openFruitSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_multichoice_textButton" fx:id="fruitButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFruit" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />
+            <Button id="category_buttons" fx:id="fruitButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFruit" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />
             <Pane fx:id="fruitArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
                <styleClass>
                   <String fx:value="background_color_dark_dark_blue" />
@@ -42,7 +42,7 @@
       </Pane>
       <Pane id="category_multichoice_buttons" fx:id="vegetablePane" layoutX="-2.0" layoutY="293.0" onMouseEntered="#openVegetableSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_multichoice_textButton" fx:id="vegetableButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllVegetable" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Grönsaker" />
+            <Button id="category_buttons" fx:id="vegetableButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllVegetable" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Grönsaker" />
             <Pane fx:id="vegetableArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
                <styleClass>
                   <String fx:value="background_color_dark_dark_blue" />
@@ -53,7 +53,7 @@
       </Pane>
       <Pane id="category_multichoice_buttons" fx:id="fishAndMeatPane" layoutX="-2.0" layoutY="548.0" onMouseEntered="#openFishAndMeatSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_multichoice_textButton" fx:id="fishAndMeatButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFishAndMeat" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
+            <Button id="category_buttons" fx:id="fishAndMeatButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFishAndMeat" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
             <Pane fx:id="fishAndMeatArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
                <styleClass>
                   <String fx:value="background_color_dark_dark_blue" />
@@ -64,7 +64,7 @@
       </Pane>
       <Pane id="category_multichoice_buttons" fx:id="dryGoodsPane" layoutX="-2.0" layoutY="633.0" onMouseEntered="#openDryGoodsSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
-            <Button id="category_multichoice_textButton" fx:id="dryGoodButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDryGood" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Torrvaror" />
+            <Button id="category_buttons" fx:id="dryGoodButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDryGood" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Torrvaror" />
             <Pane fx:id="dryGoodsArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
                <styleClass>
                   <String fx:value="background_color_dark_dark_blue" />
