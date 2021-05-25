@@ -19,7 +19,7 @@ public class settings extends AnchorPane {
     private final Controller pController;
     DB db = DB.getInstance();
     private boolean[] isCorrectInformation = {false, false, false, false, false};
-    private boolean[] isCorrectInformation2 = {false, false, false, false, false};
+
 
 
     private String cardType;
@@ -240,7 +240,7 @@ public class settings extends AnchorPane {
     @FXML
     public void save1pressed(ActionEvent event) {
 
-        if (isAllTrue(isCorrectInformation2)){
+        if (isAllTrue(isCorrectInformation)){
             updatesettings();
             settingsdefault.toFront();
         }
@@ -256,10 +256,10 @@ public class settings extends AnchorPane {
                         // Focus lost
                         if (firstNameTextField1.getText().matches("")) {
                             firstNameTextField1.setId("blue_text_field_wrong_2");
-                            isCorrectInformation2[0] = false;
+                            isCorrectInformation[0] = false;
                         } else {
                             firstNameTextField1.setId("blue_text_field_2");
-                            isCorrectInformation2[0] = true;
+                            isCorrectInformation[0] = true;
                         }
 
                     }
@@ -271,10 +271,10 @@ public class settings extends AnchorPane {
                     // Focus lost
                     if (lastNameTextField1.getText().matches("")) {
                         lastNameTextField1.setId("blue_text_field_wrong_2");
-                        isCorrectInformation2[1] = false;
+                        isCorrectInformation[1] = false;
                     } else {
                         lastNameTextField1.setId("blue_text_field_2");
-                        isCorrectInformation2[1] = true;
+                        isCorrectInformation[1] = true;
                     }
 
                 }
@@ -288,10 +288,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (addressTextField1.getText().matches("")) {
                     addressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation2[2] = false;
+                    isCorrectInformation[2] = false;
                 } else {
                     addressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation2[2] = true;
+                    isCorrectInformation[2] = true;
                 }
 
             }
@@ -305,10 +305,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation2[3] = false;
+                    isCorrectInformation[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation2[3] = true;
+                    isCorrectInformation[3] = true;
                 }
 
             }
@@ -322,10 +322,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation2[3] = false;
+                    isCorrectInformation[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation2[3] = true;
+                    isCorrectInformation[3] = true;
                 }
 
             }
@@ -352,10 +352,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if ( postalCodeTextField1.getText().length() != 5) {
                     postalCodeTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation2[4] = false;
+                    isCorrectInformation[4] = false;
                 } else {
                     postalCodeTextField1.setId("blue_text_field_2");
-                    isCorrectInformation2[4] = true;
+                    isCorrectInformation[4] = true;
                 }
 
             }
