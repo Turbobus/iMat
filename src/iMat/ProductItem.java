@@ -112,9 +112,9 @@ public class ProductItem extends AnchorPane {
         inCart();
         pController.checkAllInCart();
         gProductPriceLabel.setText(String.format("%.2f",item.getAmount()*item.getProduct().getPrice()) + " kr");
-        System.out.println(item.getAmount());
         amountTextField.setText(String.valueOf((int) item.getAmount()));
     }
+
     public void inCart(){
         gProductItem.toFront();
         controller.addToCart(productID);
@@ -137,7 +137,6 @@ public class ProductItem extends AnchorPane {
         gProductPriceLabel.setText(String.format("%.2f",item.getProduct().getPrice()*amount) + " kr");
         //gProductPriceLabel.setText(item.getProduct().getPrice()*amount+ " kr");
         amountTextField.setText(String.valueOf((int) amount));
-        inCart = true;
         pController.checkAllInCart();
     }
 

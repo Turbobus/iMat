@@ -257,6 +257,7 @@
 
 #prodCard_blue:hover {
     -fx-background-color: #E8EDFF;
+    -fx-cursor: hand;
 }
 
 #prodCard_blue:pressed {
@@ -274,6 +275,7 @@
 
 #prodCard_green:hover {
     -fx-background-color: #CAFFB1;
+    -fx-cursor: hand;
 }
 
 #prodCard_green:pressed {
@@ -636,12 +638,20 @@
 #breadcrumb_button:hover {
     -fx-background-color: #E9EDFF;
     -fx-background-radius: 5px;
-    -fx-cursor: hand;
 }
 
 #breadcrumb_button:pressed   {
     -fx-background-color: #D7DAE8;
     -fx-background-radius: 5px;
+}
+
+#breadcrumb_button_no_hover {
+    -fx-background-color: #FAFBFF;
+    -fx-padding: 0px;
+    -fx-text-fill: #002E48;
+    -fx-font-size: 23px;
+    -text-align: left;
+    -fx-cursor: pointer;
 }
 
 #category_buttons {
@@ -681,7 +691,11 @@
     -fx-border-insets: -1px;
 }
 
-#category_multichoice_buttons {
+#category_pressed_buttons:hover {
+    -fx-cursor: pointer;
+}
+
+#category_multichoice_panes {
     -fx-background-color: #F1F4FF;
     -fx-border-radius: 0 37.5 37.5 0;
     -fx-background-radius: 0 37.5 37.5 0;
@@ -692,18 +706,11 @@
     -fx-border-insets: -1px;
 }
 
-#category_multichoice_buttons:hover {
+#category_multichoice_panes:hover {
     -fx-background-color: #F3F9FF;
-    -fx-border-radius: 0 37.5 37.5 0;
-    -fx-background-radius: 0 37.5 37.5 0;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 4);
-    -fx-border-color: #002E48;
-    -fx-border-width: 1px;
-    -fx-text-fill: #002E48;
-    -fx-border-insets: -1px;
 }
 
-#category_pressed_multichoice_buttons {
+#category_pressed_multichoice_panes {
     -fx-background-color: #E3FFD6;
     -fx-border-radius: 0 37.5 37.5 0;
     -fx-background-radius: 0 37.5 37.5 0;
@@ -712,6 +719,27 @@
     -fx-border-width: 2px;
     -fx-text-fill: #0A2500;
     -fx-border-insets: -1px;
+}
+
+#category_pressed_multichoice_panes:hover {
+    -fx-cursor: pointer;
+}
+
+#category_multichoice_buttons {
+    -fx-background-color: #C7E1FF;
+    -fx-border-radius: 37.5 0 0 37.5;
+    -fx-background-radius: 37.5 0 0 37.5;
+    -fx-border-color: #002E48;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 27px;
+    -fx-padding: 0 10 0 0;
+    -fx-text-fill: #002E48;
+    -fx-border-insets: -1px;
+}
+
+#category_multichoice_buttons:hover {
+    -fx-background-color: #B4D0F1;
 }
 
 #category_pressed_showAll_multichoice_buttons {
@@ -726,6 +754,10 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0, 0, 0);
     -fx-text-fill: #0A2500;
     -fx-border-insets: -1px;
+}
+
+#category_pressed_showAll_multichoice_buttons:hover {
+    -fx-cursor: pointer;
 }
 
 #subcategory_buttons {
@@ -761,6 +793,10 @@
     -fx-font-size: 23px;
     -fx-text-fill: #0A2500;
     -fx-border-insets: -1px;
+}
+
+#subcategory_pressed_buttons:hover {
+    -fx-cursor: pointer;
 }
 
 #logo_button {}
@@ -806,6 +842,10 @@
     -fx-border-insets: -1px;
 }
 
+#home_pressed_button:hover {
+    -fx-cursor: pointer;
+}
+
 #cart_pane {
     -fx-border-radius: 15px;
     -fx-background-radius: 16px;
@@ -824,6 +864,7 @@
 
 #cart_item_card:hover {
     -fx-background-color: #CAFFB1;
+    -fx-cursor: hand;
 }
 
 #cart_item_card:pressed {
@@ -862,6 +903,15 @@
     -fx-text-fill: #002E48;
     -fx-border-color: #DC5A21;
 
+}
+
+#check_out_radio_button {
+    -fx-font-size: 21px;
+    -fx-text-fill: #002E48;
+}
+
+#check_out_radio_button:hover {
+    -fx-cursor: hand;
 }
 
 #search_button {
