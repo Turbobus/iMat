@@ -61,6 +61,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     private final Subcategory fruitSubcategory;
 
     private boolean mouseOnSubCategory;
+    private final List<Product> sortedProducts = new ArrayList<>();
 
     private CategoryMenu(Controller pController) {
 
@@ -126,6 +127,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         items.clear();
 
         homeButton.setId("home_pressed_button");
+
+        sortProducts();
     }
 
     public static void initialize(Controller pController) {
@@ -142,9 +145,37 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
+    private void sortProducts() {
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.CITRUS_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.EXOTIC_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.VEGETABLE_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.MELONS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.ROOT_VEGETABLE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FRUIT));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.BERRY));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.CABBAGE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.POTATO_RICE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.HERB));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.BREAD));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.DAIRIES));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FISH));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.MEAT));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.POD));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FLOUR_SUGAR_SALT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.NUTS_AND_SEEDS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.PASTA));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.COLD_DRINKS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.HOT_DRINKS));
+    }
+
     @FXML public void toHomePage() {
         for(CategoryListener c : pController.getCategoryListeners()) {
-            c.populateCards(database.getProducts());
+            c.populateCards(sortedProducts);
             c.updateBreadCrumbs(null, "home");
         }
         updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
@@ -457,5 +488,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     public Button getDairyButton() { return dairyButton; }
 
     public Button getSweetButton() { return sweetButton; }
+
+    public List<Product> getSortedProducts() { return sortedProducts; }
 
 }
