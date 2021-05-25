@@ -1,143 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="370.0" maxWidth="430.0" minHeight="370.0" minWidth="430.0" prefHeight="370.0" prefWidth="430.0" styleClass="border_radius_30" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="370.0" maxWidth="630.0" minHeight="320.0" minWidth="430.0" prefHeight="320.0" prefWidth="630.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="useSavedCard" layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
+      <AnchorPane fx:id="writeNewCard" maxWidth="630.0" minWidth="430.0" prefHeight="320.0" prefWidth="630.0">
          <styleClass>
             <String fx:value="background_color_light_light_blue" />
             <String fx:value="border_radius_30" />
-            <String fx:value="shadow_25" />
             <String fx:value="border_dark_dark_blue_1_width" />
          </styleClass>
          <children>
-            <AnchorPane maxHeight="60.0" maxWidth="430.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="430.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <children>
-                  <Label layoutX="22.0" layoutY="13.0" text="Sparade kortuppgifter">
-                     <styleClass>
-                        <String fx:value="bold_24" />
-                        <String fx:value="text_color_dark_dark_blue" />
-                     </styleClass>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Label layoutX="22.0" layoutY="131.0" text="Kortnummer:">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="22.0" layoutY="189.0" text="Namn:">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="22.0" layoutY="251.0" text="Giltighetsdatum:">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="240.0" layoutY="250.0" text="/">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="22.0" layoutY="309.0" text="CVC:">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Label layoutX="23.0" layoutY="75.0" text="Typ av kort:">
-               <styleClass>
-                  <String fx:value="bold_20" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Button id="addFavorites_blue" layoutX="196.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="215.0" text="eller skriv in manuellt" />
-            <Label layoutX="153.0" layoutY="129.0" text="Sparat kortummer">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_22" />
-               </styleClass>
-            </Label>
-            <Label layoutX="95.0" layoutY="188.0" text="Sparat Namn + efternamn">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_22" />
-               </styleClass>
-            </Label>
-            <Label layoutX="186.0" layoutY="249.0" text="MM">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_22" />
-               </styleClass>
-            </Label>
-            <Label layoutX="270.0" layoutY="249.0" text="YY">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_22" />
-               </styleClass>
-            </Label>
-            <Label layoutX="73.0" layoutY="307.0" text="CVC">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_22" />
-               </styleClass>
-            </Label>
-            <Button id="blue_button_with_border" layoutX="184.0" layoutY="69.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0">
-               <graphic>
-                  <Label text="Visa">
-                     <styleClass>
-                        <String fx:value="text_color_blue_white" />
-                        <String fx:value="bold_22" />
-                        <String fx:value="shadow_50" />
-                     </styleClass>
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" translateX="-15.0">
-                           <image>
-                              <Image url="@../../img/visaIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="writeNewCard" layoutY="4.0" maxWidth="430.0" minWidth="430.0" prefHeight="366.0" prefWidth="430.0">
-         <styleClass>
-            <String fx:value="background_color_light_light_blue" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="shadow_25" />
-            <String fx:value="border_dark_dark_blue_1_width" />
-         </styleClass>
-         <children>
-            <AnchorPane maxHeight="60.0" maxWidth="430.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="430.0">
+            <AnchorPane maxHeight="60.0" maxWidth="630.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="630.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="background_color_light_blue" />
@@ -153,75 +33,154 @@
                   </Label>
                </children>
             </AnchorPane>
-             <MenuButton fx:id="typeofcard" graphicTextGap="15.0" layoutX="184.0" layoutY="69.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Visa" textFill="#f1f4ff">
-                 <items>
-                     <MenuItem mnemonicParsing="false" text="Mastercard">
-                         <graphic>
-                             <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                     <Image url="@../../img/mastercard.png" />
-                                 </image>
-                             </ImageView>
-                         </graphic>
-                     </MenuItem>
-                 </items>
-                 <font>
-                     <Font size="24.0" />
-                 </font>
-                 <graphic>
-                     <ImageView fitHeight="26.0" fitWidth="41.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateY="-1.0">
-                         <image>
-                             <Image url="@../../img/visaIcon.png" />
-                         </image>
-                     </ImageView>
-                 </graphic>
-                 <cursor>
-                     <Cursor fx:constant="DEFAULT" />
-                 </cursor>
-             </MenuButton>
-            <Label layoutX="22.0" layoutY="131.0" text="Kortnummer:">
+            <Label layoutX="124.0" layoutY="81.0" text="Kortnummer:">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="22.0" layoutY="189.0" text="Namn:">
+            <Label layoutX="22.0" layoutY="143.0" text="Kortinnehavarens Namn:">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="22.0" layoutY="251.0" text="Giltighetsdatum:">
+            <Label layoutX="94.0" layoutY="203.0" text="Giltighetsdatum:">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="240.0" layoutY="250.0" text="/">
+            <Label layoutX="314.0" layoutY="202.0" text="/">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="22.0" layoutY="309.0" text="CVC:">
+            <Label layoutX="492.0" layoutY="203.0" text="CVC:">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <Label layoutX="23.0" layoutY="75.0" text="Typ av kort:">
+            <TextField id="blue_text_field" fx:id="cardNumber" layoutX="255.0" layoutY="72.0" prefHeight="45.0" prefWidth="265.0" promptText="XXXXXXXXXXXXXXXX" />
+            <TextField id="blue_text_field" fx:id="cardName" layoutX="255.0" layoutY="134.0" prefHeight="45.0" prefWidth="355.0" promptText="Förnamn Efternamn" />
+            <TextField id="blue_text_field" fx:id="cardMonth" alignment="CENTER" layoutX="255.0" layoutY="194.0" prefHeight="45.0" prefWidth="47.0" promptText="MM" style="-fx-padding: 2;" />
+            <TextField id="blue_text_field" fx:id="cardYear" alignment="CENTER" layoutX="332.0" layoutY="194.0" prefHeight="45.0" prefWidth="47.0" promptText="YY" style="-fx-padding: 2;" />
+            <TextField id="blue_text_field" fx:id="cardCVC" layoutX="545.0" layoutY="194.0" prefHeight="45.0" prefWidth="65.0" promptText="XXX" />
+            <Button id="addFavorites_blue" fx:id="saveUntilNextTime" layoutX="369.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveCardDetails" prefHeight="40.0" prefWidth="240.0" text="Spara till nästa köp" />
+               <ImageView fx:id="enterInfoVisaImg" fitHeight="40.0" fitWidth="65.0" layoutX="545.0" layoutY="74.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
+                   <image>
+                       <Image url="@../../img/visaIcon.png" />
+                   </image>
+               </ImageView>
+            <ImageView fx:id="enterInfoMasterImg" fitHeight="40.0" fitWidth="65.0" layoutX="545.0" layoutY="74.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
+               <image>
+                  <Image url="@../../img/mastercard.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="useSavedCard" maxWidth="630.0" minWidth="430.0" prefHeight="320.0" prefWidth="630.0">
+         <styleClass>
+            <String fx:value="background_color_light_light_blue" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="border_dark_dark_blue_1_width" />
+         </styleClass>
+         <children>
+            <AnchorPane maxHeight="60.0" maxWidth="630.0" minHeight="60.0" minWidth="430.0" prefHeight="60.0" prefWidth="630.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <children>
+                  <Label layoutX="22.0" layoutY="13.0" text="Sparade kortuppgifter">
+                     <styleClass>
+                        <String fx:value="bold_24" />
+                        <String fx:value="text_color_dark_dark_blue" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="124.0" layoutY="81.0" text="Kortnummer:">
                <styleClass>
                   <String fx:value="bold_20" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <TextField id="blue_text_field" fx:id="cardNumber" layoutX="154.0" layoutY="122.0" prefHeight="45.0" prefWidth="257.0" promptText="XXXXXXXXXXXXXXXX" />
-            <TextField id="blue_text_field" fx:id="cardCVC" layoutX="74.0" layoutY="300.0" prefHeight="45.0" prefWidth="65.0" promptText="XXX" />
-            <TextField id="blue_text_field" fx:id="cardMonth" alignment="CENTER" layoutX="181.0" layoutY="242.0" prefHeight="45.0" prefWidth="47.0" promptText="MM" style="-fx-padding: 2;" />
-            <TextField id="blue_text_field" fx:id="cardYear" alignment="CENTER" layoutX="258.0" layoutY="242.0" prefHeight="45.0" prefWidth="47.0" promptText="YY" style="-fx-padding: 2;" />
-            <TextField id="blue_text_field" fx:id="cardName" layoutX="96.0" layoutY="181.0" prefHeight="45.0" prefWidth="315.0" promptText="Förnamn Efternamn" />
-            <Button id="addFavorites_blue" fx:id="saveUntilNextTime" layoutX="196.0" layoutY="310.0" mnemonicParsing="false" onAction="#saveCardDetails" prefHeight="40.0" prefWidth="215.0" text="Spara till nästa köp" />
+            <Label layoutX="22.0" layoutY="143.0" text="Kortinnehavarens Namn:">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <Label layoutX="94.0" layoutY="203.0" text="Giltighetsdatum:">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <Label layoutX="314.0" layoutY="202.0" text="/">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <Label layoutX="492.0" layoutY="203.0" text="CVC:">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <Button id="addFavorites_blue" layoutX="369.0" layoutY="260.0" mnemonicParsing="false" onAction="#writeCardInfo" prefHeight="40.0" prefWidth="240.0" text="Ändra kortuppgifter" />
+            <Label fx:id="cardNumberText" layoutX="261.0" layoutY="79.0" text="XXXXXXXXXXXXXXXX">
+               <styleClass>
+                  <String fx:value="text_color_dark_dark_blue" />
+                  <String fx:value="font_22" />
+               </styleClass>
+            </Label>
+            <Label fx:id="cardNameText" layoutX="261.0" layoutY="141.0" prefHeight="31.0" prefWidth="332.0" text="Sparat Namn + efternamn">
+               <styleClass>
+                  <String fx:value="text_color_dark_dark_blue" />
+                  <String fx:value="font_22" />
+               </styleClass>
+            </Label>
+            <Label fx:id="cardMonthText" alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="201.0" prefHeight="31.0" prefWidth="48.0" text="MM">
+               <styleClass>
+                  <String fx:value="text_color_dark_dark_blue" />
+                  <String fx:value="font_22" />
+               </styleClass>
+            </Label>
+            <Label fx:id="cardYearText" alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="201.0" prefHeight="31.0" prefWidth="38.0" text="YY">
+               <styleClass>
+                  <String fx:value="text_color_dark_dark_blue" />
+                  <String fx:value="font_22" />
+               </styleClass>
+            </Label>
+            <Label fx:id="cardCVCText" layoutX="553.0" layoutY="201.0" text="CVC">
+               <styleClass>
+                  <String fx:value="text_color_dark_dark_blue" />
+                  <String fx:value="font_22" />
+               </styleClass>
+            </Label>
+            <ImageView fx:id="showInfoVisaImg" fitHeight="40.0" fitWidth="65.0" layoutX="530.0" layoutY="74.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
+               <image>
+                  <Image url="@../../img/visaIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="showInfoMasterImg" fitHeight="40.0" fitWidth="65.0" layoutX="530.0" layoutY="74.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_50">
+               <image>
+                  <Image url="@../../img/mastercard.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
+   <styleClass>
+      <String fx:value="border_radius_30" />
+      <String fx:value="background_color_blue_white" />
+      <String fx:value="shadow_25" />
+   </styleClass>
 </fx:root>

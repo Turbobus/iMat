@@ -18,7 +18,7 @@
          </image>
       </ImageView>
       <Pane opacity="0.75" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FAFBFF;" />
-      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
+      <AnchorPane onMouseMoved="#updateNextButton" prefHeight="1080.0" prefWidth="1920.0">
          <children>
             <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="33.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -38,6 +38,7 @@
                <styleClass>
                   <String fx:value="background_color_blue" />
                   <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_50" />
                </styleClass>
                <children>
                   <Label alignment="CENTER" layoutY="20.0" prefWidth="600.0" text="Skapa ditt nya kundkonto:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
@@ -50,10 +51,9 @@
                         <String fx:value="bold_36" />
                      </styleClass>
                   </Label>
-                  <Button id="white_button" fx:id="nextButton" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Nästa">
+                  <Button id="white_button_disabled" fx:id="nextButton" alignment="CENTER" layoutX="198.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Nästa">
                      <styleClass>
                         <String fx:value="border_radius_30" />
-                        <String fx:value="shadow_50" />
                         <String fx:value="bold_28" />
                      </styleClass>
                      <font>
@@ -80,9 +80,9 @@
                         <String fx:value="shadow_50" />
                      </styleClass>
                   </Label>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="110.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
+                  <AnchorPane id="hide_white_textArea" fx:id="nameHide" layoutX="35.0" layoutY="110.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
                      <children>
-                        <TextField fx:id="firstNameTextField" layoutX="73.0" prefHeight="45.0" prefWidth="436.0">
+                        <TextField fx:id="firstNameTextField" layoutX="73.0" layoutY="3.0" prefHeight="39.0" prefWidth="436.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="text_color_dark_blue" />
@@ -97,9 +97,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="170.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
+                  <AnchorPane id="hide_white_textArea" fx:id="lastHide" layoutX="35.0" layoutY="170.0" maxHeight="45.0" maxWidth="530.0" minHeight="45.0" minWidth="530.0" prefHeight="45.0" prefWidth="530.0">
                      <children>
-                        <TextField fx:id="lastNameTextField" layoutX="113.0" prefHeight="45.0" prefWidth="397.0">
+                        <TextField fx:id="lastNameTextField" layoutX="113.0" layoutY="3.0" prefHeight="39.0" prefWidth="397.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="font_20" />
@@ -114,9 +114,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
+                  <AnchorPane id="hide_white_textArea" fx:id="adressHide" layoutX="35.0" layoutY="230.0" prefHeight="45.0" prefWidth="530.0">
                      <children>
-                        <TextField fx:id="addressTextField" layoutX="79.0" prefHeight="45.0" prefWidth="430.0">
+                        <TextField fx:id="addressTextField" layoutX="79.0" layoutY="3.0" prefHeight="39.0" prefWidth="430.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="text_color_dark_blue" />
@@ -131,9 +131,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                  <AnchorPane id="hide_white_textArea" fx:id="postNumberHide" layoutX="35.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
                      <children>
-                        <TextField fx:id="postalCodeTextField" layoutX="135.0" prefHeight="45.0" prefWidth="98.0">
+                        <TextField fx:id="postalCodeTextField" layoutX="135.0" layoutY="3.0" prefHeight="39.0" prefWidth="98.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="font_20" />
@@ -148,9 +148,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
+                  <AnchorPane id="hide_white_textArea" fx:id="postAdressHide" layoutX="310.0" layoutY="290.0" prefHeight="45.0" prefWidth="255.0">
                      <children>
-                        <TextField fx:id="postAddressTextField" layoutX="86.0" prefHeight="45.0" prefWidth="149.0">
+                        <TextField fx:id="postAddressTextField" layoutX="86.0" layoutY="3.0" prefHeight="39.0" prefWidth="149.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="text_color_dark_blue" />

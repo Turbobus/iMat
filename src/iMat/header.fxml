@@ -18,7 +18,6 @@
       <Button id="white_button" fx:id="earlierPurchaseButton" contentDisplay="RIGHT" layoutX="250.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#earlierPurchaseButtonPressed" prefHeight="60.0" prefWidth="200.0" text="Tidigare köp">
          <styleClass>
             <String fx:value="border_radius_30" />
-            <String fx:value="shadow_50" />
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
@@ -33,7 +32,6 @@
       <Button id="white_button" contentDisplay="RIGHT" layoutX="1330.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#helpButtonpressed" prefHeight="60.0" prefWidth="200.0" text="Hjälp">
          <styleClass>
             <String fx:value="border_radius_30" />
-            <String fx:value="shadow_50" />
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
@@ -46,7 +44,6 @@
       <Button id="white_button" contentDisplay="RIGHT" layoutX="470.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#favouritesButtonpressed" prefHeight="60.0" prefWidth="200.0" text="Favoriter">
          <styleClass>
             <String fx:value="border_radius_30" />
-            <String fx:value="shadow_50" />
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
@@ -56,7 +53,6 @@
       <Button id="white_button" fx:id="myAccountButton" contentDisplay="RIGHT" layoutX="1550.0" layoutY="46.0" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#accountButtonPressed" prefHeight="60.0" prefWidth="200.0" text="Mitt konto">
          <styleClass>
             <String fx:value="border_radius_30" />
-            <String fx:value="shadow_50" />
             <String fx:value="bold_24" />
          </styleClass>
          <graphic>
