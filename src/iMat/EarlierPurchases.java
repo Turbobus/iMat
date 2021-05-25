@@ -65,8 +65,8 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
         iconPane.setId("earlier_purchase_svg");
         //clear list
         purchasesFlowPane.getChildren().clear();
-        for(int i = 0;i<db.getOrders().size();i++){
-            SingularPurchase purchase = new SingularPurchase(pController, db.getOrders().get(i));
+        for(Order order : db.getOrders()){
+            SingularPurchase purchase = new SingularPurchase(pController, order);
             //purchase.reload();
             purchases.add(purchase);
             purchasesFlowPane.getChildren().add(0,purchase);

@@ -135,9 +135,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     }
 
     public void putAllInCart(){
-        gProductFlowPane.getChildren().clear();
-        gSingularPurchaseBack.setPrefHeight(bSingularPurchaseBack.getPrefHeight());
-        gSingularPurchaseBack.toFront();
+
         for (ProductItem s :  items)
         {
             if(!(s.isInCart())){
@@ -149,7 +147,9 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         }
 
 
-
+        gProductFlowPane.getChildren().clear();
+        gSingularPurchaseBack.setPrefHeight(bSingularPurchaseBack.getPrefHeight());
+        gSingularPurchaseBack.toFront();
     }
 
     @FXML
@@ -159,9 +159,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     }
 
     public void takeOutOfCart(){
-        bProductFlowPane.getChildren().clear();
-        bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
-        bSingularPurchaseBack.toFront();
+
 
         for (ProductItem s :  items)
         {
@@ -172,6 +170,11 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         if(expanded){
             addProductItems(bProductFlowPane);
         }
+
+
+        bProductFlowPane.getChildren().clear();
+        bSingularPurchaseBack.setPrefHeight(gSingularPurchaseBack.getPrefHeight());
+        bSingularPurchaseBack.toFront();
     }
 
     @FXML public void setButtonTakeOutOfCart(ActionEvent event){
@@ -205,8 +208,9 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
     private void addProductItems(FlowPane pane){
         pane.getChildren().clear();
-        for(int i = 0;i<items.size();i++){
-            pane.getChildren().add(items.get(i));
+        System.out.println(items.size());
+        for(ProductItem item : items){
+            pane.getChildren().add(item);
         }
     }
 
