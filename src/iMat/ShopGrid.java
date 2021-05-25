@@ -51,11 +51,14 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
     }
 
     private void setBreadCrumbText(String current, String mainCategory, boolean lower, String subCategory) {
+        mainCategoryButton.setId("breadcrumb_button_no_hover");
+
         currentPlace.setText(current);
         mainCategoryButton.setText(mainCategory);
         lowerDown.setText("");
         subCategoryButton.setText("");
         if(lower) {
+            mainCategoryButton.setId("breadcrumb_button");
             lowerDown.setText(">");
             subCategoryButton.setText(subCategory);
         }
@@ -69,6 +72,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
             case "Kött & Fisk" -> CategoryMenu.getInstance().showAllFishAndMeat();
             case "Torrvaror" -> CategoryMenu.getInstance().showAllDryGood();
             case "Frukt" -> CategoryMenu.getInstance().showAllFruit();
+            case "Hem" -> CategoryMenu.getInstance().toHomePage();
         }
     }
 
