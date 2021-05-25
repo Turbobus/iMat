@@ -61,6 +61,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     private final Subcategory fruitSubcategory;
 
     private boolean mouseOnSubCategory;
+    private final List<Product> sortedProducts = new ArrayList<>();
 
     private CategoryMenu(Controller pController) {
 
@@ -126,6 +127,8 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         items.clear();
 
         homeButton.setId("home_pressed_button");
+
+        sortProducts();
     }
 
     public static void initialize(Controller pController) {
@@ -142,9 +145,37 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         return new Subcategory(pController, nameOfSubcategory, subcategoryNames);
     }
 
+    private void sortProducts() {
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.CITRUS_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.EXOTIC_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.VEGETABLE_FRUIT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.MELONS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.ROOT_VEGETABLE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FRUIT));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.BERRY));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.CABBAGE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.POTATO_RICE));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.HERB));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.BREAD));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.DAIRIES));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FISH));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.MEAT));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.POD));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.FLOUR_SUGAR_SALT));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.NUTS_AND_SEEDS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.PASTA));
+
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.COLD_DRINKS));
+        sortedProducts.addAll(database.getCategoryProducts(ProductCategory.HOT_DRINKS));
+    }
+
     @FXML public void toHomePage() {
         for(CategoryListener c : pController.getCategoryListeners()) {
-            c.populateCards(database.getProducts());
+            c.populateCards(sortedProducts);
             c.updateBreadCrumbs(null, "home");
         }
         updateCategoryButtons(new SubcategoryItem(pController, "HOME", "Decoy"));
@@ -188,17 +219,17 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     public void updateButtonStyle(SubcategoryItem clicked) {
         //pController.getShopHolder().setupCategories();
         homeButton.setId("home_button");
-        drinkButton.setId("category_buttons");
-        vegetableButton.setId("category_buttons");
-        fishAndMeatButton.setId("category_buttons");
-        dryGoodButton.setId("category_buttons");
-        fruitButton.setId("category_buttons");
+        drinkButton.setId("category_multichoice_buttons");
+        vegetableButton.setId("category_multichoice_buttons");
+        fishAndMeatButton.setId("category_multichoice_buttons");
+        dryGoodButton.setId("category_multichoice_buttons");
+        fruitButton.setId("category_multichoice_buttons");
 
-        drinkPane.setId("category_multichoice_buttons");
-        vegetablePane.setId("category_multichoice_buttons");
-        fishAndMeatPane.setId("category_multichoice_buttons");
-        dryGoodsPane.setId("category_multichoice_buttons");
-        fruitPane.setId("category_multichoice_buttons");
+        drinkPane.setId("category_multichoice_panes");
+        vegetablePane.setId("category_multichoice_panes");
+        fishAndMeatPane.setId("category_multichoice_panes");
+        dryGoodsPane.setId("category_multichoice_panes");
+        fruitPane.setId("category_multichoice_panes");
 
         breadButton.setId("category_buttons");
         dairyButton.setId("category_buttons");
@@ -211,11 +242,11 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
         fruitArrow.setId("category_arrow_blue");
 
         switch (clicked.getName()) {
-            case "drinks" -> { drinkPane.setId("category_pressed_multichoice_buttons"); drinkArrow.setId("category_arrow_green"); }
-            case "vegetables" -> { vegetablePane.setId("category_pressed_multichoice_buttons"); vegetableArrow.setId("category_arrow_green"); }
-            case "fish and meat" -> { fishAndMeatPane.setId("category_pressed_multichoice_buttons"); fishAndMeatArrow.setId("category_arrow_green"); }
-            case "dryGoods" -> { dryGoodsPane.setId("category_pressed_multichoice_buttons"); dryGoodsArrow.setId("category_arrow_green"); }
-            case "fruit" -> { fruitPane.setId("category_pressed_multichoice_buttons"); fruitArrow.setId("category_arrow_green"); }
+            case "drinks" -> { drinkPane.setId("category_pressed_multichoice_panes"); drinkArrow.setId("category_arrow_green"); }
+            case "vegetables" -> { vegetablePane.setId("category_pressed_multichoice_panes"); vegetableArrow.setId("category_arrow_green"); }
+            case "fish and meat" -> { fishAndMeatPane.setId("category_pressed_multichoice_panes"); fishAndMeatArrow.setId("category_arrow_green"); }
+            case "dryGoods" -> { dryGoodsPane.setId("category_pressed_multichoice_panes"); dryGoodsArrow.setId("category_arrow_green"); }
+            case "fruit" -> { fruitPane.setId("category_pressed_multichoice_panes"); fruitArrow.setId("category_arrow_green"); }
 
             case "HOME" -> homeButton.setId("home_pressed_button");
             case "BREAD" -> breadButton.setId("category_pressed_buttons");
@@ -457,5 +488,7 @@ public class CategoryMenu extends AnchorPane implements CategoryButtonUpdater {
     public Button getDairyButton() { return dairyButton; }
 
     public Button getSweetButton() { return sweetButton; }
+
+    public List<Product> getSortedProducts() { return sortedProducts; }
 
 }

@@ -49,7 +49,7 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         this.lowerDown.setText("");
         this.subCategoryButton.setText("");
 
-        populateCards(DB.getInstance().getProducts());          // Temp Vet inte om vi kommer ha kvar detta
+        populateCards(CategoryMenu.getInstance().getSortedProducts());
     }
 
     private void setBreadCrumbText(String current, String mainCategory, boolean lower, String subCategory) {
