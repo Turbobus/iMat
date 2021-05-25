@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -59,13 +60,13 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Text fill="#002e48" layoutX="380.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-post:" AnchorPane.rightAnchor="220.8896484375">
+            <Text fill="#002e48" layoutX="380.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-post:" AnchorPane.rightAnchor="220.8896484375">
                <styleClass>
                   <String fx:value="bold_22" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Text fill="#002e48" layoutX="393.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postort:" AnchorPane.rightAnchor="220.8896484375">
+            <Text fill="#002e48" layoutX="393.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postort:" AnchorPane.rightAnchor="220.8896484375">
                <font>
                   <Font size="22.0" />
                </font>
@@ -74,7 +75,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Text>
-            <Button id="light_blue_button_with_border" fx:id="abort1" layoutX="443.0" layoutY="283.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48" AnchorPane.bottomAnchor="20.0">
+            <Button id="light_blue_button" fx:id="abort1" layoutX="443.0" layoutY="283.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48" AnchorPane.bottomAnchor="20.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -103,7 +104,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <TextField id="blue_text_field_2" fx:id="postAddressTextField1" layoutX="459.0" layoutY="172.0" prefHeight="39.0" prefWidth="205.0">
+            <TextField id="blue_text_field_2" fx:id="postAddressTextField1" layoutX="459.0" layoutY="122.0" prefHeight="39.0" prefWidth="205.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -148,7 +149,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
             </TextField>
-            <Button id="light_blue_button_with_border" fx:id="save1" layoutX="559.0" layoutY="283.0" mnemonicParsing="false" onAction="#save1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <Button id="light_blue_button" fx:id="save1" layoutX="559.0" layoutY="283.0" mnemonicParsing="false" onAction="#save1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -165,7 +166,7 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
-            <TextField id="blue_text_field_2" fx:id="mailTextField1" layoutX="459.0" layoutY="122.0" prefHeight="39.0" prefWidth="205.0">
+            <TextField id="blue_text_field_2" fx:id="mailTextField1" layoutX="459.0" layoutY="172.0" prefHeight="39.0" prefWidth="205.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -178,7 +179,7 @@
          <styleClass>
             <String fx:value="background_color_blue_white" />
             <String fx:value="border_dark_dark_blue_1_width" />
-            <String fx:value="background_color_light_blue_white" />
+            <String fx:value="background_color_light_light_blue" />
          </styleClass>
       </AnchorPane>
       <AnchorPane fx:id="settingsdefault" layoutX="30.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="680.0" stylesheets="@main.css" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
@@ -343,21 +344,123 @@
             <String fx:value="background_color_light_light_blue" />
          </styleClass>
       </AnchorPane>
-      <Label prefHeight="85.0" prefWidth="740.0" stylesheets="@main.css" text="   Mitt konto" textFill="WHITE">
+      <AnchorPane fx:id="paymentchanged" layoutX="30.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="680.0" stylesheets="@main.css">
+         <children>
+            <Label prefHeight="60.0" prefWidth="678.0" stylesheets="@main.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <styleClass>
+                  <String fx:value="background_color_light_blue" />
+                  <String fx:value="shadow_25" />
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="arrow-button" />
+                  <String fx:value="arrow" />
+               </styleClass>
+            </Label>
+            <Text fill="#002e48" layoutX="120.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer:" AnchorPane.rightAnchor="426.1025390625">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Text>
+            <Text fill="#002e48" layoutX="10.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortinnehavarens namn:" AnchorPane.rightAnchor="426.1025390625">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Text>
+            <Text fill="#002e48" layoutX="9.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giltighetsdatum:" AnchorPane.rightAnchor="426.1025390625">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Text>
+            <Text fill="#002e48" layoutX="129.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC:" AnchorPane.rightAnchor="426.1025390625">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Text>
+            <Button id="light_blue_button" fx:id="save2" layoutX="559.0" layoutY="210.0" mnemonicParsing="false" onAction="#save2pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="text_color_dark_blue" />
+                  <String fx:value="background_color_blue_white" />
+                  <String fx:value="shadow_25_side" />
+                  <String fx:value="border_radius_30" />
+               </styleClass>
+            </Button>
+            <TextField id="blue_text_field_2" fx:id="cardnumber1" layoutX="260.0" layoutY="70.0" prefHeight="39.0" prefWidth="218.0" stylesheets="@main.css">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField id="blue_text_field_2" fx:id="cardholername1" layoutX="260.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" stylesheets="@main.css">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="border_radius_10" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+            </TextField>
+            <TextField id="blue_text_field_2" fx:id="validmonth1" alignment="CENTER" layoutX="260.0" layoutY="163.0" prefHeight="39.0" prefWidth="55.0" promptText="mm">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="border_radius_10" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+            </TextField>
+            <TextField id="blue_text_field_2" fx:id="cvc1" layoutX="260.0" layoutY="212.0" prefHeight="39.0" prefWidth="64.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="border_radius_10" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+            </TextField>
+            <Button id="light_blue_button" fx:id="abort2" layoutX="443.0" layoutY="209.0" mnemonicParsing="false" onAction="#abort1paymentpressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="text_color_dark_blue" />
+                  <String fx:value="background_color_blue_white" />
+                  <String fx:value="shadow_25_side" />
+                  <String fx:value="border_radius_30" />
+               </styleClass>
+            </Button>
+            <TextField id="blue_text_field_2" fx:id="validyear1" alignment="CENTER" layoutX="340.0" layoutY="162.0" prefHeight="39.0" prefWidth="55.0" promptText="yy">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="border_radius_10" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+            </TextField>
+            <Label layoutX="322.0" layoutY="165.0" text="/">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="12.0" prefHeight="34.0" prefWidth="164.0" stylesheets="@main.css" text="Betaluppgifter" AnchorPane.leftAnchor="15.0">
+               <styleClass>
+                  <String fx:value="bold_24" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+            <AnchorPane />
+         </children>
          <styleClass>
-            <String fx:value="background_color_blue" />
-            <String fx:value="bold_32" />
-            <String fx:value="border_radius_30" />
-            <String fx:value="background_color_blue" />
-            <String fx:value="border_dark_dark_blue_2_width" />
+            <String fx:value="background_color_light_light_blue" />
+            <String fx:value="border_dark_dark_blue_1_width" />
          </styleClass>
-      </Label>
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="193.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" styleClass="background_color_red_red">
-         <image>
-            <Image url="@../img/accounticon.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="closeAccount" layoutX="690.0" layoutY="20.0" mnemonicParsing="false" onAction="#closeSettings" prefHeight="35.0" prefWidth="35.0" styleClass="exit_cross" />
+      </AnchorPane>
       <AnchorPane fx:id="paymentdefault" layoutX="30.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="680.0" stylesheets="@main.css">
          <children>
             <ImageView id="sh" fx:id="visapic" fitHeight="35.0" fitWidth="45.0" layoutX="443.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow_25">
@@ -370,7 +473,7 @@
                   <Image url="@../img/mastercard.png" />
                </image>
             </ImageView>
-            <TextField fx:id="validyear" alignment="CENTER" editable="false" layoutX="353.0" layoutY="163.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="45.0" stylesheets="@main.css" AnchorPane.rightAnchor="330.0">
+            <TextField fx:id="validyear" alignment="CENTER" editable="false" layoutY="163.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="45.0" stylesheets="@main.css" AnchorPane.rightAnchor="330.0">
                <styleClass>
                   <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
@@ -409,7 +512,7 @@
                   <URL value="@main.css" />
                </stylesheets>
             </Button>
-            <Label layoutX="1.0" prefHeight="60.0" prefWidth="680.0" stylesheets="@main.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0">
+            <Label layoutX="1.0" prefHeight="60.0" prefWidth="680.0" stylesheets="@main.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <styleClass>
                   <String fx:value="background_color_light_blue" />
                   <String fx:value="shadow_25" />
@@ -467,8 +570,11 @@
                   <String fx:value="background_color_light_light_blue" />
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
+               <padding>
+                  <Insets right="2.0" />
+               </padding>
             </TextField>
-            <Label layoutX="353.0" layoutY="163.0" prefHeight="35.0" prefWidth="13.0" styleClass="background_color_light_light_blue" text="/" AnchorPane.rightAnchor="370.0">
+            <Label fx:id="slash" layoutY="163.0" prefHeight="35.0" prefWidth="13.0" styleClass="background_color_light_light_blue" text="/" AnchorPane.rightAnchor="370.0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -494,125 +600,21 @@
             <String fx:value="background_color_light_light_blue" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane fx:id="paymentchanged" layoutX="30.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="680.0" stylesheets="@main.css">
-         <children>
-            <Label prefHeight="60.0" prefWidth="678.0" stylesheets="@main.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <styleClass>
-                  <String fx:value="background_color_light_blue" />
-                  <String fx:value="shadow_25" />
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="arrow-button" />
-                  <String fx:value="arrow" />
-               </styleClass>
-            </Label>
-            <Text fill="#002e48" layoutX="120.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer:" AnchorPane.rightAnchor="426.1025390625">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Text>
-            <Text fill="#002e48" layoutX="10.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortinnehavarens namn:" AnchorPane.rightAnchor="426.1025390625">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Text>
-            <Text fill="#002e48" layoutX="9.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giltighetsdatum:" AnchorPane.rightAnchor="426.1025390625">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Text>
-            <Text fill="#002e48" layoutX="129.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC:" AnchorPane.rightAnchor="426.1025390625">
-               <styleClass>
-                  <String fx:value="bold_22" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Text>
-            <Button id="light_blue_button" fx:id="save2" layoutX="559.0" layoutY="210.0" mnemonicParsing="false" onAction="#save2pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="text_color_dark_blue" />
-                  <String fx:value="background_color_blue_white" />
-                  <String fx:value="shadow_25_side" />
-                  <String fx:value="border_radius_30" />
-               </styleClass>
-            </Button>
-            <TextField id="blue_text_field_2" fx:id="cardnumber1" layoutX="260.0" layoutY="70.0" prefHeight="39.0" prefWidth="218.0" stylesheets="@main.css">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <TextField id="blue_text_field_2" fx:id="cardholername1" layoutX="260.0" layoutY="117.0" prefHeight="39.0" prefWidth="218.0" stylesheets="@main.css">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="border_radius_10" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-            </TextField>
-            <TextField id="blue_text_field_2" fx:id="validmonth1" layoutX="310.0" layoutY="163.0" prefHeight="39.0" prefWidth="45.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="border_radius_10" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-            </TextField>
-            <TextField id="blue_text_field_2" fx:id="cvc1" layoutX="260.0" layoutY="212.0" prefHeight="39.0" prefWidth="64.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="border_radius_10" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-            </TextField>
-            <Button id="light_blue_button" fx:id="abort2" layoutX="443.0" layoutY="209.0" mnemonicParsing="false" onAction="#abort1paymentpressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48" AnchorPane.bottomAnchor="20.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="text_color_dark_blue" />
-                  <String fx:value="background_color_blue_white" />
-                  <String fx:value="shadow_25_side" />
-                  <String fx:value="border_radius_30" />
-               </styleClass>
-            </Button>
-            <TextField id="blue_text_field_2" fx:id="validyear1" layoutX="380.0" layoutY="162.0" prefHeight="39.0" prefWidth="45.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="border_radius_10" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-            </TextField>
-            <Label layoutX="363.0" layoutY="165.0" text="/">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="30.0" layoutY="12.0" prefHeight="34.0" prefWidth="164.0" stylesheets="@main.css" text="Betaluppgifter" AnchorPane.leftAnchor="15.0">
-               <styleClass>
-                  <String fx:value="bold_24" />
-                  <String fx:value="text_color_dark_dark_blue" />
-               </styleClass>
-            </Label>
-            <Text layoutX="260.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold_22" text="MM" />
-            <Text layoutX="437.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold_22" text="YY" />
-            <AnchorPane />
-         </children>
+      <Label prefHeight="85.0" prefWidth="740.0" stylesheets="@main.css" text="   Mitt konto" textFill="WHITE">
          <styleClass>
-            <String fx:value="background_color_light_light_blue" />
-            <String fx:value="border_dark_dark_blue_1_width" />
+            <String fx:value="background_color_blue" />
+            <String fx:value="bold_32" />
+            <String fx:value="border_radius_30" />
+            <String fx:value="background_color_blue" />
+            <String fx:value="border_dark_dark_blue_2_width" />
          </styleClass>
-      </AnchorPane>
+      </Label>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="193.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" styleClass="background_color_red_red">
+         <image>
+            <Image url="@../img/accounticon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="closeAccount" layoutX="690.0" layoutY="25.0" mnemonicParsing="false" onAction="#closeSettings" prefHeight="30.0" prefWidth="30.0" styleClass="exit_cross" AnchorPane.rightAnchor="25.0" />
    </children>
    <styleClass>
       <String fx:value="border_dark_dark_blue_2_width" />

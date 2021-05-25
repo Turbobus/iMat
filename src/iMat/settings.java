@@ -19,6 +19,7 @@ public class settings extends AnchorPane {
     private final Controller pController;
     DB db = DB.getInstance();
     private boolean[] isCorrectInformation = {false, false, false, false, false};
+    private boolean[] isCorrectInformation2 = {false, false, false, false, false};
 
 
     private String cardType;
@@ -126,12 +127,12 @@ public class settings extends AnchorPane {
     @FXML
     private ImageView visapic;
 
-
+    @FXML
+    private Label slash;
 
 
 
     private static boolean missingField = false;
-
 
     public settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
@@ -148,7 +149,7 @@ public class settings extends AnchorPane {
         this.pController = pController;
 
 
-        cardType();
+       cardType();
         setupPayment2();
         setupValidSettings();
         saveCardDetails();
@@ -158,10 +159,8 @@ public class settings extends AnchorPane {
 
 
 
+
     }
-
-
-
 
     @FXML
     public void change1pressed(ActionEvent event) {
@@ -198,7 +197,6 @@ public class settings extends AnchorPane {
     public void save2pressed(ActionEvent event) {
 
        if(isAllTrue(isCorrectInformation)) {
-            saveCardDetails();
             updatepayment();
             cardType();
             newcard.setVisible(false);
@@ -241,8 +239,8 @@ public class settings extends AnchorPane {
 
     @FXML
     public void save1pressed(ActionEvent event) {
-        setupValidSettings();
-        if (isAllTrue(isCorrectInformation)){
+
+        if (isAllTrue(isCorrectInformation2)){
             updatesettings();
             settingsdefault.toFront();
         }
@@ -258,10 +256,10 @@ public class settings extends AnchorPane {
                         // Focus lost
                         if (firstNameTextField1.getText().matches("")) {
                             firstNameTextField1.setId("blue_text_field_wrong_2");
-                            isCorrectInformation[0] = false;
+                            isCorrectInformation2[0] = false;
                         } else {
                             firstNameTextField1.setId("blue_text_field_2");
-                            isCorrectInformation[0] = true;
+                            isCorrectInformation2[0] = true;
                         }
 
                     }
@@ -273,10 +271,10 @@ public class settings extends AnchorPane {
                     // Focus lost
                     if (lastNameTextField1.getText().matches("")) {
                         lastNameTextField1.setId("blue_text_field_wrong_2");
-                        isCorrectInformation[1] = false;
+                        isCorrectInformation2[1] = false;
                     } else {
                         lastNameTextField1.setId("blue_text_field_2");
-                        isCorrectInformation[1] = true;
+                        isCorrectInformation2[1] = true;
                     }
 
                 }
@@ -290,10 +288,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (addressTextField1.getText().matches("")) {
                     addressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation[2] = false;
+                    isCorrectInformation2[2] = false;
                 } else {
                     addressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation[2] = true;
+                    isCorrectInformation2[2] = true;
                 }
 
             }
@@ -307,10 +305,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation[3] = false;
+                    isCorrectInformation2[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation[3] = true;
+                    isCorrectInformation2[3] = true;
                 }
 
             }
@@ -324,10 +322,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation[3] = false;
+                    isCorrectInformation2[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field_2");
-                    isCorrectInformation[3] = true;
+                    isCorrectInformation2[3] = true;
                 }
 
             }
@@ -354,10 +352,10 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if ( postalCodeTextField1.getText().length() != 5) {
                     postalCodeTextField1.setId("blue_text_field_wrong_2");
-                    isCorrectInformation[4] = false;
+                    isCorrectInformation2[4] = false;
                 } else {
                     postalCodeTextField1.setId("blue_text_field_2");
-                    isCorrectInformation[4] = true;
+                    isCorrectInformation2[4] = true;
                 }
 
             }
@@ -372,6 +370,37 @@ public class settings extends AnchorPane {
         pController.closeOverlay();
         settingsdefault.toFront();
         paymentdefault.toFront();
+    }
+
+    @FXML public void updateNextButton(){
+        boolean flag = false;
+
+        if (isTextFieldEmpty(firstNameTextField)) { flag = true; }
+        if (isTextFieldEmpty(lastNameTextField)) { flag = true; }
+        if (isTextFieldEmpty(addressTextField)) { flag = true; }
+        if (isTextFieldEmpty(postAddressTextField)) { flag = true; }
+        if (isPostalCodeWrong()) { flag = true; }
+
+        if (flag){
+
+
+            isFieldsRight = false;
+        } else{
+            // Knapp ska ha färg
+
+            isFieldsRight = true;
+        }
+
+    }
+
+    private boolean isFieldsRight = true;
+
+    private boolean isTextFieldEmpty(TextField field){
+        return field.getText().matches("");
+    }
+
+    private boolean isPostalCodeWrong(){
+        return postalCodeTextField.getText().length() != 5;
     }
 
     public void updatepayment() {
@@ -431,6 +460,7 @@ public class settings extends AnchorPane {
             cvc.setText("");
             newcard.toFront();
             paymentdefault.toFront();
+            slash.setVisible(false);
 
         }
         else {
@@ -448,6 +478,7 @@ public class settings extends AnchorPane {
         validmonth.setText(String.valueOf(db.getValidMonth()));
         validyear.setText(String.valueOf(db.getValidYear()));
         cvc.setText(String.valueOf(db.getVerificationCode()));
+
 
 
 
@@ -529,11 +560,12 @@ public class settings extends AnchorPane {
                 } else {
                     cardnumber1.setId("blue_text_field_2");
                     if (cardnumber1.getText().charAt(0) == '4') {
-
+                        db.setCardType("Visa");
                        cardType = "Visa";
                     } else {
 
                         cardType = "MasterCard";
+                        db.setCardType("Mastercard");
 
                         mastercardpic.setOpacity(100);
                     }
@@ -656,7 +688,7 @@ public class settings extends AnchorPane {
             db.setValidMonth(Integer.parseInt(validmonth1.getText()));
             db.setValidYear(Integer.parseInt(validyear1.getText()));
             db.setVerificationCode(Integer.parseInt(cvc1.getText()));
-            db.setCardType(cardType);
+
         }
     }
 
