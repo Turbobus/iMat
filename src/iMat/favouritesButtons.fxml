@@ -55,15 +55,13 @@
                   <String fx:value="border_dark_dark_blue_1_width" />
                </styleClass>
                <children>
-                  <Button id="red_button" fx:id="takeOutOfCartButton" layoutX="15.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="250.0">
+                  <Button id="red_button" fx:id="takeOutOfCartButton" layoutX="15.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="250.0" text="Ta ut allt ur kundvagnen">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
                         <String fx:value="font_20" />
+                        <String fx:value="bold_20" />
                      </styleClass>
-                     <graphic>
-                        <Label styleClass="bold_20" text="Ta ut allt ur kundvagnen" />
-                     </graphic>
                   </Button>
                   <Button id="blue_button" layoutX="415.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonPutAllInCart" prefHeight="40.0" prefWidth="250.0">
                      <styleClass>
