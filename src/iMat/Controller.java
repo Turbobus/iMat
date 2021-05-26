@@ -60,6 +60,8 @@ public class Controller extends AnchorPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //db.reset();
+
         createProductCards();
         CategoryMenu.initialize(this);
 
@@ -91,7 +93,7 @@ public class Controller extends AnchorPane implements Initializable {
         //setupCheckOut();
     }
 
-    private void setupStartUp() {
+    public void setupStartUp() {
         window.getChildren().clear();
         window.getChildren().add(startUp);
         window.toFront();

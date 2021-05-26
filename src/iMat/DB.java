@@ -39,6 +39,8 @@ public class DB {
         return instance;
     }
 
+    public void reset() { iMatDataHandler.reset(); }
+
     private void init() { iMatDataHandler = IMatDataHandler.getInstance(); }
 
     public void shutDown() {
