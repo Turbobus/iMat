@@ -126,10 +126,8 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openAccountView(){
-        settings.cardType();
-        settings.setupPayment();
+        settings.setupCardPane();
         settings.setupSettings();
-        settings.paymentSettingsFirstRun();
         openOverlay(settings);
     }
 

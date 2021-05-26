@@ -19,10 +19,29 @@ public class settings extends AnchorPane {
     private final Controller pController;
     DB db = DB.getInstance();
     private boolean[] isCorrectInformation = {false, false, false, false, false};
-
-
-
     private String cardType;
+
+    @FXML AnchorPane writeNewCard;
+    @FXML AnchorPane useSavedCard;
+
+    @FXML TextField cardNumber;
+    @FXML TextField cardName;
+    @FXML TextField cardMonth;
+    @FXML TextField cardYear;
+    @FXML TextField cardCVC;
+
+    @FXML ImageView enterInfoVisaImg;
+    @FXML ImageView enterInfoMasterImg;
+    @FXML ImageView showInfoVisaImg;
+    @FXML ImageView showInfoMasterImg;
+
+    @FXML Label cardNumberText;
+    @FXML Label cardNameText;
+    @FXML Label cardMonthText;
+    @FXML Label cardYearText;
+    @FXML Label cardCVCText;
+
+    @FXML Button saveUntilNextTime;
 
     //Buttons for window default
     @FXML
@@ -52,54 +71,26 @@ public class settings extends AnchorPane {
     private AnchorPane settingsdefault;
     @FXML
     private AnchorPane settingschanged;
-    @FXML
-    private AnchorPane paymentdefault;
-    @FXML
-    private AnchorPane paymentchanged;
-
-    //Textfields for payment window default
-    @FXML
-    private TextField cardnumber;
-    @FXML
-    private TextField cardholername;
-    @FXML
-    private TextField validmonth;
-    @FXML
-    private TextField validyear;
-    @FXML
-    private TextField cvc;
-
-    //Textfields for payment window changed
-    @FXML
-    private TextField cardnumber1;
-    @FXML
-    private TextField cardholername1;
-    @FXML
-    private TextField validmonth1;
-    @FXML
-    private TextField validyear1;
-    @FXML
-    private TextField cvc1;
 
 
     //Textfields for account window default
 
     @FXML
-    private TextField firstNameTextField;
+    private Label firstNameTextField;
     @FXML
-    private TextField lastNameTextField;
+    private Label lastNameTextField;
     @FXML
-    private TextField addressTextField;
+    private Label addressTextField;
     @FXML
-    private TextField postalCodeTextField;
+    private Label postalCodeTextField;
     @FXML
-    private TextField postAddressTextField;
+    private Label postAddressTextField;
     @FXML
-    private TextField mailTextField;
+    private Label mailTextField;
     @FXML
-    private TextField telephoneTextField;
+    private Label telephoneTextField;
     @FXML
-    private TextField mobileTextField;
+    private Label mobileTextField;
 
     //Textfields for account window changed
 
@@ -120,16 +111,35 @@ public class settings extends AnchorPane {
     @FXML
     private TextField mobileTextField1;
 
-    // Combobox items
-
     @FXML
-    private ImageView mastercardpic;
-    @FXML
-    private ImageView visapic;
+    public void closeSettings(ActionEvent event) {
+        pController.closeOverlay();
+        settingsdefault.toFront();
+        useSavedCard.toFront();
+    }
 
+    @FXML public void writeCardInfo(){
+        saveUntilNextTime.setText("Spara uppgifterna igen");
+        writeNewCard.toFront();
+    }
 
+    @FXML public void saveCardDetails(){
+        if (isAllTrue(isCorrectInformation)){
+            db.setCardNumber(cardNumber.getText());
+            db.setHoldersName(cardName.getText());
+            db.setValidMonth(Integer.parseInt(cardMonth.getText()));
+            db.setValidYear(Integer.parseInt(cardYear.getText()));
+            db.setVerificationCode(Integer.parseInt(cardCVC.getText()));
+            db.setCardType(cardType);
+            setupSavedCardInfo();
+            useSavedCard.toFront();
+        }
+    }
 
-    private static boolean missingField = false;
+    private boolean isAllTrue(boolean[] array) {
+        for(boolean b : array) if(!b) return false;
+        return true;
+    }
 
     public settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
@@ -145,17 +155,10 @@ public class settings extends AnchorPane {
 
         this.pController = pController;
 
-
-       cardType();
-        setupPayment2();
         setupValidSettings();
         saveCardDetails();
         setupSettings();
-
-
-
-
-
+        setupTextField();
 
     }
 
@@ -172,57 +175,6 @@ public class settings extends AnchorPane {
         mailTextField1.setText(db.getEmail());
         telephoneTextField1.setText(db.getPhoneNumber());
         mobileTextField1.setText(db.getMobilePhoneNumber());
-    }
-
-    @FXML
-    public void change2pressed(ActionEvent event) {
-
-        cardholername1.setText(cardholername.getText());
-        cardnumber1.setText(cardnumber.getText());
-        validmonth1.setText(validmonth.getText());
-        validyear1.setText(validyear.getText());
-        cvc1.setText(cvc.getText());
-        isCorrectInformation = new boolean[]{true, true, true, true, true};
-
-        paymentchanged.toFront();
-        cardType();
-
-    }
-
-    @FXML
-    public void save2pressed(ActionEvent event) {
-
-       if(isAllTrue(isCorrectInformation)) {
-            updatepayment();
-            cardType();
-            newcard.setVisible(false);
-            paymentdefault.toFront();
-        }
-
-    }
-
-    @FXML
-    public void newcardpressed(ActionEvent event) {
-
-
-        paymentchanged.toFront();
-
-
-    }
-
-    @FXML
-    public void abort1paymentpressed(ActionEvent event) {
-
-
-        if (db.isFirstRun()) {
-
-            newcard.toFront();
-            paymentdefault.toFront();
-
-        } else
-            newcard.toBack();
-        paymentdefault.toFront();
-
     }
 
     @FXML
@@ -251,10 +203,10 @@ public class settings extends AnchorPane {
                     if (!newValue) {
                         // Focus lost
                         if (firstNameTextField1.getText().matches("")) {
-                            firstNameTextField1.setId("blue_text_field_wrong_2");
+                            firstNameTextField1.setId("blue_text_field_wrong");
                             isCorrectInformation[0] = false;
                         } else {
-                            firstNameTextField1.setId("blue_text_field_2");
+                            firstNameTextField1.setId("blue_text_field");
                             isCorrectInformation[0] = true;
                         }
 
@@ -266,10 +218,10 @@ public class settings extends AnchorPane {
                 if (!newValue) {
                     // Focus lost
                     if (lastNameTextField1.getText().matches("")) {
-                        lastNameTextField1.setId("blue_text_field_wrong_2");
+                        lastNameTextField1.setId("blue_text_field_wrong");
                         isCorrectInformation[1] = false;
                     } else {
-                        lastNameTextField1.setId("blue_text_field_2");
+                        lastNameTextField1.setId("blue_text_field");
                         isCorrectInformation[1] = true;
                     }
 
@@ -283,10 +235,10 @@ public class settings extends AnchorPane {
             if (!newValue) {
                 // Focus lost
                 if (addressTextField1.getText().matches("")) {
-                    addressTextField1.setId("blue_text_field_wrong_2");
+                    addressTextField1.setId("blue_text_field_wrong");
                     isCorrectInformation[2] = false;
                 } else {
-                    addressTextField1.setId("blue_text_field_2");
+                    addressTextField1.setId("blue_text_field");
                     isCorrectInformation[2] = true;
                 }
 
@@ -300,10 +252,10 @@ public class settings extends AnchorPane {
             if (!newValue) {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
-                    postAddressTextField1.setId("blue_text_field_wrong_2");
+                    postAddressTextField1.setId("blue_text_field_wrong");
                     isCorrectInformation[3] = false;
                 } else {
-                    postAddressTextField1.setId("blue_text_field_2");
+                    postAddressTextField1.setId("blue_text_field");
                     isCorrectInformation[3] = true;
                 }
 
@@ -317,10 +269,10 @@ public class settings extends AnchorPane {
             if (!newValue) {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
-                    postAddressTextField1.setId("blue_text_field_wrong_2");
+                    postAddressTextField1.setId("blue_text_field_wrong");
                     isCorrectInformation[3] = false;
                 } else {
-                    postAddressTextField1.setId("blue_text_field_2");
+                    postAddressTextField1.setId("blue_text_field");
                     isCorrectInformation[3] = true;
                 }
 
@@ -347,26 +299,17 @@ public class settings extends AnchorPane {
             if (!newValue) {
                 // Focus lost
                 if ( postalCodeTextField1.getText().length() != 5) {
-                    postalCodeTextField1.setId("blue_text_field_wrong_2");
+                    postalCodeTextField1.setId("blue_text_field_wrong");
                     isCorrectInformation[4] = false;
                 } else {
-                    postalCodeTextField1.setId("blue_text_field_2");
+                    postalCodeTextField1.setId("blue_text_field");
                     isCorrectInformation[4] = true;
                 }
 
             }
         });
 
-
-
         }
-
-    @FXML
-    public void closeSettings(ActionEvent event) {
-        pController.closeOverlay();
-        settingsdefault.toFront();
-        paymentdefault.toFront();
-    }
 
     public void updateNextButton(){
         boolean flag = false;
@@ -392,23 +335,6 @@ public class settings extends AnchorPane {
         return postalCodeTextField1.getText().length() != 5;
     }
 
-    public void updatepayment() {
-
-        cardnumber.setText(cardnumber1.getText());
-        cardholername.setText(cardholername1.getText());
-        validmonth.setText(validmonth1.getText());
-        validyear.setText(validyear1.getText());
-        cvc.setText(cvc1.getText());
-
-
-        db.setCardNumber(cardnumber1.getText());
-        db.setHoldersName(cardholername1.getText());
-        db.setValidMonth(Integer.parseInt(validmonth1.getText()));
-        db.setValidYear(Integer.parseInt(validyear1.getText()));
-        db.setVerificationCode(Integer.parseInt(cvc1.getText()));
-
-
-        }
 
     public void updatesettings() {
 
@@ -438,61 +364,6 @@ public class settings extends AnchorPane {
         db.setMobileNumber(mobileTextField1.getText());
     }
 
-    public void paymentSettingsFirstRun() {
-        if (db.getCardNumber().matches("")) {
-            cardnumber.setText("");
-            cardholername.setText("");
-            validmonth.setText("");
-            validyear.setText("");
-            cvc.setText("");
-            db.setCardType("");
-            newcard.toFront();
-            paymentdefault.toFront();
-
-
-        }
-        else {
-            settings2.toFront();
-        }
-    }
-
-    public void setupPayment() {
-
-
-        //Fill payment window textfields with databse information
-
-        cardnumber.setText(db.getCardNumber());
-        cardholername.setText(db.getHoldersName());
-        validmonth.setText(String.valueOf(db.getValidMonth()));
-        validyear.setText(String.valueOf(db.getValidYear()));
-        cvc.setText(String.valueOf(db.getVerificationCode()));
-
-
-
-
-
-        try {
-            isFilledIn(cardnumber.getText());
-            isFilledIn(cardholername.getText());
-            isFilledIn(validmonth.getText());
-            isFilledIn(validyear.getText());
-            isFilledIn(cvc.getText());
-
-
-        } catch (IOException ioe) {
-
-
-            missingField = true;
-        }
-
-        if (!missingField)
-            paymentdefault.toFront();
-        settings2.toFront();
-
-        missingField = false;
-
-    }
-
     public void setupSettings() {
 
         //Fill settings window textfields with databse information
@@ -509,188 +380,188 @@ public class settings extends AnchorPane {
 
     }
 
-    public void cardType() {
-
-           visapic.setVisible(false);
-           mastercardpic.setVisible(false);
-
-           if(db.getCardType().equals("Visa")) {
-               visapic.setVisible(true);
-           } else if (db.getCardType().equals("MasterCard")) {
-               mastercardpic.setVisible(true);
-           }
-
+    public void setupCardPane(){
+        if (db.getCardNumber().matches("")){
+            writeNewCard.toFront();
+        } else {
+            setupSavedCardInfo();
+            useSavedCard.toFront();
+        }
     }
 
-    public void setupPayment2() {
+    private void setupSavedCardInfo(){
+        cardNumberText.setText(db.getCardNumber());
+        cardNameText.setText(db.getHoldersName());
+        cardMonthText.setText("" + db.getValidMonth());
+        cardYearText.setText("" + db.getValidYear());
+        cardCVCText.setText("" + db.getVerificationCode());
+        cardNumber.setText(db.getCardNumber());
+        cardName.setText(db.getHoldersName());
+        cardMonth.setText("" + db.getValidMonth());
+        cardYear.setText("" + db.getValidYear());
+        cardCVC.setText("" + db.getVerificationCode());
+        isCorrectInformation = new boolean[]{true, true, true, true, true};
+        displayCardType(db.getCardType());
+        cardType = db.getCardType();
+    }
 
-        cardnumber1.textProperty().addListener((observable, oldValue, newValue) -> {
+    private void displayCardType(String cardType){
+        enterInfoMasterImg.setOpacity(0);
+        showInfoMasterImg.setOpacity(0);
+        enterInfoVisaImg.setOpacity(0);
+        showInfoVisaImg.setOpacity(0);
+
+        if (cardType.matches("Visa")) {
+            enterInfoVisaImg.setOpacity(1);
+            showInfoVisaImg.setOpacity(1);
+        } else if (cardType.matches("MasterCard")){
+            enterInfoMasterImg.setOpacity(1);
+            showInfoMasterImg.setOpacity(1);
+        }
+    }
+
+    private void setupTextField(){
+
+        cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue.matches("\\d*")) {
 
-                cardnumber1.setText(newValue.replaceAll("[^\\d]", ""));
+                cardNumber.setText(newValue.replaceAll("[^\\d]", ""));
 
             }
 
-            if (newValue.length() > 16) {
-                cardnumber1.setText(oldValue);
+            if (newValue.length() > 16){
+                cardNumber.setText(oldValue);
             }
         });
 
-        cardnumber1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        cardNumber.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost
-                if (cardnumber1.getText().length() != 16 || (cardnumber1.getText().charAt(0) != '4' && cardnumber1.getText().charAt(0) != '5')) {
-                    cardnumber1.setId("blue_text_field_wrong_2");
+                if (cardNumber.getText().length() != 16 || (cardNumber.getText().charAt(0) != '4' && cardNumber.getText().charAt(0) != '5') ){
+                    cardNumber.setId("blue_text_field_wrong");
+                    displayCardType("No");
                     isCorrectInformation[0] = false;
                 } else {
-                    cardnumber1.setId("blue_text_field_2");
-                    if (cardnumber1.getText().charAt(0) == '4') {
-                          db.setCardType("Visa");
-                       cardType = "Visa";
+                    cardNumber.setId("blue_text_field");
+                    if (cardNumber.getText().charAt(0) == '4'){
+
+                        displayCardType("Visa");
+                        cardType = "Visa";
+
                     } else {
-                        db.setCardType("MasterCard");
+
+                        displayCardType("MasterCard");
                         cardType = "MasterCard";
-
-
-                        mastercardpic.setOpacity(100);
                     }
+
                     isCorrectInformation[0] = true;
                 }
-
             }
+//            pController.updateButtonState();
         });
 
-        cardholername1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        cardName.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost
-                if (cardholername1.getText().matches("")) {
-                    cardholername1.setId("blue_text_field_wrong_2");
+                if (cardName.getText().matches("")){
+                    cardName.setId("blue_text_field_wrong");
                     isCorrectInformation[1] = false;
                 } else {
-                    cardholername1.setId("blue_text_field_2");
+                    cardName.setId("blue_text_field");
                     isCorrectInformation[1] = true;
                 }
-
             }
+
+//            pController.updateButtonState();
         });
 
-        validmonth1.textProperty().addListener((observable, oldValue, newValue) -> {
+        cardMonth.textProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue.matches("\\d*")) {
 
-                validmonth1.setText(newValue.replaceAll("[^\\d]", ""));
+                cardMonth.setText(newValue.replaceAll("[^\\d]", ""));
 
             }
 
-            if (newValue.length() > 2) {
-                validmonth1.setText(oldValue);
+            if (newValue.length() > 2){
+                cardMonth.setText(oldValue);
             }
         });
 
-        validmonth1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        cardMonth.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost
-                if ( validmonth1.getText().matches("") ||  validmonth1.getText().matches("0") || Integer.parseInt( validmonth1.getText()) > 12) {
-                    validmonth1.setId("blue_text_field_wrong_2");
+                if (cardMonth.getText().matches("") || cardMonth.getText().matches("0") || Integer.parseInt(cardMonth.getText()) > 12 ){
+                    cardMonth.setId("blue_text_field_wrong");
                     isCorrectInformation[2] = false;
                 } else {
-                    validmonth1.setId("blue_text_field_2");
+                    cardMonth.setId("blue_text_field");
                     isCorrectInformation[2] = true;
                 }
-
             }
+//            pController.updateButtonState();
         });
 
-        validyear1.textProperty().addListener((observable, oldValue, newValue) -> {
+        cardYear.textProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue.matches("\\d*")) {
 
-                validyear1.setText(newValue.replaceAll("[^\\d]", ""));
+                cardYear.setText(newValue.replaceAll("[^\\d]", ""));
 
             }
 
-            if (newValue.length() > 2) {
-                validyear1.setText(oldValue);
+            if (newValue.length() > 2){
+                cardYear.setText(oldValue);
             }
 
         });
 
-        validyear1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        cardYear.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost
-                if (validyear1.getText().matches("") || Integer.parseInt(validyear1.getText()) < 20 || Integer.parseInt(validyear1.getText()) > 30) {
-                    validyear1.setId("blue_text_field_wrong_2");
+                if (cardYear.getText().matches("") || Integer.parseInt(cardYear.getText()) < 20 || Integer.parseInt(cardYear.getText()) > 30 ){
+                    cardYear.setId("blue_text_field_wrong");
                     isCorrectInformation[3] = false;
                 } else {
-                    validyear1.setId("blue_text_field_2");
+                    cardYear.setId("blue_text_field");
                     isCorrectInformation[3] = true;
                 }
-
             }
+//            pController.updateButtonState();
         });
 
-        cvc1.textProperty().addListener((observable, oldValue, newValue) -> {
+        cardCVC.textProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue.matches("\\d*")) {
 
-                cvc1.setText(newValue.replaceAll("[^\\d]", ""));
+                cardCVC.setText(newValue.replaceAll("[^\\d]", ""));
 
             }
 
-            if (newValue.length() > 3) {
-                cvc1.setText(oldValue);
+            if (newValue.length() > 3){
+                cardCVC.setText(oldValue);
             }
+
         });
 
-        cvc1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        cardCVC.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost
-                if ( cvc1.getText().length() != 3) {
-                    cvc1.setId("blue_text_field_wrong_2");
+                if (cardCVC.getText().length() != 3){
+                    cardCVC.setId("blue_text_field_wrong");
                     isCorrectInformation[4] = false;
                 } else {
-                    cvc1.setId("blue_text_field_2");
+                    cardCVC.setId("blue_text_field");
                     isCorrectInformation[4] = true;
                 }
-
             }
+//            pController.updateButtonState();
         });
     }
-
-    private boolean isAllTrue(boolean[] array) {
-        for(boolean b : array) if(!b) return false;
-        return true;
-    }
-
-    @FXML public void saveCardDetails(){
-        if (isAllTrue(isCorrectInformation)){
-            db.setCardNumber(cardnumber1.getText());
-            db.setHoldersName(cardholername1.getText());
-            db.setValidMonth(Integer.parseInt(validmonth1.getText()));
-            db.setValidYear(Integer.parseInt(validyear1.getText()));
-            db.setVerificationCode(Integer.parseInt(cvc1.getText()));
-
-
-        }
-    }
-
-    private static void isFilledIn(String field) throws IOException {
-        if (field.length() < 1) {
-            throw new IOException();
-        }
-    }
-
-
-
-
-
-
-
-
 }
