@@ -127,19 +127,19 @@ public class ShopGrid extends AnchorPane implements CategoryListener {
         cardHolder.getChildren().clear();
 
 
-        int index1 = 0;
-        int index2 = 0;
+        int col = 0;
+        int row = 0;
 
 
         for(Product product : products){
             ProductCard card = pController.getProductCards().get(product.getProductId());
-            cardHolder.add(card, index1, index2);
+            cardHolder.add(card, col, row);
 
 
-            index1++;
-            if( index1 %4 == 0){
-                index2++;
-                index1 = 0;
+            col++;
+            if( col %4 == 0){
+                row++;
+                col = 0;
             }
         }
         this.scrollPane.setVvalue(0);
