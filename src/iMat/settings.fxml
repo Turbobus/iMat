@@ -107,16 +107,10 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Text>
-                  <Button id="light_blue_button" fx:id="abort1" layoutX="753.0" layoutY="319.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
+                  <Button id="addFavorites_blue" fx:id="abort1" layoutX="756.0" layoutY="320.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
                      <font>
                         <Font size="20.0" />
                      </font>
-                     <styleClass>
-                        <String fx:value="text_color_dark_blue" />
-                        <String fx:value="background_color_blue_white" />
-                        <String fx:value="shadow_25_side" />
-                        <String fx:value="border_radius_30" />
-                     </styleClass>
                   </Button>
                   <TextField id="blue_text_field" fx:id="postAddressTextField1" layoutX="690.0" layoutY="132.0" prefHeight="45.0" prefWidth="280.0">
                      <font>
@@ -153,16 +147,10 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button id="light_blue_button" fx:id="save1" layoutX="559.0" layoutY="283.0" mnemonicParsing="false" onAction="#save1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <Button id="addFavorites_blue" fx:id="save1" layoutX="884.0" layoutY="320.0" mnemonicParsing="false" onAction="#save1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48">
                      <font>
                         <Font size="20.0" />
                      </font>
-                     <styleClass>
-                        <String fx:value="text_color_dark_blue" />
-                        <String fx:value="background_color_blue_white" />
-                        <String fx:value="shadow_25_side" />
-                        <String fx:value="border_radius_30" />
-                     </styleClass>
                   </Button>
                   <Label fx:id="persInfoLabel" layoutX="24.0" layoutY="11.0" prefHeight="34.0" prefWidth="594.0" stylesheets="@main.css" text="Ange dina användaruppgifter för att skapa ett konto">
                      <styleClass>
@@ -226,7 +214,7 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <Button id="light_blue_button" fx:id="settings1" layoutX="787.0" layoutY="314.0" mnemonicParsing="false" onAction="#change1pressed" prefHeight="44.0" prefWidth="190.0" styleClass="border_radius_30" text="Ändra uppgifterna" textFill="#002e48">
+                  <Button id="addFavorites_blue" fx:id="settings1" layoutX="719.0" layoutY="320.0" mnemonicParsing="false" onAction="#change1pressed" prefHeight="40.0" prefWidth="265.0" styleClass="border_radius_30" text="Ändra användaruppgifter" textFill="#002e48">
                      <font>
                         <Font size="20.0" />
                      </font>
