@@ -20,6 +20,10 @@ public interface ProductHolder {
 
     //void setButtonTakeOutOfCart(ActionEvent event);
 
+    EarlierPurchases getController();
+
+    void makeBlue(int productId);
+
 
     List<ProductItem> getItems();
 
