@@ -29,6 +29,8 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     @FXML private Button takeOutOfCartButton;
     private ArrayList<ProductItem> favourites = new ArrayList<>();
 
+
+
     public FavouritesButtons(Controller controller, EarlierPurchases pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("favouritesButtons.fxml"));
         fxmlLoader.setRoot(this);
@@ -53,16 +55,18 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             favourites.add(product);
         }
 
-        for (ShoppingItem item : db.getAllShoppingItems()){
+        /*for (ShoppingItem item : db.getAllShoppingItems()){
             for (ProductItem s :  favourites)
             {
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
                     s.setUpFromCart(item.getAmount());
-                    s.setInCart(true);
 
                 }
             }
         }
+
+         */
+        reload();
         updateButtonState();
         showPurchases();
     }
@@ -83,7 +87,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     }
 
     private void showPurchases(){
-        //checkAllInCart();
+
         favouritesCard.setPrefHeight(99+88*favourites.size());
         gFavouritesCard.setPrefHeight(99+88*favourites.size());
         bFavouritesCard.setPrefHeight(99+88*favourites.size());
@@ -91,6 +95,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
         for(int i = 0;i<favourites.size();i++){
             bProductFlowPane.getChildren().add(favourites.get(i));
         }
+        checkAllInCart();
     }
 
 
