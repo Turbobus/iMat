@@ -112,6 +112,10 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
         haveAccount = true;
     }
 
+    public void updateSavedCard(){
+        enterCardDetails.setupPane();
+    }
+
     private void setupNoInfo(){
         cardInformationPanel.getChildren().clear();
         cardInformationPanel.getChildren().add(noAccountCard);

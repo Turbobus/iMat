@@ -132,6 +132,7 @@ public class settings extends AnchorPane {
             db.setCardType(cardType);
             setupSavedCardInfo();
             useSavedCard.toFront();
+            db.getCheckOutUpdater().updateSavedCard();
         }
     }
 

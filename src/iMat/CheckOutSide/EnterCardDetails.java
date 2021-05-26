@@ -82,7 +82,7 @@ public class EnterCardDetails extends AnchorPane {
 
     }
 
-    private void setupPane(){
+    public void setupPane(){
         if (db.getCardNumber().matches("")){
             writeNewCard.toFront();
         } else {
