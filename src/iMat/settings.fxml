@@ -310,18 +310,18 @@
                         <String fx:value="font_24" />
                      </styleClass>
                   </Label>
+                  <Label layoutX="22.0" layoutY="323.0" text="Fält markerade med * är obligatoriska">
+                     <styleClass>
+                        <String fx:value="text_color_dark_dark_blue" />
+                        <String fx:value="font_24" />
+                     </styleClass>
+                  </Label>
                </children>
                <styleClass>
                   <String fx:value="border_dark_dark_blue_1_width" />
                   <String fx:value="background_color_light_light_blue" />
                </styleClass>
             </AnchorPane>
-            <Label layoutX="22.0" layoutY="323.0" text="Fält markerade med * är obligatoriska">
-               <styleClass>
-                  <String fx:value="text_color_dark_dark_blue" />
-                  <String fx:value="font_24" />
-               </styleClass>
-            </Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="30.0" layoutY="519.0" maxWidth="1000.0" minWidth="1000.0" prefHeight="350.0" prefWidth="1000.0">
