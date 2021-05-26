@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class settings extends AnchorPane {
 
@@ -217,10 +218,8 @@ public class settings extends AnchorPane {
                         // Focus lost
                         if (firstNameTextField1.getText().matches("")) {
                             firstNameTextField1.setId("blue_text_field_wrong");
-                            isCorrectInformation[0] = false;
                         } else {
                             firstNameTextField1.setId("blue_text_field");
-                            isCorrectInformation[0] = true;
                         }
 
                     }
@@ -232,10 +231,8 @@ public class settings extends AnchorPane {
                     // Focus lost
                     if (lastNameTextField1.getText().matches("")) {
                         lastNameTextField1.setId("blue_text_field_wrong");
-                        isCorrectInformation[1] = false;
                     } else {
                         lastNameTextField1.setId("blue_text_field");
-                        isCorrectInformation[1] = true;
                     }
 
                 }
@@ -249,10 +246,8 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (addressTextField1.getText().matches("")) {
                     addressTextField1.setId("blue_text_field_wrong");
-                    isCorrectInformation[2] = false;
                 } else {
                     addressTextField1.setId("blue_text_field");
-                    isCorrectInformation[2] = true;
                 }
 
             }
@@ -266,10 +261,8 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong");
-                    isCorrectInformation[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field");
-                    isCorrectInformation[3] = true;
                 }
 
             }
@@ -283,10 +276,8 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
                     postAddressTextField1.setId("blue_text_field_wrong");
-                    isCorrectInformation[3] = false;
                 } else {
                     postAddressTextField1.setId("blue_text_field");
-                    isCorrectInformation[3] = true;
                 }
 
             }
@@ -313,10 +304,8 @@ public class settings extends AnchorPane {
                 // Focus lost
                 if ( postalCodeTextField1.getText().length() != 5) {
                     postalCodeTextField1.setId("blue_text_field_wrong");
-                    isCorrectInformation[4] = false;
                 } else {
                     postalCodeTextField1.setId("blue_text_field");
-                    isCorrectInformation[4] = true;
                 }
 
             }
@@ -335,7 +324,6 @@ public class settings extends AnchorPane {
 
         // Knapp ska ha färg
         isFieldsRight = !flag;
-
     }
 
     private boolean isFieldsRight = true;
