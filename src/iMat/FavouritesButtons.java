@@ -3,18 +3,20 @@ package iMat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FavouritesButtons extends AnchorPane implements ProductHolder{
     //EarlierPurchases pController;
-    Controller controller;
+    private Controller controller;
+    private EarlierPurchases pController;
     private DB db = DB.getInstance();
     private boolean allInCart = false;
 
@@ -23,9 +25,11 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     @FXML private AnchorPane favouritesCard;
     @FXML private AnchorPane gFavouritesCard;
     @FXML private AnchorPane bFavouritesCard;
+
+    @FXML private Button takeOutOfCartButton;
     private ArrayList<ProductItem> favourites = new ArrayList<>();
 
-    public FavouritesButtons(Controller controller){
+    public FavouritesButtons(Controller controller, EarlierPurchases pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("favouritesButtons.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -36,6 +40,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             throw new RuntimeException(exception);
         }
         this.controller=controller;
+        this.pController = pController;
         setup();
 
     }
@@ -58,8 +63,15 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
                 }
             }
         }
+        updateButtonState();
         showPurchases();
     }
+
+    @Override
+    public EarlierPurchases getController() {
+        return pController;
+    }
+
     @FXML
     public void setButtonPutAllInCart(ActionEvent event){
         putAllInCart();
@@ -101,25 +113,25 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     }
 
     public void putAllInCart(){
-        //gProductFlowPane.getChildren().clear();
-        //gFavouritesCard.setPrefHeight(bFavouritesCard.getPrefHeight());
-        //gFavouritesCard.toFront();
+        gProductFlowPane.getChildren().clear();
+        gFavouritesCard.setPrefHeight(bFavouritesCard.getPrefHeight());
+        gFavouritesCard.toFront();
         for (ProductItem s :  favourites)
         {
             if(!(s.isInCart())){
                 s.inCart();
             }
         }
-        //addProductItems(gProductFlowPane);
+        addProductItems(gProductFlowPane);
 
 
     }
 
 
     public void takeOutOfCart(){
-        //bProductFlowPane.getChildren().clear();
-        //bFavouritesCard.setPrefHeight(gFavouritesCard.getPrefHeight());
-        //bFavouritesCard.toFront();
+        bProductFlowPane.getChildren().clear();
+        bFavouritesCard.setPrefHeight(gFavouritesCard.getPrefHeight());
+        bFavouritesCard.toFront();
         for (ProductItem s :  favourites)
         {
             if(s.isInCart()){
@@ -128,7 +140,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             }
 
         }
-        //addProductItems(bProductFlowPane);
+        addProductItems(bProductFlowPane);
     }
 
 
@@ -139,7 +151,14 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
         }
     }
 
-
+    @Override
+    public void makeBlue(int productId) {
+        for(ProductItem fav: favourites){
+            if(fav.getShoppingItem().getProduct().getProductId()==productId){
+                fav.makeBlue();
+            }
+        }
+    }
 
     @Override
     public List<ProductItem> getItems() {
@@ -157,5 +176,18 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             }
         }
 
+        updateButtonState();
+    }
+
+    private void updateButtonState(){
+        for (ShoppingItem item : db.getAllShoppingItems()){
+            for (ProductItem s :  favourites)
+            {
+                if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
+                    return;
+                }
+            }
+        }
+        takeOutOfCartButton.setId("red_button_disabled");
     }
 }

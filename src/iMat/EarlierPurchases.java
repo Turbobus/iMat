@@ -61,10 +61,12 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
         purchases.clear();
         titleLabel.setText("Tidigare köp");
         iconPane.setId("earlier_purchase_svg");
+        iconImgView.setOpacity(0);
+        iconPane.setOpacity(1);
         //clear list
         purchasesFlowPane.getChildren().clear();
         for(Order order : db.getOrders()){
-            SingularPurchase purchase = new SingularPurchase(pController, order);
+            SingularPurchase purchase = new SingularPurchase(pController, order, this);
             //purchase.reload();
             purchases.add(purchase);
             purchasesFlowPane.getChildren().add(0,purchase);
@@ -86,12 +88,23 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
     public void showFavourites(){
         favourites.clear();
         titleLabel.setText("Favoriter");
-        iconPane.setId("heartIcon_white");
+        iconImgView.setOpacity(1);
+        iconPane.setOpacity(0);
         purchasesFlowPane.getChildren().clear();
-        FavouritesButtons favouritesButtons = new FavouritesButtons(pController);
+        FavouritesButtons favouritesButtons = new FavouritesButtons(pController, this);
         favourites.add(favouritesButtons);
         purchasesFlowPane.getChildren().add(favouritesButtons);
 
+    }
+
+    public void makeBlue(int prodId) {
+        holder.clear();
+        holder.addAll(favourites);
+        holder.addAll(purchases);
+        for(int i = 0; i<holder.size();i++){
+            holder.get(i).makeBlue(prodId);
+
+        }
     }
 
     @Override

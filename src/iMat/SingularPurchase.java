@@ -9,10 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,6 +32,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     @FXML private AnchorPane gSingularPurchaseBack;
     @FXML private AnchorPane gSingularPurchaseFront;
     @FXML private FlowPane gProductFlowPane;
+    @FXML private Pane gArrowPane;
 
     //blue version
     @FXML private Button bShowProducts;
@@ -40,18 +43,20 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     @FXML private AnchorPane bSingularPurchaseBack;
     @FXML private AnchorPane bSingularPurchaseFront;
     @FXML private FlowPane bProductFlowPane;
+    @FXML private Pane bArrowPane;
 
     private boolean expanded = false;
 
     private DB db = DB.getInstance();
 
 
-    private Controller pController;
+    private Controller controller;
     private Order order;
     private ArrayList<ProductItem> items = new ArrayList<>();
+    private EarlierPurchases pController;
 
 
-    public SingularPurchase(Controller pController, Order order){
+    public SingularPurchase(Controller controller, Order order,EarlierPurchases pController ){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("singularPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -63,6 +68,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         }
 
         this.pController = pController;
+        this.controller = controller;
         this.order = order;
         setUp();
     }
@@ -72,7 +78,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         int total = 0;
         //creates productitems out of orders, and calculates what the price of the whole purchase is
         for(int i = 0;i<order.getItems().size();i++){
-            ProductItem product = new ProductItem(order.getItems().get(i),this, pController);
+            ProductItem product = new ProductItem(order.getItems().get(i),this, controller);
             items.add(product);
             total += product.getShoppingItem().getTotal();
         }
@@ -92,16 +98,21 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
     }
 
+
+    @Override
+    public EarlierPurchases getController() {
+        return pController;
+    }
+
     @Override
     public void reload(){
-        for (ShoppingItem item : db.getAllShoppingItems()){
-            for (ProductItem s :  items)
+        for (ShoppingItem item :  db.getAllShoppingItems()){
+            for (ProductItem s : items)
             {
+
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
                     s.setUpFromCart(item.getAmount());
-                    s.setInCart(true);
                 }
-
             }
         }
 
@@ -181,6 +192,16 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         takeOutOfCart();
     }
 
+
+    @Override
+    public void makeBlue(int productId) {
+        for(ProductItem item: items){
+            if(item.getShoppingItem().getProduct().getProductId()==productId){
+                item.makeBlue();
+            }
+        }
+    }
+
     private void hideProducts(){
         bSingularPurchaseBack.setPrefHeight(130);
         gSingularPurchaseBack.setPrefHeight(130);
@@ -193,8 +214,12 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
         if(expanded){
             hideProducts();
+            gArrowPane.setRotate(90);
+            bArrowPane.setRotate(90);
         }
         else{
+            bArrowPane.setRotate(270);
+            gArrowPane.setRotate(270);
             singularPurchaseCard.setPrefHeight(130+88*(items.size()));
             gSingularPurchaseBack.setPrefHeight(130+88*(items.size()));
             bSingularPurchaseBack.setPrefHeight(130+88*(items.size()));
@@ -211,12 +236,16 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         }
     }
 
+    @FXML
     public void showProducts(ActionEvent event){
         addItems(bProductFlowPane);
+
     }
 
+    @FXML
     public void gShowProducts(ActionEvent event){
         addItems(gProductFlowPane);
+
     }
 
 

@@ -117,8 +117,9 @@ public class ProductItem extends AnchorPane {
     }
     public void inCart(){
         gProductItem.toFront();
-        controller.addToCart(productID);
         inCart = true;
+        controller.addToCart(productID);
+
     }
 
     public boolean isInCart(){
@@ -126,10 +127,12 @@ public class ProductItem extends AnchorPane {
 
     }
     public void outOfCart(){
-        controller.removeFromCart(productID);
         bProductItem.toFront();
-        pController.checkAllOutOfCart();
         inCart = false;
+        controller.removeFromCart(productID);
+        pController.getController().makeBlue(productID);
+        pController.checkAllOutOfCart();
+
     }
 
     public void setUpFromCart(double amount){
@@ -139,6 +142,12 @@ public class ProductItem extends AnchorPane {
         amountTextField.setText(String.valueOf((int) amount));
         inCart = true;
         pController.checkAllInCart();
+    }
+
+    public void makeBlue(){
+        bProductItem.toFront();
+        //bProductPriceLabel.setText(item.getProduct().getPrice() + "  " + item.getProduct().getUnit());
+        inCart = false;
     }
 
     public void setInCart(boolean b){
