@@ -40,6 +40,8 @@ public class Controller extends AnchorPane implements Initializable {
     private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
 
     private static LogIn logIn;
+
+    private static StartUp startUp;
     private static ShopHolder shopHolder;
 
     private final List<CategoryListener> categoryListeners = new ArrayList<>();
@@ -64,6 +66,8 @@ public class Controller extends AnchorPane implements Initializable {
         logIn = new LogIn(this);
         shopHolder = new ShopHolder(this);
 
+        startUp = new StartUp(this);
+
         categoryListeners.add(getShopHolder().getShopGrid());
 
         categoryButtonUpdaters.addAll(SubcategoryItem.getAllItems());
@@ -71,21 +75,29 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-//        db.resetFirstRun();
-//        if(db.isFirstRun()){
-//            setupLogIn();
-//        } else {
-//            setupShop();
-//        }
+        /*db.resetFirstRun();
+        if(db.isFirstRun()){
+            setupStartUp();
+        } else {
+            setupShop();
+        }*/
+
+        setupStartUp();
 
         //setupLogIn();
 
-        setupShop();
+        //setupShop();
 
         //setupCheckOut();
     }
 
-    private void setupLogIn() {
+    private void setupStartUp() {
+        window.getChildren().clear();
+        window.getChildren().add(startUp);
+        window.toFront();
+    }
+
+    public void setupLogIn() {
         window.getChildren().clear();
         window.getChildren().add(logIn);
         window.toFront();
