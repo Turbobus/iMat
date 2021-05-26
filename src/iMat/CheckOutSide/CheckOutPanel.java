@@ -20,7 +20,8 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     private ToggleGroup timeToggleGroup = new ToggleGroup();
     private boolean haveSetUpCardPane = false;
-    private boolean isButtonsActive;
+    private boolean isButtonsActive = false;
+    private boolean haveAccount = false;
     private String time;
     private final EnterCardDetails enterCardDetails = new EnterCardDetails(this);
     private final NoAccountCard noAccountCard;
@@ -87,10 +88,11 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
                         if(DB.getInstance().getFirstName() == null || DB.getInstance().getFirstName().matches("")){
                             setupNoInfo();
+                            haveAccount = false;
                         } else {
                             setupCardPane();
+                            haveAccount = true;
                         }
-                        setupNoInfo();
                         haveSetUpCardPane = true;
                         updateButtonState();
                     }
@@ -107,6 +109,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     public void haveAccount(){
         noAccountCard.haveAccount();
+        haveAccount = true;
     }
 
     private void setupNoInfo(){
@@ -125,7 +128,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
     }
 
     public void updateButtonState(){
-        if (DB.getInstance().getTotalAmountInCart() <= 0 || !enterCardDetails.correctCardInfo() || !haveSetUpCardPane){
+        if (DB.getInstance().getTotalAmountInCart() <= 0 || !enterCardDetails.correctCardInfo() || !haveSetUpCardPane || !haveAccount){
             isButtonsActive = false;
             buyButton.setId("green_button_disabled");
             payArrow.setId("check_out_svg_disabled");

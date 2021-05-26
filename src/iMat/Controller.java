@@ -139,7 +139,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     public void openAccountView(){
         settings.setupCardPane();
-        settings.setupSettings();
+        settings.setupUserInfo();
         openOverlay(settings);
     }
 

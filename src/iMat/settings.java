@@ -110,12 +110,11 @@ public class settings extends AnchorPane {
     private TextField telephoneTextField1;
     @FXML
     private TextField mobileTextField1;
+    @FXML private Label persInfoLabel;
 
     @FXML
     public void closeSettings(ActionEvent event) {
         pController.closeOverlay();
-        settingsdefault.toFront();
-        useSavedCard.toFront();
     }
 
     @FXML public void writeCardInfo(){
@@ -156,7 +155,6 @@ public class settings extends AnchorPane {
         this.pController = pController;
 
         setupValidSettings();
-        saveCardDetails();
         setupSettings();
         setupTextField();
 
@@ -166,6 +164,8 @@ public class settings extends AnchorPane {
     public void change1pressed(ActionEvent event) {
 
         settingschanged.toFront();
+
+        persInfoLabel.setText("Användaruppgifter");
 
         firstNameTextField1.setText(db.getFirstName());
         lastNameTextField1.setText(db.getLastName());
@@ -194,6 +194,15 @@ public class settings extends AnchorPane {
         }
 
 
+    }
+
+    public void setupUserInfo(){
+        if (db.getFirstName() == null || db.getFirstName().matches("")){
+            settingschanged.toFront();
+        } else {
+            setupSettings();
+            settingsdefault.toFront();
+        }
     }
 
     public void setupValidSettings () {

@@ -91,7 +91,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Label layoutX="27.0" layoutY="60.0" prefHeight="120.0" prefWidth="411.0" text="Du behöver skapa ett kundkonto innan du kan köpa något " wrapText="true">
+            <Label layoutX="27.0" layoutY="60.0" prefHeight="120.0" prefWidth="480.0" text="Du behöver skapa ett kundkonto genom att fylla i användaruppgifter innan du kan köpa något " wrapText="true">
                <styleClass>
                   <String fx:value="font_28" />
                   <String fx:value="text_color_dark_dark_blue" />

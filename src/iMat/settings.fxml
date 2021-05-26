@@ -164,7 +164,7 @@
                         <String fx:value="border_radius_30" />
                      </styleClass>
                   </Button>
-                  <Label layoutX="24.0" layoutY="11.0" prefHeight="34.0" prefWidth="213.0" stylesheets="@main.css" text="Användaruppgifter">
+                  <Label fx:id="persInfoLabel" layoutX="24.0" layoutY="11.0" prefHeight="34.0" prefWidth="594.0" stylesheets="@main.css" text="Ange dina användaruppgifter för att skapa ett konto">
                      <styleClass>
                         <String fx:value="bold_24" />
                         <String fx:value="text_color_dark_dark_blue" />
