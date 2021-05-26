@@ -937,6 +937,13 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
 }
 
+#search_bar_field {
+    -fx-background-color: #FAFBFF;
+    -fx-text-fill: #004972;
+    -fx-font-size: 23px;
+    -fx-prompt-text-fill: #82AEC7;
+}
+
 #check_out_svg { /*  Är pilen i knapparna "Till kassa" och Betala" */
     -fx-shape: "M14.7156 0.666687L12.2005 3.01669L22.1537 12.3334H0.445801V15.6667H22.1537L12.2005 24.9834L14.7156 27.3334L28.9854 14L14.7156 0.666687Z";
     -fx-background-color: #0A2500;
