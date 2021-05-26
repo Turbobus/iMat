@@ -376,7 +376,9 @@ public class settings extends AnchorPane {
         mobileTextField.setText(mobileTextField1.getText());
         db.setMobileNumber(mobileTextField1.getText());
 
-        db.getCheckOutUpdater().haveAccount();
+        if (db.getCheckOutUpdater() != null) {
+            db.getCheckOutUpdater().haveAccount();
+        }
     }
 
     public void setupSettings() {

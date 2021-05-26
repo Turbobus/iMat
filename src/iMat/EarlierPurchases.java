@@ -13,11 +13,11 @@ import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class EarlierPurchases extends AnchorPane implements ShoppingCartListener {
+import static java.util.Comparator.comparingInt;
+
+public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListener {
     @FXML private AnchorPane earlierPurchases;
     @FXML private Button closeButton;
     @FXML private FlowPane purchasesFlowPane;
@@ -54,7 +54,10 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
     }
 
 
-
+    private List<Order> sortInComingOrders(List<Order> listToBeSorted){
+        listToBeSorted.sort(Comparator.comparing(Order::getDate));
+        return listToBeSorted;
+    }
 
     //adds previous purchases to the flowpane
     public void showPurchases(){
@@ -65,7 +68,7 @@ public class EarlierPurchases extends AnchorPane implements ShoppingCartListener
         iconPane.setOpacity(1);
         //clear list
         purchasesFlowPane.getChildren().clear();
-        for(Order order : db.getOrders()){
+        for(Order order : sortInComingOrders(db.getOrders())){
             SingularPurchase purchase = new SingularPurchase(pController, order, this);
             //purchase.reload();
             purchases.add(purchase);
