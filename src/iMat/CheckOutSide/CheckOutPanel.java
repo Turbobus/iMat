@@ -23,6 +23,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
     private boolean isButtonsActive;
     private String time;
     private final EnterCardDetails enterCardDetails = new EnterCardDetails(this);
+    private final NoAccountCard noAccountCard;
 
     @FXML AnchorPane cardInformationPanel;
 
@@ -54,8 +55,10 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
         }
 
         this.pController = pController;
+        noAccountCard = new NoAccountCard(pController, this);
 
         DB.getInstance().setCartListener(this);
+        DB.getInstance().setCheckOutUpdater(this);
         radioButtonSetup();
         updateTotalPrice();
         updateButtonState();
@@ -81,7 +84,13 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
                     }
 
                     if (!haveSetUpCardPane){
-                        setupCardPane();
+
+                        if(DB.getInstance().getFirstName() == null || DB.getInstance().getFirstName().matches("")){
+                            setupNoInfo();
+                        } else {
+                            setupCardPane();
+                        }
+                        setupNoInfo();
                         haveSetUpCardPane = true;
                         updateButtonState();
                     }
@@ -91,9 +100,18 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
         });
     }
 
-    private void setupCardPane(){
+    public void setupCardPane(){
         cardInformationPanel.getChildren().clear();
         cardInformationPanel.getChildren().add(enterCardDetails);
+    }
+
+    public void haveAccount(){
+        noAccountCard.haveAccount();
+    }
+
+    private void setupNoInfo(){
+        cardInformationPanel.getChildren().clear();
+        cardInformationPanel.getChildren().add(noAccountCard);
     }
 
     private void updateTotalPrice(){

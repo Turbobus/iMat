@@ -1,5 +1,6 @@
 package iMat;
 
+import iMat.CheckOutSide.CheckOutPanel;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,6 +22,7 @@ public class DB {
     private IMatDataHandler iMatDataHandler;
     private boolean firstRun = true;
     private boolean firstRunReset = false;
+    private CheckOutPanel checkOutUpdater;
 
     private DB() {
         // Exists only to defeat instantiation.
@@ -237,4 +239,10 @@ public class DB {
     public List<Order> getOrders() {return iMatDataHandler.getOrders();}
 
 
+
+    public void setCheckOutUpdater(CheckOutPanel panel){
+        checkOutUpdater = panel;
+    }
+
+    public CheckOutPanel getCheckOutUpdater(){ return checkOutUpdater; }
 }
