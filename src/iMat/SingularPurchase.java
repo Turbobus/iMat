@@ -83,6 +83,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
             total += product.getShoppingItem().getTotal();
         }
         reload();
+
         bAmountLabel.setText("Totalt: "+ total + " kr");
         gAmountLabel.setText("Totalt: "+ total + " kr");
 
@@ -112,6 +113,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
                     s.setUpFromCart(item.getAmount());
+
                 }
             }
         }
@@ -126,11 +128,21 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
 
     public void checkAllInCart(){
+        System.out.println("check körs");
         for(ProductItem item : items){
-            if (!item.isInCart()) { return; }
+            if (!item.isInCart()) {
+                return;
+            }
         }
+        System.out.println("check körs verkligen på riktigt");
+        gProductFlowPane.getChildren().clear();
+        gSingularPurchaseBack.setPrefHeight(bSingularPurchaseBack.getPrefHeight());
+        gSingularPurchaseBack.toFront();
 
-        putAllInCart();
+        if(expanded){
+            addProductItems(gProductFlowPane);
+        }
+        //putAllInCart();
     }
 
     public void checkAllOutOfCart(){
@@ -149,6 +161,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         {
             if(!(s.isInCart())){
                 s.inCart();
+                controller.updateCartItemAmount(s.getShoppingItem().getProduct().getProductId(),(int) s.getShoppingItem().getAmount());
             }
         }
 
@@ -197,6 +210,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
         for(ProductItem item: items){
             if(item.getShoppingItem().getProduct().getProductId()==productId){
                 item.makeBlue();
+                //checkAllOutOfCart();
             }
         }
     }

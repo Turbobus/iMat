@@ -152,10 +152,10 @@
    ;
 }
 
-.border_dark_dark_green_1_width_no_radius{
+.border_dark_dark_green_2_width_no_radius{
     -fx-background-radius: 31px;
-    -fx-border-width: 1px;
-    -fx-border-color: #0A2500
+    -fx-border-width: 2px;
+    -fx-border-color: #A3E983
    ;
 }
 

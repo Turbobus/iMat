@@ -131,15 +131,15 @@ public class ProductItem extends AnchorPane {
         inCart = false;
         controller.removeFromCart(productID);
         pController.getController().makeBlue(productID);
-        pController.checkAllOutOfCart();
+        pController.checkAllOutOfCart(); //behövs kansek ej
 
     }
 
     public void setUpFromCart(double amount){
         gProductItem.toFront();
         gProductPriceLabel.setText(String.format("%.2f",item.getProduct().getPrice()*amount) + " kr");
-        //gProductPriceLabel.setText(item.getProduct().getPrice()*amount+ " kr");
         amountTextField.setText(String.valueOf((int) amount));
+        inCart = true;
         pController.checkAllInCart();
     }
 
@@ -147,6 +147,7 @@ public class ProductItem extends AnchorPane {
         bProductItem.toFront();
         //bProductPriceLabel.setText(item.getProduct().getPrice() + "  " + item.getProduct().getUnit());
         inCart = false;
+        pController.checkAllOutOfCart();
     }
 
     public void setInCart(boolean b){

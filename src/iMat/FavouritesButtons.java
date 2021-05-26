@@ -85,6 +85,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     private void showPurchases(){
         //checkAllInCart();
         favouritesCard.setPrefHeight(99+88*favourites.size());
+        gFavouritesCard.setPrefHeight(99+88*favourites.size());
         bFavouritesCard.setPrefHeight(99+88*favourites.size());
         bProductFlowPane.getChildren().clear();
         for(int i = 0;i<favourites.size();i++){
@@ -104,12 +105,18 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     }
 
     public void checkAllOutOfCart(){
-        for(int i = 0;i<favourites.size();i++){
+        /*for(int i = 0;i<favourites.size();i++){
             if(favourites.get(i).isInCart()){
                 return;
             }
         }
-        takeOutOfCart();
+
+         */
+        bProductFlowPane.getChildren().clear();
+        bFavouritesCard.setPrefHeight(gFavouritesCard.getPrefHeight());
+        bFavouritesCard.toFront();
+        addProductItems(bProductFlowPane);
+
     }
 
     public void putAllInCart(){
@@ -184,6 +191,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             for (ProductItem s :  favourites)
             {
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
+                    takeOutOfCartButton.setId("red_button");
                     return;
                 }
             }

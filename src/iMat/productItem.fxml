@@ -14,10 +14,10 @@
          <children>
             <AnchorPane maxHeight="78.0" maxWidth="78.0" minHeight="78.0" minWidth="78.0" prefHeight="78.0" prefWidth="78.0" style="-fx-border-radius: 15;">
                <children>
-                  <ImageView fx:id="gProductImgView" fitHeight="76.0" fitWidth="76.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="gProductImgView" fitHeight="74.0" fitWidth="74.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <styleClass>
-                  <String fx:value="border_dark_dark_green_1_width_no_radius" />
+                  <String fx:value="border_dark_dark_green_2_width_no_radius" />
                   <String fx:value="shadow_25_total_side" />
                </styleClass>
             </AnchorPane>
@@ -68,7 +68,7 @@
             </Label>
          </children>
          <styleClass>
-            <String fx:value="border_dark_dark_green_1_width_no_radius" />
+            <String fx:value="border_dark_dark_green_2_width_no_radius" />
             <String fx:value="background_color_light_green" />
          </styleClass>
       </AnchorPane>
