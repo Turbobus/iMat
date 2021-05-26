@@ -173,6 +173,8 @@ public class LogIn extends AnchorPane {
         }
     }
 
+    @FXML private void toStartUp() { pController.setupStartUp(); }
+
     private static void isFilledIn(String field) throws IOException {
         if(field.length() < 1) {
             throw new IOException();
