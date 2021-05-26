@@ -114,6 +114,7 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
 
     public void updateSavedCard(){
         enterCardDetails.setupPane();
+        updateButtonState();
     }
 
     private void setupNoInfo(){
