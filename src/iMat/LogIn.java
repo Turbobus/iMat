@@ -50,7 +50,7 @@ public class LogIn extends AnchorPane {
         setupTextField();
     }
 
-    @FXML public void updateNextButton(){
+    public void updateNextButton(){
         boolean flag = false;
 
         if (isTextFieldEmpty(firstNameTextField)) { flag = true; }
@@ -92,6 +92,7 @@ public class LogIn extends AnchorPane {
             if (newValue.length() > 5){
                 postalCodeTextField.setText(oldValue);
             }
+            updateNextButton();
         });
 
         postalCodeTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -104,6 +105,10 @@ public class LogIn extends AnchorPane {
                     postNumberHide.setId("hide_white_textArea");
                 }
             }
+        });
+
+        firstNameTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateNextButton();
         });
 
         firstNameTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -119,6 +124,10 @@ public class LogIn extends AnchorPane {
 
         });
 
+        lastNameTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateNextButton();
+        });
+
         lastNameTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
@@ -132,6 +141,10 @@ public class LogIn extends AnchorPane {
 
         });
 
+        addressTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateNextButton();
+        });
+
         addressTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
@@ -143,6 +156,10 @@ public class LogIn extends AnchorPane {
                 }
             }
 
+        });
+
+        postAddressTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateNextButton();
         });
 
         postAddressTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="window" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="window" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,7 +18,7 @@
          </image>
       </ImageView>
       <Pane opacity="0.75" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FAFBFF;" />
-      <AnchorPane onMouseMoved="#updateNextButton" prefHeight="1080.0" prefWidth="1920.0">
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
          <children>
             <ImageView fitHeight="122.04" fitWidth="160.0" layoutX="33.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
