@@ -125,6 +125,7 @@ public class settings extends AnchorPane {
 
     @FXML public void writeCardInfo(){
         saveUntilNextTime.setText("Spara uppgifterna igen");
+        deleteCardInfo.setVisible(true);
         writeNewCard.toFront();
     }
 
@@ -164,8 +165,9 @@ public class settings extends AnchorPane {
         db.setCardType("");
 
         setupSavedCardInfo();
-
+        deleteCardInfo.toBack();
         writeNewCard.toFront();
+        deleteCardInfo.setVisible(false);
 
     }
 
@@ -190,6 +192,7 @@ public class settings extends AnchorPane {
         mobileTextField1.setText("");
 
         settingschanged.toFront();
+        deleteUserInfo.toBack();
        setupSettings();
 
 
@@ -229,6 +232,7 @@ public class settings extends AnchorPane {
         setupSettings();
         setupTextField();
 
+
     }
 
     @FXML
@@ -262,6 +266,7 @@ public class settings extends AnchorPane {
         if (isFieldsRight){
             updatesettings();
             settingsdefault.toFront();
+            deleteUserInfo.toFront();
         }
 
 
@@ -270,9 +275,15 @@ public class settings extends AnchorPane {
     public void setupUserInfo(){
         if (db.getFirstName() == null || db.getFirstName().matches("")){
             settingschanged.toFront();
+            deleteUserInfo.toBack();
+
+
+
         } else {
             setupSettings();
             settingsdefault.toFront();
+            deleteUserInfo.toFront();
+
         }
     }
 
@@ -452,9 +463,11 @@ public class settings extends AnchorPane {
     public void setupCardPane(){
         if (db.getCardNumber().matches("")){
             writeNewCard.toFront();
+            deleteCardInfo.setVisible(false);
         } else {
             setupSavedCardInfo();
             useSavedCard.toFront();
+
         }
     }
 
