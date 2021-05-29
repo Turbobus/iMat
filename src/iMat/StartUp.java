@@ -28,7 +28,8 @@ public class StartUp extends AnchorPane {
 
         this.pController = pController;
 
-        Platform.runLater(()->createAccountButton.requestFocus());
+        //Platform.runLater(()->createAccountButton.requestFocus());
+
     }
 
     @FXML

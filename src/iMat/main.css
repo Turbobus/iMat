@@ -494,8 +494,7 @@
 }
 
 #white_button:focused {
-    -fx-border-color: #002E48;
-    -fx-border-width: 2px;
+    -fx-background-color: #000000;
 }
 
 #blue_button {
