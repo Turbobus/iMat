@@ -196,11 +196,13 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
             for (ProductItem s :  favourites)
             {
                 if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
+                    takeOutOfCartButton.setOpacity(1);
                     takeOutOfCartButton.setId("red_button");
                     return;
                 }
             }
         }
+        takeOutOfCartButton.setOpacity(0);
         takeOutOfCartButton.setId("red_button_disabled");
     }
 }

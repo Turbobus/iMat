@@ -43,7 +43,11 @@
                         <String fx:value="border_radius_30" />
                      </styleClass>
                      <children>
-                        <Label layoutX="17.0" layoutY="6.0" styleClass="bold_20" text="Ligger i kundvagnen!" textAlignment="CENTER" />
+                        <Label layoutX="17.0" layoutY="6.0" text="Ligger i kundvagnen!" textAlignment="CENTER">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="text_color_dark_dark_green" />
+                           </styleClass></Label>
                      </children>
                   </AnchorPane>
                </children>
@@ -52,6 +56,7 @@
                <styleClass>
                   <String fx:value="border_dark_dark_green_1_width" />
                   <String fx:value="font_20" />
+                  <String fx:value="shadow_25" />
                </styleClass>
                <graphic>
                   <Pane fx:id="gArrowPane" prefHeight="26.0" prefWidth="14.0" rotate="90.0">
@@ -66,6 +71,7 @@
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="font_20" />
+                  <String fx:value="shadow_25" />
                </styleClass>
             </Button>
             <FlowPane fx:id="gProductFlowPane" layoutX="9.5" layoutY="74.0" prefHeight="5.0" prefWidth="661.0" vgap="10.0" />
@@ -118,10 +124,6 @@
                </children>
             </AnchorPane>
             <Button id="light_blue_button" fx:id="bShowProducts" contentDisplay="RIGHT" graphicTextGap="15.0" layoutX="251.0" layoutY="74.0" maxHeight="40.0" maxWidth="181.0" minHeight="40.0" minWidth="181.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="40.0" prefWidth="181.0" text="Visa varor" AnchorPane.bottomAnchor="15.0">
-               <styleClass>
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="font_20" />
-               </styleClass>
                <graphic>
                   <Pane fx:id="bArrowPane" prefHeight="26.0" prefWidth="14.0" rotate="90.0">
                      <styleClass>
@@ -130,6 +132,10 @@
                      </styleClass>
                   </Pane>
                </graphic>
+               <styleClass>
+                  <String fx:value="border_dark_dark_blue_1_width" />
+                  <String fx:value="font_20" />
+               </styleClass>
             </Button>
             <FlowPane fx:id="bProductFlowPane" layoutX="9.5" layoutY="74.0" prefHeight="5.0" prefWidth="661.0" vgap="10.0" />
          </children>

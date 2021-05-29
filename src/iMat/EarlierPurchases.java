@@ -24,6 +24,8 @@ public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListe
     @FXML private Label titleLabel;
     @FXML private ImageView iconImgView;
     @FXML private Pane iconPane;
+    @FXML private Label noHoldersLabel;
+    @FXML private AnchorPane noHoldersPane;
 
     private Controller pController;
     private DB db = DB.getInstance();
@@ -68,24 +70,22 @@ public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListe
         iconPane.setOpacity(1);
         //clear list
         purchasesFlowPane.getChildren().clear();
-        for(Order order : sortInComingOrders(db.getOrders())){
-            SingularPurchase purchase = new SingularPurchase(pController, order, this);
-            //purchase.reload();
-            purchases.add(purchase);
-            purchasesFlowPane.getChildren().add(0,purchase);
-
+        noHoldersLabel.setText("Du har inga tidigare köp än, om du köper något kommer köpet att visas här");
+        if(db.getOrders().size()==0){
+            noHoldersPane.setOpacity(1);
         }
+        else{
+            noHoldersPane.setOpacity(0);
+            for(Order order : sortInComingOrders(db.getOrders())){
+                SingularPurchase purchase = new SingularPurchase(pController, order, this);
+                //purchase.reload();
+                purchases.add(purchase);
+                purchasesFlowPane.getChildren().add(0,purchase);
 
-        /*for (ShoppingItem item : db.getAllShoppingItems()){
-            for (ProductItem s :  favourites)
-            {
-                if(item.getProduct().getProductId() == s.getShoppingItem().getProduct().getProductId()){
-                    s.setUpFromCart(item.getAmount());
-                }
             }
         }
 
-         */
+
     }
 
     public void showFavourites(){
@@ -94,9 +94,17 @@ public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListe
         iconImgView.setOpacity(1);
         iconPane.setOpacity(0);
         purchasesFlowPane.getChildren().clear();
-        FavouritesButtons favouritesButtons = new FavouritesButtons(pController, this);
-        favourites.add(favouritesButtons);
-        purchasesFlowPane.getChildren().add(favouritesButtons);
+        noHoldersLabel.setText("Du har inga favoriter än, om du lägger till en vara som favorit visas den här");
+        if(db.getFavorites().size()==0){
+            noHoldersPane.setOpacity(1);
+        }
+        else{
+            noHoldersPane.setOpacity(0);
+            FavouritesButtons favouritesButtons = new FavouritesButtons(pController, this);
+            favourites.add(favouritesButtons);
+            purchasesFlowPane.getChildren().add(favouritesButtons);
+        }
+
 
     }
 

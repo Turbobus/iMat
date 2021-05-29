@@ -229,6 +229,9 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
             hideProducts();
             gArrowPane.setRotate(90);
             bArrowPane.setRotate(90);
+            gShowProducts.setText("Visa varor");
+            bShowProducts.setText("Visa varor");
+
         }
         else{
             bArrowPane.setRotate(270);
@@ -238,6 +241,8 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
             bSingularPurchaseBack.setPrefHeight(130+88*(items.size()));
             addProductItems(fPane);
             expanded = true;
+            bShowProducts.setText("Förminska");
+            gShowProducts.setText("Förminska");
 
         }
     }

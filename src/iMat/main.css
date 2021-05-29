@@ -600,15 +600,17 @@
     -fx-border-color: #002E48;
     -fx-padding: 0px;
     -fx-border-insets: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 4);
 }
 
 #light_blue_button:hover {
     -fx-background-color: #B4D0F1;
+
 }
 
 #light_blue_button:pressed {
     -fx-background-color: #B4D0F1;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1);
 }
 
 #hide_white_textArea {

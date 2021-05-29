@@ -55,5 +55,15 @@
             </Label>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="noHoldersPane" layoutX="150.0" layoutY="315.0" prefHeight="204.0" prefWidth="440.0" styleClass="border_dark_dark_blue_2_width">
+         <children>
+            <Label fx:id="noHoldersLabel" layoutX="36.0" layoutY="15.0" prefHeight="174.0" prefWidth="368.0" text="Du har inga favoriter än, om du lägger till en vara som favorit visas den här" textAlignment="CENTER" wrapText="true">
+               <styleClass>
+                  <String fx:value="bold_28" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </fx:root>
