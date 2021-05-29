@@ -58,7 +58,13 @@ public class Controller extends AnchorPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        db.reset();
+
+
+        // Kommetera in ifall det behövs.
+        //db.reset();
+
+
+
 
         createProductCards();
         CategoryMenu.initialize(this);
@@ -76,19 +82,11 @@ public class Controller extends AnchorPane implements Initializable {
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
 
-//        if(db.isFirstRun()){
-//            setupStartUp();
-//        } else {
-//            setupShop();
-//        }
-
-        setupStartUp();
-
-        //setupLogIn();
-
-        //setupShop();
-
-        //setupCheckOut();
+        if(db.isFirstRun()){
+            setupStartUp();
+        } else {
+            setupShop();
+        }
     }
 
     public void setupStartUp() {
