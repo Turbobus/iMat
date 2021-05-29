@@ -43,6 +43,8 @@ public class settings extends AnchorPane {
     @FXML Label cardCVCText;
 
     @FXML Button saveUntilNextTime;
+    @FXML Button deleteUserInfo;
+    @FXML Button deleteCardInfo;
 
     //Buttons for window default
     @FXML
@@ -138,6 +140,38 @@ public class settings extends AnchorPane {
                 db.getCheckOutUpdater().updateSavedCard();
             }
         }
+    }
+
+    @FXML public void deleteCardInfoPressed(ActionEvent event) {
+
+        db.setCardNumber("");
+        db.setHoldersName("");
+        db.setValidMonth(0);              //Ändra
+        db.setValidYear(0);               //Ändra
+        db.setVerificationCode(0);        //Ändra
+        db.setCardType("");
+
+        setupSavedCardInfo();
+
+        writeNewCard.toFront();
+
+    }
+
+    @FXML public void deleteUserInfoPressed(ActionEvent event) {
+
+       db.setFirstName("");
+       db.setLastName("");
+       db.setAddress("");
+       db.setPostAddress("");
+       db.setPostCode("");
+       db.setEMail("");
+       db.setPhoneNumber("");
+       db.setMobileNumber("");
+
+       setupSettings();
+
+       settingsdefault.toFront();
+
     }
 
     private boolean isAllTrue(boolean[] array) {
@@ -335,7 +369,6 @@ public class settings extends AnchorPane {
     private boolean isPostalCodeWrong(){
         return postalCodeTextField1.getText().length() != 5;
     }
-
 
     public void updatesettings() {
 
