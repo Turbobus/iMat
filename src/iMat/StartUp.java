@@ -25,7 +25,7 @@ public class StartUp extends AnchorPane {
     }
 
     @FXML
-    private void createAccount() { pController.setupLogIn(); }
+    private void createAccount() { pController.setupLogIn(); pController.setLogInFirstNameFocus(); }
 
     @FXML
     private void setUpShop() { pController.setupShop(); }

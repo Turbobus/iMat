@@ -165,16 +165,16 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
                      <children>
-                        <TextField fx:id="mobileTextField" layoutX="147.0" prefHeight="45.0" prefWidth="363.0">
+                        <TextField fx:id="mailTextField" layoutX="130.0" prefHeight="45.0" prefWidth="382.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="font_20" />
                               <String fx:value="text_color_dark_blue" />
                            </styleClass>
                         </TextField>
-                        <Label layoutX="15.0" layoutY="8.0" text="Mobilnummer:">
+                        <Label layoutX="15.0" layoutY="8.0" text="E-postadress:">
                            <styleClass>
                               <String fx:value="bold_20" />
                               <String fx:value="text_color_dark_blue" />
@@ -199,16 +199,16 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="395.0" prefHeight="45.0" prefWidth="530.0">
+                  <AnchorPane id="hide_white_textArea" layoutX="35.0" layoutY="515.0" prefHeight="45.0" prefWidth="530.0">
                      <children>
-                        <TextField fx:id="mailTextField" layoutX="130.0" prefHeight="45.0" prefWidth="382.0">
+                        <TextField fx:id="mobileTextField" layoutX="147.0" prefHeight="45.0" prefWidth="363.0">
                            <styleClass>
                               <String fx:value="background_color_blue_white" />
                               <String fx:value="font_20" />
                               <String fx:value="text_color_dark_blue" />
                            </styleClass>
                         </TextField>
-                        <Label layoutX="15.0" layoutY="8.0" text="E-postadress:">
+                        <Label layoutX="15.0" layoutY="8.0" text="Mobilnummer:">
                            <styleClass>
                               <String fx:value="bold_20" />
                               <String fx:value="text_color_dark_blue" />

@@ -1,5 +1,6 @@
 package iMat;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -180,4 +181,6 @@ public class LogIn extends AnchorPane {
             throw new IOException();
         }
     }
+
+    public void setFirstNameFocus() { Platform.runLater(()->firstNameTextField.requestFocus()); }
 }
