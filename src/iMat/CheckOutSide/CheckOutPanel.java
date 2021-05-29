@@ -1,5 +1,6 @@
 package iMat.CheckOutSide;
 
+import com.sun.javafx.scene.canvas.CanvasHelper;
 import iMat.Controller;
 import iMat.DB;
 import javafx.beans.value.ChangeListener;
@@ -32,6 +33,10 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
     @FXML private RadioButton morning;
     @FXML private RadioButton day;
     @FXML private RadioButton evening;
+
+    @FXML private AnchorPane morningRadioHolder;
+    @FXML private AnchorPane dayRadioHolder;
+    @FXML private AnchorPane eveningRadioHolder;
 
     @FXML private Label totalPriceOfCart;
     @FXML private Button buyButton;
@@ -79,9 +84,24 @@ public class CheckOutPanel extends AnchorPane implements ShoppingCartListener {
                     RadioButton selected = (RadioButton) timeToggleGroup.getSelectedToggle();
 
                     switch (selected.getText().charAt(0)){
-                        case 'F' -> time = "10 - 13";
-                        case 'E' -> time = "13 - 17";
-                        case 'K' -> time = "18 - 21";
+                        case 'F' -> {
+                            time = "10 - 13";
+                            morningRadioHolder.setId("radio_button_holder_selected");
+                            dayRadioHolder.setId("radio_button_holder");
+                            eveningRadioHolder.setId("radio_button_holder");
+                        }
+                        case 'E' -> {
+                            time = "13 - 17";
+                            morningRadioHolder.setId("radio_button_holder");
+                            dayRadioHolder.setId("radio_button_holder_selected");
+                            eveningRadioHolder.setId("radio_button_holder");
+                        }
+                        case 'K' -> {
+                            time = "18 - 21";
+                            morningRadioHolder.setId("radio_button_holder");
+                            dayRadioHolder.setId("radio_button_holder");
+                            eveningRadioHolder.setId("radio_button_holder_selected");
+                        }
                     }
 
                     if (!haveSetUpCardPane){
