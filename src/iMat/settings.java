@@ -119,6 +119,7 @@ public class settings extends AnchorPane {
 
     @FXML public void writeCardInfo(){
         saveUntilNextTime.setText("Spara uppgifterna igen");
+        cardLabel.setText("Ändra kortuppgifter");
         deleteCardInfo.setVisible(true);
         writeNewCard.toFront();
     }
@@ -188,7 +189,24 @@ public class settings extends AnchorPane {
         deleteUserInfo.toBack();
         setupSettings();
 
+        db.setCardNumber("");
+        db.setHoldersName("");
+        db.setValidMonth(0);              //Ändra
+        db.setValidYear(0);               //Ändra
+        db.setVerificationCode(0);        //Ändra
+        db.setCardType("");
+
+        setupSavedCardInfo();
+        deleteCardInfo.toBack();
+        writeNewCard.toFront();
+        deleteCardInfo.setVisible(false);
+
         updateButtons();
+
+        if (db.getCheckOutUpdater() != null) {
+            db.getCheckOutUpdater().doNotHaveAccount();
+        }
+
     }
 
     @FXML public void cardDenyButtonPressed(ActionEvent event) {
@@ -211,7 +229,7 @@ public class settings extends AnchorPane {
 
         settingschanged.toFront();
 
-        persInfoLabel.setText("Användaruppgifter");
+        persInfoLabel.setText("Ändra användaruppgifter");
         save1.setText("Spara användaruppgiterna");
 
         firstNameTextField1.setText(db.getFirstName());
@@ -231,7 +249,7 @@ public class settings extends AnchorPane {
             updatesettings();
             settingsdefault.toFront();
             deleteUserInfo.toFront();
-            cardLabel.setText("Spara dina kortuppgifter");
+            cardLabel.setText("Här kan du spara dina kortuppgifter");
             SaveAllandContinue.setId("green_button");
             SaveAllandContinue.setOnAction(this::SaveAllandContinuePressed);
         }
@@ -257,8 +275,6 @@ public class settings extends AnchorPane {
         setupValidSettings();
         setupSettings();
         setupTextField();
-
-
     }
 
 
@@ -266,6 +282,7 @@ public class settings extends AnchorPane {
 
         if (fromHeader) {
             SaveAllandContinue.setText("Fortsätt handla");
+            SaveAllandContinue.setId("green_button");
         } else {
             SaveAllandContinue.setText("Fortsätt betalningen");
             SaveAllandContinue.setId("green_button_disabled");
@@ -289,11 +306,26 @@ public class settings extends AnchorPane {
         telephoneTextField1.setText("");
         mobileTextField1.setText("");
 
+        firstNameTextField1.setId("blue_text_field");
+        lastNameTextField1.setId("blue_text_field");
+        addressTextField1.setId("blue_text_field");
+        postAddressTextField1.setId("blue_text_field");
+        postalCodeTextField1.setId("blue_text_field");
+        mailTextField1.setId("blue_text_field");
+        telephoneTextField1.setId("blue_text_field");
+        mobileTextField1.setId("blue_text_field");
+
         cardNumber.setText("");
         cardName.setText("");
         cardMonth.setText("");
         cardYear.setText("");
         cardCVC.setText("");
+
+        cardNumber.setId("blue_text_field");
+        cardName.setId("blue_text_field");
+        cardMonth.setId("blue_text_field");
+        cardYear.setId("blue_text_field");
+        cardCVC.setId("blue_text_field");
 
 
 
@@ -528,7 +560,7 @@ public class settings extends AnchorPane {
             if(db.getFirstName().matches("") || db.getFirstName() == null){
                 cardLabel.setText("Skapa ett konto innan du kan spara kortuppgifter");
             } else {
-                cardLabel.setText("Spara dina kortuppgifter");
+                cardLabel.setText("Här kan du spara dina kortuppgifter");
             }
             clearDetails();
         } else {

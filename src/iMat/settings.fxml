@@ -48,7 +48,7 @@
          <children>
             <AnchorPane fx:id="confirmAccountPane" prefHeight="380.0" prefWidth="1000.0">
                <children>
-                  <AnchorPane opacity="0.5" prefHeight="380.0" prefWidth="1000.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
+                  <AnchorPane onMouseClicked="#accountDenyButtonPressed" opacity="0.5" prefHeight="380.0" prefWidth="1000.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
                   <AnchorPane id="confirm_message" layoutX="255.0" layoutY="77.0" maxHeight="226.0" maxWidth="534907.0" minHeight="226.0" minWidth="490.0" prefHeight="226.0" prefWidth="490.0">
                      <children>
                         <Label layoutX="33.0" prefHeight="153.0" prefWidth="367.0" text="Är du säker på att du vill ta bort ditt kundkonto?" wrapText="true">
@@ -125,7 +125,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Label layoutX="24.0" layoutY="11.0" prefHeight="34.0" prefWidth="213.0" stylesheets="@main.css" text="Användaruppgifter">
+                  <Label layoutX="24.0" layoutY="11.0" prefHeight="34.0" prefWidth="382.0" stylesheets="@main.css" text="Sparade användaruppgifter">
                      <styleClass>
                         <String fx:value="bold_24" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -397,7 +397,7 @@
          <children>
             <AnchorPane fx:id="confirmCardPane" prefHeight="320.0" prefWidth="630.0">
                <children>
-                  <AnchorPane opacity="0.5" prefHeight="320.0" prefWidth="630.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
+                  <AnchorPane onMouseClicked="#cardDenyButtonPressed" opacity="0.5" prefHeight="320.0" prefWidth="630.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
                   <AnchorPane id="confirm_message" layoutX="70.0" layoutY="47.0" maxHeight="226.0" maxWidth="534907.0" minHeight="226.0" minWidth="490.0" prefHeight="226.0" prefWidth="490.0">
                      <children>
                         <Label layoutX="33.0" prefHeight="153.0" prefWidth="367.0" text="Är du säker på att du vill rensa dina kortuppgifter?" wrapText="true">
@@ -520,14 +520,6 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <Button id="green_button" fx:id="SaveAllandContinue" layoutX="685.0" layoutY="117.0" mnemonicParsing="false" onAction="#SaveAllandContinuePressed" prefHeight="116.0" prefWidth="287.0" text="Spara alla uppgifter och fortsätt handla" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_50" />
-                  <String fx:value="text_color_dark_dark_green" />
-                  <String fx:value="bold_24" />
-               </styleClass>
-            </Button>
             <AnchorPane fx:id="writeNewCard" maxWidth="630.0" minWidth="430.0" prefHeight="320.0" prefWidth="630.0">
                <styleClass>
                   <String fx:value="background_color_light_light_blue" />
@@ -608,6 +600,14 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Button id="green_button" fx:id="SaveAllandContinue" layoutX="685.0" layoutY="117.0" mnemonicParsing="false" onAction="#SaveAllandContinuePressed" prefHeight="116.0" prefWidth="287.0" text="Spara alla uppgifter och fortsätt handla" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_50" />
+                  <String fx:value="text_color_dark_dark_green" />
+                  <String fx:value="bold_24" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
    </children>
