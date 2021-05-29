@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <fx:root maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" onMouseClicked="#openDetailView" prefHeight="80.0" prefWidth="302.0" styleClass="border_radius_30" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -47,11 +49,7 @@
                   <String fx:value="shadow_25" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="3.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
-                     <image>
-                        <Image url="@../img/dark_red_minus.png" />
-                     </image>
-                  </ImageView>
+                  <Pane maxHeight="3.0" maxWidth="18.0" minHeight="3.0" minWidth="18.0" prefHeight="3.0" prefWidth="18.0" styleClass="minus_svg" />
                </graphic>
             </Button>
             <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="263.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
@@ -60,11 +58,11 @@
                   <String fx:value="shadow_25" />
                </styleClass>
                <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
-                     <image>
-                        <Image url="@../img/dark_green_plus.png" />
-                     </image>
-                  </ImageView>
+                  <Pane id="enabled_plus" fx:id="plusButton" maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Pane>
                </graphic>
             </Button>
             <TextField id="prodText_input" fx:id="amountTextCartItem" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />

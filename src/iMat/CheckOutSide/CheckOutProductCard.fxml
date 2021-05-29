@@ -73,7 +73,7 @@
                   <String fx:value="text_color_dark_dark_green" />
                </styleClass>
             </Label>
-            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
+            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
@@ -82,7 +82,7 @@
                   <Pane maxHeight="3.5" maxWidth="25.0" minHeight="3.5" minWidth="25.0" prefHeight="3.5" prefWidth="25.0" styleClass="minus_svg" />
                </graphic>
             </Button>
-            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
+            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
