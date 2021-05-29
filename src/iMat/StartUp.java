@@ -1,7 +1,9 @@
 package iMat;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -9,6 +11,9 @@ import java.io.IOException;
 public class StartUp extends AnchorPane {
 
     private final Controller pController;
+
+    @FXML private Button createAccountButton;
+    @FXML private Button GuestLogInButton;
 
     public StartUp(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("startUp.fxml"));
@@ -22,6 +27,8 @@ public class StartUp extends AnchorPane {
         }
 
         this.pController = pController;
+
+        Platform.runLater(()->createAccountButton.requestFocus());
     }
 
     @FXML
