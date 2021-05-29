@@ -60,8 +60,8 @@ public class Controller extends AnchorPane implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
 
-        // Kommetera in ifall det behövs.
-        //db.reset();
+        // Kommetera ut ifall det behövs.
+        db.reset();
 
 
 
@@ -80,9 +80,9 @@ public class Controller extends AnchorPane implements Initializable {
         categoryButtonUpdaters.add(CategoryMenu.getInstance());
 
 
-        // "db.resetFirstRun()" gör bara så att man kommer rätt vid startup, annars finns det risk att det blir skumt
+        // "db.resetFirstRun()" gör bara så att man kommer rätt vid startup, gamla uppgiter ur databasen tas inte bort
         // Kommentera in och ut vid behov, se "db.reset()" ovan också ifall det vill göras
-        db.resetFirstRun();
+        //db.resetFirstRun();
         if(db.isFirstRun()){
             setupStartUp();
         } else {
