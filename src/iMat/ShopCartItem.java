@@ -28,6 +28,9 @@ public class ShopCartItem extends AnchorPane {
 
     @FXML TextField amountTextCartItem;
 
+    @FXML private AnchorPane confirmPane;
+    @FXML private AnchorPane shopCartItemPane;
+
 
     // FXML methods
     @FXML
@@ -35,11 +38,24 @@ public class ShopCartItem extends AnchorPane {
         int newValue = Integer.parseInt(amountTextCartItem.getText()) - 1;
 
         if (newValue <= 0) {
-            pController.removeFromCart(productId);
+            confirmPane.toFront();
         } else {
             pController.updateCartItemAmount(productId, newValue);
             amountTextCartItem.setText("" + newValue);
         }
+    }
+
+    @FXML
+    public void confirmButtonPressed(ActionEvent event){
+        pController.removeFromCart(productId);
+        shopCartItemPane.toFront();
+
+    }
+
+    @FXML
+    public void denyButtonPressed(ActionEvent event){
+        shopCartItemPane.toFront();
+
     }
 
     @FXML

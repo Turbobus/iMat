@@ -477,6 +477,14 @@
     -fx-background-color: #FFFCFB;
 }
 
+#confirm_message_radius_15 {
+    -fx-border-radius: 15px;
+    -fx-background-radius: 16px;
+    -fx-border-width: 3px;
+    -fx-border-color: #DC5A21;
+    -fx-background-color: #FFFCFB;
+}
+
 #white_button {
     -fx-text-fill: #004972;
     -fx-background-color: #FAFBFF;

@@ -22,6 +22,7 @@ public class CheckOutProductCard extends AnchorPane {
 
     // Green card
     @FXML private AnchorPane greenCard;
+    @FXML private AnchorPane confirmPane;
     @FXML private Button minusCardButton;
     @FXML private Button plusCardButton;
     @FXML private TextField amountTextCard;
@@ -41,12 +42,25 @@ public class CheckOutProductCard extends AnchorPane {
         int newValue = Integer.parseInt(amountTextCard.getText()) - 1;
 
         if (newValue <= 0) {
-            pController.removeFromCart(productId);
+            confirmPane.toFront();
             //blueCard.toFront();
         } else {
             pController.updateCartItemAmount(productId, newValue);
             amountTextCard.setText("" + newValue);
         }
+    }
+
+    @FXML
+    public void confirmButtonPressed(ActionEvent event){
+        pController.removeFromCart(productId);
+        greenCard.toFront();
+
+    }
+
+    @FXML
+    public void denyButtonPressed(ActionEvent event){
+        greenCard.toFront();
+
     }
 
     @FXML

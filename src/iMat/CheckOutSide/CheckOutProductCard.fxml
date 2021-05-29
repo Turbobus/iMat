@@ -11,6 +11,30 @@
 
 <fx:root prefHeight="320.0" prefWidth="270.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <AnchorPane id="confirm_message" fx:id="confirmPane" layoutX="7.0" layoutY="190.0" prefHeight="123.0" prefWidth="256.0">
+         <children>
+            <Button id="red_button" fx:id="denyButton" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="66.0" maxHeight="40.0" maxWidth="69.0" minHeight="40.0" minWidth="69.0" mnemonicParsing="false" onAction="#denyButtonPressed" prefHeight="40.0" prefWidth="69.0" text="Nej">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+                  <String fx:value="bold_24" />
+               </styleClass>
+            </Button>
+            <Button id="green_add_button" fx:id="confirmButton" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="66.0" maxHeight="40.0" maxWidth="35.0" minHeight="40.0" minWidth="69.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefHeight="40.0" prefWidth="69.0" text="Ja">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+                  <String fx:value="bold_24" />
+               </styleClass>
+            </Button>
+            <Label layoutX="28.0" layoutY="20.0" prefHeight="34.0" prefWidth="217.0" text="Ta ut ur kundvagn?" wrapText="true">
+               <styleClass>
+                  <String fx:value="text_color_dark_red" />
+                  <String fx:value="bold_24" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@../main.css">
          <children>
             <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
