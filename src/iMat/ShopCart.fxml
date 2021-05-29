@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="929.0" maxWidth="354.0" minHeight="929.0" minWidth="354.0" prefHeight="929.0" prefWidth="354.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="929.0" maxWidth="354.0" minHeight="929.0" minWidth="354.0" prefHeight="929.0" prefWidth="354.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="44.0" layoutY="45.0" text="Din kundvagn">
+      <Label focusTraversable="false" layoutX="44.0" layoutY="45.0" text="Din kundvagn">
          <styleClass>
             <String fx:value="text_color_dark_dark_blue" />
             <String fx:value="bold_36" />
          </styleClass>
       </Label>
-      <Button id="red_button" fx:id="emptyCartButton" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" onAction="#emptyCartPressed" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
+      <Button id="red_button" fx:id="emptyCartButton" focusTraversable="false" layoutX="170.0" layoutY="715.0" mnemonicParsing="false" onAction="#emptyCartPressed" prefHeight="35.0" prefWidth="170.0" text="Töm kundvagnen">
          <font>
             <Font size="20.0" />
          </font>
@@ -37,13 +37,13 @@
             <Pane id="check_out_svg" fx:id="rightArrow" prefHeight="29.0" prefWidth="30.0" styleClass="check_out_svg" translateX="10.0" />
          </graphic>
       </Button>
-      <Label fx:id="amountInCart" layoutX="26.0" layoutY="716.0" prefHeight="31.0" prefWidth="142.0" text="Antal: 6st">
+      <Label fx:id="amountInCart" focusTraversable="false" layoutX="26.0" layoutY="716.0" prefHeight="31.0" prefWidth="142.0" text="Antal: 6st">
          <styleClass>
             <String fx:value="font_22" />
             <String fx:value="text_color_dark_dark_blue" />
          </styleClass>
       </Label>
-      <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
+      <Label fx:id="totalPriceOfCart" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="10.0" layoutY="785.0" prefHeight="39.0" prefWidth="330.0" text="Totalt: 245 kr">
          <styleClass>
             <String fx:value="bold_28" />
             <String fx:value="text_color_dark_dark_blue" />
@@ -57,7 +57,7 @@
       </Pane>
       <AnchorPane id="cart_pane" layoutX="12.0" layoutY="130.0" maxHeight="570.0" maxWidth="330.0" minHeight="570.0" minWidth="330.0" prefHeight="570.0" prefWidth="330.0">
          <children>
-            <ScrollPane layoutX="2.0" layoutY="11.0" prefHeight="551.0" prefWidth="325.0" style="-fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="background_color_light_light_blue">
+            <ScrollPane focusTraversable="false" layoutX="2.0" layoutY="11.0" prefHeight="551.0" prefWidth="325.0" style="-fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="background_color_light_light_blue">
                <content>
                   <FlowPane fx:id="cartItemHolder" columnHalignment="CENTER" prefHeight="550.0" prefWidth="310.0" styleClass="background_color_light_light_blue" vgap="10.0">
                      <padding>

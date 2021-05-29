@@ -12,9 +12,6 @@ public class StartUp extends AnchorPane {
 
     private final Controller pController;
 
-    @FXML private Button createAccountButton;
-    @FXML private Button GuestLogInButton;
-
     public StartUp(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("startUp.fxml"));
         fxmlLoader.setRoot(this);
@@ -27,8 +24,6 @@ public class StartUp extends AnchorPane {
         }
 
         this.pController = pController;
-
-        //Platform.runLater(()->createAccountButton.requestFocus());
 
     }
 

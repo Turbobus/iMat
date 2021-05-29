@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root fx:id="singularPurchaseCard" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="singularPurchaseCard" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="gSingularPurchaseBack" maxWidth="680.0" minHeight="130.0" minWidth="680.0" prefHeight="130.0" prefWidth="680.0">
          <styleClass>
@@ -87,13 +87,13 @@
                   <String fx:value="border_dark_dark_blue_1_width" />
                </styleClass>
                <children>
-                  <Label fx:id="bDateLabel" layoutX="20.0" layoutY="15.0" text="Label">
+                  <Label fx:id="bDateLabel" focusTraversable="false" layoutX="20.0" layoutY="15.0" text="Label">
                      <styleClass>
                         <String fx:value="bold_24" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="bAmountLabel" layoutX="280.0" layoutY="15.0" text="Label">
+                  <Label fx:id="bAmountLabel" focusTraversable="false" layoutX="280.0" layoutY="15.0" text="Label">
                      <styleClass>
                         <String fx:value="font_24" />
                         <String fx:value="text_color_dark_dark_blue" />

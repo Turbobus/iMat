@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" styleClass="border_radius_30" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" styleClass="border_radius_30" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="detailCard_blue" fx:id="blueCard" maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <styleClass>
@@ -172,7 +172,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <Button id="addFavorites_green_active" fx:id="gFavButton" contentDisplay="RIGHT" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
+            <Button id="addFavorites_green_active" fx:id="gFavButton" contentDisplay="RIGHT" focusTraversable="false" layoutX="530.0" layoutY="355.0" mnemonicParsing="false" onAction="#favouriteButtonPressed" prefHeight="50.0" prefWidth="280.0" text="Lägg till som favorit !">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
@@ -194,7 +194,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="92.0" layoutY="355.0" maxHeight="50.0" maxWidth="90.0" minHeight="50.0" minWidth="90.0" prefHeight="50.0" prefWidth="90.0" text="1">
+            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" focusTraversable="false" layoutX="92.0" layoutY="355.0" maxHeight="50.0" maxWidth="90.0" minHeight="50.0" minWidth="90.0" prefHeight="50.0" prefWidth="90.0" text="1">
                <font>
                   <Font size="31.0" />
                </font>
@@ -204,7 +204,7 @@
                   <Image url="@../img/eco_icon.png" />
                </image>
             </ImageView>
-            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
+            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="28.0" layoutY="355.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="50.0" prefWidth="50.0">
                <styleClass>
                   <String fx:value="border_radius_30" />
                   <String fx:value="shadow_25" />
