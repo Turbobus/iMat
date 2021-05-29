@@ -1,8 +1,5 @@
 package iMat;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-
 import java.util.List;
 
 public interface ProductHolder {
@@ -20,7 +17,7 @@ public interface ProductHolder {
 
     //void setButtonTakeOutOfCart(ActionEvent event);
 
-    EarlierPurchases getController();
+    EpAndFHolder getController();
 
     void makeBlue(int productId);
 

@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class settings extends AnchorPane {
+public class Settings extends AnchorPane {
 
     private final Controller pController;
     DB db = DB.getInstance();
@@ -258,7 +258,7 @@ public class settings extends AnchorPane {
     }
 
 
-    public settings(Controller pController) {
+    public Settings(Controller pController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -757,7 +757,10 @@ public class settings extends AnchorPane {
         String yearId = cardYear.getId();
         String cvcId = cardCVC.getId();
 
-        Node test = getScene().getFocusOwner();
+        Node test = null;
+        if (getScene().getFocusOwner() != null) {
+            test = getScene().getFocusOwner();
+        }
 
         cardNumber.requestFocus();
         cardName.requestFocus();
@@ -772,7 +775,9 @@ public class settings extends AnchorPane {
         cardYear.setId(yearId);
         cardCVC.setId(cvcId);
 
-        test.requestFocus();
+        if (test != null) {
+            test.requestFocus();
+        }
 
         if (isAllTrue(isCorrectInformation) && !db.getFirstName().matches("") && db.getFirstName() != null){
             saveUntilNextTime.setId("addFavorites_blue");

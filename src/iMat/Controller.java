@@ -1,7 +1,6 @@
 package iMat;
 
 import iMat.CategoryMenu.*;
-import iMat.CheckOutSide.CheckOutGrid;
 import iMat.CheckOutSide.CheckOutHolder;
 import iMat.CheckOutSide.CheckOutProductCard;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -31,10 +29,10 @@ public class Controller extends AnchorPane implements Initializable {
     private final EmptyCart EmptyCart = new EmptyCart(this);
     private final PayConfirmation payConfirmation = new PayConfirmation(this);
     private final PurchaseCompleted purchaseCompleted = new PurchaseCompleted(this);
-    private final EarlierPurchases earlierPurchases = new EarlierPurchases(this);
-    private final settings settings = new settings(this);
+    private final EpAndFHolder epAndFHolder = new EpAndFHolder(this);
+    private final Settings settings = new Settings(this);
     private final Help help = new Help(this);
-    private final EarlierPurchases favourites = new EarlierPurchases(this);
+    private final EpAndFHolder favourites = new EpAndFHolder(this);
     private final Header header = new Header(this);
 
     private final SubcategoryItem decoyItem = new SubcategoryItem(this, "Decoy", "Decoy");
@@ -186,8 +184,8 @@ public class Controller extends AnchorPane implements Initializable {
     }
 
     public void openEarlierPurchases(){
-        earlierPurchases.showPurchases();
-        openOverlay(earlierPurchases);
+        epAndFHolder.showPurchases();
+        openOverlay(epAndFHolder);
     }
 
     public void openHelp(){

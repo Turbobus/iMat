@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -15,9 +14,7 @@ import se.chalmers.cse.dat216.project.*;
 import java.io.IOException;
 import java.util.*;
 
-import static java.util.Comparator.comparingInt;
-
-public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListener {
+public class EpAndFHolder<a> extends AnchorPane implements ShoppingCartListener {
     @FXML private AnchorPane earlierPurchases;
     @FXML private Button closeButton;
     @FXML private FlowPane purchasesFlowPane;
@@ -34,8 +31,8 @@ public class EarlierPurchases<a> extends AnchorPane implements ShoppingCartListe
     private List<ProductHolder> purchases = new ArrayList<>();
 
 
-    public EarlierPurchases(Controller controller){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earlierPurchases.fxml"));
+    public EpAndFHolder(Controller controller){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EpAndFHolder.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

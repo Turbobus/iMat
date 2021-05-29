@@ -16,7 +16,7 @@ import java.util.List;
 public class FavouritesButtons extends AnchorPane implements ProductHolder{
     //EarlierPurchases pController;
     private Controller controller;
-    private EarlierPurchases pController;
+    private EpAndFHolder pController;
     private DB db = DB.getInstance();
     private boolean allInCart = false;
 
@@ -31,7 +31,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
 
 
 
-    public FavouritesButtons(Controller controller, EarlierPurchases pController){
+    public FavouritesButtons(Controller controller, EpAndFHolder pController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("favouritesButtons.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -72,7 +72,7 @@ public class FavouritesButtons extends AnchorPane implements ProductHolder{
     }
 
     @Override
-    public EarlierPurchases getController() {
+    public EpAndFHolder getController() {
         return pController;
     }
 

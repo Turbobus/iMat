@@ -3,18 +3,14 @@ package iMat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.PointLight;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,10 +49,10 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
     private Controller controller;
     private Order order;
     private ArrayList<ProductItem> items = new ArrayList<>();
-    private EarlierPurchases pController;
+    private EpAndFHolder pController;
 
 
-    public SingularPurchase(Controller controller, Order order,EarlierPurchases pController ){
+    public SingularPurchase(Controller controller, Order order, EpAndFHolder pController ){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("singularPurchase.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -101,7 +97,7 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
 
     @Override
-    public EarlierPurchases getController() {
+    public EpAndFHolder getController() {
         return pController;
     }
 
