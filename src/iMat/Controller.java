@@ -77,7 +77,7 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-        //db.resetFirstRun();
+
 //        if(db.isFirstRun()){
 //            setupStartUp();
 //        } else {
@@ -139,9 +139,10 @@ public class Controller extends AnchorPane implements Initializable {
         }
     }
 
-    public void openAccountView(){
+    public void openAccountView(boolean fromHeader){
         settings.setupCardPane();
         settings.setupUserInfo();
+        settings.setupNextButton(fromHeader);
         openOverlay(settings);
     }
 

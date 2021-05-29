@@ -33,7 +33,7 @@ public class Header extends AnchorPane {
 
     @FXML
     private void accountButtonPressed() {
-        pController.openAccountView();
+        pController.openAccountView(true);
     }
 
     @FXML
