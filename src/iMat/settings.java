@@ -3,6 +3,7 @@ package iMat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,7 @@ public class settings extends AnchorPane {
     @FXML Label cardMonthText;
     @FXML Label cardYearText;
     @FXML Label cardCVCText;
+    @FXML Label cardLabel;
 
     @FXML Button saveUntilNextTime;
     @FXML Button deleteUserInfo;
@@ -120,7 +122,7 @@ public class settings extends AnchorPane {
     }
 
     @FXML public void saveCardDetails(){
-        if (isAllTrue(isCorrectInformation)){
+        if (isAllTrue(isCorrectInformation) && !db.getFirstName().matches("") && db.getFirstName() != null){
             db.setCardNumber(cardNumber.getText());
             db.setHoldersName(cardName.getText());
             db.setValidMonth(Integer.parseInt(cardMonth.getText()));
@@ -183,10 +185,9 @@ public class settings extends AnchorPane {
 
         settingschanged.toFront();
         deleteUserInfo.toBack();
-       setupSettings();
+        setupSettings();
 
-
-
+        updateButtons();
     }
 
     @FXML public void cardDenyButtonPressed(ActionEvent event) {
@@ -257,6 +258,7 @@ public class settings extends AnchorPane {
             updatesettings();
             settingsdefault.toFront();
             deleteUserInfo.toFront();
+            cardLabel.setText("Spara dina kortuppgifter");
         }
 
 
@@ -266,7 +268,7 @@ public class settings extends AnchorPane {
         if (db.getFirstName() == null || db.getFirstName().matches("")){
             settingschanged.toFront();
             deleteUserInfo.toBack();
-
+            persInfoLabel.setText("Ange dina användaruppgifter för att skapa ett konto");
 
 
         } else {
@@ -277,7 +279,20 @@ public class settings extends AnchorPane {
         }
     }
 
+    private void updateUserInfoButtonVisual(){
+        if (booleanIsUserFieldsRight()){
+            save1.setId("addFavorites_blue");
+        } else {
+            save1.setId("addFavorites_blue_disabled");
+        }
+
+    }
+
     public void setupValidSettings () {
+
+        firstNameTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateUserInfoButtonVisual();
+        });
 
         firstNameTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -292,20 +307,26 @@ public class settings extends AnchorPane {
                     }
                 });
 
-            lastNameTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        lastNameTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateUserInfoButtonVisual();
+        });
 
-                if (!newValue) {
-                    // Focus lost
-                    if (lastNameTextField1.getText().matches("")) {
-                        lastNameTextField1.setId("blue_text_field_wrong");
-                    } else {
-                        lastNameTextField1.setId("blue_text_field");
-                    }
+        lastNameTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
+            if (!newValue) {
+                // Focus lost
+                if (lastNameTextField1.getText().matches("")) {
+                    lastNameTextField1.setId("blue_text_field_wrong");
+                } else {
+                    lastNameTextField1.setId("blue_text_field");
                 }
 
+            }
+        });
 
-            });
+        addressTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateUserInfoButtonVisual();
+        });
 
         addressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -320,6 +341,10 @@ public class settings extends AnchorPane {
             }
 
 
+        });
+
+        postAddressTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateUserInfoButtonVisual();
         });
 
         postAddressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -337,8 +362,11 @@ public class settings extends AnchorPane {
 
         });
 
-        postAddressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        postAddressTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateUserInfoButtonVisual();
+        });
 
+        postAddressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue) {
                 // Focus lost
                 if (postAddressTextField1.getText().matches("")) {
@@ -363,6 +391,7 @@ public class settings extends AnchorPane {
             if (newValue.length() > 5) {
                 postalCodeTextField1.setText(oldValue);
             }
+            updateUserInfoButtonVisual();
         });
 
         postalCodeTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -378,19 +407,23 @@ public class settings extends AnchorPane {
             }
         });
 
-        }
+    }
+
+    private boolean booleanIsUserFieldsRight(){
+        boolean flag = true;
+
+        // Skum ordning, borde sätta true men har till false för det passade bättre
+        if (isTextFieldEmpty(firstNameTextField1)) { flag = false; }
+        if (isTextFieldEmpty(lastNameTextField1)) { flag = false; }
+        if (isTextFieldEmpty(addressTextField1)) { flag = false; }
+        if (isTextFieldEmpty(postAddressTextField1)) { flag = false; }
+        if (isPostalCodeWrong()) { flag = false; }
+
+        return flag;
+    }
 
     public void updateSaveStatus(){
-        boolean flag = false;
-
-        if (isTextFieldEmpty(firstNameTextField1)) { flag = true; }
-        if (isTextFieldEmpty(lastNameTextField1)) { flag = true; }
-        if (isTextFieldEmpty(addressTextField1)) { flag = true; }
-        if (isTextFieldEmpty(postAddressTextField1)) { flag = true; }
-        if (isPostalCodeWrong()) { flag = true; }
-
-        // Knapp ska ha färg
-        isFieldsRight = !flag;
+        isFieldsRight = booleanIsUserFieldsRight();
     }
 
     private boolean isFieldsRight = true;
@@ -433,6 +466,8 @@ public class settings extends AnchorPane {
         if (db.getCheckOutUpdater() != null) {
             db.getCheckOutUpdater().haveAccount();
         }
+
+        updateButtons();
     }
 
     public void setupSettings() {
@@ -454,6 +489,11 @@ public class settings extends AnchorPane {
         if (db.getCardNumber().matches("")){
             writeNewCard.toFront();
             deleteCardInfo.setVisible(false);
+            if(db.getFirstName().matches("") || db.getFirstName() == null){
+                cardLabel.setText("Skapa ett konto innan du kan spara kortuppgifter");
+            } else {
+                cardLabel.setText("Spara dina kortuppgifter");
+            }
         } else {
             setupSavedCardInfo();
             useSavedCard.toFront();
@@ -505,6 +545,7 @@ public class settings extends AnchorPane {
             if (newValue.length() > 16){
                 cardNumber.setText(oldValue);
             }
+            updateButtons();
         });
 
         cardNumber.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -531,7 +572,10 @@ public class settings extends AnchorPane {
                     isCorrectInformation[0] = true;
                 }
             }
-//            pController.updateButtonState();
+        });
+
+        cardName.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtons();
         });
 
         cardName.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -547,7 +591,6 @@ public class settings extends AnchorPane {
                 }
             }
 
-//            pController.updateButtonState();
         });
 
         cardMonth.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -561,6 +604,7 @@ public class settings extends AnchorPane {
             if (newValue.length() > 2){
                 cardMonth.setText(oldValue);
             }
+            updateButtons();
         });
 
         cardMonth.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -575,7 +619,6 @@ public class settings extends AnchorPane {
                     isCorrectInformation[2] = true;
                 }
             }
-//            pController.updateButtonState();
         });
 
         cardYear.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -589,6 +632,7 @@ public class settings extends AnchorPane {
             if (newValue.length() > 2){
                 cardYear.setText(oldValue);
             }
+            updateButtons();
 
         });
 
@@ -604,7 +648,6 @@ public class settings extends AnchorPane {
                     isCorrectInformation[3] = true;
                 }
             }
-//            pController.updateButtonState();
         });
 
         cardCVC.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -618,6 +661,8 @@ public class settings extends AnchorPane {
             if (newValue.length() > 3){
                 cardCVC.setText(oldValue);
             }
+
+            updateButtons();
 
         });
 
@@ -633,7 +678,38 @@ public class settings extends AnchorPane {
                     isCorrectInformation[4] = true;
                 }
             }
-//            pController.updateButtonState();
         });
+    }
+
+    private void updateButtons(){
+        String nameId = cardName.getId();
+        String numberId = cardNumber.getId();
+        String monthId = cardMonth.getId();
+        String yearId = cardYear.getId();
+        String cvcId = cardCVC.getId();
+
+        Node test = getScene().getFocusOwner();
+
+        cardNumber.requestFocus();
+        cardName.requestFocus();
+        cardMonth.requestFocus();
+        cardYear.requestFocus();
+        cardCVC.requestFocus();
+        saveUntilNextTime.requestFocus();
+
+        cardName.setId(nameId);
+        cardNumber.setId(numberId);
+        cardMonth.setId(monthId);
+        cardYear.setId(yearId);
+        cardCVC.setId(cvcId);
+
+        test.requestFocus();
+
+        if (isAllTrue(isCorrectInformation) && !db.getFirstName().matches("") && db.getFirstName() != null){
+            saveUntilNextTime.setId("addFavorites_blue");
+        } else {
+            saveUntilNextTime.setId("addFavorites_blue_disabled");
+        }
+
     }
 }

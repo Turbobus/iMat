@@ -342,6 +342,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 4);
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
+    -fx-cursor: pointer;
 }
 
 #heartIcon_blue {
@@ -623,6 +624,7 @@
     -fx-padding: 0px;
     -fx-border-color: #617C56;
     -fx-border-insets: -1px;
+    -fx-cursor: pointer;
 }
 
 #red_button {
