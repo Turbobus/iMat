@@ -336,7 +336,7 @@ public class settings extends AnchorPane {
 
         });
 
-        postalCodeTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        postAddressTextField1.focusedProperty().addListener((observable, oldValue, newValue) -> {
 
             if (!newValue) {
                 // Focus lost

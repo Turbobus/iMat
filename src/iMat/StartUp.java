@@ -1,7 +1,9 @@
 package iMat;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -22,6 +24,7 @@ public class StartUp extends AnchorPane {
         }
 
         this.pController = pController;
+
     }
 
     @FXML

@@ -159,8 +159,8 @@ public class DetailView extends AnchorPane {
 
     private void setupFavIcon(){
         if (!db.isFavourite(productId)){
-            bFavButton.setText("Lägg till som favorit !");
-            gFavButton.setText("Lägg till som favorit !");
+            bFavButton.setText("Lägg till som favorit");
+            gFavButton.setText("Lägg till som favorit");
             bFavButton.setId("addFavorites_blue");
             bHeartIcon.setId("heartIcon_blue");
             gFavButton.setId("addFavorites_green");

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<fx:root fx:id="favouritesCard" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="680.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="favouritesCard" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="680.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="gFavouritesCard" maxWidth="680.0" minHeight="99.0" minWidth="680.0" prefHeight="99.0" prefWidth="680.0">
          <styleClass>
@@ -55,7 +55,7 @@
                   <String fx:value="border_dark_dark_blue_1_width" />
                </styleClass>
                <children>
-                  <Button id="red_button" fx:id="takeOutOfCartButton" layoutX="15.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="250.0" text="Ta ut allt ur kundvagnen">
+                  <Button id="red_button" fx:id="takeOutOfCartButton" focusTraversable="false" layoutX="15.0" layoutY="12.0" mnemonicParsing="false" onAction="#setButtonTakeOutOfCart" prefHeight="40.0" prefWidth="250.0" text="Ta ut allt ur kundvagnen">
                      <styleClass>
                         <String fx:value="border_radius_30" />
                         <String fx:value="shadow_50" />
@@ -71,7 +71,7 @@
                         <String fx:value="shadow_50" />
                      </styleClass>
                      <graphic>
-                        <Label fx:id="setButtonPutAllInCart" text="Lägg allt i kundvagnen">
+                        <Label fx:id="setButtonPutAllInCart" focusTraversable="false" text="Lägg allt i kundvagnen">
                            <styleClass>
                               <String fx:value="shadow_50" />
                               <String fx:value="bold_20" />
