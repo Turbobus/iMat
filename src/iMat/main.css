@@ -469,6 +469,14 @@
     -fx-background-color: #FFFCFB;
 }
 
+#confirm_message {
+    -fx-border-radius: 30px;
+    -fx-background-radius: 33px;
+    -fx-border-width: 4px;
+    -fx-border-color: #DC5A21;
+    -fx-background-color: #FFFCFB;
+}
+
 #white_button {
     -fx-text-fill: #004972;
     -fx-background-color: #FAFBFF;
@@ -956,3 +964,4 @@
     -fx-background-color: #829080;
     -fx-cursor: pointer;
 }
+

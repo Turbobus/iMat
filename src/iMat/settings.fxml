@@ -15,6 +15,35 @@
    <children>
       <AnchorPane layoutX="30.0" layoutY="110.0" maxHeight="380.0" maxWidth="1000.0" minHeight="380.0" minWidth="1000.0" prefHeight="380.0" prefWidth="1000.0">
          <children>
+            <AnchorPane fx:id="confirmAccountPane" prefHeight="380.0" prefWidth="1000.0">
+               <children>
+                  <AnchorPane opacity="0.5" prefHeight="380.0" prefWidth="1000.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
+                  <AnchorPane id="confirm_message" layoutX="255.0" layoutY="77.0" maxHeight="226.0" maxWidth="534907.0" minHeight="226.0" minWidth="490.0" prefHeight="226.0" prefWidth="490.0">
+                     <children>
+                        <Label layoutX="33.0" prefHeight="153.0" prefWidth="367.0" text="Är du säker på att du vill ta bort ditt kundkonto?" wrapText="true">
+                           <styleClass>
+                              <String fx:value="bold_24" />
+                              <String fx:value="text_color_dark_red" />
+                           </styleClass>
+                        </Label>
+                        <Button id="red_button" fx:id="accountDenyButton" layoutX="30.0" layoutY="153.0" mnemonicParsing="false" onAction="#accountDenyButtonPressed" prefHeight="50.0" prefWidth="200.0" stylesheets="@main.css" text="Nej, det vill jag inte">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="border_radius_30" />
+                              <String fx:value="shadow_50" />
+                           </styleClass>
+                        </Button>
+                        <Button id="green_add_button" fx:id="accountConfirmButton" layoutX="260.0" layoutY="153.0" mnemonicParsing="false" onAction="#accountConfirmButtonPressed" prefHeight="50.0" prefWidth="200.0" text="Ja, det vill jag">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="border_radius_30" />
+                              <String fx:value="shadow_50" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="settingschanged" layoutX="-88.0" layoutY="-8.0" maxHeight="380.0" maxWidth="1000.0" minHeight="380.0" minWidth="1000.0" prefHeight="380.0" prefWidth="1000.0" stylesheets="@main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="680.0" stylesheets="@main.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -168,7 +197,7 @@
                         <String fx:value="font_24" />
                      </styleClass>
                   </Label>
-                  <Button id="red_button" fx:id="deleteUserInfo" layoutX="757.0" layoutY="11.0" mnemonicParsing="false" onAction="#deleteUserInfoPressed" prefHeight="35.0" prefWidth="199.0" text="Rensa alla uppgifter" AnchorPane.rightAnchor="22.0">
+                  <Button id="red_button" fx:id="deleteUserInfo" layoutX="757.0" layoutY="11.0" mnemonicParsing="false" onAction="#deleteUserInfoPressed" prefHeight="35.0" prefWidth="240.0" text="Ta bort ditt kundkonto" AnchorPane.rightAnchor="23.0">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -371,6 +400,35 @@
       </AnchorPane>
       <AnchorPane layoutX="30.0" layoutY="519.0" maxWidth="1000.0" minWidth="1000.0" prefHeight="350.0" prefWidth="1000.0">
          <children>
+            <AnchorPane fx:id="confirmCardPane" prefHeight="320.0" prefWidth="630.0">
+               <children>
+                  <AnchorPane opacity="0.5" prefHeight="320.0" prefWidth="630.0" style="-fx-background-color: #000000;" styleClass="border_radius_30" />
+                  <AnchorPane id="confirm_message" layoutX="70.0" layoutY="47.0" maxHeight="226.0" maxWidth="534907.0" minHeight="226.0" minWidth="490.0" prefHeight="226.0" prefWidth="490.0">
+                     <children>
+                        <Label layoutX="33.0" prefHeight="153.0" prefWidth="367.0" text="Är du säker på att du vill rensa dina kortuppgifter?" wrapText="true">
+                           <styleClass>
+                              <String fx:value="bold_24" />
+                              <String fx:value="text_color_dark_red" />
+                           </styleClass>
+                        </Label>
+                        <Button id="red_button" fx:id="cardDenyButton" layoutX="30.0" layoutY="153.0" mnemonicParsing="false" onAction="#cardDenyButtonPressed" prefHeight="50.0" prefWidth="200.0" stylesheets="@main.css" text="Nej, det vill jag inte">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="border_radius_30" />
+                              <String fx:value="shadow_50" />
+                           </styleClass>
+                        </Button>
+                        <Button id="green_add_button" fx:id="cardConfirmButton" layoutX="260.0" layoutY="153.0" mnemonicParsing="false" onAction="#cardConfirmButtonPressed" prefHeight="50.0" prefWidth="200.0" text="Ja, det vill jag">
+                           <styleClass>
+                              <String fx:value="bold_20" />
+                              <String fx:value="border_radius_30" />
+                              <String fx:value="shadow_50" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="writeNewCard" maxWidth="630.0" minWidth="430.0" prefHeight="320.0" prefWidth="630.0">
                <styleClass>
                   <String fx:value="background_color_light_light_blue" />
@@ -438,7 +496,7 @@
                               <String fx:value="text_color_dark_dark_blue" />
                            </styleClass>
                         </Label>
-                        <Button id="red_button" fx:id="deleteCardInfo" layoutX="466.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteCardInfoPressed" prefHeight="35.0" prefWidth="199.0" text="Rensa alla uppgifter" AnchorPane.rightAnchor="22.0">
+                        <Button id="red_button" fx:id="deleteCardInfo" layoutX="466.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteCardInfoPressed" prefHeight="35.0" prefWidth="240.0" text="Rensa dina kortuppgifter" AnchorPane.rightAnchor="23.0">
                            <font>
                               <Font size="20.0" />
                            </font>

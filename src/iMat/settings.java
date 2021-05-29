@@ -75,6 +75,9 @@ public class settings extends AnchorPane {
     @FXML
     private AnchorPane settingschanged;
 
+    @FXML private AnchorPane confirmAccountPane;
+
+    @FXML private AnchorPane confirmCardPane;
 
     //Textfields for account window default
 
@@ -142,7 +145,16 @@ public class settings extends AnchorPane {
         }
     }
 
-    @FXML public void deleteCardInfoPressed(ActionEvent event) {
+
+    @FXML public void deleteUserInfoPressed(ActionEvent event){
+        confirmAccountPane.toFront();
+    }
+
+    @FXML public void deleteCardInfoPressed(ActionEvent event){
+        confirmCardPane.toFront();
+    }
+
+    @FXML public void cardConfirmButtonPressed(ActionEvent event) {
 
         db.setCardNumber("");
         db.setHoldersName("");
@@ -157,7 +169,7 @@ public class settings extends AnchorPane {
 
     }
 
-    @FXML public void deleteUserInfoPressed(ActionEvent event) {
+    @FXML public void accountConfirmButtonPressed(ActionEvent event) {
 
        db.setFirstName("");
        db.setLastName("");
@@ -168,11 +180,31 @@ public class settings extends AnchorPane {
        db.setPhoneNumber("");
        db.setMobileNumber("");
 
+        firstNameTextField1.setText("");
+        lastNameTextField1.setText("");
+        addressTextField1.setText("");
+        postAddressTextField1.setText("");
+        postalCodeTextField1.setText("");
+        mailTextField1.setText("");
+        telephoneTextField1.setText("");
+        mobileTextField1.setText("");
+
+        settingschanged.toFront();
        setupSettings();
 
-       settingsdefault.toFront();
+
 
     }
+
+    @FXML public void cardDenyButtonPressed(ActionEvent event) {
+        writeNewCard.toFront();
+    }
+
+    @FXML public void accountDenyButtonPressed(ActionEvent event) {
+        settingschanged.toFront();
+    }
+
+
 
     private boolean isAllTrue(boolean[] array) {
         for(boolean b : array) if(!b) return false;
@@ -405,7 +437,6 @@ public class settings extends AnchorPane {
     public void setupSettings() {
 
         //Fill settings window textfields with databse information
-
         firstNameTextField.setText(db.getFirstName());
         lastNameTextField.setText(db.getLastName());
         addressTextField.setText(db.getAddress());
