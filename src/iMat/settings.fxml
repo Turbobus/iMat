@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="900.0" maxWidth="1060.0" minHeight="900.0" minWidth="1060.0" prefHeight="900.0" prefWidth="1060.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="900.0" maxWidth="1060.0" minHeight="900.0" minWidth="1060.0" prefHeight="900.0" prefWidth="1060.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane maxHeight="85.0" maxWidth="1060.0" minHeight="85.0" minWidth="1060.0" prefHeight="85.0" prefWidth="1060.0">
          <styleClass>
@@ -107,32 +107,7 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Text>
-                  <Button id="addFavorites_blue" fx:id="abort1" layoutX="756.0" layoutY="320.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
-                  <TextField id="blue_text_field" fx:id="postAddressTextField1" layoutX="690.0" layoutY="132.0" prefHeight="45.0" prefWidth="280.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="mailTextField1" layoutX="690.0" layoutY="192.0" prefHeight="45.0" prefWidth="280.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="addressTextField1" layoutX="200.0" layoutY="132.0" prefHeight="45.0" prefWidth="280.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="mobileTextField1" layoutX="690.0" layoutY="252.0" prefHeight="45.0" prefWidth="280.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="telephoneTextField1" layoutX="200.0" layoutY="252.0" prefHeight="45.0" prefWidth="280.0">
+                  <TextField id="blue_text_field" fx:id="firstNameTextField1" layoutX="200.0" layoutY="72.0" prefHeight="45.0" prefWidth="280.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -142,12 +117,42 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField id="blue_text_field" fx:id="firstNameTextField1" layoutX="200.0" layoutY="72.0" prefHeight="45.0" prefWidth="280.0">
+                  <TextField id="blue_text_field" fx:id="addressTextField1" layoutX="200.0" layoutY="132.0" prefHeight="45.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="postAddressTextField1" layoutX="690.0" layoutY="132.0" prefHeight="45.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="postalCodeTextField1" layoutX="200.0" layoutY="192.0" prefHeight="45.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="mailTextField1" layoutX="690.0" layoutY="192.0" prefHeight="45.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="telephoneTextField1" layoutX="200.0" layoutY="252.0" prefHeight="45.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="mobileTextField1" layoutX="690.0" layoutY="252.0" prefHeight="45.0" prefWidth="280.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
                   <Button id="addFavorites_blue" fx:id="save1" layoutX="884.0" layoutY="320.0" mnemonicParsing="false" onAction="#save1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Spara" textFill="#002e48">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button id="addFavorites_blue" fx:id="abort1" layoutX="756.0" layoutY="320.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -158,11 +163,6 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <TextField id="blue_text_field" fx:id="postalCodeTextField1" layoutX="200.0" layoutY="192.0" prefHeight="45.0" prefWidth="280.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
                   <Label layoutX="83.0" layoutY="72.0" text="*">
                      <styleClass>
                         <String fx:value="text_color_dark_dark_blue" />
@@ -385,31 +385,31 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Label layoutX="124.0" layoutY="81.0" text="Kortnummer:">
+                  <Label focusTraversable="false" layoutX="124.0" layoutY="81.0" text="Kortnummer:">
                      <styleClass>
                         <String fx:value="bold_20" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label layoutX="22.0" layoutY="143.0" text="Kortinnehavarens Namn:">
+                  <Label focusTraversable="false" layoutX="22.0" layoutY="143.0" text="Kortinnehavarens Namn:">
                      <styleClass>
                         <String fx:value="bold_20" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label layoutX="94.0" layoutY="203.0" text="Giltighetsdatum:">
+                  <Label focusTraversable="false" layoutX="94.0" layoutY="203.0" text="Giltighetsdatum:">
                      <styleClass>
                         <String fx:value="bold_20" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label layoutX="314.0" layoutY="202.0" text="/">
+                  <Label focusTraversable="false" layoutX="314.0" layoutY="202.0" text="/">
                      <styleClass>
                         <String fx:value="bold_20" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label layoutX="492.0" layoutY="203.0" text="CVC:">
+                  <Label focusTraversable="false" layoutX="492.0" layoutY="203.0" text="CVC:">
                      <styleClass>
                         <String fx:value="bold_20" />
                         <String fx:value="text_color_dark_dark_blue" />

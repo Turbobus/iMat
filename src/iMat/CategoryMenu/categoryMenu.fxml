@@ -68,7 +68,7 @@
          </children>
       </Pane>
       <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="803.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displaySweet" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
-      <Label layoutX="13.0" layoutY="150.0" onMouseEntered="#onMouseExitSubcategory" text="Kategorier">
+      <Label focusTraversable="false" layoutX="13.0" layoutY="150.0" onMouseEntered="#onMouseExitSubcategory" text="Kategorier">
          <styleClass>
             <String fx:value="bold_36" />
             <String fx:value="text_color_dark_dark_blue" />
