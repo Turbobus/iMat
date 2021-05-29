@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="929.0" maxWidth="660.0" minHeight="929.0" minWidth="655.0" prefHeight="929.0" prefWidth="660.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="929.0" maxWidth="660.0" minHeight="929.0" minWidth="655.0" prefHeight="929.0" prefWidth="660.0" styleClass="background_color_blue_white" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="213.0" layoutY="45.0" text="Betalning">
          <styleClass>
@@ -46,38 +46,20 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="76.0" prefHeight="40.0" prefWidth="600.0">
+            <AnchorPane id="radio_button_holder" fx:id="morningRadioHolder" layoutX="15.0" layoutY="76.0" prefHeight="40.0" prefWidth="600.0">
                <children>
                   <RadioButton id="check_out_radio_button" fx:id="morning" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Förmiddag:   Mellan klockan 10-13" />
                </children>
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="background_color_light_light_blue" />
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="130.0" prefHeight="40.0" prefWidth="600.0">
+            <AnchorPane id="radio_button_holder" fx:id="dayRadioHolder" layoutX="15.0" layoutY="130.0" prefHeight="40.0" prefWidth="600.0">
                <children>
                   <RadioButton id="check_out_radio_button" fx:id="day" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Eftermiddag:   Mellan klockan 13-17" />
                </children>
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="background_color_light_light_blue" />
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
             </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="185.0" prefHeight="40.0" prefWidth="600.0">
+            <AnchorPane id="radio_button_holder" fx:id="eveningRadioHolder" layoutX="15.0" layoutY="185.0" prefHeight="40.0" prefWidth="600.0">
                <children>
                   <RadioButton id="check_out_radio_button" fx:id="evening" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="572.0" text="Kväll:   Mellan klockan 18-21" />
                </children>
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="background_color_light_light_blue" />
-                  <String fx:value="border_dark_dark_blue_1_width" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
             </AnchorPane>
          </children>
       </AnchorPane>

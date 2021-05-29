@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="78.0" maxWidth="661.0" minHeight="78.0" minWidth="661.0" prefHeight="78.0" prefWidth="661.0" styleClass="background_color_blue_white" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="78.0" maxWidth="661.0" minHeight="78.0" minWidth="661.0" prefHeight="78.0" prefWidth="661.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="gProductItem" maxHeight="78.0" maxWidth="661.0" minHeight="78.0" minWidth="661.0" prefHeight="78.0" prefWidth="661.0" style="-fx-border-radius: 15; -fx-background-radius: 16;" stylesheets="@main.css">
          <children>
@@ -124,4 +124,8 @@
          </styleClass>
       </AnchorPane>
    </children>
+   <styleClass>
+      <String fx:value="background_color_blue_white" />
+      <String fx:value="border_radius_30" />
+   </styleClass>
 </fx:root>
