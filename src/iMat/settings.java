@@ -45,6 +45,7 @@ public class settings extends AnchorPane {
     @FXML Button saveUntilNextTime;
     @FXML Button deleteUserInfo;
     @FXML Button deleteCardInfo;
+    @FXML Button SaveAllandContinue;
 
     //Buttons for window default
     @FXML
@@ -205,6 +206,13 @@ public class settings extends AnchorPane {
 
     @FXML public void accountDenyButtonPressed(ActionEvent event) {
         settingschanged.toFront();
+    }
+
+    @FXML public void SaveAllandContinuePressed(ActionEvent event) {
+
+        updatesettings();
+        setupSavedCardInfo();
+        pController.closeOverlay();
     }
 
 
