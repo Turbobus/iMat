@@ -77,12 +77,14 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
             checkOutButton.setId("green_button_disabled");
             rightArrow.setId("check_out_svg_disabled");
             hintText.setOpacity(1);
+            hintText.toFront();
         } else {
             isButtonsActive = true;
             emptyCartButton.setId("red_button");
             checkOutButton.setId("green_button");
             rightArrow.setId("check_out_svg");
             hintText.setOpacity(0);
+            hintText.toBack();
         }
     }
 }

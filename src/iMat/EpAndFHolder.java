@@ -70,9 +70,11 @@ public class EpAndFHolder<a> extends AnchorPane implements ShoppingCartListener 
         noHoldersLabel.setText("Du har inga tidigare köp än, om du köper något kommer köpet att visas här");
         if(db.getOrders().size()==0){
             noHoldersPane.setOpacity(1);
+            noHoldersPane.toFront();
         }
         else{
             noHoldersPane.setOpacity(0);
+            noHoldersPane.toBack();
             for(Order order : sortInComingOrders(db.getOrders())){
                 SingularPurchase purchase = new SingularPurchase(pController, order, this);
                 //purchase.reload();
@@ -94,9 +96,11 @@ public class EpAndFHolder<a> extends AnchorPane implements ShoppingCartListener 
         noHoldersLabel.setText("Du har inga favoriter än, om du lägger till en vara som favorit visas den här");
         if(db.getFavorites().size()==0){
             noHoldersPane.setOpacity(1);
+            noHoldersPane.toFront();
         }
         else{
             noHoldersPane.setOpacity(0);
+            noHoldersPane.toBack();
             FavouritesButtons favouritesButtons = new FavouritesButtons(pController, this);
             favourites.add(favouritesButtons);
             purchasesFlowPane.getChildren().add(favouritesButtons);

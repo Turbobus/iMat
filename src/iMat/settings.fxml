@@ -289,27 +289,7 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Text>
-                  <TextField id="blue_text_field" fx:id="postAddressTextField1" layoutX="690.0" layoutY="132.0" prefHeight="45.0" prefWidth="295.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="mailTextField1" layoutX="690.0" layoutY="192.0" prefHeight="45.0" prefWidth="295.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="addressTextField1" layoutX="200.0" layoutY="132.0" prefHeight="45.0" prefWidth="295.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="mobileTextField1" layoutX="690.0" layoutY="252.0" prefHeight="45.0" prefWidth="295.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField id="blue_text_field" fx:id="telephoneTextField1" layoutX="200.0" layoutY="252.0" prefHeight="45.0" prefWidth="295.0">
+                  <TextField id="blue_text_field" fx:id="firstNameTextField1" layoutX="200.0" layoutY="72.0" prefHeight="45.0" prefWidth="296.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -319,7 +299,32 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField id="blue_text_field" fx:id="firstNameTextField1" layoutX="200.0" layoutY="72.0" prefHeight="45.0" prefWidth="296.0">
+                  <TextField id="blue_text_field" fx:id="addressTextField1" layoutX="200.0" layoutY="132.0" prefHeight="45.0" prefWidth="295.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="postAddressTextField1" layoutX="690.0" layoutY="132.0" prefHeight="45.0" prefWidth="295.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="postalCodeTextField1" layoutX="200.0" layoutY="192.0" prefHeight="45.0" prefWidth="295.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="mailTextField1" layoutX="690.0" layoutY="192.0" prefHeight="45.0" prefWidth="295.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="telephoneTextField1" layoutX="200.0" layoutY="252.0" prefHeight="45.0" prefWidth="295.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="blue_text_field" fx:id="mobileTextField1" layoutX="690.0" layoutY="252.0" prefHeight="45.0" prefWidth="295.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -335,11 +340,6 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <TextField id="blue_text_field" fx:id="postalCodeTextField1" layoutX="200.0" layoutY="192.0" prefHeight="45.0" prefWidth="295.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
                   <Label layoutX="83.0" layoutY="72.0" text="*">
                      <styleClass>
                         <String fx:value="text_color_dark_dark_blue" />
