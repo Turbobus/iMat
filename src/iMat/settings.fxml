@@ -105,7 +105,7 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Text>
-                  <Button id="addFavorites_blue" fx:id="abort1" layoutX="756.0" layoutY="320.0" mnemonicParsing="false" onAction="#abort1pressed" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
+                  <Button id="addFavorites_blue" fx:id="abort1" layoutX="756.0" layoutY="320.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@main.css" text="Avbryt" textFill="#002e48">
                      <font>
                         <Font size="20.0" />
                      </font>
