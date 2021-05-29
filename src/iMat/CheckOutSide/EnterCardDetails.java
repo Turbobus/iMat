@@ -132,8 +132,14 @@ public class EnterCardDetails extends AnchorPane {
         String cvcId = cardCVC.getId();
 
         Node test = null;
-        if (getScene().getFocusOwner() != null) {
-            test = getScene().getFocusOwner();
+
+
+        try {
+            if (getScene().getFocusOwner() != null) {
+                test = getScene().getFocusOwner();
+            }
+        } catch (NullPointerException npe ) {
+            test = null;
         }
 
         cardNumber.requestFocus();
