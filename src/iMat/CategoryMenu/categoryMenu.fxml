@@ -9,26 +9,7 @@
 
 <fx:root maxHeight="930.0" maxWidth="243.0" minHeight="930.0" minWidth="243.0" onMouseExited="#onMouseExitSubcategory" prefHeight="930.0" prefWidth="243.0" stylesheets="@../main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="378.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayBread" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
-      <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="463.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayDairy" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
-      <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="803.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displaySweet" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
-      <Pane id="category_multichoice_panes" fx:id="drinkPane" layoutX="-2.0" layoutY="718.0" onMouseEntered="#openDrinkSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
-         <children>
-            <Button id="category_multichoice_buttons" fx:id="drinkButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDrink" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
-            <Pane fx:id="drinkArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
-               <styleClass>
-                  <String fx:value="background_color_dark_dark_blue" />
-                  <String fx:value="category_arrow" />
-               </styleClass>
-            </Pane>
-         </children>
-      </Pane>
       <Button id="home_button" fx:id="homeButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#toHomePage" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Hem" />
-      <Label layoutX="13.0" layoutY="150.0" onMouseEntered="#onMouseExitSubcategory" text="Kategorier">
-         <styleClass>
-            <String fx:value="bold_36" />
-            <String fx:value="text_color_dark_dark_blue" />
-         </styleClass></Label>
       <Pane id="category_multichoice_panes" fx:id="fruitPane" layoutX="-2.0" layoutY="208.0" onMouseEntered="#openFruitSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
             <Button id="category_multichoice_buttons" fx:id="fruitButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFruit" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Frukt" />
@@ -51,6 +32,8 @@
             </Pane>
          </children>
       </Pane>
+      <Button id="category_buttons" fx:id="breadButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="378.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayBread" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Bröd" />
+      <Button id="category_buttons" fx:id="dairyButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="463.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displayDairy" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Mejeri" />
       <Pane id="category_multichoice_panes" fx:id="fishAndMeatPane" layoutX="-2.0" layoutY="548.0" onMouseEntered="#openFishAndMeatSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
          <children>
             <Button id="category_multichoice_buttons" fx:id="fishAndMeatButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllFishAndMeat" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Kött &amp; Fisk" />
@@ -73,6 +56,23 @@
             </Pane>
          </children>
       </Pane>
+      <Pane id="category_multichoice_panes" fx:id="drinkPane" layoutX="-2.0" layoutY="718.0" onMouseEntered="#openDrinkSubcategory" onMouseExited="#closeSubcategory" prefHeight="75.0" prefWidth="226.0">
+         <children>
+            <Button id="category_multichoice_buttons" fx:id="drinkButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#showAllDrink" prefHeight="75.0" prefWidth="180.0" stylesheets="@../main.css" text="Dryck" />
+            <Pane fx:id="drinkArrow" layoutX="191.0" layoutY="25.0" prefHeight="26.0" prefWidth="14.0">
+               <styleClass>
+                  <String fx:value="background_color_dark_dark_blue" />
+                  <String fx:value="category_arrow" />
+               </styleClass>
+            </Pane>
+         </children>
+      </Pane>
+      <Button id="category_buttons" fx:id="sweetButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="-2.0" layoutY="803.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#displaySweet" onMouseEntered="#onMouseExitSubcategory" prefHeight="75.0" prefWidth="226.0" stylesheets="@../main.css" text="Sötsaker" />
+      <Label layoutX="13.0" layoutY="150.0" onMouseEntered="#onMouseExitSubcategory" text="Kategorier">
+         <styleClass>
+            <String fx:value="bold_36" />
+            <String fx:value="text_color_dark_dark_blue" />
+         </styleClass></Label>
       <FlowPane fx:id="subcategoryPane" layoutX="-378.0" layoutY="363.0" onMouseExited="#onMouseExitSubcategory" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" styleClass="border_radius_30_right" stylesheets="@../main.css" />
       <Pane layoutX="195.0" layoutY="160.0" onMouseEntered="#onMouseExitSubcategory" prefHeight="30.0" prefWidth="30.0">
          <styleClass>

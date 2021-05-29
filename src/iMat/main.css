@@ -493,6 +493,11 @@
     -fx-cursor: pointer;
 }
 
+#white_button:focused {
+    -fx-border-color: #002E48;
+    -fx-border-width: 2px;
+}
+
 #blue_button {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
