@@ -128,13 +128,13 @@ public class SingularPurchase extends AnchorPane implements ProductHolder{
 
 
     public void checkAllInCart(){
-        System.out.println("check körs");
+
         for(ProductItem item : items){
             if (!item.isInCart()) {
                 return;
             }
         }
-        System.out.println("check körs verkligen på riktigt");
+
         gProductFlowPane.getChildren().clear();
         gSingularPurchaseBack.setPrefHeight(bSingularPurchaseBack.getPrefHeight());
         gSingularPurchaseBack.toFront();

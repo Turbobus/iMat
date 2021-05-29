@@ -268,49 +268,49 @@
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Text>
-                  <Label fx:id="firstNameTextField" layoutX="205.0" layoutY="80.0" text="Namn namnsson">
+                  <Label fx:id="firstNameTextField" layoutX="205.0" layoutY="80.0" prefHeight="31.0" prefWidth="305.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="lastNameTextField" layoutX="693.0" layoutY="80.0" text="Namn namnsson">
+                  <Label fx:id="lastNameTextField" layoutX="693.0" layoutY="80.0" prefHeight="31.0" prefWidth="287.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="addressTextField" layoutX="205.0" layoutY="140.0" text="Namn namnsson">
+                  <Label fx:id="addressTextField" layoutX="205.0" layoutY="140.0" prefHeight="31.0" prefWidth="305.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="postalCodeTextField" layoutX="205.0" layoutY="199.0" text="Namn namnsson">
+                  <Label fx:id="postalCodeTextField" layoutX="205.0" layoutY="199.0" prefHeight="31.0" prefWidth="305.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="telephoneTextField" layoutX="205.0" layoutY="258.0" text="Namn namnsson">
+                  <Label fx:id="telephoneTextField" layoutX="205.0" layoutY="258.0" prefHeight="31.0" prefWidth="305.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="postAddressTextField" layoutX="693.0" layoutY="140.0" text="Namn namnsson">
+                  <Label fx:id="postAddressTextField" layoutX="693.0" layoutY="140.0" prefHeight="31.0" prefWidth="287.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="mailTextField" layoutX="693.0" layoutY="199.0" text="Namn namnsson">
+                  <Label fx:id="mailTextField" layoutX="693.0" layoutY="199.0" prefHeight="31.0" prefWidth="287.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="mobileTextField" layoutX="693.0" layoutY="257.0" text="Namn namnsson">
+                  <Label fx:id="mobileTextField" layoutX="693.0" layoutY="257.0" prefHeight="31.0" prefWidth="287.0" text="Namn namnsson">
                      <styleClass>
                         <String fx:value="font_22" />
                         <String fx:value="text_color_dark_dark_blue" />
@@ -529,6 +529,14 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Button id="green_button" layoutX="685.0" layoutY="117.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="287.0" text="Spara alla uppgifter och fortsätt handla" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_50" />
+                  <String fx:value="text_color_dark_dark_green" />
+                  <String fx:value="bold_24" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
    </children>

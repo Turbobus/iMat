@@ -77,14 +77,14 @@ public class Controller extends AnchorPane implements Initializable {
 
         // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
 
-        db.resetFirstRun();
-        if(db.isFirstRun()){
-            setupStartUp();
-        } else {
-            setupShop();
-        }
+        //db.resetFirstRun();
+//        if(db.isFirstRun()){
+//            setupStartUp();
+//        } else {
+//            setupShop();
+//        }
 
-        //setupStartUp();
+        setupStartUp();
 
         //setupLogIn();
 
