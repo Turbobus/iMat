@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
@@ -25,6 +26,7 @@ public class CheckOutProductCard extends AnchorPane {
     @FXML private Button minusCardButton;
     @FXML private Button plusCardButton;
     @FXML private TextField amountTextCard;
+    @FXML private Pane plusButton;
 
     @FXML private Label gProdName;
     @FXML private Label gPrice;
@@ -117,11 +119,17 @@ public class CheckOutProductCard extends AnchorPane {
 
             } else if (!newValue.matches("")){
 
-//                if(Integer.parseInt(newValue) >= 100){
-//                    amountTextCard.setText("99");
-//                }
-
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+            }
+
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+
+                plusButton.setId("disabled_plus");
+                plusCardButton.setId("green_add_button_disabled");
+
+            } else {
+                plusButton.setId("enabled_plus");
+                plusCardButton.setId("green_add_button");
             }
         });
 

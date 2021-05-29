@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -33,6 +34,8 @@ public class ProductItem extends AnchorPane {
     @FXML private Label gProductNameLabel;
     @FXML private Label gProductPriceLabel;
     @FXML private ImageView gProductImgView;
+    @FXML private Pane plusButton;
+    @FXML private Button addButton;
 
 
 
@@ -178,6 +181,16 @@ public class ProductItem extends AnchorPane {
                 }
 
                 controller.updateCartItemAmount(productID, Integer.parseInt(newValue));
+            }
+
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+
+                plusButton.setId("disabled_plus");
+                addButton.setId("green_add_button_disabled");
+
+            } else {
+                plusButton.setId("enabled_plus");
+                addButton.setId("green_add_button");
             }
         });
 

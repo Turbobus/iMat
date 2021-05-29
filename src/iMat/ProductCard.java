@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.Product;
@@ -44,6 +45,7 @@ public class ProductCard extends AnchorPane{
     @FXML private Button minusCardButton;
     @FXML private Button plusCardButton;
     @FXML private TextField amountTextCard;
+    @FXML private Pane plusButton;
 
     @FXML private Label gProdName;
     @FXML private Label gPrice;
@@ -144,7 +146,19 @@ public class ProductCard extends AnchorPane{
                 amountTextCard.setText("1");
 
             } else if (!newValue.matches("")){
+
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+
+            }
+
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+
+                plusButton.setId("disabled_plus");
+                plusCardButton.setId("green_add_button_disabled");
+
+            } else {
+                plusButton.setId("enabled_plus");
+                plusCardButton.setId("green_add_button");
             }
         });
 

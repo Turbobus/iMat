@@ -67,5 +67,15 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="hintText" layoutX="36.0" layoutY="322.0" opacity="0.0" prefHeight="155.0" prefWidth="270.0" styleClass="border_dark_dark_blue_2_width">
+         <children>
+            <Label layoutX="23.0" layoutY="33.0" prefHeight="90.0" prefWidth="225.0" text="Lägg till varor i kundvagnen så syns de här" textAlignment="CENTER" wrapText="true">
+               <styleClass>
+                  <String fx:value="bold_20" />
+                  <String fx:value="text_color_dark_dark_blue" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </fx:root>

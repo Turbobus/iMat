@@ -21,6 +21,7 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
     private final DB db = DB.getInstance();
     private boolean isButtonsActive;
 
+    @FXML AnchorPane hintText;
     @FXML Button checkOutButton;
     @FXML Button emptyCartButton;
     @FXML FlowPane cartItemHolder;
@@ -75,11 +76,13 @@ public class ShopCart extends AnchorPane implements ShoppingCartListener {
             emptyCartButton.setId("red_button_disabled");
             checkOutButton.setId("green_button_disabled");
             rightArrow.setId("check_out_svg_disabled");
+            hintText.setOpacity(1);
         } else {
             isButtonsActive = true;
             emptyCartButton.setId("red_button");
             checkOutButton.setId("green_button");
             rightArrow.setId("check_out_svg");
+            hintText.setOpacity(0);
         }
     }
 }

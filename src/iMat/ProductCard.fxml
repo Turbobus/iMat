@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -11,72 +12,6 @@
 
 <fx:root maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
-         <children>
-            <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
-               <children>
-                  <ImageView fx:id="gImg" fitHeight="177.0" fitWidth="262.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../img/happy_face.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="gEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="13.0" layoutY="17.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/eco_icon.png" />
-                     </image>
-                  </ImageView>
-                  <AnchorPane fx:id="gfavImg" layoutX="203.0" layoutY="17.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
-                     <children>
-                        <Pane id="heartIcon_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
-                     </children>
-                     <styleClass>
-                        <String fx:value="background_color_blue_white" />
-                        <String fx:value="shadow_50" />
-                     </styleClass>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-            <Label fx:id="gProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
-               <styleClass>
-                  <String fx:value="bold_24" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-            <Label fx:id="gPrice" layoutX="16.0" layoutY="222.0" text="18 kr/kg">
-               <styleClass>
-                  <String fx:value="font_22" />
-                  <String fx:value="text_color_dark_dark_green" />
-               </styleClass>
-            </Label>
-            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <graphic>
-                  <ImageView fitHeight="12.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
-                     <image>
-                        <Image url="@../img/dark_red_minus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
-               <styleClass>
-                  <String fx:value="border_radius_30" />
-                  <String fx:value="shadow_25" />
-               </styleClass>
-               <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
-                     <image>
-                        <Image url="@../img/dark_green_plus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" styleClass="font_28" text="1" />
-         </children>
-      </AnchorPane>
       <AnchorPane id="prodCard_blue" fx:id="blueCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
          <children>
             <AnchorPane id="prodCard_blue" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
@@ -137,6 +72,68 @@
                   <String fx:value="text_color_dark_dark_blue" />
                </styleClass>
             </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
+         <children>
+            <AnchorPane id="prodCard_green" maxHeight="185.0" maxWidth="270.0" minHeight="185.0" minWidth="270.0" prefHeight="185.0" prefWidth="270.0" styleClass="shadow_25">
+               <children>
+                  <ImageView fx:id="gImg" fitHeight="177.0" fitWidth="262.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../img/happy_face.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="gEcoImg" fitHeight="58.0" fitWidth="58.0" layoutX="13.0" layoutY="17.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/eco_icon.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane fx:id="gfavImg" layoutX="203.0" layoutY="17.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10;">
+                     <children>
+                        <Pane id="heartIcon_img" fx:id="gHeartIcon1" layoutX="12.0" layoutY="14.0" prefHeight="22.29" prefWidth="25.0" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="background_color_blue_white" />
+                        <String fx:value="shadow_50" />
+                     </styleClass>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Label fx:id="gProdName" layoutX="16.0" layoutY="190.0" text="Kycklingbröstfile">
+               <styleClass>
+                  <String fx:value="bold_24" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+            <Label fx:id="gPrice" layoutX="16.0" layoutY="222.0" text="18 kr/kg">
+               <styleClass>
+                  <String fx:value="font_22" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <Pane maxHeight="3.5" maxWidth="25.0" minHeight="3.5" minWidth="25.0" prefHeight="3.5" prefWidth="25.0" styleClass="minus_svg" />
+               </graphic>
+            </Button>
+            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="270.0" maxHeight="35.0" maxWidth="35.0" minHeight="19.0" minWidth="35.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="35.0" prefWidth="35.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <Pane id="enabled_plus" fx:id="plusButton" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0">
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Pane>
+               </graphic>
+            </Button>
+            <TextField id="prodText_input" fx:id="amountTextCard" alignment="CENTER" layoutX="101.0" layoutY="268.0" maxHeight="40.0" maxWidth="70.0" minHeight="40.0" minWidth="70.0" prefHeight="40.0" prefWidth="70.0" styleClass="font_28" text="1" />
          </children>
       </AnchorPane>
    </children>
