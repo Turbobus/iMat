@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
@@ -21,12 +22,17 @@ public class ShopCartItem extends AnchorPane {
     @FXML Label prodName;
     @FXML Label currentPrice;
 
+    @FXML private Pane plusButton;
+
     @FXML ImageView prodImg;
 
     @FXML Button minusCardButton;
     @FXML Button plusCardButton;
 
     @FXML TextField amountTextCartItem;
+
+    @FXML private AnchorPane confirmPane;
+    @FXML private AnchorPane shopCartItemPane;
 
 
     // FXML methods
@@ -35,11 +41,24 @@ public class ShopCartItem extends AnchorPane {
         int newValue = Integer.parseInt(amountTextCartItem.getText()) - 1;
 
         if (newValue <= 0) {
-            pController.removeFromCart(productId);
+            confirmPane.toFront();
         } else {
             pController.updateCartItemAmount(productId, newValue);
             amountTextCartItem.setText("" + newValue);
         }
+    }
+
+    @FXML
+    public void confirmButtonPressed(ActionEvent event){
+        pController.removeFromCart(productId);
+        shopCartItemPane.toFront();
+
+    }
+
+    @FXML
+    public void denyButtonPressed(ActionEvent event){
+        shopCartItemPane.toFront();
+
     }
 
     @FXML
@@ -78,6 +97,18 @@ public class ShopCartItem extends AnchorPane {
         amountTextCartItem.setText("" + (int) item.getAmount());
         prodImg.setImage(db.getImage(item.getProduct(), 78, 78));
         pController.roundImage(prodImg, 30);
+        shouldDisableButton(String.valueOf((int) item.getAmount()));
+    }
+
+    private void shouldDisableButton(String newValue){
+        if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+            plusButton.setId("disabled_plus");
+            plusCardButton.setId("green_add_button_disabled");
+
+        } else {
+            plusButton.setId("enabled_plus");
+            plusCardButton.setId("green_add_button");
+        }
     }
 
     private void setupTextField(){
@@ -95,12 +126,10 @@ public class ShopCartItem extends AnchorPane {
 
             } else if (!newValue.matches("")){
 
-//                if(Integer.parseInt(newValue) >= 100){
-//                    amountTextCartItem.setText("99");
-//                }
-
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
+
+            shouldDisableButton(newValue);
         });
 
         // Clears the field when focused and sets a default value if the field is empty when focus is lost

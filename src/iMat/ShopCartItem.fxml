@@ -1,62 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="cart_item_card" maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" onMouseClicked="#openDetailView" prefHeight="80.0" prefWidth="302.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" onMouseClicked="#openDetailView" prefHeight="80.0" prefWidth="302.0" styleClass="border_radius_30" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
-         <styleClass>
-            <String fx:value="border_radius_30" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-         <graphic>
-            <ImageView fitHeight="3.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="0.5">
-               <image>
-                  <Image url="@../img/dark_red_minus.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="263.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
-         <styleClass>
-            <String fx:value="border_radius_30" />
-            <String fx:value="shadow_25" />
-         </styleClass>
-         <graphic>
-            <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" translateX="-0.5" translateY="-0.5">
-               <image>
-                  <Image url="@../img/dark_green_plus.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TextField id="prodText_input" fx:id="amountTextCartItem" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />
-      <AnchorPane id="cart_item_card" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="shadow_25_total_side">
+      <AnchorPane id="confirm_message_radius_15" fx:id="confirmPane" layoutX="80.0" maxHeight="80.0" maxWidth="222.0" minHeight="80.0" minWidth="222.0" prefHeight="80.0" prefWidth="222.0">
          <children>
-            <ImageView fx:id="prodImg" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../img/happy_face.png" />
-               </image>
-            </ImageView>
+            <Label layoutX="23.0" layoutY="3.0" prefHeight="31.0" prefWidth="177.0" text="Ta ut ur kundvagn?" wrapText="true">
+               <styleClass>
+                  <String fx:value="text_color_dark_red" />
+                  <String fx:value="bold_20" />
+               </styleClass>
+            </Label>
+            <Button id="red_button" fx:id="denyButton" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="36.0" maxHeight="32.0" maxWidth="69.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#denyButtonPressed" prefHeight="32.0" prefWidth="69.0" text="Nej">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="green_add_button" fx:id="confirmButton" alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="36.0" maxHeight="32.0" maxWidth="69.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefHeight="32.0" prefWidth="69.0" text="Ja">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <Label fx:id="prodName" layoutX="89.0" layoutY="3.0" prefHeight="31.0" prefWidth="211.0" text="Ekologisk Brysselkål">
-         <styleClass>
-            <String fx:value="bold_22" />
-            <String fx:value="text_color_dark_dark_green" />
-         </styleClass>
-      </Label>
-      <Label fx:id="currentPrice" layoutX="89.0" layoutY="36.0" maxWidth="95.0" prefHeight="30.0" styleClass="text_color_dark_dark_green" text="188,95 kr">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <AnchorPane id="cart_item_card" fx:id="shopCartItemPane" maxHeight="80.0" maxWidth="302.0" minHeight="80.0" minWidth="302.0" prefHeight="80.0" prefWidth="302.0">
+         <children>
+            <Button id="red_button" fx:id="minusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#decreaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <Pane maxHeight="3.0" maxWidth="18.0" minHeight="3.0" minWidth="18.0" prefHeight="3.0" prefWidth="18.0" styleClass="minus_svg" />
+               </graphic>
+            </Button>
+            <Button id="green_add_button" fx:id="plusCardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="263.0" layoutY="40.0" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" onAction="#increaseButtonPressed" prefHeight="28.0" prefWidth="28.0">
+               <styleClass>
+                  <String fx:value="border_radius_30" />
+                  <String fx:value="shadow_25" />
+               </styleClass>
+               <graphic>
+                  <Pane id="enabled_plus" fx:id="plusButton" maxHeight="18.0" maxWidth="18.0" minHeight="18.0" minWidth="18.0" prefHeight="18.0" prefWidth="18.0">
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Pane>
+               </graphic>
+            </Button>
+            <TextField id="prodText_input" fx:id="amountTextCartItem" alignment="CENTER" layoutX="217.0" layoutY="39.0" maxHeight="32.0" maxWidth="70.0" minHeight="32.0" minWidth="42.0" prefHeight="32.0" prefWidth="42.0" style="-fx-padding: 0px;" styleClass="font_22" text="99" />
+            <AnchorPane id="cart_item_card" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="shadow_25_total_side">
+               <children>
+                  <ImageView fx:id="prodImg" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../img/happy_face.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label fx:id="prodName" layoutX="89.0" layoutY="3.0" prefHeight="31.0" prefWidth="211.0" text="Ekologisk Brysselkål">
+               <styleClass>
+                  <String fx:value="bold_22" />
+                  <String fx:value="text_color_dark_dark_green" />
+               </styleClass>
+            </Label>
+            <Label fx:id="currentPrice" layoutX="89.0" layoutY="34.0" maxWidth="95.0" prefHeight="30.0" styleClass="text_color_dark_dark_green" text="188,95 kr">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </fx:root>

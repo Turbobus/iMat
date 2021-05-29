@@ -1,19 +1,13 @@
 package iMat;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.util.Callback;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class settings extends AnchorPane {
 
@@ -56,12 +50,7 @@ public class settings extends AnchorPane {
     private Button settings2;
     @FXML
     private Button save1;
-    @FXML
-    private Button abort1;
-    @FXML
-    private Button save2;
-    @FXML
-    private Button abort2;
+
     @FXML
     private Button newcard;
     @FXML
@@ -249,6 +238,7 @@ public class settings extends AnchorPane {
         settingschanged.toFront();
 
         persInfoLabel.setText("Användaruppgifter");
+        save1.setText("Spara användaruppgiterna");
 
         firstNameTextField1.setText(db.getFirstName());
         lastNameTextField1.setText(db.getLastName());
@@ -261,16 +251,8 @@ public class settings extends AnchorPane {
     }
 
     @FXML
-    public void abort1pressed(ActionEvent event) {
-
-
-        settingsdefault.toFront();
-
-    }
-
-    @FXML
     public void save1pressed(ActionEvent event) {
-        updateNextButton();
+        updateSaveStatus();
         if (isFieldsRight){
             updatesettings();
             settingsdefault.toFront();
@@ -398,7 +380,7 @@ public class settings extends AnchorPane {
 
         }
 
-    public void updateNextButton(){
+    public void updateSaveStatus(){
         boolean flag = false;
 
         if (isTextFieldEmpty(firstNameTextField1)) { flag = true; }
