@@ -189,18 +189,6 @@ public class Settings extends AnchorPane {
         deleteUserInfo.toBack();
         setupSettings();
 
-        db.setCardNumber("");
-        db.setHoldersName("");
-        db.setValidMonth(0);              //Ändra
-        db.setValidYear(0);               //Ändra
-        db.setVerificationCode(0);        //Ändra
-        db.setCardType("");
-
-        setupSavedCardInfo();
-        deleteCardInfo.toBack();
-        writeNewCard.toFront();
-        deleteCardInfo.setVisible(false);
-
         updateButtons();
 
         if (db.getCheckOutUpdater() != null) {
@@ -219,8 +207,7 @@ public class Settings extends AnchorPane {
 
     @FXML public void SaveAllandContinuePressed(ActionEvent event) {
 
-        updatesettings();
-        setupSavedCardInfo();
+
         pController.closeOverlay();
     }
 
@@ -758,9 +745,16 @@ public class Settings extends AnchorPane {
         String cvcId = cardCVC.getId();
 
         Node test = null;
-        if (getScene().getFocusOwner() != null) {
-            test = getScene().getFocusOwner();
+
+        try {
+            if (getScene().getFocusOwner() != null) {
+                test = getScene().getFocusOwner();
+            }
+        } catch (NullPointerException npe ) {
+            test = null;
         }
+
+
 
         cardNumber.requestFocus();
         cardName.requestFocus();
