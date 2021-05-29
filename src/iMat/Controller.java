@@ -79,6 +79,10 @@ public class Controller extends AnchorPane implements Initializable {
         categoryButtonUpdaters.addAll(SubcategoryItem.getAllItems());
         categoryButtonUpdaters.add(CategoryMenu.getInstance());
 
+
+        // "db.resetFirstRun()" gör bara så att man kommer rätt vid startup, annars finns det risk att det blir skumt
+        // Kommentera in och ut vid behov, se "db.reset()" ovan också ifall det vill göras
+        db.resetFirstRun();
         if(db.isFirstRun()){
             setupStartUp();
         } else {
