@@ -171,13 +171,13 @@ public class ProductItem extends AnchorPane {
             } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
-                    amountTextField.setText("" + Integer.parseInt(newValue)/10);
+                    amountTextField.setText("" + oldValue);
+                    gProductPriceLabel.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(oldValue) * (item.getProduct().getPrice())) + " kr");
+                } else {
+                    gProductPriceLabel.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * (item.getProduct().getPrice())) + " kr");
                 }
 
                 controller.updateCartItemAmount(productID, Integer.parseInt(newValue));
-                gProductPriceLabel.setText(String.format("%.2f", Integer.parseInt(newValue) * (item.getProduct().getPrice())) + " kr");
-
-
             }
         });
 

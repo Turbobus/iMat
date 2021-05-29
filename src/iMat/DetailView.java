@@ -229,11 +229,13 @@ public class DetailView extends AnchorPane {
             } else if (!newValue.matches("")){
 
                 if(Integer.parseInt(newValue) >= 100){
-                    amountTextCard.setText("" + Integer.parseInt(newValue)/10);
+                    amountTextCard.setText("" + oldValue);
+                    totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(oldValue) * productPrice) + " kr");
+                } else {
+                    totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * productPrice) + " kr");
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
-                totalPrice.setText("Totalt pris: " + String.format("%.2f", Integer.parseInt(newValue) * productPrice) + " kr");
             }
         });
 
