@@ -188,7 +188,7 @@ public class Settings extends AnchorPane {
         settingschanged.toFront();
         deleteUserInfo.toBack();
         setupSettings();
-
+        
         updateButtons();
 
         if (db.getCheckOutUpdater() != null) {
