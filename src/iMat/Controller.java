@@ -60,7 +60,7 @@ public class Controller extends AnchorPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        db.reset();
+        //db.reset();
 
         createProductCards();
         CategoryMenu.initialize(this);
@@ -262,6 +262,8 @@ public class Controller extends AnchorPane implements Initializable {
         img.setClip(null);
         img.setImage(image);
     }
+
+    public void setLogInFirstNameFocus() { logIn.setFirstNameFocus(); }
 
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
     public Map<Integer, CheckOutProductCard> getCheckOutProductCards(){ return checkOutProdCards; }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" onMouseClicked="#openDetailView" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="prodCard_green" fx:id="greenCard" maxHeight="320.0" maxWidth="270.0" minHeight="320.0" minWidth="270.0" prefHeight="320.0" prefWidth="270.0" stylesheets="@main.css">
          <children>
