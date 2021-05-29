@@ -263,6 +263,8 @@ public class Controller extends AnchorPane implements Initializable {
         img.setImage(image);
     }
 
+    public void setLogInFirstNameFocus() { logIn.setFirstNameFocus(); }
+
     public Map<Integer, ProductCard> getProductCards(){ return productCards; }
     public Map<Integer, CheckOutProductCard> getCheckOutProductCards(){ return checkOutProdCards; }
 
