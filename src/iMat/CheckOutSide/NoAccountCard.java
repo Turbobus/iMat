@@ -17,7 +17,7 @@ public class NoAccountCard extends AnchorPane {
 
     @FXML
     public void openAccountView(){
-        pController.openAccountView();
+        pController.openAccountView(false);
     }
 
     @FXML

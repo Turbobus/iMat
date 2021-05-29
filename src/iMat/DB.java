@@ -240,8 +240,6 @@ public class DB {
 
     public List<Order> getOrders() {return iMatDataHandler.getOrders();}
 
-
-
     public void setCheckOutUpdater(CheckOutPanel panel){
         checkOutUpdater = panel;
     }
