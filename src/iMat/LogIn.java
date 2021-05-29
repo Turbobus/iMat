@@ -33,6 +33,23 @@ public class LogIn extends AnchorPane {
 
     @FXML private Button nextButton;
 
+    private boolean isFieldsRight = true;
+
+    public LogIn(Controller pController){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        this.pController = pController;
+        setupTextField();
+    }
+
     @FXML public void updateNextButton(){
         boolean flag = false;
 
@@ -52,23 +69,6 @@ public class LogIn extends AnchorPane {
             isFieldsRight = true;
         }
 
-    }
-
-    private boolean isFieldsRight = true;
-
-    public LogIn(Controller pController){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("logIn.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        this.pController = pController;
-        setupTextField();
     }
 
     private boolean isTextFieldEmpty(TextField field){
@@ -157,6 +157,12 @@ public class LogIn extends AnchorPane {
             }
 
         });
+
+        mailTextField.focusedProperty().addListener((observable, oldValue, newValue) -> { updateNextButton(); });
+
+        telephoneTextField.focusedProperty().addListener((observable, oldValue, newValue) -> { updateNextButton(); });
+
+        mobileTextField.focusedProperty().addListener((observable, oldValue, newValue) -> { updateNextButton(); });
     }
 
     @FXML

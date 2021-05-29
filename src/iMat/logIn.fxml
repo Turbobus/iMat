@@ -51,15 +51,6 @@
                         <String fx:value="bold_36" />
                      </styleClass>
                   </Label>
-                  <Button id="white_button_disabled" fx:id="nextButton" alignment="CENTER" layoutX="365.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Skapa konto!">
-                     <styleClass>
-                        <String fx:value="border_radius_30" />
-                        <String fx:value="bold_28" />
-                     </styleClass>
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Button>
                   <Label layoutX="35.0" layoutY="79.0" text="Obligatoriska fält:">
                      <font>
                         <Font size="22.0" />
@@ -216,6 +207,15 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <Button id="white_button_disabled" fx:id="nextButton" alignment="CENTER" layoutX="365.0" layoutY="590.0" mnemonicParsing="false" onAction="#logInPressed" prefHeight="50.0" prefWidth="200.0" text="Nästa">
+                     <styleClass>
+                        <String fx:value="border_radius_30" />
+                        <String fx:value="bold_28" />
+                     </styleClass>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
                   <Button id="white_button" fx:id="nextButton1" alignment="CENTER" layoutX="35.0" layoutY="590.0" mnemonicParsing="false" onAction="#toStartUp" prefHeight="50.0" prefWidth="200.0" text="Tillbaka">
                      <styleClass>
                         <String fx:value="border_radius_30" />
