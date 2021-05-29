@@ -493,10 +493,6 @@
     -fx-cursor: pointer;
 }
 
-#white_button:focused {
-    -fx-background-color: #000000;
-}
-
 #blue_button {
     -fx-text-fill: #FAFBFF;
     -fx-background-color: #007FC5;
