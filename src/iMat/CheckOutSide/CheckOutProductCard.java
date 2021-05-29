@@ -136,7 +136,7 @@ public class CheckOutProductCard extends AnchorPane {
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
             }
 
-            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99 && newValue.charAt(0) == '9'){
 
                 plusButton.setId("disabled_plus");
                 plusCardButton.setId("green_add_button_disabled");

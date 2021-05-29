@@ -101,7 +101,7 @@ public class ShopCartItem extends AnchorPane {
     }
 
     private void shouldDisableButton(String newValue){
-        if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+        if (!newValue.matches("") && Integer.parseInt(newValue) >= 99 && newValue.charAt(0) == '9'){
             plusButton.setId("disabled_plus");
             plusCardButton.setId("green_add_button_disabled");
 

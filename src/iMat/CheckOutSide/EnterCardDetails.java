@@ -3,6 +3,7 @@ package iMat.CheckOutSide;
 import iMat.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -122,6 +123,40 @@ public class EnterCardDetails extends AnchorPane {
         }
     }
 
+
+    private void updateButtons(){
+        String nameId = cardName.getId();
+        String numberId = cardNumber.getId();
+        String monthId = cardMonth.getId();
+        String yearId = cardYear.getId();
+        String cvcId = cardCVC.getId();
+
+        Node test = getScene().getFocusOwner();
+
+        cardNumber.requestFocus();
+        cardName.requestFocus();
+        cardMonth.requestFocus();
+        cardYear.requestFocus();
+        cardCVC.requestFocus();
+        saveUntilNextTime.requestFocus();
+
+        cardName.setId(nameId);
+        cardNumber.setId(numberId);
+        cardMonth.setId(monthId);
+        cardYear.setId(yearId);
+        cardCVC.setId(cvcId);
+
+        test.requestFocus();
+
+        if (isAllTrue(isCorrectInformation)){
+            saveUntilNextTime.setId("addFavorites_blue");
+        } else {
+            saveUntilNextTime.setId("addFavorites_blue_disabled");
+        }
+        pController.updateButtonState();
+    }
+
+
     private void setupTextField(){
 
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -135,6 +170,7 @@ public class EnterCardDetails extends AnchorPane {
             if (newValue.length() > 16){
                 cardNumber.setText(oldValue);
             }
+            updateButtons();
         });
 
         cardNumber.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -145,6 +181,7 @@ public class EnterCardDetails extends AnchorPane {
                     cardNumber.setId("blue_text_field_wrong");
                     displayCardType("No");
                     isCorrectInformation[0] = false;
+
                 } else {
                     cardNumber.setId("blue_text_field");
                     if (cardNumber.getText().charAt(0) == '4'){
@@ -161,7 +198,10 @@ public class EnterCardDetails extends AnchorPane {
                     isCorrectInformation[0] = true;
                 }
             }
-            pController.updateButtonState();
+        });
+
+        cardName.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateButtons();
         });
 
         cardName.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -191,6 +231,7 @@ public class EnterCardDetails extends AnchorPane {
             if (newValue.length() > 2){
                 cardMonth.setText(oldValue);
             }
+            updateButtons();
         });
 
         cardMonth.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -219,7 +260,7 @@ public class EnterCardDetails extends AnchorPane {
             if (newValue.length() > 2){
                 cardYear.setText(oldValue);
             }
-
+            updateButtons();
         });
 
         cardYear.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -248,7 +289,7 @@ public class EnterCardDetails extends AnchorPane {
             if (newValue.length() > 3){
                 cardCVC.setText(oldValue);
             }
-
+            updateButtons();
         });
 
         cardCVC.focusedProperty().addListener((observable, oldValue, newValue) -> {

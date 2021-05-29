@@ -183,7 +183,7 @@ public class ProductItem extends AnchorPane {
                 controller.updateCartItemAmount(productID, Integer.parseInt(newValue));
             }
 
-            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99){
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99 && newValue.charAt(0) == '9'){
 
                 plusButton.setId("disabled_plus");
                 addButton.setId("green_add_button_disabled");

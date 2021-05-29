@@ -43,6 +43,7 @@ public class DetailView extends AnchorPane {
     @FXML private Button minusCardButton;
     @FXML private Button plusCardButton;
     @FXML private TextField amountTextCard;
+    @FXML private Pane plusButton;
 
     @FXML private Label gProdName;
     @FXML private Label gPrice;
@@ -236,6 +237,16 @@ public class DetailView extends AnchorPane {
                 }
 
                 pController.updateCartItemAmount(productId, Integer.parseInt(newValue));
+            }
+
+            if (!newValue.matches("") && Integer.parseInt(newValue) >= 99 && newValue.charAt(0) == '9') {
+
+                plusButton.setId("disabled_plus");
+                plusCardButton.setId("green_add_button_disabled");
+
+            } else {
+                plusButton.setId("enabled_plus");
+                plusCardButton.setId("green_add_button");
             }
         });
 
