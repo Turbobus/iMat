@@ -16,6 +16,8 @@ public class settings extends AnchorPane {
     private boolean[] isCorrectInformation = {false, false, false, false, false};
     private String cardType;
 
+
+
     @FXML AnchorPane writeNewCard;
     @FXML AnchorPane useSavedCard;
 
@@ -136,7 +138,6 @@ public class settings extends AnchorPane {
         }
     }
 
-
     @FXML public void deleteUserInfoPressed(ActionEvent event){
         confirmAccountPane.toFront();
     }
@@ -199,37 +200,7 @@ public class settings extends AnchorPane {
 
     @FXML public void SaveAllandContinuePressed(ActionEvent event) {
 
-        updatesettings();
-        setupSavedCardInfo();
         pController.closeOverlay();
-    }
-
-
-
-    private boolean isAllTrue(boolean[] array) {
-        for(boolean b : array) if(!b) return false;
-        return true;
-    }
-
-    public settings(Controller pController) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        this.pController = pController;
-
-        setupValidSettings();
-        setupSettings();
-        setupTextField();
-
-
     }
 
     @FXML
@@ -257,7 +228,69 @@ public class settings extends AnchorPane {
             updatesettings();
             settingsdefault.toFront();
             deleteUserInfo.toFront();
+            SaveAllandContinue.setId("green_button");
+            SaveAllandContinue.setOnAction(this::SaveAllandContinuePressed);
         }
+
+
+    }
+
+
+    public settings(Controller pController) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        this.pController = pController;
+
+        setupValidSettings();
+        setupSettings();
+        setupTextField();
+
+
+    }
+
+
+    public void setupNextButton(boolean fromHeader) {
+
+        if (fromHeader) {
+            SaveAllandContinue.setText("Fortsätt handla");
+        } else {
+            SaveAllandContinue.setText("Fortsätt betalningen");
+            SaveAllandContinue.setId("green_button_disabled");
+            SaveAllandContinue.setOnAction(null);
+        }
+    }
+
+    private boolean isAllTrue(boolean[] array) {
+        for(boolean b : array) if(!b) return false;
+        return true;
+    }
+
+    private void clearDetails () {
+
+        firstNameTextField1.setText("");
+        lastNameTextField1.setText("");
+        addressTextField1.setText("");
+        postAddressTextField1.setText("");
+        postalCodeTextField1.setText("");
+        mailTextField1.setText("");
+        telephoneTextField1.setText("");
+        mobileTextField1.setText("");
+
+        cardNumber.setText("");
+        cardName.setText("");
+        cardMonth.setText("");
+        cardYear.setText("");
+        cardCVC.setText("");
+
 
 
     }
@@ -266,8 +299,7 @@ public class settings extends AnchorPane {
         if (db.getFirstName() == null || db.getFirstName().matches("")){
             settingschanged.toFront();
             deleteUserInfo.toBack();
-
-
+            clearDetails();
 
         } else {
             setupSettings();
@@ -454,6 +486,7 @@ public class settings extends AnchorPane {
         if (db.getCardNumber().matches("")){
             writeNewCard.toFront();
             deleteCardInfo.setVisible(false);
+            clearDetails();
         } else {
             setupSavedCardInfo();
             useSavedCard.toFront();
