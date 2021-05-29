@@ -79,14 +79,18 @@ public class Controller extends AnchorPane implements Initializable {
         categoryButtonUpdaters.addAll(SubcategoryItem.getAllItems());
         categoryButtonUpdaters.add(CategoryMenu.getInstance());
 
-        // Behöver kolla ifall det är första gången eller inte och välja vilken som ska visas först baserat på det
-
-
         if(db.isFirstRun()){
             setupStartUp();
         } else {
             setupShop();
         }
+
+        //Kommentera in ifall speciela sidor vill testas
+
+        //setupStartUp();
+        //setupLogIn();
+        //setupShop();
+        //setupCheckOut();
     }
 
     public void setupStartUp() {
