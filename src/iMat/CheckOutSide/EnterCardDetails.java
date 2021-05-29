@@ -131,7 +131,10 @@ public class EnterCardDetails extends AnchorPane {
         String yearId = cardYear.getId();
         String cvcId = cardCVC.getId();
 
-        Node test = getScene().getFocusOwner();
+        Node test = null;
+        if (getScene().getFocusOwner() != null) {
+            test = getScene().getFocusOwner();
+        }
 
         cardNumber.requestFocus();
         cardName.requestFocus();
@@ -146,7 +149,9 @@ public class EnterCardDetails extends AnchorPane {
         cardYear.setId(yearId);
         cardCVC.setId(cvcId);
 
-        test.requestFocus();
+        if (test != null) {
+            test.requestFocus();
+        }
 
         if (isAllTrue(isCorrectInformation)){
             saveUntilNextTime.setId("addFavorites_blue");
